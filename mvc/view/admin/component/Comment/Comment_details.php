@@ -26,11 +26,9 @@
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>name products</th>
-                      <th>img</th>
-                      <th>quantity</th>
-                      <th>Recently</th>
-                      <th>ngày cũ nhất</th>
+                      <th>user name</th>
+                      <th>content</th>
+                      <th>date</th>
                       <th>Edit</th>
                     </tr>
                   </thead>
@@ -38,13 +36,11 @@
                     <?php foreach ($result as $key => $value): ?>
                       <tr>
                         <td>1.</td>
-                        <td><?= $value['products_name'] ?></td>
-                        <td><?= $value['image'] ?></td>
-                        <td><?= $value['SOLUONG'] ?></td>
-                        <td><?= $value['datenew'] ?></td>
-                        <td><?= $value['datelate'] ?></td>
+                        <td><?= $value['user_name'] ?></td>
+                        <td><?= $value['text'] ?></td>
+                        <td><?= $value['created_time'] ?></td>
                         <td>
-                          <span class="badge badge-success"><a href="comment_details?id=<?=$value['id']?>"><i class="fas fa-edit" style = "color: #ffff;"></i></a></span>
+                            <span class="badge bg-danger"><a href="delete_comment?id=<?=$value['id']?>"><i class="fas fa-edit"></i></a></span>
                         </td>
                       </tr>
                     <?php endforeach; ?>

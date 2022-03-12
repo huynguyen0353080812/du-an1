@@ -34,7 +34,20 @@
                 $ctr->Unset();
                 break;
             // end
-            
+            // phần comment
+            case 'Comment':
+                $ctr = new CommentController();
+                $ctr->index();
+                break;
+            case 'comment_details':
+                $ctr = new CommentController();
+                $ctr->comment_details();
+                break;
+            case 'delete_comment':
+                $ctr = new CommentController();
+                $ctr->delete_comment();
+                break;
+            //end
             default:
                 break;
         }
