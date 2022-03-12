@@ -6,7 +6,7 @@ class databse {
                 //sever chứa database
                 $host = "localhost";
                 //tên cơ sở dữ liệu
-                $dbname = "huy_php";
+                $dbname = "coffee";
                 //tài khoản truy cập database
                 $username = "root";
                 //Mật khẩu truy cập 

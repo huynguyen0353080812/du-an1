@@ -232,27 +232,27 @@
                   <p>Created</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="Edit_acount" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Edit</p>
-                </a>
-              </li>
             </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Comment
+              feedback
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="comment" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>comment</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="pages/examples/invoice.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Invoice</p>
+                  <p>feedback user</p>
                 </a>
               </li>
             </ul>

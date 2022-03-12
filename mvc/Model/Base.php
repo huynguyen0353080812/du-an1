@@ -49,8 +49,6 @@
         {
             $b = implode($a);
             $sql = "INSERT INTO $table SET $b"; 
-            var_dump($sql);
-            die;
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();   
             $LAST_ID = $this->conn->lastInsertId();

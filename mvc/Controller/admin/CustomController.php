@@ -5,6 +5,8 @@
     class CustomController{
         public function index()
         {
+            $customer = new Base();
+            $result = $customer->all('manage_user');
             require_once("mvc/view/admin/component/user/list_user.php");
         }
         public function edit()
@@ -12,13 +14,13 @@
             $id = $_GET['id'];
             $customer = new Base();
             $result = $customer->find('manage_user',$id);
-            include ('mvc/view/admin/component/Customer/EditCustom.php');
+            require_once("mvc/view/admin/component/user/EditCustom.php");
         }
         public function insert()
         {
             include ('mvc/view/admin/component/user/created_user.php');
         }
-        public function insert_acount()
+        public function created_user()
         {
             extract($_POST);
             $file = $_FILES['image'];
@@ -32,9 +34,9 @@
             $password = password_hash($Password,PASSWORD_DEFAULT);
             $customer = new Base();
             $result = $customer->insert('manage_user',["user_name='$user_name',number_phone='$number_phone',email = '$Email',password = '$password',image='$avatar',status='$status',role='$vai_tro'"]);
-            return header('location:Customers');
+            return header('location:list_user');
         }
-        public function update()
+        public function update_acount()
         {
             extract($_POST);
             $file = $_FILES['image'];
@@ -44,25 +46,23 @@
             }else{
                 $avatar = $cu;
             }
-            // $id = $_GET['id'];
-            // echo $id;
+            $id = $id ;
             $customer = new Base();
             $result1 = $customer->find('manage_user',$id);
-            var_dump($result1['password']);
             if ($Password == '') {
                 $password = $result1['password'];
             }else {
                 $password = password_hash($Password,PASSWORD_DEFAULT);
             }
             $result = $customer->update('manage_user',["user_name='$user_name',number_phone='$number_phone',email = '$Email',password = '$password',image='$avatar',status='$status',role='$vai_tro'"],$id);
-            return header('location:Customers');
+            return header('location:list_user');
         }
         public function Unset()
         {
             $id = $_GET['id'];
             $customer = new Base();
             $result = $customer->delete('manage_user',$id);
-            return header('location:Customers');
+            return header('location:list_user');
         }
         public function update_user_status()
         {

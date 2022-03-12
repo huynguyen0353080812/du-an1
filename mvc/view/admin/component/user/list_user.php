@@ -26,52 +26,43 @@
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>Task</th>
-                      <th>Progress</th>
-                      <th style="width: 40px">Label</th>
+                      <th>user_name</th>
+                      <th>Email</th>
+                      <th>Avatar</th>
+                      <th>Status</th>
+                      <th>Role</th>
+                      <th>Edit</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1.</td>
-                      <td>Update software</td>
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-danger">55%</span></td>
-                    </tr>
-                    <tr>
-                      <td>2.</td>
-                      <td>Clean database</td>
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar bg-warning" style="width: 70%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-warning">70%</span></td>
-                    </tr>
-                    <tr>
-                      <td>3.</td>
-                      <td>Cron job running</td>
-                      <td>
-                        <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-primary" style="width: 30%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-primary">30%</span></td>
-                    </tr>
-                    <tr>
-                      <td>4.</td>
-                      <td>Fix and squish bugs</td>
-                      <td>
-                        <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-success" style="width: 90%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-success">90%</span></td>
-                    </tr>
+                    <?php foreach ($result as $key => $value): ?>
+                      <tr>
+                        <td>1.</td>
+                        <td><?= $value['user_name'] ?></td>
+                        <td><?= $value['email'] ?></td>
+                        <td>
+                            <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
+                              <a href="https://via.placeholder.com/1200/FFFFFF.png?text=1" data-toggle="lightbox">
+                                <img src="https://via.placeholder.com/300/FFFFFF?text=1" class="img-fluid mb-2" alt="white sample"/>
+                              </a>
+                            </div>
+                        </td>
+                        <td><?= $value['status'] ?></td>
+                        <td>
+                        <?php   
+                                    if ($value['role']==1) {
+                                        echo $vai_tro = 'quản trị viên';
+                                    }else {
+                                        echo $vai_tro = 'khách hàng';
+                                    } 
+                                ?>
+                        </td>
+                        <td>
+                          <span class="badge badge-success"><a href="Edit_acount?id=<?=$value['id']?>"><i class="fas fa-edit" style = "color: #ffff;"></i></a></span>
+                          <span class="badge bg-danger"><a href="Delete_acount?id=<?=$value['id']?>"><i class="fas fa-edit"></i></a></span>
+                        </td>
+                      </tr>
+                    <?php endforeach; ?>
                   </tbody>
                 </table>
               </div>

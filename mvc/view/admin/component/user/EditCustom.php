@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Thêm sản</h1>
+            <h1 class="m-0">Chỉnh sửa sản phẩm</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,19 +27,21 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action = "created_user" method="POST" enctype="multipart/form-data" id="quickForm" novalidate="novalidate">
+              <form action = "update_acount" method="POST" enctype="multipart/form-data" id="quickForm" novalidate="novalidate">
+              <input type="hidden" name="cu" value = "<?php echo $result['image'] ?>">
+              <input type="hidden" name="id" value = "<?php echo $result['id'] ?>">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">user_name</label>
-                    <input type="text" name="user_name" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">number phone</label>
-                    <input type="text" name="number_phone" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" name="user_name" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value = "<?= $result['user_name'] ?>">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="Email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" >
+                    <input type="email" name="Email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value = "<?= $result['email'] ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">number phone</label>
+                    <input type="text" name="number_phone" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value = "<?= $result['number_phone'] ?>">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Avatar</label>
@@ -53,18 +55,37 @@
                         <fieldset>
                             <legend>Vai Trò</legend>
                             <label for="">khách hàng</label>
-                            <input type="radio" name="vai_tro" id="" value="0">
+                            <input type="radio" name="vai_tro" id="" value="0" 
+                            <?php if ($result['role']==0):?>
+                                checked=""
+                            <?php endif; ?>
+                            
+                            >
                             <label for="">Nhân Viên</label>
-                            <input type="radio" name="vai_tro" id="" value = "1">
+                            <input type="radio" name="vai_tro" id="" value = "1"
+                            <?php if ($result['role']==1):?>
+                                checked=""
+                            <?php endif; ?>
+                            >
                         </fieldset>
                     </div>
                     <div class="form__div">
                         <fieldset>
                             <legend>trạng thái</legend>
                             <label for="">Kích Hoạt</label>
-                            <input type="radio" name="status" id="on">
+                            <input type="radio" name="status" id="on"
+                            <?php if ($result['status']=="on"):?>
+                                checked=""
+                            <?php endif; ?>
+                            value = "on"
+                            >
                             <label for="">khóa</label>
-                            <input type="radio" name="status" id="off">
+                            <input type="radio" name="status" id="off"
+                            <?php if ($result['status']=="" || $result['status']=="off"):?>
+                                checked=""
+                            <?php endif; ?>
+                            value = "off"
+                            >
                         </fieldset>
                     </div>
                   <div class="form-group mb-0">
@@ -107,7 +128,7 @@
 <script>
 $(function () {
   $.validator.setDefaults({
-
+    
   });
   $('#quickForm').validate({
     rules: {
@@ -121,10 +142,6 @@ $(function () {
       email: {
         required: true,
         email: true,
-      },
-      Password: {
-        required: true,
-        minlength: 5,
       },
       terms: {
         required: true,
@@ -140,10 +157,6 @@ $(function () {
       email: {
         required: "Please enter a email address",
         email: "Please enter a vaild email address"
-      },
-      password: {
-        required: "Please provide a password",
-        minlength: "Your password must be at least 5 characters long"
       },
       terms: "Please accept our terms"
     },
