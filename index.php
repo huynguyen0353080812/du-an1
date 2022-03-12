@@ -48,6 +48,18 @@
                 $ctr->delete_comment();
                 break;
             //end
+            case 'Statistical':
+                $ctr = new StatisticalController();
+                $ctr->index();
+                break;
+            case 'show_charts':
+                $ctr = new StatisticalController();
+                $ctr->show_charts();
+                break;
+            case 'showchart':
+                $ctr = new StatisticalController();
+                $ctr->showchart();
+                break;
             default:
                 break;
         }

@@ -27,6 +27,8 @@
   <link rel="stylesheet" href="public/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="public/plugins/summernote/summernote-bs4.min.css">
+  <!-- biểu đồ -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -301,9 +303,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/examples/invoice.html" class="nav-link">
+                <a href="Statistical" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>chart</p>
+                  <p>Statistical category</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="show_charts" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>charts</p>
                 </a>
               </li>
             </ul>
