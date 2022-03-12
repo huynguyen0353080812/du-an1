@@ -596,4 +596,8 @@
         <!-- /.row (main row) -->
       </div>
   </div>
+  <script src="public/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="public/plugins/jquery-ui/jquery-ui.min.js"></script>
 <?php require_once('mvc/view/admin/footer.php'); ?>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

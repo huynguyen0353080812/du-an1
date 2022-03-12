@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Starter</title>
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="public/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="public/fontawesome/css/all.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="public/plugins/fontawesome-free/css/all.min.css">
@@ -87,7 +90,7 @@
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <!-- Message Start -->
+            <!-- Message Start -->  
             <div class="media">
               <img src="public/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
@@ -201,7 +204,7 @@
                with font-awesome or any other icon font library -->
                <li class="nav-item">
             <a href="http://localhost:81/du-an1/  " class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+            <i class="nav-icon fas fa-book"></i>
               <p>
                 Dashboard
                 <span class="right badge badge-danger">New</span>
@@ -210,7 +213,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+            <i class="nav-icon fas fa-book"></i>
               <p>
                 manage user
                 <i class="fas fa-angle-left right"></i>
@@ -221,6 +224,18 @@
                 <a href="list_user" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List user</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="Created_acount" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Created</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="Edit_acount" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Edit</p>
                 </a>
               </li>
             </ul>
@@ -281,6 +296,57 @@
               <i class="nav-icon fas fa-book"></i>
               <p>
                  Statistical
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/examples/invoice.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>chart</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                 order
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/examples/invoice.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>chart</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+              discount
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/examples/invoice.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>chart</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="fas fa-inbox"></i>
+              <p>
+              quản lý kho
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>

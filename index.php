@@ -9,8 +9,12 @@
                 $ctr->index();
                 break;
             case 'list_user':
-                $ctr = new HomeController();
-                $ctr->list_user();
+                $ctr = new CustomController();
+                $ctr->index();
+                break;
+            case 'Created_acount':
+                $ctr = new CustomController();
+                $ctr->insert();
                 break;
             default:
                 break;
