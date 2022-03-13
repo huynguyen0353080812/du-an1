@@ -17,8 +17,8 @@ class DecentralizationController{
     }
     public function index()
     {
-        $id = $_GET['id'];
-            $result = $this->customer->delete('prodcts_sale',$id_pro);
+            $id = $_GET['id'];
+            $result2222 = $this->customer->delete('prodcts_sale',$id_pro);
             return header('location:Products');
     }
 }
