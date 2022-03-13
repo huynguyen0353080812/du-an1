@@ -22,4 +22,8 @@
             $result = $customer->delete('comment',$id);
             return header("location:Comment");
         }
+        public function feedback_user()
+        {
+            include ('mvc/view/admin/component/Comment/Feedback_User.php');
+        }
     }

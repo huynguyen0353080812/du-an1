@@ -11,7 +11,7 @@ class StatisticalController{
                 $stmt->execute();
                 $i = 0;
                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            include ('mvc/view/admin/component/Statistical/Statistical.php');
+                include ('mvc/view/admin/component/Statistical/Statistical.php');
     }
     public function show_charts()
     {

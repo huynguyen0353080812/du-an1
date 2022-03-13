@@ -4,10 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Starter</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="public/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="public/fontawesome/css/all.css">
+  <link rel="stylesheet" href="public/fontawesome-free-6.0.0/css/all.css">
+  <link rel="stylesheet" href="public/css/css.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="public/plugins/fontawesome-free/css/all.min.css">
@@ -206,7 +205,7 @@
                with font-awesome or any other icon font library -->
                <li class="nav-item">
             <a href="http://localhost:81/du-an1/  " class="nav-link">
-            <i class="nav-icon fas fa-book"></i>
+            <i class="fa-solid fa-earth-americas"></i>
               <p>
                 Dashboard
                 <span class="right badge badge-danger">New</span>
@@ -215,7 +214,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-book"></i>
+            <i class="fa-solid fa-id-card-clip"></i>
               <p>
                 manage user
                 <i class="fas fa-angle-left right"></i>
@@ -238,7 +237,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+            <i class="fa-solid fa-comment-dots"></i>
               <p>
               feedback
                 <i class="fas fa-angle-left right"></i>
@@ -252,7 +251,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/invoice.html" class="nav-link">
+                <a href="feedback_user" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>feedback user</p>
                 </a>
@@ -278,7 +277,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+            <i class="fa-solid fa-calendar-days"></i>
               <p>
                 Category
                 <i class="fas fa-angle-left right"></i>
@@ -295,7 +294,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+            <i class="fa-solid fa-chart-pie"></i>
               <p>
                  Statistical
                 <i class="fas fa-angle-left right"></i>
@@ -318,7 +317,7 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+            <i class="fa-solid fa-cart-plus"></i>
               <p>
                  order
                 <i class="fas fa-angle-left right"></i>
@@ -326,16 +325,16 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/examples/invoice.html" class="nav-link">
+                <a href="list_order" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>chart</p>
+                  <p>list order</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+            <i class="fa-solid fa-tags"></i>
               <p>
               discount
                 <i class="fas fa-angle-left right"></i>

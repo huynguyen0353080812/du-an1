@@ -60,6 +60,15 @@
                 $ctr = new StatisticalController();
                 $ctr->showchart();
                 break;
+            case 'feedback_user':
+                $ctr = new CommentController();
+                $ctr->feedback_user();
+                break;
+            // list order
+            case 'list_order':
+                $ctr = new OrderController();
+                $ctr->index();
+                break;
             default:
                 break;
         }

@@ -42,9 +42,7 @@
                         <td><?= $value['email'] ?></td>
                         <td>
                             <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                              <a href="https://via.placeholder.com/1200/FFFFFF.png?text=1" data-toggle="lightbox">
-                                <img src="https://via.placeholder.com/300/FFFFFF?text=1" class="img-fluid mb-2" alt="white sample"/>
-                              </a>
+                                <img src="public/img/<?= $value['image'] ?>" class="user_image" style = "width:50px">
                             </div>
                         </td>
                         <td><?= $value['status'] ?></td>
@@ -59,7 +57,7 @@
                         </td>
                         <td>
                           <span class="badge badge-success"><a href="Edit_acount?id=<?=$value['id']?>"><i class="fas fa-edit" style = "color: #ffff;"></i></a></span>
-                          <span class="badge bg-danger"><a href="Delete_acount?id=<?=$value['id']?>"><i class="fas fa-edit"></i></a></span>
+                          <span class="badge bg-danger"><a href="Delete_acount?id=<?=$value['id']?>"><i class="fas fa-trash-alt"></i></a></span>
                         </td>
                       </tr>
                     <?php endforeach; ?>
