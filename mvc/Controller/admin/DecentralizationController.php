@@ -9,4 +9,10 @@ class DecentralizationController{
     // {
     //     include ('mvc/view/admin/component/Decentralization/Decentralization.php');
     // } phàn này là làm thêm 
+    public function contans()
+    {
+        $id = $_GET['id'];
+            $result = $this->customer->delete('prodcts_sale',$id);
+            return header('location:Products');
+    }
 }
