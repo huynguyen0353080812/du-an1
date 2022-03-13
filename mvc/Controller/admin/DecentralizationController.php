@@ -15,4 +15,10 @@ class DecentralizationController{
             $result = $this->customer->delete('prodcts_sale',$id);
             return header('location:Products');
     }
+    public function index()
+    {
+        $id = $_GET['id'];
+            $result = $this->customer->delete('prodcts_sale',$id);
+            return header('location:Products');
+    }
 }
