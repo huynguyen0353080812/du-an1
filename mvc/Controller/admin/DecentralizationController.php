@@ -12,7 +12,7 @@ class DecentralizationController{
     public function contans()
     {
         $id = $_GET['id'];
-            $result = $this->customer->delete('prodcts_sale',$id);
+            $result = $this->customer->delete('prodcts_sale',$id_aa);
             return header('location:Products');
     }
     public function index()
