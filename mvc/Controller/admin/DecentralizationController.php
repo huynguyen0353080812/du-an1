@@ -12,13 +12,13 @@ class DecentralizationController{
     public function contans()
     {
         $id = $_GET['id'];
-            $result = $this->customer->delete('prodcts_sale',$id);
+            $result = $this->customer->delete('prodcts_sale',$id_aa);
             return header('location:Products');
     }
     public function index()
     {
-        $id = $_GET['id'];
-            $result = $this->customer->delete('prodcts_sale',$id);
+            $id = $_GET['id'];
+            $result2222 = $this->customer->delete('prodcts_sale',$id_pro);
             return header('location:Products');
     }
 }
