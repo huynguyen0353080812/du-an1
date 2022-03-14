@@ -58,8 +58,11 @@
         {
             try {
                 $sql = "DELETE FROM $table WHERE id = $id";
+                // var_dump($sql);
+                // die;
                 $stmt = $this->conn->prepare($sql);
                 $stmt->execute();
+
             } catch (\Throwable $th) {
                 echo "Lỗi: " . $th->getMessage();
             }

@@ -41,7 +41,7 @@
                       <td><?= $value['price'] ?></td>
                       <td><?= $value['view'] ?></td>
                       <td><img src="public/img/<?= $value['image'] ?>" width="100px"></td>
-                      <td><?= $value['categories_id '] ?></td>
+                      <td><?= $value['categories_id'] ?></td>
                       <td><?= $value['content'] ?></td>
                       <td>
                         <a href="edit_product?id=<?= $value['id'] ?>"><i class="fas fa-edit btn btn-primary" ></i></a>
