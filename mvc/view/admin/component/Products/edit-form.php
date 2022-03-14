@@ -25,9 +25,9 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" action="update_product" method="POST" enctype="multipart/form-data" novalidate="novalidate">
+              <form id="quickForm" action="update_product" method="POST" enctype="multipart/form-data" >
 
-            
+              <input type="hidden" name="id" value="<?= $result['id'] ?>">
               <div class="card-body">
             
                 <div class="form-group">

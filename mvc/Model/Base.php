@@ -37,6 +37,8 @@
             $b = implode($a);
             try {
                 $sql = "UPDATE $table SET $b WHERE id = $id";
+                // var_dump($sql);
+                // die;
                 $stmt = $this->conn->prepare($sql);
                 $stmt->execute();
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
