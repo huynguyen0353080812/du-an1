@@ -9,6 +9,7 @@
         }
         public function index()
         {
+            $category = $this->customer->all('categories');
                 $data = new databse();
                 $conn = $data->database();
                 $item_perpage = isset($_GET['per_page'])? $_GET['per_page']:4;
@@ -22,30 +23,31 @@
                 $result1 = $this->customer->all('prodcts_sale');
                 $count = count($result1);
                 $countotal = ceil($count/$item_perpage);
-                include ('mvc/view/admin/component/Products/Products.php'); 
+                include('mvc/view/admin/component/Products/list.php'); 
         }
-        public function edit()
+        public function editForm()
         {
             $id = $_GET['id'];
             $result = $this->customer->find('prodcts_sale',$id);
             $category = $this->customer->all('categories');
             $libary = $this->customer->where('image_pro','image_library','products_id ',$id);
-            include ('mvc/view/admin/component/Products/Products_edit.php'); 
+            include ('mvc/view/admin/component/Products/edit-form.php'); 
         }
-        public function editproducts()
+        public function saveEdit()
         {
             extract($_POST);
+            
             $now =  date('d-m-Y H:i:s');
-            $file = $_FILES['Avatar'];
+            $file = $_FILES['image'];
             if ($file['size'] > 0) {
                 $avatar = $file['name'];
                 move_uploaded_file($file['tmp_name'],"public/img/".$avatar);
             }else{
                 $avatar = $img;
             }
-            $result = $this->customer->update('prodcts_sale',["discount_code = '$discount_code',products_name= '$products_name',price = '$price',discount=$discount,image='$avatar',categories_id=$select,dac_biet=$dac_biet,content='$content_products'"],$id);
+            $result = $this->customer->update('prodcts_sale',["products_name= '$products_name',price ='$price',image='$avatar',categories_id=$categories_id,content='$content'"],$id);
             // 
-            $files = $_FILES['Avatars'];
+            $files = $_FILES['image'];
             if ($files['size'][0] > 0) {
                 $result = $this->customer->delete('image_library',$id);
                 $avatars = $files['name'];
@@ -56,29 +58,29 @@
                     $result1 = $this->customer->insert('image_library',["products_id  = '$id',image_pro= '$value',created_time = '$now'"]);
                 }
             }
-            $messgae = 'huynguyen';
-            return header('location:Products');
+            
+             header('location:list_product');
         }
-        public function insert()
+        public function addForm()
         {
             $category = $this->customer->all('categories');
-            include ('mvc/view/admin/component/Products/insert_products.php'); 
+            include ('mvc/view/admin/component/Products/add-form.php'); 
         }
-        public function insertproduct()
+        public function saveAdd()
         {
             extract($_POST);
             // var_dump($discount);
             // die;
             $now =  date('d-m-Y H:i:s');
-            $file = $_FILES['Avatar'];
+            $file = $_FILES['image'];
             if ($file['size'] > 0) {
                 $avatar = $file['name'];
                 move_uploaded_file($file['tmp_name'],"public/img/".$avatar);
             }else{
                 $avatar = "";
             }
-            $result = $this->customer->insert('prodcts_sale',["discount_code = '$discount_code',products_name= '$products_name',price = '$price',discount=$discount,image='$avatar',categories_id=$select,dac_biet=$dac_biet,content='$content_products'"]);
-            $files = $_FILES['Avatars'];
+            $result = $this->customer->insert('prodcts_sale',["products_name= '$products_name',price = '$price',image='$avatar',content='$content',categories_id='$categories_id'"]);
+            $files = $_FILES['image'];
             if ($files['size'] > 0) {
                 $avatars = $files['name'];
                 foreach ($avatars as $key => $value) {
@@ -90,12 +92,12 @@
             foreach ($avatars as $key => $value) {
                 $result1 = $this->customer->insert('image_library',["products_id  = '$result',image_pro= '$value',created_time = '$now'"]);
             }
-            return header('location:Products');
+            return header('location:list_product');
         }
-        public function Delete()
+        public function remove()
         {
             $id = $_GET['id'];
             $result = $this->customer->delete('prodcts_sale',$id);
-            return header('location:Products');
+            return header('location:list_product');
         }
     }

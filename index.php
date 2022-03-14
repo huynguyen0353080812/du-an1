@@ -2,6 +2,7 @@
         $url = isset($_GET['url']) ? $_GET['url']: "/";
         
         require_once('vendor/autoload.php');
+        require_once('commons/helpers.php');
 
         switch ($url) {
             case '/':
@@ -69,6 +70,32 @@
                 $ctr = new OrderController();
                 $ctr->index();
                 break;
+
+            // product
+            case 'list_product':
+                $ctr = new ProductController();
+                $ctr->index();
+                break;   
+            case 'add_product':
+                $ctr = new ProductController();
+                $ctr->addForm();
+                break;   
+            case 'save_product':
+                $ctr = new ProductController();
+                $ctr->saveAdd();
+                break;  
+            case 'edit_product':
+                $ctr = new ProductController();
+                $ctr->editForm();
+                break;    
+            case 'update_product':
+                $ctr = new ProductController();
+                $ctr->saveEdit();
+                break;     
+            case 'remove_product':
+                $ctr = new ProductController();
+                $ctr->remove();
+                break;          
             default:
                 break;
         }
