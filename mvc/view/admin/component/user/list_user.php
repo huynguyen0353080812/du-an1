@@ -1,83 +1,140 @@
 <?php require_once('mvc/view/admin/index.php'); ?>
 <div class="content-wrapper">
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Danh Sách Tài Khoản</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
-            </ol>
-          </div>
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Danh Sách Tài Khoản</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Starter Page</li>
+          </ol>
         </div>
       </div>
     </div>
-    <div class="content">
+  </div>
+  <div class="content">
     <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Bordered Table</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th style="width: 10px">#</th>
-                      <th>user_name</th>
-                      <th>Email</th>
-                      <th>Avatar</th>
-                      <th>Status</th>
-                      <th>Role</th>
-                      <th>Edit</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php foreach ($result as $key => $value): ?>
-                      <tr>
-                        <td>1.</td>
-                        <td><?= $value['user_name'] ?></td>
-                        <td><?= $value['email'] ?></td>
-                        <td>
-                            <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                                <img src="public/img/<?= $value['image'] ?>" class="user_image" style = "width:50px">
-                            </div>
-                        </td>
-                        <td><?= $value['status'] ?></td>
-                        <td>
-                        <?php   
+      <div class="card-header">
+        <h3 class="card-title">Bordered Table</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th style="width: 10px">#</th>
+              <th>user_name</th>
+              <th>Email</th>
+              <th>Avatar</th>
+              <th>Status</th>
+              <th>Role</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($result as $key => $value): ?>
+            <tr>
+              <td>1.</td>
+              <td>
+                <?= $value['user_name'] ?>
+              </td>
+              <td>
+                <?= $value['email'] ?>
+              </td>
+              <td>
+                <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
+                  <img src="public/img/<?= $value['image'] ?>" class="user_image" style="width:50px">
+                </div>
+              </td>
+              <td>
+                <?= $value['status'] ?>
+              </td>
+              <td>
+                <?php   
                                     if ($value['role']==1) {
                                         echo $vai_tro = 'quản trị viên';
                                     }else {
                                         echo $vai_tro = 'khách hàng';
                                     } 
                                 ?>
-                        </td>
-                        <td>
-                          <span class="badge badge-success"><a href="Edit_acount?id=<?=$value['id']?>"><i class="fas fa-edit" style = "color: #ffff;"></i></a></span>
-                          <span class="badge bg-danger"><a href="Delete_acount?id=<?=$value['id']?>"><i class="fas fa-trash-alt"></i></a></span>
-                        </td>
-                      </tr>
-                    <?php endforeach; ?>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer clearfix">
-                <ul class="pagination pagination-sm m-0 float-right">
-                  <li class="page-item"><a class="page-link" href="#">«</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">»</a></li>
-                </ul>
-              </div>
-            </div>
+              </td>
+              <td>
+                <span class="badge badge-success"><a href="Edit_acount?id=<?=$value['id']?>"><i class="fas fa-edit"style="color: #ffff;"></i></a></span>
+                <span class="badge bg-danger" data-id="<?php echo $value['id']?>" style = "cursor: pointer;"><i class="fas fa-edit"style="color: #ffff;"></i></span>
+              </td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+      <div class="card-footer clearfix">
+        <ul class="pagination pagination-sm m-0 float-right">
+          <li class="page-item"><a class="page-link" href="#">«</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">»</a></li>
+        </ul>
+      </div>
     </div>
   </div>
-  <script src="public/plugins/jquery/jquery.min.js"></script>
+</div>
+<script src="public/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="public/plugins/jquery-ui/jquery-ui.min.js"></script>
 <?php require_once('mvc/view/admin/footer.php'); ?>
+<?php if (isset($_GET['messeger'])):?>
+<script>
+  Swal.fire({
+    // position: 'top-end',
+    icon: 'success',
+    title: 'Your work has been saved',
+    showConfirmButton: false,
+    timer: 2000
+  })
+</script>
+<?php endif; ?>
+<script>
+  $(document).ready(() => {
+    // alert('ok');
+    $('.bg-danger').on('click', function () {
+      var id = $(this).data('id');
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+                              $.ajax({
+                                url: "Delete_acount",
+                                method:"GET",
+                                data:{
+                                    id:id,
+                                },  
+                                success:function(data) {
+                                    Swal.fire(
+                                      'Deleted!',
+                                      'Your file has been deleted.',
+                                      'success'
+                                    ).then((result) => {
+                                      if (result.isConfirmed) {
+                                        location.reload();
+                                      }
+                                    })
+
+                                }
+                            });
+        }
+      })
+    })
+  });
+</script>

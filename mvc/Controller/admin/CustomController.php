@@ -34,7 +34,7 @@
             $password = password_hash($Password,PASSWORD_DEFAULT);
             $customer = new Base();
             $result = $customer->insert('manage_user',["user_name='$user_name',number_phone='$number_phone',email = '$Email',password = '$password',image='$avatar',status='$status',role='$vai_tro'"]);
-            return header('location:list_user');
+            return header('location:list_user?messeger');
         }
         public function update_acount()
         {
@@ -55,7 +55,7 @@
                 $password = password_hash($Password,PASSWORD_DEFAULT);
             }
             $result = $customer->update('manage_user',["user_name='$user_name',number_phone='$number_phone',email = '$Email',password = '$password',image='$avatar',status='$status',role='$vai_tro'"],$id);
-            return header('location:list_user');
+            return header('location:list_user?messeger');
         }
         public function Unset()
         {

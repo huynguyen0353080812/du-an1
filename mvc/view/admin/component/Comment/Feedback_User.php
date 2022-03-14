@@ -18,8 +18,9 @@
     <div class="content">
     <div class="row">
         <div class="col-md-3">
-          <a href="compose.html" class="btn btn-primary btn-block mb-3">Compose</a>
-
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                  Launch Default Modal11  
+                </button>
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Folders</h3>
@@ -199,7 +200,33 @@
       </div>
     </div>
   </div>
+  
+      <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Default Modal</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+
+
+  <!-- <script src="plugins/jquery/jquery.min.js"></script> -->
   <script src="public/plugins/jquery/jquery.min.js"></script>
+  <script src="public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="public/plugins/jquery-ui/jquery-ui.min.js"></script>
 <?php require_once('mvc/view/admin/footer.php'); ?>

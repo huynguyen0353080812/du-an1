@@ -40,7 +40,7 @@
                         <td><?= $value['text'] ?></td>
                         <td><?= $value['created_time'] ?></td>
                         <td>
-                            <span class="badge bg-danger"><a href="delete_comment?id=<?=$value['id']?>"><i class="fas fa-edit"></i></a></span>
+                            <span class="badge bg-danger"><a href="delete_comment?id=<?=$value['id']?>"><i class="fas fa-trash-alt"></i></a></span>
                         </td>
                       </tr>
                     <?php endforeach; ?>

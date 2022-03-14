@@ -36,7 +36,6 @@
         public function saveEdit()
         {
             extract($_POST);
-            
             $now =  date('d-m-Y H:i:s');
             $file = $_FILES['image'];
             if ($file['size'] > 0) {
@@ -45,7 +44,10 @@
             }else{
                 $avatar = $img;
             }
-            $result = $this->customer->update('prodcts_sale',["products_name= '$products_name',price ='$price',image='$avatar',categories_id=$categories_id,content='$content'"],$id);
+            // var_dump($avatar);
+            // die;
+            $id = $id;
+            $result = $this->customer->update('prodcts_sale',["products_name= '$products_name',price ='$price',image='$avatar',categories_id=$categories_id,content='$content',categories_id='$categories_id'"],$id);
             // 
             $files = $_FILES['image'];
             // if ($files['size'][0] > 0) {
