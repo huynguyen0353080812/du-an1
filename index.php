@@ -71,7 +71,7 @@
                 $ctr->index();
                 break;
 
-            // product
+            // P R O D U C T
             case 'list_product':
                 $ctr = new ProductController();
                 $ctr->index();
@@ -95,9 +95,38 @@
             case 'remove_product':
                 $ctr = new ProductController();
                 $ctr->remove();
-                break;          
-            default:
-                break;
+                break;   
+            
+                
+                // C A T E G O R Y
+            case 'list_category':
+                $ctr = new CategoryController();
+                $ctr->index();
+                break;   
+            case 'add_category':
+                $ctr = new CategoryController();
+                $ctr->addForm();
+                break;   
+            case 'save_category':
+                $ctr = new CategoryController();
+                $ctr->saveAdd();
+                break;  
+            case 'edit_category':
+                $ctr = new CategoryController();
+                $ctr->editForm();
+                break;    
+            case 'update_category':
+                $ctr = new CategoryController();
+                $ctr->saveEdit();
+                break;     
+            case 'remove_category':
+                $ctr = new CategoryController();
+                $ctr->remove();
+                break;   
+
+
+                                            default:
+                                                break;
         }
 
 ?>

@@ -48,8 +48,9 @@
             // die;
             $id = $id;
             $result = $this->customer->update('prodcts_sale',["products_name= '$products_name',price ='$price',image='$avatar',categories_id=$categories_id,content='$content',categories_id='$categories_id'"],$id);
-            // 
             $files = $_FILES['image'];
+            var_dump($result);
+            die;
             // if ($files['size'][0] > 0) {
             //     $result = $this->customer->delete('image_library',$id);
             //     $avatars = $files['name'];
@@ -81,7 +82,7 @@
             }else{
                 $avatar = "";
             }
-            $result = $this->customer->insert('prodcts_sale',["products_name= '$products_name',price = '$price',image='$avatar',content='$content',categories_id='$categories_id'"]);
+            $result = $this->customer->insert('prodcts_sale',["products_name='$products_name',price ='$price',image='$avatar',content='$content',categories_id='$categories_id'"]);
             $files = $_FILES['image'];
             if ($files['size'] > 0) {
                 $avatars = $files['name'];
