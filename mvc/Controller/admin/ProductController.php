@@ -29,6 +29,8 @@
         {
             $id = $_GET['id'];
             $result = $this->customer->find('prodcts_sale',$id);
+            // var_dump($result['image']);
+            // die;
             $category = $this->customer->all('categories');
             $libary = $this->customer->where('image_pro','image_library','products_id ',$id);
             include ('mvc/view/admin/component/Products/edit-form.php'); 
@@ -36,6 +38,8 @@
         public function saveEdit()
         {
             extract($_POST);
+            var_dump($_POST);
+            die;
             $now =  date('d-m-Y H:i:s');
             $file = $_FILES['image'];
             if ($file['size'] > 0) {

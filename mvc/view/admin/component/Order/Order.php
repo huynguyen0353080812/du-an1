@@ -44,7 +44,7 @@
                         <td><?= $value['status'] ?></td>
                         <td><?= $value['note'] ?></td>
                         <td>
-                          <span class="badge badge-success"><a href="Edit_acount?id=<?=$value['id']?>"><i class="fas fa-eye" style = "color: #ffff;"></i></a></span>
+                          <span class="badge badge-success"><a href="order_detail?id=<?=$value['id']?>"><i class="fas fa-eye" style = "color: #ffff;"></i></a></span>
                           <span class="badge bg-danger"><a href="Delete_acount?id=<?=$value['id']?>"><i class="fas fa-trash-alt"></i></a></span>
                         </td>
                       </tr>

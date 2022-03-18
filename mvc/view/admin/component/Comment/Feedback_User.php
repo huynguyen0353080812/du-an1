@@ -225,7 +225,7 @@
 
 
   <!-- <script src="plugins/jquery/jquery.min.js"></script> -->
-  <script src="public/plugins/jquery/jquery.min.js"></script>
+  <script src="<?= PUBLIC_URL ?>plugins/jquery/jquery.min.js"></script>
   <script src="public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="public/plugins/jquery-ui/jquery-ui.min.js"></script>
@@ -237,6 +237,7 @@
       var clicks = $(this).data('clicks')
       if (clicks) {
         //Uncheck all checkboxes
+        console.log('ok');
         $('.mailbox-messages input[type=\'checkbox\']').prop('checked', false)
         $('.checkbox-toggle .far.fa-check-square').removeClass('fa-check-square').addClass('fa-square')
       } else {
