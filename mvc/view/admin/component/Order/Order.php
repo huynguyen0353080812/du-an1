@@ -28,9 +28,10 @@
                       <th style="width: 10px">#</th>
                       <th>user_name</th>
                       <th>phone</th>
-                      <th>address</th>
                       <th>Status</th>
-                      <th>note</th>
+                      <th>Đang xử lý</th>
+                      <th>Đóng gói</th>
+                      <th>Xuất kho</th>
                       <th>Edit</th>
                     </tr>
                   </thead>
@@ -40,9 +41,31 @@
                         <td>1.</td>
                         <td><?= $value['name'] ?></td>
                         <td><?= $value['phone'] ?></td>
-                        <td><?= $value['address'] ?></td>
                         <td><?= $value['status'] ?></td>
-                        <td><?= $value['note'] ?></td>
+                        <td>
+                          <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                              <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
+                              <label for="customCheckbox1" class="custom-control-label"></label>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group">
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
+                                <label for="customCheckbox1" class="custom-control-label"></label>
+                              </div>
+                            </div>
+                        </td>
+                        <td>
+                          <div class="form-group">
+                              <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
+                                <label for="customCheckbox1" class="custom-control-label"></label>
+                              </div>
+                            </div>
+                        </td>
                         <td>
                           <span class="badge badge-success"><a href="order_detail?id=<?=$value['id']?>"><i class="fas fa-eye" style = "color: #ffff;"></i></a></span>
                           <span class="badge bg-danger"><a href="Delete_acount?id=<?=$value['id']?>"><i class="fas fa-trash-alt"></i></a></span>

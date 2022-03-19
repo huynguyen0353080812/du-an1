@@ -50,7 +50,7 @@
                     </td>
                     <td>
                       <span class="badge badge-success"><a href="Edit_acount?id=<?=$value['id']?>"><i class="fas fa-edit"style="color: #ffff;"></i></a></span>
-                      <span class="badge bg-danger" data-id="<?php echo $value['id']?>" style = "cursor: pointer;"><i class="fas fa-edit"style="color: #ffff;"></i></span>
+                      <span class="badge bg-danger" data-id="<?php echo $value['id']?>" style = "cursor: pointer;"><i class="fa-solid fa-trash-can"></i></span>
                     </td>
                   </tr>
                   <?php endforeach; ?>

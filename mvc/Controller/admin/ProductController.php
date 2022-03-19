@@ -38,8 +38,6 @@
         public function saveEdit()
         {
             extract($_POST);
-            var_dump($_POST);
-            die;
             $now =  date('d-m-Y H:i:s');
             $file = $_FILES['image'];
             if ($file['size'] > 0) {

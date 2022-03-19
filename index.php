@@ -70,7 +70,10 @@
                 $ctr = new OrderController();
                 $ctr->index();
                 break;
-
+            case 'order_detail':
+                $ctr = new OrderController();
+                $ctr->order_detail();
+                break;
             // P R O D U C T
             case 'list_product':
                 $ctr = new ProductController();
@@ -96,8 +99,6 @@
                 $ctr = new ProductController();
                 $ctr->remove();
                 break;   
-            
-                
                 // C A T E G O R Y
             case 'list_category':
                 $ctr = new CategoryController();
@@ -123,10 +124,16 @@
                 $ctr = new CategoryController();
                 $ctr->remove();
                 break;   
-
-
-                                            default:
-                                                break;
+            case 'indexx':
+                $ctr = new HomeController();
+                $ctr->indexx();
+                break;   
+            // order
+            case '':
+                # code...
+                break;
+            default:
+            break;
         }
 
 ?>
