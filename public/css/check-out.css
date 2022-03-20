@@ -22,10 +22,10 @@ a:hover {
 /* selected link */
 a:active {
     color: yellow;
-} 
+}
 h1 {
     display: block;
-    font-size: 3200px;
+    font-size: 36px;
     font-weight: bold;
 }
 .shop__name {
