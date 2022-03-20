@@ -42,29 +42,29 @@
                         <td><?= $value['name'] ?></td>
                         <td><?= $value['phone'] ?></td>
                         <td><?= $value['status'] ?></td>
-                        <td>
-                          <div class="form-group">
-                            <div class="custom-control custom-checkbox">
-                              <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
-                              <label for="customCheckbox1" class="custom-control-label"></label>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="form-group">
-                              <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
-                                <label for="customCheckbox1" class="custom-control-label"></label>
-                              </div>
-                            </div>
-                        </td>
-                        <td>
-                          <div class="form-group">
-                              <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
-                                <label for="customCheckbox1" class="custom-control-label"></label>
-                              </div>
-                            </div>
+                        <td class="td_status">
+                            <form action="">
+                                <div class="form-group">
+                                  <div class="custom-control custom-checkbox">
+                                  <input type="radio"  class="checked" name="age" data-id="222">
+
+                                  </div>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                    <input type="radio"  class="checked" name="age" value="60">
+                                    </div>
+                                  </div>
+                              </td>
+                              <td>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                      <input type="radio" class="checked" name="age"  value="100">
+                                    </div>
+                                  </div>
+                                </form>
                         </td>
                         <td>
                           <span class="badge badge-success"><a href="order_detail?id=<?=$value['id']?>"><i class="fas fa-eye" style = "color: #ffff;"></i></a></span>
@@ -89,6 +89,10 @@
     </div>
   </div>
   <script src="public/plugins/jquery/jquery.min.js"></script>
+  <script src="public/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="public/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="public/js/index.js"></script>
 <?php require_once('mvc/view/admin/footer.php'); ?>
+<!-- <script>
+var x = document
+</script> -->
