@@ -1,6 +1,6 @@
 <?php
     // const BASE_URL = 'http://localhost:81/du-an1/';
-    const BASE_URL = 'http://localhost/duan1/du-an1/';
+    // const BASE_URL = 'http://localhost/duan1/du-an1/';
 
     // đổi lại URL nhé
 

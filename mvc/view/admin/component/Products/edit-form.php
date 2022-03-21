@@ -53,7 +53,7 @@
     
                   <div class="form-group">
                     <label for="image">Ảnh</label> 
-                    <img src="public/img/<?= $result['image'] ?>" width="320px">
+                    <img src="public/img/<?= $result['image'] ?>" width="320px" name = "image_cu">
                     <input type="file" name="image" class="form-control" id="image" value="public/img/<?= $result['image'] ?>">
                   </div>
                       <input type="hidden" name="anhcu" value="<?= $result['image'] ?>">

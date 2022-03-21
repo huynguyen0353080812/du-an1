@@ -28,9 +28,10 @@
                       <th style="width: 10px">#</th>
                       <th>user_name</th>
                       <th>phone</th>
-                      <th>address</th>
                       <th>Status</th>
-                      <th>note</th>
+                      <th>Đang xử lý</th>
+                      <th>Đóng gói</th>
+                      <th>Xuất kho</th>
                       <th>Edit</th>
                     </tr>
                   </thead>
@@ -40,11 +41,33 @@
                         <td>1.</td>
                         <td><?= $value['name'] ?></td>
                         <td><?= $value['phone'] ?></td>
-                        <td><?= $value['address'] ?></td>
                         <td><?= $value['status'] ?></td>
-                        <td><?= $value['note'] ?></td>
+                        <td class="td_status">
+                            <form action="">
+                                <div class="form-group">
+                                  <div class="custom-control custom-checkbox">
+                                  <input type="radio"  class="checked" name="age" data-id="222">
+
+                                  </div>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                    <input type="radio"  class="checked" name="age" value="60">
+                                    </div>
+                                  </div>
+                              </td>
+                              <td>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                      <input type="radio" class="checked" name="age"  value="100">
+                                    </div>
+                                  </div>
+                                </form>
+                        </td>
                         <td>
-                          <span class="badge badge-success"><a href="Edit_acount?id=<?=$value['id']?>"><i class="fas fa-eye" style = "color: #ffff;"></i></a></span>
+                          <span class="badge badge-success"><a href="order_detail?id=<?=$value['id']?>"><i class="fas fa-eye" style = "color: #ffff;"></i></a></span>
                           <span class="badge bg-danger"><a href="Delete_acount?id=<?=$value['id']?>"><i class="fas fa-trash-alt"></i></a></span>
                         </td>
                       </tr>
@@ -66,6 +89,10 @@
     </div>
   </div>
   <script src="public/plugins/jquery/jquery.min.js"></script>
+  <script src="public/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="public/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="public/js/index.js"></script>
 <?php require_once('mvc/view/admin/footer.php'); ?>
+<!-- <script>
+var x = document
+</script> -->

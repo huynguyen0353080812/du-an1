@@ -34,16 +34,16 @@
             header('location:list_category');
         }
         // 
-        // public function getCategory($prend_id){
-        //     $customer = new Base();
-        //     $result = $customer->all('categories');
-        //     $Recusive = new Recusive($result);
-        //     $htmlOption = $Recusive->categories($prend_id);
-        //     // var_dump($htmlOption);
-        //     // die;
-        //     return $htmlOption;
-        // }
-        // 
+        public function getCategory($prend_id){
+            $customer = new Base();
+            $result = $customer->all('categories');
+            $Recusive = new Recusive($result);
+            $htmlOption = $Recusive->categories($prend_id);
+            // var_dump($htmlOption);
+            // die;
+            return $htmlOption;
+        }
+        
         public function editForm(){
             $id = $_GET['id'];
             $customer = new Base();

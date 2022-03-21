@@ -29,6 +29,8 @@
         {
             $id = $_GET['id'];
             $result = $this->customer->find('prodcts_sale',$id);
+            // var_dump($result['image']);
+            // die;
             $category = $this->customer->all('categories');
             $libary = $this->customer->where('image_pro','image_library','products_id ',$id);
             include ('mvc/view/admin/component/Products/edit-form.php'); 
