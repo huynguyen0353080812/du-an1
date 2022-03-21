@@ -37,7 +37,7 @@
                       <td><?= $value['slug'] ?></td>
                       <td>
                         <a href="edit_category?id=<?= $value['id'] ?>"><i class="fas fa-edit btn btn-primary" ></i></a>
-                        <a href="remove_category?id=<?= $value['id'] ?>"><i class="fas fa-trash-alt btn btn-danger" ></i></a>
+                        <a href="remove_category?id=<?= $value['id'] ?>" onClick="return confirm('Bạn thực sự muốn xóa')"><i class="fas fa-trash-alt btn btn-danger" ></i></a>
                       </td>
                     </tr>
                     <?php endforeach ?>

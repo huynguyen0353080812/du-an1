@@ -35,8 +35,14 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="slug">Slug</label>
-                    <input type="text" name="slug" class="form-control" id="slug">
+                    <label for="slug">slug</label>
+                    <select name="slug" id="slug" class="form-control">
+                    <option value="0">Lựa chọn danh mục</option>
+                      <?php foreach($result as $value) :?>
+                        <option value="<?= $value['id'] ?>">- <?= $value['name'] ?></option>
+                        <option value="<?= $value['id'] ?>">-- <?= $value['slug'] ?></option>
+                        <?php endforeach ?>
+                    </select>
                   </div>
 
                 </div>
@@ -71,41 +77,40 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?= PUBLIC_URL ?>dist/js/demo.js"></script>
 <script>
-$(function () {
-  $.validator.setDefaults({
+// $(function () {
+//   $.validator.setDefaults({
 
-  });
-  $('#quickForm').validate({
-    rules: {
-      name: {
-        required: true,
-        
-      },
-      slug: {
-        required: true,
-      }
+//   });
+//   $('#quickForm').validate({
+//     rules: {
+//       name: {
+//         required: true,
+//       },
+//       slug: {
+//         required: true,
+//       }
 
-    },
-    messages: {
-      name: {
-        required: "Please enter data"
-      },
-      slug: {
-        required: "Please enter data"
-      }
+//     },
+//     messages: {
+//       name: {
+//         required: "Please enter data"
+//       },
+//       slug: {
+//         required: "Please enter data"
+//       }
 
-    },
-    errorElement: 'span',
-    errorPlacement: function (error, element) {
-      error.addClass('invalid-feedback');
-      element.closest('.form-group').append(error);
-    },
-    highlight: function (element, errorClass, validClass) {
-      $(element).addClass('is-invalid');
-    },
-    unhighlight: function (element, errorClass, validClass) {
-      $(element).removeClass('is-invalid');
-    }
-  });
-});
+//     },
+//     errorElement: 'span',
+//     errorPlacement: function (error, element) {
+//       error.addClass('invalid-feedback');
+//       element.closest('.form-group').append(error);
+//     },
+//     highlight: function (element, errorClass, validClass) {
+//       $(element).addClass('is-invalid');
+//     },
+//     unhighlight: function (element, errorClass, validClass) {
+//       $(element).removeClass('is-invalid');
+//     }
+//   });
+// });
 </script>
