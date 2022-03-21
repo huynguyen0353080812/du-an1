@@ -19,7 +19,18 @@
         public function saveAdd(){
             extract($_POST);
             $customer = new Base();
-            $result = $customer->insert('categories',["name='$name',slug='$slug'"]);
+            if(empty($_POST['slug'])) {
+              $result = $customer->insert('categories',["name='$name',slug='$name'"]);   
+              
+            }else{
+                
+                $cha = $_POST['slug'];
+                // var_dump($cha);
+                // die;
+                $result = $customer->insert('categories',["parent_id='$cha',slug='$name'"]);
+            }
+             
+            
             header('location:list_category');
         }
         // 

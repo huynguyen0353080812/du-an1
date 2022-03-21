@@ -40,19 +40,20 @@
             extract($_POST);
             $now =  date('d-m-Y H:i:s');
             $file = $_FILES['image'];
+            $anhcu= $_POST['anhcu'];
             if ($file['size'] > 0) {
                 $avatar = $file['name'];
                 move_uploaded_file($file['tmp_name'],"public/img/".$avatar);
             }else{
-                $avatar = $img;
+                $avatar = $anhcu;
             }
             // var_dump($avatar);
             // die;
             $id = $id;
             $result = $this->customer->update('prodcts_sale',["products_name= '$products_name',price ='$price',image='$avatar',categories_id=$categories_id,content='$content',categories_id='$categories_id'"],$id);
             $files = $_FILES['image'];
-            var_dump($result);
-            die;
+            // var_dump($result);
+            // die;
             // if ($files['size'][0] > 0) {
             //     $result = $this->customer->delete('image_library',$id);
             //     $avatars = $files['name'];

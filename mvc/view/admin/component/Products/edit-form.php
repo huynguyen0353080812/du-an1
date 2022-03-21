@@ -56,7 +56,7 @@
                     <img src="public/img/<?= $result['image'] ?>" width="320px" name = "image_cu">
                     <input type="file" name="image" class="form-control" id="image" value="public/img/<?= $result['image'] ?>">
                   </div>
-                  
+                      <input type="hidden" name="anhcu" value="<?= $result['image'] ?>">
                   <div class="form-group">
                     <label for="content">Nội dung</label>
                     <textarea name="content" id="content" cols="30" class="form-control" rows="6" value=""><?= $result['content'] ?></textarea>
