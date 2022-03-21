@@ -1,58 +1,17 @@
-.main__content, .step, .content>form {
-    display: flex;
-    flex: 1 0 auto;
-    flex-direction: column;
+input{
+    max-width: 388px;
 }
-a, .icon-print {
-    color: #2a9dcc;
+a{
+    margin-top: 20px;
     text-decoration: none;
-    cursor: pointer;
 }
-a:link {
-    color: green;
+.main {
+    width: 68%;
+    padding: 32px 32px 0 32px;
 }
-  /* visited link */
-a:visited {
-    color: green;
+.sidebar {
+    width: 32%;
 }
-  /* mouse over link */
-a:hover {
-    color: red;
-}
-/* selected link */
-a:active {
-    color: yellow;
-}
-h1 {
-    display: block;
-    font-size: 36px;
-    font-weight: bold;
-}
-.shop__name {
-    line-height: 17.92px;
-}
-.section__title {
-    color: #333;
-    font-weight: 600;
-    font-size: 18.4px;
-}
-/* .input-radio:focus, .input-checkbox:focus,*/ .field__input:focus { 
-    outline: none;
-    border-color: #66afe9;
-    box-shadow: 0 0 0 1px #66afe9;
-}
-.field__input {
-    border-radius: 4px;
-    width: 100%;
-    display: block;
-    box-sizing: border-box;
-    padding: 15.04px 12.8px;
-    border: 1px #d9d9d9 solid;
-    height: 44px;
-    background-color: #fff;
-    color: #333;
-}
-.floating-labels .field--show-floating-label .field__input {
-    padding-top: 24px;
-    padding-bottom: 5.6px;
+.form-check-label{
+    box-sizing: content-box;
 }

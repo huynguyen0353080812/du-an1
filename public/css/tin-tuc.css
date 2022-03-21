@@ -61,3 +61,6 @@ a, .text-link {
     width: calc(100%/12*8);
     padding-left: 30px;
 }
+.img-responsive{
+    min-width: 282px;
+}
