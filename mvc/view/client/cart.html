@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="cart.css">
+    <script src="jquery.min.js"></script>
+    <script src="thuvien.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container-cart">
+        <div class="boxcart" id="boxcart">
+            <img src="images/cart.png" class="carticon"><span></span>
+        </div>
+        <div class="boxcenter">
+            <table>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Hình</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th>Xóa</th>
+                </tr>
+                <tbody id="giohang">
+                    <tr>
+                        <td>Sản phẩm 1</td>
+                        <td><img src="images/cocktail-bacardi.jpg"></td>
+                        <td>100</td>
+                        <td><input type="number" min="1" max="10" value="1" class="num"></td>
+                        <td>100</td>
+                        <td><img src="images/removeicon.png" class="remo"></td>
+                    </tr>
+                    <tr>
+                        <td>Sản phẩm 2</td>
+                        <td><img src="images/cocktail-b52.jpg"></td>
+                        <td>200</td>
+                        <td><input type="number" min="1" max="10" value="2" class="num"></td>
+                        <td>400</td>
+                        <td><img src="images/removeicon.png" class="remo"></td>
+                    </tr>
+                    <tr>
+                        <td>Sản phẩm 3</td>
+                        <td><img src="images/coffee-item10.jpg"></td>
+                        <td>300</td>
+                        <td><input type="number" min="1" max="10" value="3" class="num"></td>
+                        <td>900</td>
+                        <td><img src="images/removeicon.png" class="remo"></td>
+                    </tr>
+                    <tr>
+                        <td>Sản phẩm 4</td>
+                        <td><img src="images/06-dau-tay-600x600.jpg"></td>
+                        <td>400</td>
+                        <td><input type="number" min="1" max="10" value="4" class="num"></td>
+                        <td>1200</td>
+                        <td><img src="images/removeicon.png" class="remo"></td>
+                    </tr>
+                </tbody>
+                <tbody id="tongdonhang">
+                    <tr>
+                        <td colspan="4">Tổng đơn hàng</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>
+
+</html>

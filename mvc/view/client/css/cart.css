@@ -1,0 +1,80 @@
+.boxcenter {
+    width: 50%;
+    margin: 0 auto;
+}
+
+img {
+    height: 80px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    border: 1px #CCC solid;
+    background-color: #EEE;
+}
+
+td {
+    border: 1px #CCC solid;
+}
+
+th,
+td {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+tbody>tr>td:nth-child(5),
+tbody>tr>td:nth-child(3) {
+    text-align: right;
+}
+
+tr>td:nth-child(2) {
+    text-align: right;
+    font-weight: bold;
+}
+
+.remo {
+    height: 40px;
+}
+
+.carticon {
+    height: 40px;
+    margin-right: 10px;
+    float: left;
+}
+
+.boxcart {
+    position: absolute;
+    top: 10px;
+    right: 15%;
+    font-size: 1.5em;
+    line-height: 40px;
+    color: #F00;
+}
+
+.cartani{
+    animation-name: myani;
+    animation-duration: 0.5s ;
+}
+
+@keyframes myani{
+    0%{
+        transform: scale(1);
+    }
+    25%{
+        transform: scale(1.1);
+    }
+    50%{
+        transform: scale(1);
+    }
+    75%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
