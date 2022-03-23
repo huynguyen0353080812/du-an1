@@ -4,9 +4,6 @@
     box-sizing: border-box;
     font-family: arial;
 }
-body {
-    position: relative;
-}
 :root{
     --primary-color: #b9934c;
 }
@@ -311,6 +308,8 @@ body {
     background-image: linear-gradient(to right, #b1932f, #bda107);
     width: 100%;
     height: 300px;
+    position: absolute;
+    bottom: 0;
 }
 
 .infor-footer{
@@ -415,6 +414,60 @@ input[type="submit"]:hover{
     text-decoration: underline;
 }
 /* end login */
+
+
+/* cart */
+.table-cart{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.table-cart table , th , td{
+    border: 1px solid #ccc;
+}
+.table-cart table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+.table-cart table td{
+    padding: 10px;
+}
+.table-cart table th:nth-child(1){
+    width: 20%;
+    padding: 10px 0;
+}
+.table-cart table img{
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    object-position: center;
+}
+.btn-cart{
+    display: flex;
+}
+.btn-cart input , td{
+    padding: 10px;
+}
+.btn-cart input{
+    border: none;
+    background-color: rgb(253, 204, 114);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.btn-cart input:hover{
+    box-shadow: 2px 2px 1px #ccc;
+}
+.btn-cart div{
+    flex: 1;
+}
+.btn-cart table{
+    border-collapse: collapse;
+}
+
+/* end cart */
 
 
 /* back to top */
