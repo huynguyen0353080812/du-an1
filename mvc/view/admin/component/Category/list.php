@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Danh Sách Loại Hàng</h1>
+            <h1 class="m-0">LIST CATEGORY</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -14,9 +14,9 @@
       </div>
     </div>
     <div class="content">
-    <div class="card">
+    <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Bordered Table</h3>
+                <h3 class="card-title">Danh sách danh mục</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -25,7 +25,7 @@
                     <tr>
                       <th>ID</th>
                       <th>Name</th>
-                      <th>Slug</th>
+                      <!-- <th>Slug</th> -->
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -34,7 +34,7 @@
                     <tr>
                       <td><?= $value['id'] ?></td>
                       <td><?= $value['name'] ?></td>
-                      <td><?= $value['slug'] ?></td>
+                      <!-- <td><?= $value['slug'] ?></td> -->
                       <td>
                         <a href="edit_category?id=<?= $value['id'] ?>"><i class="fas fa-edit btn btn-primary" ></i></a>
                         <a href="remove_category?id=<?= $value['id'] ?>" onClick="return confirm('Bạn thực sự muốn xóa')"><i class="fas fa-trash-alt btn btn-danger" ></i></a>

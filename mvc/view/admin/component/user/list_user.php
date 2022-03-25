@@ -5,21 +5,16 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Danh Sách Tài Khoản</h1>
+          <h1 class="m-0">LIST USER</h1>
         </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Starter Page</li>
-          </ol>
-        </div>
+
       </div>
     </div>
   </div>
   <div class="content">
-  <div class="card">
+  <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">Danh sách tài khoản</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -49,8 +44,8 @@
                                 ?>
                     </td>
                     <td>
-                      <span class="badge badge-success"><a href="Edit_acount?id=<?=$value['id']?>"><i class="fas fa-edit"style="color: #ffff;"></i></a></span>
-                      <span class="badge bg-danger" data-id="<?php echo $value['id']?>" style = "cursor: pointer;"><i class="fa-solid fa-trash-can"></i></span>
+                      <span ><a href="Edit_acount?id=<?=$value['id']?>"><i class="fas fa-edit btn btn-primary" ></i></a></span>
+                      <span  data-id="<?php echo $value['id']?>" ><i class="fas fa-trash-alt btn btn-danger" ></i></span>
                     </td>
                   </tr>
                   <?php endforeach; ?>

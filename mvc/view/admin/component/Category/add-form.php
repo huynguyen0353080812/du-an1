@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Thêm Loại Hàng</h1>
+            <h1 class="m-0">ADD CATEGORY</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -21,7 +21,7 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Hi<small></small></h3>
+                <h3 class="card-title">Tạo mới danh mục<small></small></h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -35,13 +35,10 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="slug">slug</label>
-                    <select name="slug" id="slug" class="form-control">
+                    <label for="select">Slug</label>
+                    <select name="select" id="select" class="form-control">
                     <option value="0">Lựa chọn danh mục</option>
-                      <?php foreach($result as $value) :?>
-                        <option value="<?= $value['id'] ?>">- <?= $value['name'] ?></option>
-                        <option value="<?= $value['id'] ?>">-- <?= $value['slug'] ?></option>
-                        <?php endforeach ?>
+                      <?= $htmlOption ?>
                     </select>
                   </div>
 
@@ -66,51 +63,36 @@
     </div>
   </div>
 
-<script src="<?= PUBLIC_URL ?>plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= PUBLIC_URL ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- jquery-validation -->
-<script src="<?= PUBLIC_URL ?>plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="<?= PUBLIC_URL ?>plugins/jquery-validation/additional-methods.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?= PUBLIC_URL ?>dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?= PUBLIC_URL ?>dist/js/demo.js"></script>
+  
+  <?php require_once('mvc/view/script.php'); ?>
+
 <script>
-// $(function () {
-//   $.validator.setDefaults({
+$(function () {
+  $.validator.setDefaults({
 
-//   });
-//   $('#quickForm').validate({
-//     rules: {
-//       name: {
-//         required: true,
-//       },
-//       slug: {
-//         required: true,
-//       }
-
-//     },
-//     messages: {
-//       name: {
-//         required: "Please enter data"
-//       },
-//       slug: {
-//         required: "Please enter data"
-//       }
-
-//     },
-//     errorElement: 'span',
-//     errorPlacement: function (error, element) {
-//       error.addClass('invalid-feedback');
-//       element.closest('.form-group').append(error);
-//     },
-//     highlight: function (element, errorClass, validClass) {
-//       $(element).addClass('is-invalid');
-//     },
-//     unhighlight: function (element, errorClass, validClass) {
-//       $(element).removeClass('is-invalid');
-//     }
-//   });
-// });
+  });
+  $('#quickForm').validate({
+    rules: {
+      name: {
+        required: true
+      }
+    },
+    messages: {
+      name: {
+        required: "Please enter data"
+      }
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+    }
+  });
+});
 </script>
