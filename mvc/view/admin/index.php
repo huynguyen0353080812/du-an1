@@ -273,9 +273,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/list_discount" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Chart</p>
+                  <p>List Discount</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/add_discount" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Create Discount</p>
                 </a>
               </li>
             </ul>

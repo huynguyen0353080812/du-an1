@@ -123,7 +123,24 @@
             case 'remove_category':
                 $ctr = new CategoryController();
                 $ctr->remove();
-                break;   
+                break;  
+                
+            // D I S C O U N T
+            case 'list_discount':
+                $ctr = new DiscountController();
+                $ctr -> index();
+            case 'add_discount':
+                $ctr = new DiscountController();
+                $ctr -> addForm();        
+            case 'save_discount':
+                $ctr = new DiscountController();
+                $ctr -> saveAdd();
+            case 'edit_discount':
+                $ctr = new DiscountController();
+                $ctr -> editForm();
+            case 'update_discount':
+                $ctr = new DiscountController();
+                $ctr -> saveEdit();        
             case 'indexx':
                 $ctr = new HomeController();
                 $ctr->indexx();
