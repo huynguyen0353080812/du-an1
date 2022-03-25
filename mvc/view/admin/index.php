@@ -119,7 +119,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-            <a href="http://localhost:81/du-an1/  " class="nav-link">
+            <a href="#" class="nav-link">
             <i class="fa-solid fa-earth-americas"></i>
               <p>
                 Dashboard

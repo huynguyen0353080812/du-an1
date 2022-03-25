@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Cập Nhật Loại Hàng</h1>
+            <h1 class="m-0">UPDATE CATEGORY</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -21,22 +21,26 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Hi<small></small></h3>
+                <h3 class="card-title">Cập nhật danh mục<small></small></h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form id="quickForm" action="update_category" method="POST" enctype="multipart/form-data" novalidate="novalidate">
                 <div class="card-body">
 
-
+                  <input type="hidden" name="id" value="<?= $result['id'] ?>">
+                  
                   <div class="form-group">
                     <label for="name">Tên sản phẩm</label>
                     <input type="text" name="name" class="form-control" id="name" value="<?= $result['name'] ?>">
                   </div>
 
                   <div class="form-group">
-                    <label for="slug">Slug</label>
-                    <input type="text" name="slug" class="form-control" id="slug" value="<?= $result['slug'] ?>">
+                    <label for="select">Slug</label>
+                    <select name="select" class="form-control" id="">
+                    <option value="0">Lựa chọn loại hàng</option>
+                    <?= $htmlOption ?>
+                    </select>
                   </div>
 
                 </div>
@@ -60,16 +64,7 @@
     </div>
   </div>
 
-<script src="<?= PUBLIC_URL ?>plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= PUBLIC_URL ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- jquery-validation -->
-<script src="<?= PUBLIC_URL ?>plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="<?= PUBLIC_URL ?>plugins/jquery-validation/additional-methods.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?= PUBLIC_URL ?>dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?= PUBLIC_URL ?>dist/js/demo.js"></script>
+  <?php require_once('mvc/view/script.php'); ?>
 <script>
 $(function () {
   $.validator.setDefaults({

@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Thêm Sản Phẩm</h1>
+            <h1 class="m-0">ADD PRODUCT</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -21,19 +21,20 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Hãy chắc chắc rằng bạn nhập đúng <small></small></h3>
+                <h3 class="card-title">Thêm mới sản phẩm<small></small></h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form id="quickForm" action="save_product" method="POST" enctype="multipart/form-data" novalidate="novalidate">
                 <div class="card-body">
 
+                <input type="hidden" name="id" value="<?= $result['id'] ?>">
+
                 <div class="form-group">
                 <label for="products_name">Loại hàng</label>
                   <select class="form-control" name="categories_id" id="categories_id ">
-                    <?php foreach ($category as $value): ?>
-                      <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
-                      <?php endforeach ?>
+                    <option value="0">Lựa chọn loại hàng</option>
+                    <?= $htmlOption ?>
                   </select>
                 </div>
 
@@ -79,16 +80,7 @@
     </div>
   </div>
 
-<script src="<?= PUBLIC_URL ?>plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= PUBLIC_URL ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- jquery-validation -->
-<script src="<?= PUBLIC_URL ?>plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="<?= PUBLIC_URL ?>plugins/jquery-validation/additional-methods.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?= PUBLIC_URL ?>dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?= PUBLIC_URL ?>dist/js/demo.js"></script>
+  <?php require_once('mvc/view/script.php'); ?>
 <script>
 $(function () {
   $.validator.setDefaults({
@@ -97,11 +89,13 @@ $(function () {
   $('#quickForm').validate({
     rules: {
       products_name: {
-        required: true,
-        
+        required: true
       },
+      image: {
+        require: true
+      }
       price: {
-        required: true,
+        required: true
       },
       content: {
         required: true
@@ -111,10 +105,15 @@ $(function () {
       products_name: {
         required: "Please enter data"
       },
+      image: {
+        required: "Please choese image"
+      },
       price: {
         required: "Please enter data"
       },
-      content: "Please enter data"
+      content:{
+        require:"Please enter data"
+      } 
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {
