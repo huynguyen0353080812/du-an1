@@ -1,6 +1,15 @@
 <?php
     require_once('mvc/Model/Base.php'); 
     class CommentController{
+        private $data;
+        private $recusion = '';
+        public function __construct(){ 
+            $customer = new Base();
+            // $result = $customer->all('comment');
+            // var_dump($result);
+            // die;
+            $this->data = $customer->all('comment');
+        }
         public function index()
         {
             $customer = new Base();
@@ -25,5 +34,16 @@
         public function feedback_user()
         {
             include ('mvc/view/admin/component/Comment/Feedback_User.php');
+        }
+        public function comment($id=0,$text='-'){
+            foreach($this->data as $value){
+                if ($value['parent_id']==$id) {
+                    echo "<pre>";
+                    print_r($value);    
+                    echo "</pre>";
+                    $this->comment($value['id'],$text.'-');
+                }
+            }
+            // return $this->recusion;
         }
     }

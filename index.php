@@ -49,6 +49,7 @@
                 $ctr->delete_comment();
                 break;
             //end
+            //Statistical
             case 'Statistical':
                 $ctr = new StatisticalController();
                 $ctr->index();
@@ -64,6 +65,10 @@
             case 'feedback_user':
                 $ctr = new CommentController();
                 $ctr->feedback_user();
+                break;
+            case 'order_statistics':
+                $ctr = new StatisticalController();
+                $ctr->order_statistics();
                 break;
             // list order
             case 'list_order':
@@ -129,7 +134,24 @@
                 $ctr->indexx();
                 break;   
             // order
-            case '':
+            case 'update_status':
+                $ctr = new OrderController();
+                $ctr->Status();
+                break;
+            case 'showstatus':
+                $ctr = new OrderController();
+                $ctr->showstatus();
+                break;
+            case 'comment_prae':
+                $ctr = new CommentController();
+                $ctr->comment();
+                break;
+            // discount
+            case 'list_discount':
+                $ctr = new DiscountController();
+                $ctr->index();
+                break;
+            case 'value':
                 # code...
                 break;
             default:

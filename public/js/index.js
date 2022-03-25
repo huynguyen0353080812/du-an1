@@ -4,11 +4,6 @@
 //             alert('huy')
 //         })
 //     }
-$('.checked').each((index ,data) =>{
-    data.addEventListener('click',()=> {
-        alert('huy')
-    });
-});
 
 // console.log(x)
 // x.forEach(data => {

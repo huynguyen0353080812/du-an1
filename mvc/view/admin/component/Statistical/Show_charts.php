@@ -26,9 +26,13 @@
         thongke();
        var char =  new Morris.Area({
         element: 'chart',
+        pointStrokeColors: ['#819C79'],
+        // pointStrokeColors: ['green'],
+        // behaveLikeLine: true,
         xkey: 'year',
-        ykeys: ['date','sales','quantity','order',''],
-        labels: ['Đơn hàng','Doanh Thu','số lượng','mã đơn hàng','kim nghạch'],
+        parseTime: false,
+        ykeys: ['date','sales','quantity','order','huy'],
+        labels: ['Đơn hàng','Doanh Thu','số lượng','mã đơn hàng','đã hủy'],
         });
        function thongke(){
            var text = '365 ngày qua';
@@ -45,9 +49,46 @@
        }
     });
     </script>
+    <button class ="bg-danger">Lọc Đơn Hàng</button>
     </div>
   </div>
   <script src="public/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="public/plugins/jquery-ui/jquery-ui.min.js"></script>
 <?php require_once('mvc/view/admin/footer.php'); ?>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="public/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script>
+   $(document).ready(() => {
+    // alert('ok');
+    $('.bg-danger').on('click', function () {
+      var time = new Date();
+      var timenow = time.getFullYear() +'-' +'0'+(time.getMonth()+1) +'-'+time.getDate();
+        $.ajax({
+                            url: "order_statistics",
+                            method:"GET",
+                            data:{
+                              timenow:timenow,
+                            },  
+                            success:function(data){
+                               if (data == 'ok') {
+                                Swal.fire(
+                                  'The Internet?',
+                                  'Ngày ' + timenow + ' Đã được cập nhập trước đó',
+                                  'question'
+                                )
+                               }
+                               if(data == 'tao'){
+                                Swal.fire({
+                                  position: '',
+                                  icon: 'success',
+                                  title: 'Đã cập nhập ngày '+timenow+' thành công',
+                                  showConfirmButton: false,
+                                  timer: 2500
+                                })
+                               }
+                            }
+        })
+    })
+  });
+</script>

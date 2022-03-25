@@ -18,8 +18,30 @@ class OrderController{
             $stmt->execute();
             $i = 0;
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            // var_dump($result);   
-            // die;
             include ('mvc/view/admin/component/Order/Order_detail.php');
+    }
+    private $result1;
+    public function Status()
+    {
+            $arr1 = $_GET['id'];
+            $arr = explode("/",$arr1);
+            $customer = new Base(); 
+            $id = $arr[0];
+            // foreach ($arr as $key => $value) {
+            //     // echo $value;
+            //     $result = $customer->update('orders',["status = '$value'"],$id);
+            // }
+            echo $id;
+            $result = $customer->update('orders',["status = '$arr1'"],$id);
+        // var_dump($arr);
+        // print_r($arr);
+    }
+    public function showstatus(Type $var = null)
+    {
+        // $customer = new Base();
+        // $result1 = $customer->all('orders');
+        // $arrxx = [];
+        // var_dump($result1);
+        // var_dump($result1['status']);
     }
 }
