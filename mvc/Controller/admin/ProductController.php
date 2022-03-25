@@ -1,6 +1,7 @@
 <?php
     require_once('mvc/Model/Base.php'); 
     require_once('mvc/Model/database.php');
+    require_once('Recusive.php'); 
     class ProductController{
         private $customer;
         public function __construct()
@@ -12,7 +13,7 @@
             $category = $this->customer->all('categories');
                 $data = new databse();
                 $conn = $data->database();
-                $item_perpage = isset($_GET['per_page'])? $_GET['per_page']:4;
+                $item_perpage = isset($_GET['per_page'])? $_GET['per_page']:5;
                 $current_page = isset($_GET['page'])? $_GET['page']:1;
                 $offset = ($current_page - 1)*$item_perpage;
                 $sql = "SELECT* FROM prodcts_sale ORDER BY `prodcts_sale`.`price` ASC lIMIT $item_perpage OFFSET $offset";
@@ -29,9 +30,10 @@
         {
             $id = $_GET['id'];
             $result = $this->customer->find('prodcts_sale',$id);
+            $htmlOption = $this->getCategory($category = '');
             // var_dump($result['image']);
             // die;
-            $category = $this->customer->all('categories');
+            
             $libary = $this->customer->where('image_pro','image_library','products_id ',$id);
             include ('mvc/view/admin/component/Products/edit-form.php'); 
         }
@@ -70,6 +72,7 @@
         public function addForm()
         {
             $category = $this->customer->all('categories');
+            $htmlOption = $this->getCategory($category = '');
             include ('mvc/view/admin/component/Products/add-form.php'); 
         }
         public function saveAdd()
@@ -105,5 +108,13 @@
             $id = $_GET['id'];
             $result = $this->customer->delete('prodcts_sale',$id);
             return header('location:list_product');
+        }
+
+        public function getCategory($prend_id){
+            $customer = new Base();
+            $result = $customer->all('categories');
+            $Recusive = new Recusive($result);
+            $htmlOption = $Recusive->categories($prend_id);
+            return $htmlOption;
         }
     }

@@ -55,6 +55,8 @@
                 $password = password_hash($Password,PASSWORD_DEFAULT);
             }
             $result = $customer->update('manage_user',["user_name='$user_name',number_phone='$number_phone',email = '$Email',password = '$password',image='$avatar',status='$status',role='$vai_tro'"],$id);
+            var_dump($result);
+            die;
             return header('location:list_user?messeger');
         }
         public function Unset()
