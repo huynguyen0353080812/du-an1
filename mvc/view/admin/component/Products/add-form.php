@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Thêm Sản Phẩm</h1>
+            <h1 class="m-0">ADD PRODUCT</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -21,7 +21,7 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Hi<small></small></h3>
+                <h3 class="card-title">Thêm mới sản phẩm<small></small></h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
