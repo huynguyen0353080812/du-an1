@@ -22,7 +22,7 @@ class StatisticalController{
         $data = new databse();
             $conn = $data->database();
             // $sql = "SELECT categories.name,COUNT(*) AS SOLUONG FROM `prodcts_sale` JOIN categories on prodcts_sale.categories_id = categories.id GROUP BY categories.name";
-            $sql = "SELECT * FROM `orders`";
+            $sql = "SELECT * FROM `statistical`";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             $i = 0;
@@ -32,8 +32,8 @@ class StatisticalController{
             // die;
             foreach ($result as $key) {
                 $char_data [] = array(
-                    'year' => $key['created_time'],
-                    'order' => $key['id'],  
+                    'year' => $key['booking_date'],
+                    'order' => $key['orders'],  
                     'sales' => $key['total'],
                     'quantity' => $key['quantity'],
                     'huy' => 2,
@@ -67,18 +67,31 @@ class StatisticalController{
         }
         if (!isset($messgare)) {
             $sql = "SELECT quantity,total FROM orders  WHERE `created_time` IN ('$time')";
-            $stmt = $conn->prepare($sql);
-            $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt1 = $conn->prepare($sql);
+            $stmt1->execute();
+            $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
             $total = 0;
-            foreach ($result as $key => $value) {
-                $total = $total + $value['total'];
+            $sum = count($result1);
+            // echo $sum
+            foreach ($result1 as $key => $value) {
+                $total += ($value['total'] * $value['quantity']);
             }
-            $sum = count($result);
-            $sql = "INSERT INTO statistical SET booking_date= '$time',total='$total',quantity='$sum'";
-            $stmt = $conn->prepare($sql);
-            $stmt->execute();
+            foreach ($result as $key => $value) {
+                if ($value['booking_date'] == $time) {
+                    $sql = "UPDATE statistical SET booking_date= '$time',total='$total',quantity='$sum' WHERE booking_date = '$time'";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $ccc = 'bts';
+                    // echo $ccc;
+                }
+            }
+            if (!isset($ccc)) {
+                $sql = "INSERT INTO statistical SET booking_date= '$time',total='$total',quantity='$sum'";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+                // echo 'jughn';
+            }
             echo 'tao';
         }
     }
-}
+} 

@@ -82,6 +82,17 @@
                 <label for="inputEstimatedDuration">Note</label>
                 <p>Ghi chú :<strong><?= $result[0]['note'] ?></strong></p>
               </div>
+              <div class="form-group">
+                <label for="inputEstimatedDuration">Trạng Thái</label>
+                <p>Ghi chú :<strong>
+                <?php if (isset($result[0]['status'])):?>  
+                  <?= $result[0]['status'] ?>
+                <?php endif; ?>
+              
+              
+              
+              </strong></p>
+              </div>
             </div>
             <!-- /.card-body -->
           </div>
