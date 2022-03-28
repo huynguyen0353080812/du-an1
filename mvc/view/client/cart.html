@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ hàng</title>
-    <link rel="stylesheet" href="cart.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/thuvien.js"></script>
+    <link rel="stylesheet" href="css/cart.css">
     <link rel="stylesheet" href="./style.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
 </head>
 
 <body>
@@ -77,31 +77,37 @@
                     </div>
                 </div>
                 <div class="cart">
-                    <a href="#"><i class='bx bxs-cart' style='color:#ffffff'></i></a>
+                    <a href="#"><i class='bx bxs-cart' style='color:#ffffff'>
+                        <div class="boxcart" id="boxcart">
+                            <span class="carticon"></span>
+                        </div>
+                    </i></a>
                 </div>
             </div>
         </div>
 
     </div>
     <div class="container-cart">
-        <div class="boxcart" id="boxcart">
+        <!-- <div class="boxcart" id="boxcart">
             <img src="img/cart.png" class="carticon"><span></span>
-        </div>
+        </div> -->
         <div class="boxcenter">
-            <table>
-                <tr>
-                    <th>Sản phẩm</th>
-                    <th>Hình</th>
-                    <th>Đơn giá</th>
-                    <th>Số lượng</th>
-                    <th>Thành tiền</th>
-                    <th>Xóa</th>
-                </tr>
-                <tbody id="giohang">
+            <table class="table">
+                <thead class="thead-warning">
                     <tr>
+                        <th>Sản phẩm</th>
+                        <th>Hình</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody id="giohang">
+                    <tr >
                         <td>Sản phẩm 1</td>
                         <td><img src="img/cocktail-bacardi.jpg"></td>
-                        <td>100</td>
+                        <td >100</td>
                         <td><input type="number" min="1" max="10" value="1" class="num"></td>
                         <td>100</td>
                         <td><img src="img/removeicon.png" class="remo"></td>
