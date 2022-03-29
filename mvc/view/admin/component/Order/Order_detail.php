@@ -84,9 +84,17 @@
               </div>
               <div class="form-group">
                 <label for="inputEstimatedDuration">Trạng Thái</label>
-                <p>Ghi chú :<strong>
-                <?php if (isset($result[0]['status'])):?>  
-                  <?= $result[0]['status'] ?>
+                <p>Trạng Thái :<strong>
+                <?php 
+                            $arr = explode("/",$result[0]['status']);
+                            if ($arr[1] == 'x'):?>
+                <?php echo 'xu ly'; ?>
+                <?php elseif ($arr[1] == 'y'):?>
+                <?php echo 'đóng gói'; ?>
+                <?php elseif ($arr[1] == 'z'):?>
+                <?php echo 'thanh công'; ?>
+                <?php elseif ($arr[1] == 's'):?>
+                <?php echo 'đang giao hàng'; ?>
                 <?php endif; ?>
               
               

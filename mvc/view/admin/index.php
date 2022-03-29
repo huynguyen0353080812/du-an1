@@ -1,3 +1,4 @@
+<?php require_once('mvc/Controller/admin/DecentralizationController.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,7 +120,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="<?= BASE_URL ?>" class="nav-link">
             <i class="fa-solid fa-earth-americas"></i>
               <p>
                 Dashboard
@@ -324,9 +325,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="decentralization" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Chart</p>
+                  <p>list_Staff</p>
                 </a>
               </li>
             </ul>
