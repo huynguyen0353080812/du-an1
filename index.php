@@ -49,6 +49,7 @@
                 $ctr->delete_comment();
                 break;
             //end
+            //Statistical
             case 'Statistical':
                 $ctr = new StatisticalController();
                 $ctr->index();
@@ -64,6 +65,10 @@
             case 'feedback_user':
                 $ctr = new CommentController();
                 $ctr->feedback_user();
+                break;
+            case 'order_statistics':
+                $ctr = new StatisticalController();
+                $ctr->order_statistics();
                 break;
             // list order
             case 'list_order':
@@ -129,24 +134,71 @@
             case 'list_discount':
                 $ctr = new DiscountController();
                 $ctr -> index();
+                break;
             case 'add_discount':
                 $ctr = new DiscountController();
-                $ctr -> addForm();        
+                $ctr -> addForm();     
+                break;   
             case 'save_discount':
                 $ctr = new DiscountController();
                 $ctr -> saveAdd();
+                break;
             case 'edit_discount':
                 $ctr = new DiscountController();
                 $ctr -> editForm();
+                break;
             case 'update_discount':
                 $ctr = new DiscountController();
-                $ctr -> saveEdit();        
+                $ctr -> saveEdit();  
+                break;
+                
+                      
+            // N E W S 
+            case 'list_news':
+                $ctr = new NewsController();
+                $ctr -> index();
+                break;
+            case 'add_news':
+                $ctr = new NewsController();
+                $ctr -> addForm();     
+                break;   
+            case 'save_news':
+                $ctr = new NewsController();
+                $ctr -> saveAdd();
+                break;
+            case 'edit_news':
+                $ctr = new NewsController();
+                $ctr -> editForm();
+                break;
+            case 'update_news':
+                $ctr = new NewsController();
+                $ctr -> saveEdit();  
+                break;
+            case 'remove_news':
+                $ctr = new NewsController();
+                $ctr -> remove();    
+
+
+            
             case 'indexx':
                 $ctr = new HomeController();
                 $ctr->indexx();
                 break;   
             // order
-            case '':
+            case 'update_status':
+                $ctr = new OrderController();
+                $ctr->Status();
+                break;
+            case 'showstatus':
+                $ctr = new OrderController();
+                $ctr->showstatus();
+                break;
+            case 'comment_prae':
+                $ctr = new CommentController();
+                $ctr->comment();
+                break;
+
+            case 'value':
                 # code...
                 break;
             default:

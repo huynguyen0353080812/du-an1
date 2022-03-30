@@ -25,37 +25,61 @@
                       <th>Status</th>
                       <th>Đang xử lý</th>
                       <th>Đóng gói</th>
-                      <th>Xuất kho</th>
+                      <th>Giao Hàng</th>
                       <th>Edit</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php foreach ($result as $key => $value): ?>
+                      <input type="hidden" name="id" value = "<?= $value['status'] ?>">
                       <tr>
                         <td>1.</td>
                         <td><?= $value['name'] ?></td>
                         <td><?= $value['phone'] ?></td>
-                        <td><?= $value['status'] ?></td>
+                        <td class = "status">
+                            <?php 
+                            $arr = explode("/",$value['status']);
+                            if ($arr[1] == 'x'):?>
+                                  <?php echo 'xu ly'; ?>
+                            <?php elseif ($arr[1] == 'y'):?>
+                                  <?php echo 'đóng gói'; ?>
+                            <?php elseif ($arr[1] == 'z'):?>
+                                  <?php echo 'đang giao hàng'; ?>
+                            <?php endif; ?>                          
+                        </td>
                         <td class="td_status">
                             <form action="">
                                 <div class="form-group">
                                   <div class="custom-control custom-checkbox">
-                                  <input type="radio"  class="checked" name="age" data-id="222">
-
+                                    <?php
+                                      $arr = explode("/",$value['status']);
+                                      if ($arr[1]== 'x') :?>
+                                        <input type="radio"  class="checked" name="age" data-id="<?= $value['id'] ?>/x"  value="60" checked>
+                                    <?php else:?>
+                                        <input type="radio"  class="checked" name="age" data-id="<?= $value['id'] ?>/x"  value="60" >
+                                    <?php endif; ?>
                                   </div>
                                 </div>
                               </td>
                               <td>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
-                                    <input type="radio"  class="checked" name="age" value="60">
+                                        <?php if ($arr[1]== 'y'): ?>
+                                          <input type="radio"  class="checked" name="age" data-id="<?= $value['id'] ?>/y" value="60" checked>
+                                        <?php else:?>
+                                          <input type="radio"  class="checked" name="age" data-id="<?= $value['id'] ?>/y"  value="60" >
+                                        <?php endif; ?>
                                     </div>
                                   </div>
                               </td>
                               <td>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
-                                      <input type="radio" class="checked" name="age"  value="100">
+                                    <?php if ($arr[1]== 'z'): ?>
+                                          <input type="radio"  class="checked" name="age" data-id="<?= $value['id'] ?>/z" value="60" checked>
+                                        <?php else:?>
+                                          <input type="radio"  class="checked" name="age" data-id="<?= $value['id'] ?>/z"  value="60" >
+                                        <?php endif; ?>
                                     </div>
                                   </div>
                                 </form>
@@ -76,7 +100,7 @@
                   <li class="page-item"><a class="page-link" href="#">1</a></li>
                   <li class="page-item"><a class="page-link" href="#">2</a></li>
                   <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">»</a></li>
+                  <li class="page-item"><a class="page-link" href="#">»</a></li>x
                 </ul>
               </div>
             </div>
@@ -87,6 +111,37 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="public/js/index.js"></script>
 <?php require_once('mvc/view/admin/footer.php'); ?>
-<!-- <script>
-var x = document
-</script> -->
+<script>
+
+$('.checked').each((index ,data) =>{
+  // console.log(index);
+  // function update_status() {
+  //         var id = $(data).data('id');
+  //                   //   $.ajax({
+  //                   //     url: "showstatus",
+  //                   //     method:"GET",
+  //                   //     data:{
+  //                   //       id:data,
+  //                   //     },  
+  //                   //     success:function(data) {
+  //                   //       alert(data);
+  //                   //         // $('.status').html(data);
+  //                   //     }
+  //                   // });
+  // }
+  // update_status();
+  data.addEventListener('click',()=> {
+        var id = $(data).data('id');
+                        $.ajax({
+                            url: "update_status",
+                            method:"GET",
+                            data:{
+                                id:id,
+                            },  
+                            success:function(data){
+                              location.reload();  
+                            }
+                        });
+    });
+});
+</script>

@@ -78,9 +78,6 @@
         public function saveAdd()
         {
             extract($_POST);
-            // var_dump($discount);
-            // die;
-            $now =  date('d-m-Y H:i:s');
             $file = $_FILES['image'];
             if ($file['size'] > 0) {
                 $avatar = $file['name'];

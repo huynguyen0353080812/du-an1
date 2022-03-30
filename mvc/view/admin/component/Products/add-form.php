@@ -28,7 +28,6 @@
               <form id="quickForm" action="save_product" method="POST" enctype="multipart/form-data" novalidate="novalidate">
                 <div class="card-body">
 
-                <input type="hidden" name="id" value="<?= $result['id'] ?>">
 
                 <div class="form-group">
                 <label for="products_name">Loại hàng</label>
@@ -88,32 +87,33 @@ $(function () {
   });
   $('#quickForm').validate({
     rules: {
+      categories_id: {
+        require: true
+      },
       products_name: {
         required: true
       },
-      image: {
-        require: true
-      }
       price: {
-        required: true
+        required: true,
       },
-      content: {
-        required: true
+      image: {
+        require: true,
       },
+      categories_id: {
+        require: true,
+      }
     },
     messages: {
       products_name: {
-        required: "Please enter data"
-      },
-      image: {
-        required: "Please choese image"
+        required: "Please enter data",
       },
       price: {
-        required: "Please enter data"
+        required: "Please enter data",
       },
-      content:{
-        require:"Please enter data"
-      } 
+      image: {
+        require: true,
+      }
+    
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {

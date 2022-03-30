@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">ADD CATEGORY</h1>
+            <h1 class="m-0">CREATE NEWS</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -21,25 +21,30 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Tạo mới danh mục<small></small></h3>
+                <h3 class="card-title">Tạo tin tức mới<small></small></h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" action="save_category" method="POST" enctype="multipart/form-data" novalidate="novalidate">
+              <form id="quickForm" action="save_news" method="POST" enctype="multipart/form-data" novalidate="novalidate">
                 <div class="card-body">
 
-
                   <div class="form-group">
-                    <label for="name">Tên sản phẩm</label>
-                    <input type="text" name="name" class="form-control" id="name">
+                    <label for="title">Chủ đề</label>
+                    <input type="text" name="title" class="form-control" id="title">
                   </div>
 
                   <div class="form-group">
-                    <label for="select">Slug</label>
-                    <select name="select" id="select" class="form-control">
-                    <option value="0">Lựa chọn danh mục</option>
-                      <?= $htmlOption ?>
-                    </select>
+                    <label for="description">Description</label>
+                    <input type="text" name="description" class="form-control" id="description" require:true>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="hidden" value="<?= $now?>"  name="created_time" id="created_time">
+                  </div> 
+    
+                  <div class="form-group">
+                    <label for="content">Nội dung</label>
+                    <textarea name="content" id="content" class="form-control" rows="5" placeholder="Vui lòng nhập nội dung ..."></textarea>
                   </div>
 
                 </div>
@@ -62,25 +67,33 @@
       </div>
     </div>
   </div>
-
   <?php require_once('mvc/view/admin/footer.php'); ?>
   <?php require_once('mvc/view/script.php'); ?>
 
-<script>
+  <script>
 $(function () {
   $.validator.setDefaults({
 
   });
   $('#quickForm').validate({
     rules: {
-      name: {
+      title: {
         required: true
+      },
+      description: {
+        required: true,
+        minlength: 20,
       }
     },
     messages: {
-      name: {
-        required: "Please enter data"
+      title: {
+        required: "Please enter data",
+      },
+      description: {
+        required: "Please enter data",
+        minlength: "Please enter data more than 5 characters",
       }
+    
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {

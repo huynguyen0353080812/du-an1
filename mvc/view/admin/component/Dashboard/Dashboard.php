@@ -474,7 +474,9 @@
                 <!-- /.card-tools -->
               </div>
               <div class="card-body">
-                <div id="world-map" style="height: 250px; width: 100%;"></div>
+                <div id="world-map" style="height: 250px; width: 100%;">
+                <?php require_once('mvc/view/admin/component/Dashboard/vn.php'); ?>
+              </div>
               </div>
               <!-- /.card-body-->
               <div class="card-footer bg-transparent">

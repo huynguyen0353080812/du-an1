@@ -192,7 +192,7 @@
               <li class="nav-item">
                 <a href="add_product" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Product</p>
+                  <p>Create Product</p>
                 </a>
               </li>
 
@@ -217,7 +217,7 @@
               <li class="nav-item">
                 <a href="add_category" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Category</p>
+                  <p>Create Category</p>
                 </a>
               </li>
 
@@ -272,14 +272,14 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/list_discount" class="nav-link">
+            <li class="nav-item">
+                <a href="list_discount" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List Discount</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/add_discount" class="nav-link">
+              <a href="add_discount" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Create Discount</p>
                 </a>
@@ -291,6 +291,46 @@
             <i class="fas fa-inbox"></i>
               <p>
               Quản lý kho
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Chart</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+                    <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="fa-solid fa-newspaper"></i>
+              <p>
+              News
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="list_news" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List News</p>
+                </a>
+              </li>
+              <li class="nav-item">
+              <a href="add_news" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Create News</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+            <i class="fa-solid fa-user-shield"></i>
+              <p>
+              decentralization
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
