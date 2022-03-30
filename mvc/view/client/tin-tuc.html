@@ -5,10 +5,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="public/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="public/css/tin-tuc.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/tin-tuc.css">
+	<link rel="stylesheet" href="./style.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+	<div class="nav-control">
+        <div class="container">
+            <div class="logo">
+                <img src="./img/logo.png" alt="">
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="./index.html">Trang chủ</a></li>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li class="menu_link"><a href="#">Sản phẩm &#8744;</a>
+                        <ul class="menu_dow">
+                            <table>
+                                <tr>
+                                    <th><a href="#">Coffee</a></th>
+                                    <th><a href="#">Nước ép</a></th>
+                                    <th><a href="#">Trà sữa</a></th>
+                                    <th><a href="#">Cocktail</a></th>
+
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Esspero</a></td>
+                                    <td><a href="#">Dưa hấu</a></td>
+                                    <td><a href="#">Kiwi</a></td>
+                                    <td><a href="#">Cocktail B-52</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Esspero</a></td>
+                                    <td><a href="#">Dưa hấu</a></td>
+                                    <td><a href="#">Kiwi</a></td>
+                                    <td><a href="#">Cocktail B-52</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Esspero</a></td>
+                                    <td><a href="#">Dưa hấu</a></td>
+                                    <td><a href="#">Kiwi</a></td>
+                                    <td><a href="#">Cocktail B-52</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Esspero</a></td>
+                                    <td><a href="#">Dưa hấu</a></td>
+                                    <td><a href="#">Kiwi</a></td>
+                                    <td><a href="#">Cocktail B-52</a></td>
+                                </tr>
+                            </table>
+                        </ul>
+                    </li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="acount">
+                <div class="search">
+                    <input type="text" placeholder="Search">
+                </div>
+                <div class="user">
+                    <i class='bx bxs-user' style='color:#fff9f9'></i>
+                    <div class="login-form">
+                        <a href="#">Đăng nhập</a>
+                        <a href="#">Đăng kí</a>
+                    </div>
+                </div>
+                <div class="cart">
+                    <a href="#"><i class='bx bxs-cart' style='color:#ffffff'>
+                        <div class="boxcart" id="boxcart">
+                            <span class="carticon"></span>
+                        </div>
+                    </i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
     <div class="container">
         <div class="col-12">
             <div class="gray-container">
@@ -34,19 +108,14 @@
 						<div class="blog-item-thumbnail">						
 							<a href="/che-bien-ca-phe" title="CHẾ BIẾN CÀ PHÊ">							
 								<picture>
-									<source media="(max-width: 480px)" srcset="//bizweb.dktcdn.net/thumb/large/100/351/580/articles/blog3.jpg?v=1554358411070">
-									<source media="(min-width: 481px) and (max-width: 767px)" srcset="//bizweb.dktcdn.net/thumb/large/100/351/580/articles/blog3.jpg?v=1554358411070">
-									<source media="(min-width: 768px) and (max-width: 1023px)" srcset="//bizweb.dktcdn.net/thumb/large/100/351/580/articles/blog3.jpg?v=1554358411070">
-									<source media="(min-width: 1024px) and (max-width: 1199px)" srcset="//bizweb.dktcdn.net/thumb/medium/100/351/580/articles/blog3.jpg?v=1554358411070">
-									<source media="(min-width: 1200px)" srcset="//bizweb.dktcdn.net/thumb/large/100/351/580/articles/blog3.jpg?v=1554358411070">
-									<img src="//bizweb.dktcdn.net/100/351/580/articles/blog3.jpg?v=1554358411070" style="max-width:100%;" class="img-responsive" alt="CHẾ BIẾN CÀ PHÊ">
+									<img src="./img/blog3.webp" style="width: 383px;height: 168px;" class="img-responsive" alt="CHẾ BIẾN CÀ PHÊ">
 								</picture>
 							</a>
 						</div>
 						<div class="blog-item-info">
 							<a href="/che-bien-ca-phe" title="CHẾ BIẾN CÀ PHÊ"><h3 class="blog-item-name">CHẾ BIẾN CÀ PHÊ</h3></a>
 							<div class="blog-item-meta">
-								<div class="post-author">
+								<div class="post-author" style="pointer-events:none !important;">
 									Nguyễn Hữu Mạnh
 								</div>
 								<div class="post-time">
@@ -63,12 +132,7 @@
 						<div class="blog-item-thumbnail">						
 							<a href="/tinh-yeu-va-ca-phe" title="TÌNH YÊU VÀ CÀ PHÊ">
 								<picture>
-									<source media="(max-width: 480px)" srcset="//bizweb.dktcdn.net/thumb/large/100/351/580/articles/blog2.jpg?v=1554358371187">
-									<source media="(min-width: 481px) and (max-width: 767px)" srcset="//bizweb.dktcdn.net/thumb/large/100/351/580/articles/blog2.jpg?v=1554358371187">
-									<source media="(min-width: 768px) and (max-width: 1023px)" srcset="//bizweb.dktcdn.net/thumb/large/100/351/580/articles/blog2.jpg?v=1554358371187">
-									<source media="(min-width: 1024px) and (max-width: 1199px)" srcset="//bizweb.dktcdn.net/thumb/medium/100/351/580/articles/blog2.jpg?v=1554358371187">
-									<source media="(min-width: 1200px)" srcset="//bizweb.dktcdn.net/thumb/large/100/351/580/articles/blog2.jpg?v=1554358371187">
-									<img src="//bizweb.dktcdn.net/100/351/580/articles/blog2.jpg?v=1554358371187" style="max-width:100%;" class="img-responsive" alt="TÌNH YÊU VÀ CÀ PHÊ">
+									<img src="./img/blog2.webp" style="max-width:100%;" class="img-responsive" alt="TÌNH YÊU VÀ CÀ PHÊ">
 								</picture>
 							</a>
 						</div>
@@ -93,12 +157,7 @@
 						<div class="blog-item-thumbnail">						
 							<a href="/lang-nghe-ca-phe-ke-chuyen" title="LẮNG NGHE CÀ PHÊ KỂ CHUYỆN">	
 								<picture>
-									<source media="(max-width: 480px)" srcset="//bizweb.dktcdn.net/thumb/large/100/351/580/articles/blog1.jpg?v=1554358233917">
-									<source media="(min-width: 481px) and (max-width: 767px)" srcset="//bizweb.dktcdn.net/thumb/large/100/351/580/articles/blog1.jpg?v=1554358233917">
-									<source media="(min-width: 768px) and (max-width: 1023px)" srcset="//bizweb.dktcdn.net/thumb/large/100/351/580/articles/blog1.jpg?v=1554358233917">
-									<source media="(min-width: 1024px) and (max-width: 1199px)" srcset="//bizweb.dktcdn.net/thumb/medium/100/351/580/articles/blog1.jpg?v=1554358233917">
-									<source media="(min-width: 1200px)" srcset="//bizweb.dktcdn.net/thumb/large/100/351/580/articles/blog1.jpg?v=1554358233917">
-									<img src="//bizweb.dktcdn.net/100/351/580/articles/blog1.jpg?v=1554358233917" style="max-width:100%;" class="img-responsive" alt="LẮNG NGHE CÀ PHÊ KỂ CHUYỆN">
+									<img src="./img/blog1.webp" style="max-width:100%;" class="img-responsive" alt="LẮNG NGHE CÀ PHÊ KỂ CHUYỆN">
 								</picture>	
 							</a>
 						</div>
@@ -126,6 +185,38 @@
 				
 				
 			</section>
+        </div>
+    </div>
+	<div class="footer">
+        <div class="container">
+            <div class="logo">
+                <a href="./index.html"><img src="./img/logo.png" alt=""></a>
+            </div>
+            <div class="infor-footer">
+                <div class="footer-item">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <p>Chúng tôi mong muốn tạo nên hương vị thức uống tuyệt vời nhất. Là điểm đến đầu tiên dành cho bạn
+                        khi muốn thưởng thức trọn vẹn của tách Coffee</p>
+                </div>
+                <div class="footer-item">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <p>Chúng tôi mong muốn tạo nên hương vị thức uống tuyệt vời nhất. Là điểm đến đầu tiên dành cho bạn
+                        khi muốn thưởng thức trọn vẹn của tách Coffee</p>
+                </div>
+                <div class="footer-item">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <p>Chúng tôi mong muốn tạo nên hương vị thức uống tuyệt vời nhất. Là điểm đến đầu tiên dành cho bạn
+                        khi muốn thưởng thức trọn vẹn của tách Coffee</p>
+                </div>
+                <div class="footer-item">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <p>Chúng tôi mong muốn tạo nên hương vị thức uống tuyệt vời nhất. Là điểm đến đầu tiên dành cho bạn
+                        khi muốn thưởng thức trọn vẹn của tách Coffee</p>
+                </div>
+            </div>
+            
+           
+            
         </div>
     </div>
 </body>

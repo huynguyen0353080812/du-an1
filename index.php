@@ -62,14 +62,21 @@
                 $ctr = new StatisticalController();
                 $ctr->showchart();
                 break;
+            //Feedback
             case 'feedback_user':
                 $ctr = new CommentController();
                 $ctr->feedback_user();
                 break;
+            case 'Send_Mail':
+                $ctr = new CommentController();
+                $ctr->SendMail();
+                break;
+            //
             case 'order_statistics':
                 $ctr = new StatisticalController();
                 $ctr->order_statistics();
                 break;
+            //end
             // list order
             case 'list_order':
                 $ctr = new OrderController();
@@ -78,6 +85,10 @@
             case 'order_detail':
                 $ctr = new OrderController();
                 $ctr->order_detail();
+                break;
+            case 'delete_order':
+                $ctr = new OrderController();
+                $ctr->delete_order();
                 break;
             // P R O D U C T
             case 'list_product':
@@ -200,6 +211,15 @@
 
             case 'value':
                 # code...
+                break;
+            // decentralization
+            case 'decentralization':
+                $ctr = new DecentralizationController();
+                $ctr->index();
+                break;
+            case 'Edit_Decentralization':
+                $ctr = new DecentralizationController();
+                $ctr->Edit();
                 break;
             default:
             break;

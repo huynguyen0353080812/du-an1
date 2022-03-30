@@ -13,7 +13,7 @@ class OrderController{
             $id = $_GET['id'];
             $products = new databse();
             $rows = $products->database();
-            $sql = "SELECT orders.name,prodcts_sale.products_name,orders_detail.order_id,prodcts_sale.price,orders.phone,orders.address,orders_detail.quantity,prodcts_sale.image,orders.total,orders.note FROM `orders_detail`JOIN prodcts_sale ON orders_detail.produrt_id = prodcts_sale.id JOIN orders ON orders_detail.order_id = orders.id HAVING orders_detail.order_id = $id;";
+            $sql = "SELECT orders.status,orders.name,prodcts_sale.products_name,orders_detail.order_id,prodcts_sale.price,orders.phone,orders.address,orders_detail.quantity,prodcts_sale.image,orders.total,orders.note FROM `orders_detail`JOIN prodcts_sale ON orders_detail.produrt_id = prodcts_sale.id JOIN orders ON orders_detail.order_id = orders.id HAVING orders_detail.order_id = $id";
             $stmt = $rows->prepare($sql);
             $stmt->execute();
             $i = 0;
@@ -35,6 +35,12 @@ class OrderController{
             $result = $customer->update('orders',["status = '$arr1'"],$id);
         // var_dump($arr);
         // print_r($arr);
+    }
+    public function delete_order()
+    {
+        $id = $_GET['id'];
+        $customer = new Base();
+        $customer->delete('orders',$id);
     }
     public function showstatus(Type $var = null)
     {

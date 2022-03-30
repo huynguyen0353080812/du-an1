@@ -12,48 +12,53 @@
     </div>
   </div>
   <div class="content">
-  <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Danh sách tài khoản</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>user name</th>
-                    <th>Email</th>
-                    <th>Avatar</th>
-                    <th>vai tro</th>
-                    <th>Edit</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <?php foreach ($result as $key => $value): ?>
-                  <tr>
-                    <td><?= $value['user_name'] ?></td>
-                    <td><?= $value['email'] ?></td>
-                    <td><img src="public/img/<?= $value['image'] ?>" class="user_image" style="width:50px"></td>
-                    <td>
-                    <?php   
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Danh sách tài khoản</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>user name</th>
+              <th>Email</th>
+              <th>Avatar</th>
+              <th>vai tro</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($result as $key => $value): ?>
+            <tr>
+              <td>
+                <?= $value['user_name'] ?>
+              </td>
+              <td>
+                <?= $value['email'] ?>
+              </td>
+              <td><img src="public/img/<?= $value['image'] ?>" class="user_image" style="width:50px"></td>
+              <td>
+                <?php   
                                     if ($value['role']==1) {
                                         echo $vai_tro = 'quản trị viên';
                                     }else {
                                         echo $vai_tro = 'khách hàng';
                                     } 
                                 ?>
-                    </td>
-                    <td>
-                      <span ><a href="Edit_acount?id=<?=$value['id']?>"><i class="fas fa-edit btn btn-primary" ></i></a></span>
-                      <span  data-id="<?php echo $value['id']?>" ><i class="fas fa-trash-alt btn btn-danger" ></i></span>
-                    </td>
-                  </tr>
-                  <?php endforeach; ?>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
+              </td>
+              <td>
+                <span><a href="Edit_acount?id=<?=$value['id']?>"><i class="fas fa-edit btn btn-primary"></i></a></span>
+                <span class="bg-danger" data-id="<?php echo $value['id']?>"><i
+                    class="fas fa-trash-alt btn btn-danger"></i></span>
+              </td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
   </div>
 </div>
 <script src="<?= PUBLIC_URL ?>plugins/jquery/jquery.min.js"></script>
@@ -75,10 +80,10 @@
 </script>
 <?php endif; ?>
 <script>
-    $(function () {
+  $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis","edit"]
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis", "edit"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
       "paging": true,
@@ -102,27 +107,27 @@
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
+      }).then((result) => {
         if (result.isConfirmed) {
-                              $.ajax({
-                                url: "Delete_acount",
-                                method:"GET",
-                                data:{
-                                    id:id,
-                                },  
-                                success:function(data) {
-                                    Swal.fire(
-                                      'Deleted!',
-                                      'Your file has been deleted.',
-                                      'success'
-                                    ).then((result) => {
-                                      if (result.isConfirmed) {
-                                        location.reload();
-                                      }
-                                    })
+          $.ajax({
+            url: "Delete_acount",
+            method: "GET",
+            data: {
+              id: id,
+            },
+            success: function (data) {
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              ).then((result) => {
+                if (result.isConfirmed) {
+                  location.reload();
+                }
+              })
 
-                                }
-                            });
+            }
+          });
         }
       })
     })

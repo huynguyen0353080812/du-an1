@@ -1,5 +1,8 @@
 <?php
-    require_once('mvc/Model/Base.php'); 
+    require_once('mvc/Model/Base.php');
+    require_once('mvc/Model/database.php'); 
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
     class CommentController{
         private $data;
         private $recusion = '';
@@ -33,7 +36,56 @@
         }
         public function feedback_user()
         {
+            $customer = new Base();
+            $result = $customer->all('feedback');
             include ('mvc/view/admin/component/Comment/Feedback_User.php');
+        }
+        public function SendMail()
+        {
+            if (isset($_GET['sendto'])) {
+                
+                // echo $_GET['sendto'];
+                // die;
+                $email = $_GET['sendto'];
+                include 'public/Email/library.php'; // include the library file
+                require_once 'public/Email/vendor/autoload.php';
+                $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+                try {
+                    //Server settings
+                    $mail->CharSet = "UTF-8";
+                    $mail->SMTPDebug = 0;                                 // Enable verbose debug output
+                    $mail->isSMTP();                                      // Set mailer to use SMTP
+                    $mail->Host = SMTP_HOST;  // Specify main and backup SMTP servers
+                    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                    $mail->Username = SMTP_UNAME;                 // SMTP username
+                    $mail->Password = SMTP_PWORD;                           // SMTP password
+                    $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+                    $mail->Port = SMTP_PORT;                                    // TCP port to connect to
+                    //Recipients
+                    $mail->setFrom(SMTP_UNAME, "Coffee House");
+                    $mail->addAddress($_GET['sendto'], 'Tên người nhận');     // Add a recipient | name is option
+                    $mail->addReplyTo(SMTP_UNAME, 'Tên người trả lời');
+//                    $mail->addCC('CCemail@gmail.com');
+//                    $mail->addBCC('BCCemail@gmail.com');
+                    $mail->isHTML(true);                                  // Set email format to HTML
+                    $mail->Subject = $_GET['tieude'];
+                    $mail->Body = $_GET['content'];
+                    $mail->AltBody = 'cảm ỏn'; //None HTML
+                    $result = $mail->send();
+                    if (!$result) {
+                        $error = "Có lỗi xảy ra trong quá trình gửi mail";
+                    }else{
+                        $products = new databse();
+                        $rows = $products->database();
+                        $sql = "UPDATE feedback SET status = 0 WHERE email = '$email'";
+                        $stmt = $rows->prepare($sql);
+                        $stmt->execute();    
+                    }
+                    echo 'gửi thành công';
+                } catch (Exception $e) {
+                    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+                }
+            }
         }
         public function comment($id=0,$text='-'){
             foreach($this->data as $value){

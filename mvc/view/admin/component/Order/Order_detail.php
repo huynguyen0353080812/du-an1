@@ -82,6 +82,25 @@
                 <label for="inputEstimatedDuration">Note</label>
                 <p>Ghi chú :<strong><?= $result[0]['note'] ?></strong></p>
               </div>
+              <div class="form-group">
+                <label for="inputEstimatedDuration">Trạng Thái</label>
+                <p>Trạng Thái :<strong>
+                <?php 
+                            $arr = explode("/",$result[0]['status']);
+                            if ($arr[1] == 'x'):?>
+                <?php echo 'xu ly'; ?>
+                <?php elseif ($arr[1] == 'y'):?>
+                <?php echo 'đóng gói'; ?>
+                <?php elseif ($arr[1] == 'z'):?>
+                <?php echo 'thanh công'; ?>
+                <?php elseif ($arr[1] == 's'):?>
+                <?php echo 'đang giao hàng'; ?>
+                <?php endif; ?>
+              
+              
+              
+              </strong></p>
+              </div>
             </div>
             <!-- /.card-body -->
           </div>

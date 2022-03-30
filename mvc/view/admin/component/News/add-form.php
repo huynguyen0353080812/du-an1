@@ -82,7 +82,7 @@ $(function () {
       },
       description: {
         required: true,
-        minlength: 20,
+        minlength: 5,
       }
     },
     messages: {
