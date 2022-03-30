@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/tin-tuc.css">
-	<link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/product.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
-	<div class="nav-control">
+    <div class="nav-control">
         <div class="container">
             <div class="logo">
                 <img src="./img/logo.png" alt="">
@@ -74,120 +78,83 @@
                 </div>
                 <div class="cart">
                     <a href="#"><i class='bx bxs-cart' style='color:#ffffff'>
-                        <div class="boxcart" id="boxcart">
-                            <span class="carticon"></span>
-                        </div>
-                    </i></a>
+                            <div class="boxcart" id="boxcart">
+                                <span class="carticon"></span>
+                            </div>
+                        </i></a>
                 </div>
             </div>
         </div>
 
     </div>
-    <div class="container">
-        <div class="col-12">
-            <div class="gray-container">
-                
-            </div>
-        </div>
-        <div class="col-md-3 col-12">
-            <div class="d-block d-md-none">
-                
-            </div>
-        </div>
+    <div class="container-product">
         <div class="row">
-            <div class="box-heading hidden">
-				<h1 class="title-head">Tin tức</h1>
-			</div>
-            <aside class="col-lg-3 col-md-3">
-                
-            </aside>
-            <section class="right-content col-lg-9 col-md-9  col-md-push-3 col-lg-push-3">			
-				
-				<section class="list-blogs blog-main">	
-					<article class="blog-item">
-						<div class="blog-item-thumbnail">						
-							<a href="/che-bien-ca-phe" title="CHẾ BIẾN CÀ PHÊ">							
-								<picture>
-									<img src="./img/blog3.webp" style="width: 383px;height: 168px;" class="img-responsive" alt="CHẾ BIẾN CÀ PHÊ">
-								</picture>
-							</a>
-						</div>
-						<div class="blog-item-info">
-							<a href="/che-bien-ca-phe" title="CHẾ BIẾN CÀ PHÊ"><h3 class="blog-item-name">CHẾ BIẾN CÀ PHÊ</h3></a>
-							<div class="blog-item-meta">
-								<div class="post-author" style="pointer-events:none !important;">
-									Nguyễn Hữu Mạnh
-								</div>
-								<div class="post-time">
-									04/04/2019
-								</div>
-								<div class="post-comment">
-									<span>0</span> bình luận
-								</div>
-							</div>
-							<p class="blog-item-summary margin-bottom-5"> Cà phê sạch hiểu đơn giản là 100% cà phê, không pha trộn thêm bất cứ thứ gì khác. Vậy quy trình sản xuất chế biến cà phê sạch như thế nà...</p>
-						</div>
-					</article>		
-					<article class="blog-item">
-						<div class="blog-item-thumbnail">						
-							<a href="/tinh-yeu-va-ca-phe" title="TÌNH YÊU VÀ CÀ PHÊ">
-								<picture>
-									<img src="./img/blog2.webp" style="max-width:100%;" class="img-responsive" alt="TÌNH YÊU VÀ CÀ PHÊ">
-								</picture>
-							</a>
-						</div>
-						<div class="blog-item-info">
-							<a href="/tinh-yeu-va-ca-phe" title="TÌNH YÊU VÀ CÀ PHÊ"><h3 class="blog-item-name">TÌNH YÊU VÀ CÀ PHÊ</h3></a>
-							<div class="blog-item-meta">
-								<div class="post-author">
-									Nguyễn Hữu Mạnh
-								</div>
-								<div class="post-time">
-									04/04/2019
-								</div>
-								<div class="post-comment">
-									<span>0</span> bình luận
-								</div>
-							</div>
-							<p class="blog-item-summary margin-bottom-5"> TÌNH YÊU VÀ CÀ PHÊ 
-                            Yêu một người cũng giống yêu một hương vị cà phê. Có thể mất rất ít thời gian để thích, để khám phá. Nhưng cả tình ...</p>
-						</div>
-					</article>	
-					<article class="blog-item">
-						<div class="blog-item-thumbnail">						
-							<a href="/lang-nghe-ca-phe-ke-chuyen" title="LẮNG NGHE CÀ PHÊ KỂ CHUYỆN">	
-								<picture>
-									<img src="./img/blog1.webp" style="max-width:100%;" class="img-responsive" alt="LẮNG NGHE CÀ PHÊ KỂ CHUYỆN">
-								</picture>	
-							</a>
-						</div>
-						<div class="blog-item-info">
-							<a href="/lang-nghe-ca-phe-ke-chuyen" title="LẮNG NGHE CÀ PHÊ KỂ CHUYỆN"><h3 class="blog-item-name">LẮNG NGHE CÀ PHÊ KỂ CHUYỆN</h3></a>
-							<div class="blog-item-meta">
-								<div class="post-author">
-									Nguyễn Hữu Mạnh
-								</div>
-								<div class="post-time">
-									04/04/2019
-								</div>
-								<div class="post-comment">
-									<span>0</span> bình luận
-								</div>
-							</div>
-							<p class="blog-item-summary margin-bottom-5"> 
-                                Cuộc đời cafe, cũng như cuộc đời của con người, cũng phải 9 tháng 10 ngày thai nghén mới được thu hoạch. 
-                                Café cũng có quãng thời g...</p>
-						</div>
-					</article>
-					<div class="text-xs-left">
-					</div>
-				</section>
-				
-				
-			</section>
+            <div class="col-3 primary">
+
+            </div>
+            <div class="col-9 warning">
+                <div class="sortBar">
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8"></div>
+                        <div class="col-2">
+                            <div class="btn-group ">
+                                <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Sắp xếp
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Mặc định</a></li>
+                                    <li><a class="dropdown-item" href="#">A -> Z</a></li>
+                                    <li><a class="dropdown-item" href="#">Z -> A</a></li>
+                                    <li><a class="dropdown-item" href="#">Giá tăng dần</a></li>
+                                    <li><a class="dropdown-item" href="#">Giá giảm dần</a></li>
+                                    <li><a class="dropdown-item" href="#">Hàng mới nhất</a></li>
+                                    <li><a class="dropdown-item" href="#">Hàng cũ nhất</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-view">
+                    <div class="row">
+                        <div class="col-4 img-product">
+                            <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                        </div>
+                        <div class="col-4 img-product">
+                            <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                        </div>
+                        <div class="col-4 img-product">
+                            <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 img-product">
+                            <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                        </div>
+                        <div class="col-4 img-product">
+                            <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                        </div>
+                        <div class="col-4 img-product">
+                            <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 img-product">
+                            <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                        </div>
+                        <div class="col-4 img-product">
+                            <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                        </div>
+                        <div class="col-4 img-product">
+                            <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-	<div class="footer">
+    <div class="footer">
         <div class="container">
             <div class="logo">
                 <a href="./index.html"><img src="./img/logo.png" alt=""></a>
@@ -214,10 +181,11 @@
                         khi muốn thưởng thức trọn vẹn của tách Coffee</p>
                 </div>
             </div>
-            
-           
-            
+
+
+
         </div>
     </div>
 </body>
+
 </html>
