@@ -139,17 +139,17 @@
             case 'remove_category':
                 $ctr = new CategoryController();
                 $ctr->remove();
-                break;  
-                
-            // D I S C O U N T
+                break;   
+
+            // D I S C O U N T    
             case 'list_discount':
                 $ctr = new DiscountController();
-                $ctr -> index();
+                $ctr->index();
                 break;
             case 'add_discount':
                 $ctr = new DiscountController();
-                $ctr -> addForm();     
-                break;   
+                $ctr->addForm();
+                break;    
             case 'save_discount':
                 $ctr = new DiscountController();
                 $ctr -> saveAdd();
@@ -212,6 +212,7 @@
                 $ctr->comment();
                 break;
 
+            
             case 'value':
                 # code...
                 break;
@@ -227,7 +228,5 @@
             default:
             break;
         }
-
-        
 
 ?>

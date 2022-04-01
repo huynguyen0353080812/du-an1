@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    if(isset($_SESSION['giohang'])) $slsp=sizeof($_SESSION['giohang'])
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,9 +13,35 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/cart.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <script src="./js/thuvien.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".dathang").click(function (e) { 
+                e.preventDefault();
+                    var boxsp = $(this).parent();
+                    var tensp = boxsp.children("a").text();
+                    var dongia = boxsp.children("p").children("span").text();
+                    var soluong = boxsp.children("input").val();
+                    var hinhanh= boxsp.children("div").children("img").attr("src");
+                    $.post("addcart.php", {
+                        tensp:tensp,
+                        dongia:dongia,
+                        soluong:soluong,
+                        hinhanh:hinhanh
+                    },
+                        function (result) {
+                            var countsp = $("#carticon");
+                            countsp.text(result);
+                        }
+                    );
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -79,7 +109,7 @@
                 <div class="cart">
                     <a href="#"><i class='bx bxs-cart' style='color:#ffffff'>
                             <div class="boxcart" id="boxcart">
-                                <span class="carticon"></span>
+                                <span id="carticon" class="badge bg-danger rounded-pill"><?=$slsp?></span>
                             </div>
                         </i></a>
                 </div>
@@ -118,16 +148,38 @@
                 </div>
                 <div class="product-view">
                     <div class="row">
-                        <div class="col-4 img-product">
-                            <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                        <div class="col-4 border-1">
+                            <p><span>120000</span>VNĐ</p>
+                            <div class="img-product">
+                                <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                            </div>
+                            <a href="#" style="text-align:center;">Cocktail Bacardi</a>
+                            <br>
+                            <input type="number" name="soluong" min="1" max="10" value="1">
+                            <button class="dathang btn btn-warning float-end">Đặt hàng</button>
                         </div>
-                        <div class="col-4 img-product">
-                            <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                        <div class="col-4">
+                            <p><span>120000</span>VNĐ</p>
+                            <div class="img-product">
+                                <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                            </div>
+                            <a href="#">Cocktail Bacardi</a>
+                            <br>
+                            <input type="number" name="soluong" min="1" max="10" value="1">
+                            <button class="dathang btn btn-warning float-end">Đặt hàng</button>
                         </div>
-                        <div class="col-4 img-product">
-                            <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                        <div class="col-4">
+                            <p><span>120000</span>VNĐ</p>
+                            <div class="img-product">
+                                <img src="./img/Cocktail-Bacardi.jpg" alt="">
+                            </div>
+                            <a href="#">Cocktail Bacardi</a>
+                            <br>
+                            <input type="number" name="soluong" min="1" max="10" value="1">
+                            <button class="dathang btn btn-warning float-end">Đặt hàng</button>
                         </div>
                     </div>
+                    <br>
                     <div class="row">
                         <div class="col-4 img-product">
                             <img src="./img/Cocktail-Bacardi.jpg" alt="">
@@ -139,6 +191,7 @@
                             <img src="./img/Cocktail-Bacardi.jpg" alt="">
                         </div>
                     </div>
+                    <br>
                     <div class="row">
                         <div class="col-4 img-product">
                             <img src="./img/Cocktail-Bacardi.jpg" alt="">

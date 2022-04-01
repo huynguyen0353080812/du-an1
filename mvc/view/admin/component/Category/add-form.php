@@ -63,7 +63,7 @@
     </div>
   </div>
 
-  <?php require_once('mvc/view/admin/footer.php'); ?>
+  
   <?php require_once('mvc/view/script.php'); ?>
 
 <script>

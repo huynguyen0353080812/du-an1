@@ -32,7 +32,7 @@
 
                   <div class="form-group">
                     <label for="name">Tên mã</label>
-                    <input type="text" name="name" class="form-control" id="name" value=<?= $result['name'] ?>>
+                    <input type="text" name="name" class="form-control" id="name" value="<?=$result['name']?>">
                   </div>
 
                   <div class="form-group">
@@ -42,22 +42,22 @@
 
                   <div class="form-group">
                     <label for="discount_number">Giảm</label>
-                    <input type="number" name="discount_number" class="form-control" id="discount_number" value=<?= $result['discount_number'] ?>>
+                    <input type="number" name="discount_number" class="form-control" id="discount_number" value="<?= $result['discount_number'] ?>">
                   </div>
     
                   <div class="form-group">
                     <label for="quantity">Số lượng</label>
-                    <input type="number" name="quantity" class="form-control" id="quantity" value=<?= $result['quantity'] ?>>
+                    <input type="number" name="quantity" class="form-control" id="quantity" value="<?= $result['quantity'] ?>">
                   </div>
 
                   <div class="form-group">
                     <label for="begin">Ngày bắt đầu</label>
-                    <input type="date" name="begin" class="form-control" value=<?= $result['begin'] ?>>
+                    <input type="date" name="begin" class="form-control" value="<?= $result['begin'] ?>">
                   </div>
 
                   <div class="form-group">
                     <label for="finish">Ngày kết thúc</label>
-                    <input type="date" name="finish" class="form-control" value=<?= $result['finish'] ?>>
+                    <input type="date" name="finish" class="form-control" value="<?= $result['finish'] ?>">
                   </div>
 
                 </div>

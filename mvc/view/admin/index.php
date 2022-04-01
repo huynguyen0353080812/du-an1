@@ -193,7 +193,7 @@
               <li class="nav-item">
                 <a href="add_product" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Create Product</p>
+                  <p>Add Product</p>
                 </a>
               </li>
 
@@ -218,7 +218,7 @@
               <li class="nav-item">
                 <a href="add_category" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Create Category</p>
+                  <p>Add Category</p>
                 </a>
               </li>
 
@@ -273,14 +273,14 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-            <li class="nav-item">
+              <li class="nav-item">
                 <a href="list_discount" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List Discount</p>
                 </a>
               </li>
               <li class="nav-item">
-              <a href="add_discount" class="nav-link">
+                <a href="add_discount" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Create Discount</p>
                 </a>
@@ -304,7 +304,7 @@
               </li>
             </ul>
           </li>
-                    <li class="nav-item">
+          <li class="nav-item">
             <a href="#" class="nav-link">
             <i class="fa-solid fa-newspaper"></i>
               <p>
@@ -313,14 +313,14 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-            <li class="nav-item">
+              <li class="nav-item">
                 <a href="list_news" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>List News</p>
                 </a>
               </li>
               <li class="nav-item">
-              <a href="add_news" class="nav-link">
+                <a href="add_news" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Create News</p>
                 </a>

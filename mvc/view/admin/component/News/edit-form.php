@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">UPDATE NEWS</h1>
+            <h1 class="m-0">EDIT NEWS</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -28,25 +28,27 @@
               <form id="quickForm" action="update_news" method="POST" enctype="multipart/form-data" novalidate="novalidate">
                 <div class="card-body">
 
-                    <input type="hidden" name="id" value="<?= $result['id'] ?>">
+                <input type="hidden" name="now" value="<?= $now ?>">
+
+                <input type="hidden" name="id" value="<?= $result['id'] ?>">
 
                   <div class="form-group">
                     <label for="title">Chủ đề</label>
-                    <input type="text" name="title" class="form-control" id="title" value="<?= $result['title'] ?>" >
+                    <input type="text" name="title" class="form-control" id="title" value="<?= $result['title'] ?>">
                   </div>
 
                   <div class="form-group">
                     <label for="description">Description</label>
-                    <input type="text" name="description" class="form-control" id="description" value="<?= $result['description']?> " >
+                    <input type="text" name="description" class="form-control" id="description" value="<?= $result['description'] ?>" >
                   </div>
 
                   <div class="form-group">
-                    <input type="hidden" value="<?= $now?>"  name="created_time" id="created_time" >
+                    <input type="hidden" value="<?= $now?>"  name="created_time" id="created_time">
                   </div> 
     
                   <div class="form-group">
                     <label for="content">Nội dung</label>
-                    <textarea name="content" id="content" class="form-control" rows="10" value=""><?= $result['content']?></textarea>
+                    <textarea name="content" id="content" class="form-control" rows="5" ><?= $result['content'] ?></textarea>
                   </div>
 
                 </div>

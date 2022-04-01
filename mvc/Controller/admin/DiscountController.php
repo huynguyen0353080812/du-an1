@@ -29,7 +29,7 @@
         public function index(){
             $customer = new Base();
             $result = $customer->all('discount');
-            include_once("mvc/view/admin/component/Discount/list.php");
+            require_once("mvc/view/admin/component/Discount/list.php");
         }
 
         public function addForm() {
@@ -41,7 +41,7 @@
         public function saveAdd() {
             extract($_POST);
             $customer = new Base();
-            $result = $customer->insert('discount',["name='$name',quantity='$quantity',begin='$begin',finish='$finish',code='$code',status='$status'"]);
+            $result = $customer->insert('discount',["name='$name',quantity='$quantity',discount_number='$discount_number',begin='$begin',finish='$finish',code='$code',status='$status'"]);
             header('location:list_discount');
         }
 

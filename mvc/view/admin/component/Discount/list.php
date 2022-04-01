@@ -37,7 +37,7 @@
                   <tbody>
                     <?php foreach ($result as $key => $value): ?>
                       <tr>
-                        <td><?= $value['id'] ?></td>
+                        <td>1.</td>
                         <td><?= $value['code'] ?></td>
                         <td><?= $value['name'] ?></td>
                         <td><?= $value['discount_number'] ?></td>
