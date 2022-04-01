@@ -2,8 +2,10 @@
       class Recusive {
         private $data;
         private $recusion = '';
-        public function __construct($data){ 
+        private $id_dm;
+        public function __construct($data,$id_dm=''){ 
             $this->data = $data;
+            $this->id_dm = $id_dm;
         }
         
         public function categories($prend_id,$id=0,$text='-'){
@@ -12,7 +14,9 @@
                     if ( !empty($prend_id) && $prend_id == $value['id']) {
                         $this->recusion .= "<option selected value='" .$value['id']. "'>".$text.$value['name']."</option >";   
                     }else{
-                        $this->recusion .= "<option value='" .$value['id']. "'>".$text.$value['name']."</option >";   
+                        if (!($this->id_dm == $value['id'])) {
+                            $this->recusion .= "<option value='" .$value['id']. "'>".$text.$value['name']."</option >";   
+                        }
                     }
                     $this->categories($prend_id,$value['id'],$text.'-');
                 }

@@ -28,6 +28,8 @@
               <form id="quickForm" action="save_news" method="POST" enctype="multipart/form-data" novalidate="novalidate">
                 <div class="card-body">
 
+                <input type="hidden" name="now" value="<?= $now ?>">
+
                   <div class="form-group">
                     <label for="title">Chủ đề</label>
                     <input type="text" name="title" class="form-control" id="title">

@@ -162,7 +162,10 @@
                 $ctr = new DiscountController();
                 $ctr -> saveEdit();  
                 break;
-                
+            case 'remove_discount':
+                $ctr = new DiscountController();
+                $ctr -> remove();
+                break;    
                       
             // N E W S 
             case 'list_news':

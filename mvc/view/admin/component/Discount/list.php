@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Danh Sách Tài Khoản</h1>
+            <h1 class="m-0">LIST DISCOUNT</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -16,9 +16,7 @@
     <div class="content">
     <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Bordered Table</h3>
-                <?= $mes ?>
-                
+                <h3 class="card-title">Danh sách mã giảm giá</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -26,11 +24,13 @@
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>code</th>
-                      <th>name</th>
-                      <th>discount_number	</th>
-                      <th>quantity</th>
-                      <th>begin</th>
+                      <th>Code</th>
+                      <th>Tên mã giảm giá</th>
+                      <th>Giảm</th>
+                      <th>Số lượng</th>
+                      <th>Ngày bắt đầu</th>
+                      <th>Ngày kết thúc</th>
+                      <th>Trạng thái</th>
                       <th>Edit</th>
                     </tr>
                   </thead>
@@ -43,8 +43,11 @@
                         <td><?= $value['discount_number'] ?></td>
                         <td><?= $value['quantity'] ?></td>
                         <td><?= $value['begin'] ?></td>
+                        <td><?= $value['finish'] ?></td>
+                        <td><?= $value['status'] ?></td>
                         <td>
-                          <span class="badge badge-success"><a href="eidt_discount?id=<?=$value['id']?>"><i class="fas fa-edit" style = "color: #ffff;"></i></a></span>
+                        <a href="edit_discount?id=<?= $value['id'] ?>"><i class="fas fa-edit btn btn-primary" ></i></a>
+                        <a href="remove_discount?id=<?= $value['id'] ?>" onClick="return confirm('Bạn thực sự muốn xóa')"><i class="fas fa-trash-alt btn btn-danger" ></i></a>
                         </td>
                       </tr>
                     <?php endforeach; ?>

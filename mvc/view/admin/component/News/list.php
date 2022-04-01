@@ -41,7 +41,6 @@
                         <td><?= $value['content'] ?></td>
                         <td><?= $value['created_time'] ?></td>
                         <td>
-                        <td>
                         <a href="edit_news?id=<?= $value['id'] ?>"><i class="fas fa-edit btn btn-primary" ></i></a>
                         <a href="remove_news?id=<?= $value['id'] ?>" onClick="return confirm('Bạn thực sự muốn xóa')"><i class="fas fa-trash-alt btn btn-danger" ></i></a>
                       </td>

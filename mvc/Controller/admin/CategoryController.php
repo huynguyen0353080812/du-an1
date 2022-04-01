@@ -24,9 +24,14 @@
         }
         
         public function getCategory($prend_id){
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+            }else{
+                $id = null;
+            }
             $customer = new Base();
             $result = $customer->all('categories');
-            $Recusive = new Recusive($result);
+            $Recusive = new Recusive($result,$id_dm = $id);
             $htmlOption = $Recusive->categories($prend_id);
             return $htmlOption;
         }
@@ -36,18 +41,13 @@
             $customer = new Base();
             $result = $customer->find('categories',$id);
             $htmlOption = $this->getCategory($category = $result['parent_id']);
-            // var_dump($result);
-            // die;
             include_once('mvc/view/admin/component/Category/edit-form.php');
         }
         public function saveEdit(){
             extract($_POST);
             $id = $id;
             $customer = new Base();
-
             $result = $customer->update('categories',["name='$name',parent_id=$select"],$id);
-            // var_dump($result);
-            // die;
             header('location:list_category');
         }
         public function remove(){

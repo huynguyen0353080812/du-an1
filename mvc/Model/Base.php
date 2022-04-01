@@ -67,13 +67,13 @@
                 echo "Lỗi: " . $th->getMessage();
             }
         }
-        public function where($input='',$table='',$data = '',$argument = '')
+        public function where($input='',$table='',$data = '')
         {
             if ($input == '') {
                 $input = '*';
             }
             try {
-                $sql = "SELECT $input FROM $table WHERE $data = '$argument'";
+                $sql = "SELECT $input FROM $table WHERE $data";
                 $stmt = $this->conn->prepare($sql);
                 $stmt->execute();
                 $i = 0;

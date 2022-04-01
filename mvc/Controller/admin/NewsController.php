@@ -47,7 +47,4 @@
             header('location:list_news');
         }
 
-        public function checkTime() {
-            
-        }
     }
