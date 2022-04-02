@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     session_start();
     if(isset($_SESSION['giohang'])) $slsp=sizeof($_SESSION['giohang'])
 ?>
@@ -116,7 +116,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
     <div class="container-product">
         <div class="row">
             <div class="col-3 primary">
@@ -148,6 +148,24 @@
                 </div>
                 <div class="product-view">
                     <div class="row">
+                        <?php
+                            foreach ($spnew as $sp){
+                                extract($sp);
+                                $hinh=$img_path.$image;
+                                echo '<div class="col-4 border-1">
+                                        <p><span>'.$price.'</span>VNĐ</p>
+                                        <div class="img-product">
+                                            <img src="'.$hinh.'" alt="">
+                                        </div>
+                                        <a href="#" style="text-align:center;">'.$products_name.'</a>
+                                        <br>
+                                        <input type="number" name="soluong" min="1" max="10" value="1">
+                                        <button class="dathang btn btn-warning float-end">Đặt hàng</button>
+                                    </div>';
+                            }
+                        ?>
+                    </div>
+                    <!-- <div class="row">
                         <div class="col-4 border-1">
                             <p><span>120000</span>VNĐ</p>
                             <div class="img-product">
@@ -202,12 +220,12 @@
                         <div class="col-4 img-product">
                             <img src="./img/Cocktail-Bacardi.jpg" alt="">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
-    <div class="footer">
+    <!-- <div class="footer">
         <div class="container">
             <div class="logo">
                 <a href="./index.html"><img src="./img/logo.png" alt=""></a>
@@ -241,4 +259,4 @@
     </div>
 </body>
 
-</html>
+</html> -->
