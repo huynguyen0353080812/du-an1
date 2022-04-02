@@ -140,6 +140,60 @@
                 $ctr = new CategoryController();
                 $ctr->remove();
                 break;   
+
+            // D I S C O U N T    
+            case 'list_discount':
+                $ctr = new DiscountController();
+                $ctr->index();
+                break;
+            case 'add_discount':
+                $ctr = new DiscountController();
+                $ctr->addForm();
+                break;    
+            case 'save_discount':
+                $ctr = new DiscountController();
+                $ctr -> saveAdd();
+                break;
+            case 'edit_discount':
+                $ctr = new DiscountController();
+                $ctr -> editForm();
+                break;
+            case 'update_discount':
+                $ctr = new DiscountController();
+                $ctr -> saveEdit();  
+                break;
+            case 'remove_discount':
+                $ctr = new DiscountController();
+                $ctr -> remove();
+                break;    
+                      
+            // N E W S 
+            case 'list_news':
+                $ctr = new NewsController();
+                $ctr -> index();
+                break;
+            case 'add_news':
+                $ctr = new NewsController();
+                $ctr -> addForm();     
+                break;   
+            case 'save_news':
+                $ctr = new NewsController();
+                $ctr -> saveAdd();
+                break;
+            case 'edit_news':
+                $ctr = new NewsController();
+                $ctr -> editForm();
+                break;
+            case 'update_news':
+                $ctr = new NewsController();
+                $ctr -> saveEdit();  
+                break;
+            case 'remove_news':
+                $ctr = new NewsController();
+                $ctr -> remove();    
+
+
+            
             case 'indexx':
                 $ctr = new HomeController();
                 $ctr->indexx();
@@ -157,11 +211,8 @@
                 $ctr = new CommentController();
                 $ctr->comment();
                 break;
-            // discount
-            case 'list_discount':
-                $ctr = new DiscountController();
-                $ctr->index();
-                break;
+
+            
             case 'value':
                 # code...
                 break;

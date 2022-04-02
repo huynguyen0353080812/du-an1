@@ -31,9 +31,6 @@
             $id = $_GET['id'];
             $result = $this->customer->find('prodcts_sale',$id);
             $htmlOption = $this->getCategory($category = '');
-            // var_dump($result['image']);
-            // die;
-            
             $libary = $this->customer->where('image_pro','image_library','products_id ',$id);
             include ('mvc/view/admin/component/Products/edit-form.php'); 
         }
@@ -49,24 +46,9 @@
             }else{
                 $avatar = $anhcu;
             }
-            // var_dump($avatar);
-            // die;
             $id = $id;
             $result = $this->customer->update('prodcts_sale',["products_name= '$products_name',price ='$price',image='$avatar',categories_id=$categories_id,content='$content',categories_id='$categories_id'"],$id);
             $files = $_FILES['image'];
-            // var_dump($result);
-            // die;
-            // if ($files['size'][0] > 0) {
-            //     $result = $this->customer->delete('image_library',$id);
-            //     $avatars = $files['name'];
-            //     foreach ($avatars as $key => $value) {
-            //         move_uploaded_file($files['tmp_name'][$key],"public/libary/".$value);
-            //     }
-            //     foreach ($avatars as $key => $value) {
-            //         $result1 = $this->customer->insert('image_library',["products_id  = '$id',image_pro= '$value',created_time = '$now'"]);
-            //     }
-            // }
-            
              header('location:list_product');
         }
         public function addForm()

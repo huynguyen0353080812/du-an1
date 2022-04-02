@@ -1,6 +1,9 @@
 .container-cart{
     margin-top: 50px;
     margin-bottom: 50px;
+    position:relative !important;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
 }
 .boxcenter {
     width: 50%;
@@ -61,7 +64,6 @@ tr>td:nth-child(2) {
 
 .boxcart {
     position:absolute;
-    background: red;
     color: #fff;
     font-size: 20px;
     font-weight: 600;
