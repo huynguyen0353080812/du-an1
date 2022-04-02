@@ -174,6 +174,11 @@
                 $ctr = new DecentralizationController();
                 $ctr->Edit();
                 break;
+                //
+            case 'checkPrivilege':
+                $ctr = new DecentralizationController();
+                $ctr->checkPrivilege();
+                break;
             default:
             break;
         }

@@ -1,4 +1,13 @@
 <?php require_once('mvc/Controller/admin/DecentralizationController.php'); ?>
+<?php  
+  $RegexResults = new DecentralizationController();
+  $sss = $RegexResults -> checkPrivilege();
+  if (!$sss) {
+    echo "Bạn Không Có Quyền Truy Cập";
+    die;
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,7 +128,11 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item">
+          <?php 
+          $sss = $RegexResults->checkPrivilege('Dashboard');
+          if ($sss):
+          ?>
+          <li class="nav-item">
             <a href="<?= BASE_URL ?>" class="nav-link">
             <i class="fa-solid fa-earth-americas"></i>
               <p>
@@ -128,6 +141,9 @@
               </p>
             </a>
           </li>
+          <?php 
+        endif; 
+        ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
             <i class="fa-solid fa-id-card-clip"></i>

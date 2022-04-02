@@ -16,11 +16,13 @@ class DecentralizationController{
     {
         $uri = $uri != false ? $uri : $_SERVER['REQUEST_URI'];
         // var_dump($uri);
-        // die;
-        $uri = $_SERVER['REQUEST_URI'];
         $privilieges = array(
-            "decentralization\.php$",
-            "list_user\.php$"
+            "decentralization",
+            "list_user",
+            "list_order",
+            "Dashboard",
+            "feedback_user",
+            "du-an1"
         );
         $privilieges = implode("|",$privilieges);
         preg_match('/'.$privilieges.'/',$uri, $matches);
