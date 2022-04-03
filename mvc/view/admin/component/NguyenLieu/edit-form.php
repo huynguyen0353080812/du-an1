@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">CREATE NEWS</h1>
+            <h1 class="m-0">UPDATE RESOURCES</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -21,38 +21,34 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Tạo tin tức mới<small></small></h3>
+                <h3 class="card-title">Cập Nhật Tài Nguyên<small></small></h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" action="save_news" method="POST" enctype="multipart/form-data" novalidate="novalidate">
+              <form id="quickForm" action="update_nguyenlieu" method="POST" enctype="multipart/form-data" novalidate="novalidate">
                 <div class="card-body">
 
-                <input type="hidden" name="now" value="<?= $now ?>">
+                <input type="hidden" name="id" value="<?= $result['id'] ?>">
 
                   <div class="form-group">
-                    <label for="title">Chủ đề</label>
-                    <input type="text" name="title" class="form-control" id="title">
+                    <label for="name">Tên nguyên liệu</label>
+                    <input type="text" name="name" class="form-control" id="name" value="<?= $result['name'] ?>">
                   </div>
 
                   <div class="form-group">
-                    <label for="description">Description</label>
-                    <input type="text" name="description" class="form-control" id="description" require:true>
+                    <label for="quantity">Số lượng</label>
+                    <input type="number" name="quantity" class="form-control" id="quantity" value="<?= $result['quantity'] ?>">
                   </div>
-
-                  <div class="form-group">
-                    <input type="hidden" value="<?= $now?>"  name="created_time" id="created_time">
-                  </div> 
     
                   <div class="form-group">
-                    <label for="content">Nội dung</label>
-                    <textarea name="content" id="content" class="form-control" rows="5" placeholder="Vui lòng nhập nội dung ..."></textarea>
+                    <label for="donvi">Đơn vị</label>
+                    <input type="text" name="donvi" id="donvi" class="form-control" id="donvi" value="<?= $result['donvi'] ?>">
                   </div>
 
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Thêm mới</button>
+                  <button type="submit" class="btn btn-primary">Cập nhật</button>
                 </div>
               </form>
             </div>
@@ -84,26 +80,26 @@ $(function () {
   });
   $('#quickForm').validate({
     rules: {
-      title: {
+      name: {
         required: true
       },
-      description: {
+      quantity: {
         required: true,
-        minlength: 5
+        min: 1
       },
-      content: {
+      donvi: {
         required: true
       }
     },
     messages: {
-      title: {
+      name: {
         required: "Please enter data"
       },
-      description: {
+      quantity: {
         required: "Please enter data",
-        minlength: "Please enter data more than 5 characters"
+        min: "Please enter a value greater than or equal to 1"
       },
-      content: {
+      donvi: {
         required: "Please enter data"
       }
     

@@ -86,16 +86,22 @@ $(function () {
       },
       description: {
         required: true,
-        minlength: 5,
+        minlength: 5
+      },
+      content: {
+        required: true
       }
     },
     messages: {
       title: {
-        required: "Please enter data",
+        required: "Please enter data"
       },
       description: {
         required: "Please enter data",
-        minlength: "Please enter data more than 5 characters",
+        minlength: "Please enter data more than 5 characters"
+      },
+      content: {
+        required: "Please enter data"
       }
     
     },
