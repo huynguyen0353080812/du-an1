@@ -43,9 +43,6 @@
         public function SendMail()
         {
             if (isset($_GET['sendto'])) {
-                
-                // echo $_GET['sendto'];
-                // die;
                 $email = $_GET['sendto'];
                 include 'public/Email/library.php'; // include the library file
                 require_once 'public/Email/vendor/autoload.php';

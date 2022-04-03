@@ -68,7 +68,7 @@
                   </div>
                 </td>
                 <td>
-                  xóa
+                <span class="bg-danger" data-id="<?php echo $value['id']?>"><i class="fas fa-trash-alt btn btn-danger"></i></span>
                 </td>
                 <div class="modal fade" id="modal-default">
                   <div class="modal-dialog">
