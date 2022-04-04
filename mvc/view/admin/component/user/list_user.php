@@ -61,8 +61,6 @@
   </div>
 </div>
 <script src="<?= PUBLIC_URL ?>plugins/jquery/jquery.min.js"></script>
-<script src="<?= PUBLIC_URL ?>plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?= PUBLIC_URL ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="public/plugins/jquery-ui/jquery-ui.min.js"></script>

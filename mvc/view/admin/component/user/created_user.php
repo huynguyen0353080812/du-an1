@@ -48,7 +48,7 @@
                             <legend>Vai Trò</legend>
                             <label for="">khách hàng</label>
                             <input type="radio" name="vai_tro" id="" value="0">
-                            <label for="">Nhân Viên</label>
+                            <label for="">Quản trị viên</label>
                             <input type="radio" name="vai_tro" id="" value = "1">
                         </fieldset>
                     </div>

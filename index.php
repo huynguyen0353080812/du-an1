@@ -256,6 +256,10 @@
                 $ctr = new DecentralizationController();
                 $ctr->checkPrivilege();
                 break;
+            case 'delete_feed':
+                $ctr = new CommentController();
+                $ctr->delete_feed();
+                break;
             default:
             break;
         }

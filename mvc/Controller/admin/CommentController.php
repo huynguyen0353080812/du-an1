@@ -95,4 +95,10 @@
             }
             // return $this->recusion;
         }
+        public function delete_feed()
+        {
+            $id = $_GET['id'];
+            $customer = new Base();
+            $result = $customer->delete('feedback',$id);
+        }
     }
