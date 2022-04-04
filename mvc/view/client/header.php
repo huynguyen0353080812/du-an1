@@ -1,10 +1,9 @@
 <?php
-    session_start();
-    if(isset($_SESSION['giohang'])) $slsp=sizeof($_SESSION['giohang'])
+    // session_start();
+    // if(isset($_SESSION['giohang'])) $slsp=sizeof($_SESSION['giohang'])
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,18 +14,19 @@
     <link rel="stylesheet" href="./css/product.css">
     <link rel="stylesheet" href="./css/cart.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="./js/thuvien.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/jquery.min.js"></script>
-    <script>
+    <!-- <script>
         $(document).ready(function () {
             $(".dathang").click(function (e) { 
                 e.preventDefault();
-                    var boxsp = $(this).parent();
+                    var boxsp = $(this).parent().parent();
                     var tensp = boxsp.children("a").text();
                     var dongia = boxsp.children("p").children("span").text();
-                    var soluong = boxsp.children("input").val();
+                    var soluong = boxsp.children("form").children("input").val();
                     var hinhanh= boxsp.children("div").children("img").attr("src");
                     $.post("addcart.php", {
                         tensp:tensp,
@@ -41,7 +41,7 @@
                     );
             });
         });
-    </script>
+    </script> -->
 </head>
 
 <body>
@@ -107,9 +107,9 @@
                     </div>
                 </div>
                 <div class="cart">
-                    <a href="#"><i class='bx bxs-cart' style='color:#ffffff'>
+                    <a href="controller_view.php"><i class='bx bxs-cart' style='color:#ffffff'>
                             <div class="boxcart" id="boxcart">
-                                <span id="carticon" class="badge bg-danger rounded-pill"><?=$slsp?></span>
+                                <!-- <span id="carticon" class="badge bg-danger rounded-pill"><?=$slsp?></span> -->
                             </div>
                         </i></a>
                 </div>

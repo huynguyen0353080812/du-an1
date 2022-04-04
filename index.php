@@ -191,7 +191,33 @@
             case 'remove_news':
                 $ctr = new NewsController();
                 $ctr -> remove();    
+                break;
 
+            // N G U Y Ê N   L I Ệ U
+            case 'list_nguyenlieu':
+                $ctr = new NguyenLieuController();
+                $ctr -> index();
+                break;
+            case 'add_nguyenlieu':
+                $ctr = new NguyenLieuController();
+                $ctr -> addForm();     
+                break;   
+            case 'save_nguyenlieu':
+                $ctr = new NguyenLieuController();
+                $ctr -> saveAdd();
+                break;
+            case 'edit_nguyenlieu':
+                $ctr = new NguyenLieuController();
+                $ctr -> editForm();
+                break;
+            case 'update_nguyenlieu':
+                $ctr = new NguyenLieuController();
+                $ctr -> saveEdit();  
+                break;
+            case 'remove_nguyenlieu':
+                $ctr = new NguyenLieuController();
+                $ctr -> remove();    
+                break;    
 
             
             case 'indexx':

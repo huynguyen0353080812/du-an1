@@ -312,9 +312,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="list_nguyenlieu" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Chart</p>
+                  <p>List Resources</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="add_nguyenlieu" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Resources</p>
                 </a>
               </li>
             </ul>
