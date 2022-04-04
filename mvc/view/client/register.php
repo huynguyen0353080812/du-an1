@@ -1,3 +1,55 @@
+<?php
+        require_once('./../../Model/database.php');     
+        $conn = new databse();
+        $conns = $conn->database();
+        $err = [];
+    
+        if(isset($_POST['user_name'])){
+            $sql = "SELECT * FROM manage_user where user_name=?";
+            $user_name = $_POST['user_name'];
+            $stmt = $conns->prepare($sql);
+            $stmt->execute([$user_name]);
+            $out = $stmt->fetchColumn();
+            if($out){
+                $err['user_name'] = "Tên tài khoản đã tồn tại";
+            }
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $repassword = $_POST['repassword'];
+            if(empty($user_name)){
+                $err['user_name'] = "Bạn chưa nhập tên";
+            }else if(strlen($user_name)<6){
+                $err['user_name'] = "Không được để ngắn hơn 6 kí tự";
+            }else if(strlen($user_name)>15){
+                $err['user_name'] = "Không được để dài hơn 15 kí tự";
+            }
+            if(empty($email)){
+                $err['email'] = "Bạn chưa nhập email";
+            }
+            if(empty($password)){
+                $err['password'] = "Bạn chưa nhập password";
+            }else if(strlen($password)<6){
+                $err['password'] = "Không được để ngắn hơn 6 kí tự";
+            }
+            if($password != $repassword){
+                $err['repassword'] = "Nhập lại không khớp";
+            }
+            
+            if(empty($err)){
+            $pass = password_hash($password,PASSWORD_DEFAULT);
+            
+            $sql = "INSERT INTO manage_user(user_name,email,password) VALUES ('$user_name','$email','$pass')";
+            $stmt = $conns->prepare($sql);
+            $stmt->execute();
+            if($stmt){
+                header('location: login.php');
+            }
+            }
+        }
+
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +70,7 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="./index.html">Trang chủ</a></li>
+                    <li><a href="./index.php">Trang chủ</a></li>
                     <li><a href="#">Giới thiệu</a></li>
                     <li class="menu_link"><a href="#">Sản phẩm &#8744;</a>
                         <ul class="menu_dow">
@@ -68,8 +120,8 @@
                 <div class="user">
                     <i class='bx bxs-user' style='color:#fff9f9'></i>
                     <div class="login-form">
-                        <a href="./login.html">Đăng nhập</a>
-                        <a href="./register.html">Đăng kí</a>
+                        <a href="./login.php">Đăng nhập</a>
+                        <a href="./register.php">Đăng kí</a>
                     </div>
                 </div>
                 <div class="cart">
@@ -82,24 +134,33 @@
     <div class="content-item">
         <div class="container">
             <div class="login">
-                <h1>Đăng nhập</h1>
-                <form action="">
+                <h1>Đăng kí</h1>
+                <form action="" method="post">
                     <div class="form-control">
-                        <input type="text" placeholder="Username">
+                        <input type="text" placeholder="Username" name="user_name">
                         <span></span>
-                        <small></small>
+                        <small><?php echo(isset($err['user_name'])) ? $err['user_name'] : '' ?></small>
                     </div>
                     <div class="form-control">
-                        <input type="password" placeholder="Password">
+                        <input type="email" placeholder="Email" name="email">
                         <span></span>
-                        <small></small>
+                        <small><?php echo(isset($err['email'])) ? $err['email'] : '' ?></small>
                     </div>
-                    <input type="submit" value="Login">
+                    <div class="form-control">
+                        <input type="password" placeholder="Password" name="password">
+                        <span></span>
+                        <small><?php echo(isset($err['password'])) ? $err['password'] : '' ?></small>
+                    </div>
+                    <div class="form-control">
+                        <input type="password" placeholder="Re password" name="repassword">
+                        <span></span>
+                        <small><?php echo(isset($err['repassword'])) ? $err['repassword'] : '' ?></small>
+                    </div>
+
+                    <input type="submit" value="Register" name="register">
                     <div class="signup_link">
-                        Not a member?
-                        <a href="./register.html">Signup</a>
-                        or
-                        <a href="#">Fogot password</a>
+                        I have a account
+                        <a href="./login.php">Signin</a>
                     </div>
                 </form>
             </div>
@@ -109,7 +170,7 @@
     <div class="footer-login">
         <div class="container">
             <div class="logo">
-                <a href="./index.html"><img src="./img/logo.png" alt=""></a>
+                <a href="./index.php"><img src="./img/logo.png" alt=""></a>
             </div>
             <div class="infor-footer">
                 <div class="footer-item">

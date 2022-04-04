@@ -1,3 +1,13 @@
+<?php
+    require_once('./../../Model/database.php');  
+    session_start();   
+    $conn = new databse();
+    $conns = $conn->database();
+    // var_dump($_SESSION['user']['user_name']);
+    // die;
+    $user = (isset($_SESSION['user'])) ? $_SESSION['user'] : [];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,27 +74,30 @@
                     <li><a href="#">Liên hệ</a></li>
                 </ul>
             </div>
+            
             <div class="acount">
                 <div class="search">
                     <input type="text" placeholder="Search">
                 </div>
                 <div class="user">
+                    <?php if(isset($user['user_name'])){?>
                     <i class='bx bxs-user' style='color:#fff9f9'></i>
                     <div class="login-form">
-                        <a href="./login.html">Đăng nhập</a>
-                        <a href="./register.html">Đăng kí</a>
+                        <h3><?php echo($user['user_name']);?></h3>
+                        <!-- <a href="./login.php">Đăng nhập</a>
+                        <a href="./register.php">Đăng kí</a> -->
+                        <a href="./logout.php">Đăng xuất</a>
                     </div>
+                    <?php }else {?>
+                    <i class='bx bxs-user' style='color:#fff9f9'></i>
+                    <div class="login-form">
+                        <a href="./login.php">Đăng nhập</a>
+                        <a href="./register.php">Đăng kí</a>
+                    <?php }?>
                 </div>
                 <div class="cart">
                     <a href="#"><i class='bx bxs-cart' style='color:#ffffff'></i></a>
                 </div>
-            </div>
-        </div>
-        <div class="header-category">
-            <div class="container">
-                <ul>
-                    <li><a href="#"><i class='bx bx-cake'></i>CAKE</a></li>
-                </ul>
             </div>
         </div>
     </div>
@@ -207,7 +220,7 @@
     <div class="footer">
         <div class="container">
             <div class="logo">
-                <a href="./index.html"><img src="./img/logo.png" alt=""></a>
+                <a href="./index.php"><img src="./img/logo.png" alt=""></a>
             </div>
             <div class="infor-footer">
                 <div class="footer-item">
