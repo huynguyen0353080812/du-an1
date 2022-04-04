@@ -40,8 +40,9 @@
     margin-top: 4px;
     line-height: 22px;
 }
-.product-name a:hover{
+.product-name a:hover,.sidenav a:hover{
     color:#e4b95b;
+    transition: 0.5s;
 }
 .product-price{
     text-align: center;
@@ -49,4 +50,74 @@
     font-weight: 600;
     color: #e4b95b;
     font-size: 20px;
+}
+/* Fixed sidenav, full height */
+.sidenav {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f4f2ed;
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-top: 30px;
+    border-radius: 5px;
+  }
+  
+  /* Style the sidenav links and the dropdown button */
+  .sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #333;
+    display: block;
+    border: none;
+    background: none;
+    width:100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  /* On mouse-over */
+
+  
+  /* Main content */
+  .main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+  }
+  
+  /* Add an active class to the active dropdown button */
+  .active {
+    background-color: #e4b95b;
+    color: #333;
+  }
+  
+  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+  .dropdown-container {
+    display: none;
+    background-color: wheat;
+    padding-left: 8px;
+  }
+  
+  /* Optional: Style the caret down icon */
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+  }
+.color-333,.dropdown-btn:hover {
+    color:#333;
+}
+.aside-title h2 {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e4b95b;
+    position: relative;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    padding-left:10px;
 }
