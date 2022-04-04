@@ -17,6 +17,7 @@
                         if (!($this->id_dm == $value['id'])) {
                             $this->recusion .= "<option value='" .$value['id']. "'>".$text.$value['name']."</option >";   
                         }
+                        // $this->recusion .= "<option value='" .$value['id']. "'>".$text.$value['name']."</option >";
                     }
                     $this->categories($prend_id,$value['id'],$text.'-');
                 }

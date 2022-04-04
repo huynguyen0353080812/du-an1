@@ -1,4 +1,6 @@
 <?php require_once('mvc/view/admin/index.php'); ?>
+<link rel="stylesheet" href="http://localhost:81/du-an1/mvc/view/admin/component/Comment/css.css">
+<link rel="stylesheet" href="http://localhost:81/du-an1/mvc/view/admin/component/Comment/feedback.js">
 <style>
   input{
     /* border: 1px solid red; */
@@ -8,6 +10,9 @@
     border-bottom: 1px solid #d3cece;
     margin: 10px 0px ;
   }
+  /* .modal-content{
+    display:none  ;
+  } */
 </style>
 <div class="content-wrapper">
   <div class="content-header">
@@ -61,8 +66,8 @@
                 <td>
                   <div class="row">
                     <div class="col-md-3">
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-                        Launch
+                      <button type="button" class="btn btn-default" data-id="<?php echo $value['email'] ?>" id="default" value = "<?php echo $value['user_name'] ?>">
+                        send
                       </button>
                     </div>
                   </div>
@@ -70,8 +75,12 @@
                 <td>
                 <span class="bg-danger" data-id="<?php echo $value['id']?>"><i class="fas fa-trash-alt btn btn-danger"></i></span>
                 </td>
-                <div class="modal fade" id="modal-default">
-                  <div class="modal-dialog">
+            </tr>     
+          <?php endforeach; ?>
+          </tbody>
+        </table>
+         <!-- <div class="modal fade" id="modal-default"> -->
+         <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h4 class="modal-title">Default Modal</h4>
@@ -82,23 +91,20 @@
                       <div class="modal-body">
                         <form action="">
                             <p>
+                              <p class="total"></p>
                               <input type="text" placeholder="to" class="sendto" ><br>
-                              <input type="text" placeholder="tiêu đề"class="tieude"><br>
+                              <input type="text" placeholder="tiêu đề"  class="tieude" id="tieude"><br>
                               <textarea name="" id="content" class="content" cols="30" rows="10" style = "width:100%;border:none;outline:white;margin-top:10px;" placeholder="Nhập Nội Dung....."></textarea> 
                             </p>
                         </form>
                       </div>
                       <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                         <button type="submit" class="btn btn-primary">Save changes</button>
                       </div>
                     </div>
                   </div>
-                </div>
-            </tr>
-          <?php endforeach; ?>
-          </tbody>
-        </table>
+                <!-- </div> -->
       </div>
     </div>
   </div>
@@ -112,6 +118,18 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php require_once('mvc/view/admin/footer.php'); ?>
 <script>
+  $('.btn-default').each((index, data) => {
+    data.addEventListener('click',() => {
+      $('.modal-content').css("display", "block");
+       var id = $(data).data('id');
+      $('.sidebar-mini').toggleClass('action1');
+      $(".sendto").attr("value",id);
+      $('.close').on("click",()=>{
+        $('.modal-content').css("display", "none");
+        $('.sidebar-mini').removeClass('action1');
+      })
+    });
+  });
   $('.btn-primary').on('click',()=>{
     var sendto = $('.sendto').val();
     var tieude = $('.tieude').val();
@@ -125,6 +143,7 @@
           content:content
         },
         success: function (data) {
+          $('.modal-content').css("display", "none");
           if (data == 'gửi thành công') {
             Swal.fire({
               position: '',
@@ -139,4 +158,37 @@
         }
       });
   });
+  $('.bg-danger').each((index, data) => {
+    data.addEventListener('click',() => {
+      var id = $(data).data('id');
+      alert(id);
+      $.ajax({
+        url: "delete_feed",
+        method: "GET",
+        data: {
+          sendto:sendto,
+          tieude:tieude,
+          content:content
+        },
+        success: function (data) {
+          $('.modal-content').css("display", "none");
+          if (data == 'gửi thành công') {
+            Swal.fire({
+              position: '',
+              icon: 'success',
+              title: 'Your work has been saved',
+              showConfirmButton: false,
+              timer: 1500
+            }).then((result) => {
+                location.reload();
+            })
+          }
+        }
+      });
+    });
+  });
+  // $('.bg-danger').on('click',()=>{
+  //     var id = $('.bg-danger').data('id');
+  //     alert(id);
+  // });
 </script>

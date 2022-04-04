@@ -23,7 +23,7 @@
                 $ctr->edit();
                 break;
             case 'created_user':
-                $ctr = new CustomController();
+                $ctr = new FCustomController();
                 $ctr->created_user();
                 break;
             case 'update_acount':
