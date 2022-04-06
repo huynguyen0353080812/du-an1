@@ -35,7 +35,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="select">Slug</label>
+                    <label for="select">Parent</label>
                     <select name="select" id="select" class="form-control">
                     <option value="0">Lựa chọn danh mục</option>
                       <?= $htmlOption ?>

@@ -132,7 +132,7 @@
           if ($sss):
           ?>
           <li class="nav-item">
-            <a href="<?= BASE_URL ?>" class="nav-link">
+            <a href="Dashboard" class="nav-link">
             <i class="fa-solid fa-earth-americas"></i>
               <p>
                 Dashboard
@@ -143,6 +143,10 @@
           <?php 
         endif; 
         ?>
+         <?php 
+          $sss = $RegexResults->checkPrivilege('Manage_user');
+          if ($sss):
+          ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
             <i class="fa-solid fa-id-card-clip"></i>
@@ -166,6 +170,13 @@
               </li>
             </ul>
           </li>
+          <?php 
+        endif; 
+        ?>
+         <?php 
+          $sss = $RegexResults->checkPrivilege('Feedback');
+          if ($sss):
+          ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
             <i class="fa-solid fa-comment-dots"></i>
@@ -189,6 +200,13 @@
               </li>
             </ul>
           </li>
+          <?php 
+        endif; 
+        ?>
+         <?php 
+          $sss = $RegexResults->checkPrivilege('Products');
+          if ($sss):
+          ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -214,6 +232,13 @@
 
             </ul>
           </li>
+          <?php 
+        endif; 
+        ?>
+         <?php 
+          $sss = $RegexResults->checkPrivilege('Category');
+          if ($sss):
+          ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
             <i class="fa-solid fa-calendar-days"></i>
@@ -239,6 +264,13 @@
 
             </ul>
           </li>
+          <?php 
+        endif; 
+        ?>
+         <?php 
+          $sss = $RegexResults->checkPrivilege('Statistical');
+          if ($sss):
+          ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
             <i class="fa-solid fa-chart-pie"></i>
@@ -249,7 +281,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="Statistical" class="nav-link">
+                <a href="list_Statistical" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Statistical category</p>
                 </a>
@@ -262,6 +294,13 @@
               </li>
             </ul>
           </li>
+          <?php 
+        endif; 
+        ?>
+         <?php 
+          $sss = $RegexResults->checkPrivilege('Order');
+          if ($sss):
+          ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
             <i class="fa-solid fa-cart-plus"></i>
@@ -279,6 +318,13 @@
               </li>
             </ul>
           </li>
+          <?php 
+        endif; 
+        ?>
+         <?php 
+          $sss = $RegexResults->checkPrivilege('Discount');
+          if ($sss):
+          ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
             <i class="fa-solid fa-tags"></i>
@@ -302,6 +348,13 @@
               </li>
             </ul>
           </li>
+          <?php 
+        endif; 
+        ?>
+         <?php 
+          $sss = $RegexResults->checkPrivilege('quan_ly');
+          if ($sss):
+          ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
             <i class="fas fa-inbox"></i>
@@ -325,6 +378,13 @@
               </li>
             </ul>
           </li>
+          <?php 
+        endif; 
+        ?>
+         <?php 
+          $sss = $RegexResults->checkPrivilege('News');
+          if ($sss):
+          ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
             <i class="fa-solid fa-newspaper"></i>
@@ -348,6 +408,13 @@
               </li>
             </ul>
           </li>
+          <?php 
+        endif; 
+        ?>
+         <?php 
+          $sss = $RegexResults->checkPrivilege('decentralization');
+          if ($sss):
+          ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
             <i class="fa-solid fa-user-shield"></i>
@@ -358,13 +425,16 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="decentralization" class="nav-link">
+                <a href="list_decentralization" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>list_Staff</p>
                 </a>
               </li>
             </ul>
           </li>
+          <?php 
+        endif; 
+        ?>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

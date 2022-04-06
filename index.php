@@ -5,7 +5,7 @@
         require_once('commons/helpers.php');
 
         switch ($url) {
-            case '/':
+            case 'Dashboard':
                 $ctr = new HomeController();
                 $ctr->index();
                 break;
@@ -23,7 +23,8 @@
                 $ctr->edit();
                 break;
             case 'created_user':
-                $ctr = new FCustomController();
+                $ctr = new CustomController();
+                die;
                 $ctr->created_user();
                 break;
             case 'update_acount':
@@ -50,7 +51,7 @@
                 break;
             //end
             //Statistical
-            case 'Statistical':
+            case 'list_Statistical':
                 $ctr = new StatisticalController();
                 $ctr->index();
                 break;
@@ -243,7 +244,7 @@
                 # code...
                 break;
             // decentralization
-            case 'decentralization':
+            case 'list_decentralization':
                 $ctr = new DecentralizationController();
                 $ctr->index();
                 break;
@@ -251,10 +252,18 @@
                 $ctr = new DecentralizationController();
                 $ctr->Edit();
                 break;
+            case 'save_Decentralization':
+                $ctr = new DecentralizationController();
+                $ctr->save_Decentralization();
+                break;
                 //
             case 'checkPrivilege':
                 $ctr = new DecentralizationController();
                 $ctr->checkPrivilege();
+                break;
+            case 'delete_feed':
+                $ctr = new CommentController();
+                $ctr->delete_feed();
                 break;
             default:
             break;

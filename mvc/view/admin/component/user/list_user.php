@@ -49,7 +49,14 @@
               </td>
               <td>
                 <span><a href="Edit_acount?id=<?=$value['id']?>"><i class="fas fa-edit btn btn-primary"></i></a></span>
+                <?php 
+                $sss = $RegexResults->checkPrivilege('Delete_acount');
+                if ($sss):
+                ?>
                 <span class="bg-danger" data-id="<?php echo $value['id']?>"><i class="fas fa-trash-alt btn btn-danger"></i></span>
+                <?php 
+                endif; 
+                ?>
               </td>
             </tr>
             <?php endforeach; ?>
@@ -61,8 +68,6 @@
   </div>
 </div>
 <script src="<?= PUBLIC_URL ?>plugins/jquery/jquery.min.js"></script>
-<script src="<?= PUBLIC_URL ?>plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?= PUBLIC_URL ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="public/plugins/jquery-ui/jquery-ui.min.js"></script>

@@ -1,4 +1,15 @@
 <?php require_once('mvc/view/admin/index.php'); ?>
+<style>
+  /* .form-group{
+    display: flex;
+  } */
+  .form-group input{
+    margin: 10px 10px;
+  }
+  .custom-control{
+    /* margin:0px 20px; */
+  }
+</style>
 <div class="content-wrapper">
   <div class="content-header">
     <div class="container-fluid">
@@ -10,32 +21,50 @@
     </div>
   </div>
   <div class="content">
-    <div class="container-fluid">
-      <div class="row">
-        <!-- left column -->
-        <div class="col-md-12">
-          <!-- jquery validation -->
-          <div class="card card-primary">
-            <div class="card-header">
-              <h3 class="card-title">Phân Quyền tài khoản<small> </small></h3>
+  <div class="card card-secondary">
+              <div class="card-header">
+                <h3 class="card-title">Custom Elements</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table>
+                  <tr>
+                  <th>ok</th>
+                  </tr>
+                  <tr>
+                    <td>huy</td>
+                    <td>huy</td>
+                    <td>huy</td>
+                    <td>huy</td>
+                  </tr>
+                </table>
+                <form action="save_Decentralization" method="post">
+                  <!-- <div class="row"> -->
+                    <?php foreach ($result as $key => $value):?>
+                    <div class="col-sm-6">
+                      <!-- checkbox -->
+                      <label for=""><h5><?php echo $value['name'] ?></h5></label>
+                      <div class="form-group">
+                        <?php foreach ($result1 as $key => $value1):?>
+                          <?php if ($value1['group_id'] == $value['id'] ):?>
+                          <div class="custom-control custom-checkbox">
+                                  <input 
+                                  <?php if (in_array($value1['id'],$checked)):?>
+                                    checked = "";
+                                  <?php endif;?>
+                                  class="custom-control-input" type="checkbox" name = "decentralization[]" id="customCheckbox<?php echo $value1['id'] ?>" value="<?php echo $value1['id'] ?>" style = "margin:0px 20px;">
+                            <label for="customCheckbox<?php echo $value1['id'] ?>" class="custom-control-label"><?php echo $value1['name'] ?></label>
+                          </div>
+                          <?php endif; ?>
+                        <?php endforeach; ?>
+                      </div>
+                    </div>
+                    <?php endforeach; ?>
+                    <button type="submit">lưu</button>
+                </form>
+              </div>
+              <!-- /.card-body -->
             </div>
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form action="update_acount" method="POST" enctype="multipart/form-data" id="quickForm" novalidate="novalidate">
-                  
-            </form>
-          </div>
-          <!-- /.card -->
-        </div>
-        <!--/.col (left) -->
-        <!-- right column -->
-        <div class="col-md-6">
-
-        </div>
-        <!--/.col (right) -->
-      </div>
-      <!-- /.row -->
-    </div>
   </div>
 </div>
 
