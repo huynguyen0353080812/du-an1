@@ -93,6 +93,7 @@
                     <div class="login-form">
                         <a href="./login.php">Đăng nhập</a>
                         <a href="./register.php">Đăng kí</a>
+                    </div>
                     <?php }?>
                 </div>
                 <div class="cart">
