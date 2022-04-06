@@ -153,31 +153,6 @@
     pointer-events: visible;
     transition: 0.5s;
 }
-/*Header category*/
-.header-category{
-    width: 100%;
-    position: absolute;
-    top:150px;
-    
-}
-.header-category .container ul li{
-    display: inline;
-    padding: 0 30px;
-}
-.header-category .container ul i{
-    font-size: 300%;
-    color: var(--primary-color);
-}
-.header-category .container ul li a{
-    text-decoration: none;
-    color: var(--primary-color);
-    font-size: 1vw;
-}
-.header-category .container a:hover{
-    color: white;
-}
-
-
 
 /* end header */
 .top-content .container{
@@ -368,6 +343,7 @@ form .form-control{
 	top: 100%;
 	margin-top: 3px;
 	color: #e74c3c;
+    z-index: 222;
 }
 .login span{
     width: 0;
