@@ -49,7 +49,14 @@
               </td>
               <td>
                 <span><a href="Edit_acount?id=<?=$value['id']?>"><i class="fas fa-edit btn btn-primary"></i></a></span>
+                <?php 
+                $sss = $RegexResults->checkPrivilege('Delete_acount');
+                if ($sss):
+                ?>
                 <span class="bg-danger" data-id="<?php echo $value['id']?>"><i class="fas fa-trash-alt btn btn-danger"></i></span>
+                <?php 
+                endif; 
+                ?>
               </td>
             </tr>
             <?php endforeach; ?>

@@ -49,7 +49,6 @@
                     </td>
                     <td>
                       <span ><a href="Edit_Decentralization?id=<?=$value['id']?>"><i class="fas fa-edit btn btn-primary" ></i></a></span>
-                      <span class="bg-danger"  data-id="<?php echo $value['id']?>" ><i class="fas fa-trash-alt btn btn-danger" ></i></span>
                     </td>
                   </tr>
                     <?php endforeach; ?>
