@@ -1,3 +1,31 @@
+<?php
+    require_once('./../../Model/database.php');
+    session_start();
+    $conn = new databse();
+    $conns = $conn->database();
+    $err = [];
+    if(isset($_POST['login'])){
+        $user_name = $_POST['username'];
+        $Password = $_POST['password'];
+        $sqllogin = "SELECT * FROM manage_user WHERE user_name = '$user_name'";
+        $stmt = $conns->prepare($sqllogin);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($result){
+           if (password_verify($Password,$result['password'])) {
+               $_SESSION['user'] = $result;
+              header('Location: index.php');
+           }else{
+            $err['password'] = "Sai mật khẩu";
+           }
+        }else{
+            $err['username'] = "User name không tồn tại";
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +46,7 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="./index.html">Trang chủ</a></li>
+                    <li><a href="./index.php">Trang chủ</a></li>
                     <li><a href="#">Giới thiệu</a></li>
                     <li class="menu_link"><a href="#">Sản phẩm &#8744;</a>
                         <ul class="menu_dow">
@@ -68,8 +96,8 @@
                 <div class="user">
                     <i class='bx bxs-user' style='color:#fff9f9'></i>
                     <div class="login-form">
-                        <a href="./login.html">Đăng nhập</a>
-                        <a href="./register.html">Đăng kí</a>
+                        <a href="./login.php">Đăng nhập</a>
+                        <a href="./register.php">Đăng kí</a>
                     </div>
                 </div>
                 <div class="cart">
@@ -82,33 +110,24 @@
     <div class="content-item">
         <div class="container">
             <div class="login">
-                <h1>Đăng kí</h1>
-                <form action="">
+                <h1>Đăng nhập</h1>
+                <form action="" method="post">
                     <div class="form-control">
-                        <input type="text" placeholder="Username">
+                        <input type="text" placeholder="Username" name="username">
                         <span></span>
-                        <small></small>
+                        <small><?php echo(isset($err['username']))?$err['username']:''?></small>
                     </div>
                     <div class="form-control">
-                        <input type="email" placeholder="Email">
+                        <input type="password" placeholder="Password" name="password">
                         <span></span>
-                        <small></small>
+                        <small><?php echo(isset($err['password']))?$err['password']:''?></small>
                     </div>
-                    <div class="form-control">
-                        <input type="password" placeholder="Password">
-                        <span></span>
-                        <small></small>
-                    </div>
-                    <div class="form-control">
-                        <input type="password" placeholder="Re password">
-                        <span></span>
-                        <small></small>
-                    </div>
-
-                    <input type="submit" value="Register">
+                    <input type="submit" value="Login" name="login">
                     <div class="signup_link">
-                        I have a account
-                        <a href="./login.html">Signin</a>
+                        Not a member?
+                        <a href="./register.php">Signup</a>
+                        or
+                        <a href="#">Fogot password</a>
                     </div>
                 </form>
             </div>
@@ -118,7 +137,7 @@
     <div class="footer-login">
         <div class="container">
             <div class="logo">
-                <a href="./index.html"><img src="./img/logo.png" alt=""></a>
+                <a href="./index.php"><img src="./img/logo.png" alt=""></a>
             </div>
             <div class="infor-footer">
                 <div class="footer-item">
