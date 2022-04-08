@@ -41,8 +41,9 @@
             $sql = "INSERT INTO manage_user(user_name,email,password) VALUES ('$user_name','$email','$pass')";
             $stmt = $conns->prepare($sql);
             $stmt->execute();
+            $message = 'ok';
             if($stmt){
-                header('location: login.php');
+                header('location: login.php?id='.$message);
             }
             }
         }
