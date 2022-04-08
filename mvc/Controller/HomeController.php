@@ -14,7 +14,7 @@ class HomeController{
         // $result = $stmt->fetch(PDO::FETCH_ASSOC);
         // var_dump($result);
         // die;
-        require_once("mvc/view/client/index.php");
+        require_once("mvc/view/client/index1.php");
     }
     // public function list_user()
     // {

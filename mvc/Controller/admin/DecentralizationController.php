@@ -140,7 +140,7 @@ class DecentralizationController{
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $sql = "SELECT * FROM privilege WHERE group_id = 9";
+        $sql = "SELECT * FROM privilege";
         $stmt1 = $conn->prepare($sql);
         $stmt1->execute();
         $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
@@ -149,7 +149,7 @@ class DecentralizationController{
         $stmt2->execute();
         $result2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         $checked = [];
-       $this->datatree($result1,0);
+    //    $this->datatree($result1,0);
         foreach ($result2 as $key => $value) {
             // var_dump($value['privilege_id']);
             $checked[] = $value['privilege_id'];

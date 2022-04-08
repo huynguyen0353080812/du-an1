@@ -117,7 +117,7 @@
   });
 </script>
 <script src="public/plugins/jquery/jquery.min.js"></script>
-<script>
+<!-- <script>
    $(document).ready(() => {
     // alert('ok');
     Decentralization();
@@ -150,4 +150,4 @@
                     }) 
     }
   });
-</script>
+</script> -->
