@@ -67,7 +67,11 @@
             
             <div class="acount">
                 <div class="search">
-                    <input type="text" placeholder="Search">
+                    <form action="search.php" method="GET">
+                    <input type="text" placeholder="Search" name="key">
+                    <input type="submit" name="search" value="Search">
+                    </form>
+                    
                 </div>
                 <div class="user">
                     <?php if(isset($user['user_name'])){?>
