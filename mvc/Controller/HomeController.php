@@ -1,14 +1,20 @@
 <?php
-// require_once('mvc/Model/database.php');
+require_once('mvc/Model/database.php');
 // require_once('CategoryController.php');
-// require_once('mvc/Model/Base.php'); 
+require_once('mvc/Model/Base.php'); 
 session_start();
 class HomeController{
     public function index(Type $var = null)
     {
-        // echo 'huynguyen';
+        // $products = new databse();
+        // $rows = $products->database();
+        // $sql = "SELECT * FROM `manage_user`";
+        // $stmt = $rows->prepare($sql);
+        // $stmt->execute();
+        // $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        // var_dump($result);
         // die;
-        require_once("mvc/view/admin/component/Dashboard/Dashboard.php");
+        require_once("mvc/view/client/index.php");
     }
     // public function list_user()
     // {

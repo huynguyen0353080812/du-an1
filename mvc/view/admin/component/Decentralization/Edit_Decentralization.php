@@ -15,7 +15,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">EDIT USER</h1>
+          <h1 class="m-0">Phân Quyền Chức Năng</h1>
         </div>
       </div>
     </div>
@@ -27,17 +27,6 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table>
-                  <tr>
-                  <th>ok</th>
-                  </tr>
-                  <tr>
-                    <td>huy</td>
-                    <td>huy</td>
-                    <td>huy</td>
-                    <td>huy</td>
-                  </tr>
-                </table>
                 <form action="save_Decentralization" method="post">
                   <!-- <div class="row"> -->
                     <?php foreach ($result as $key => $value):?>
@@ -125,5 +114,40 @@
         $(element).removeClass('is-invalid');
       }
     });
+  });
+</script>
+<script src="public/plugins/jquery/jquery.min.js"></script>
+<script>
+   $(document).ready(() => {
+    // alert('ok');
+    Decentralization();
+    function Decentralization() {
+      $.ajax({
+                            url: "Edit_Decentralization",
+                            method:"GET",
+                            data:{
+                              
+                            },  
+                            success:function(data){
+                              alert(data);
+                              //  if (data == 'ok') {
+                              //   Swal.fire(
+                              //     'The Internet?',
+                              //     'Ngày ' + timenow + ' Đã được cập nhập trước đó',
+                              //     'question'
+                              //   )
+                              //  }
+                              //  if(data == 'tao'){
+                              //   Swal.fire({
+                              //     position: '',
+                              //     icon: 'success',
+                              //     title: 'Đã cập nhập ngày '+timenow+' thành công',
+                              //     showConfirmButton: false,
+                              //     timer: 2500
+                              //   })
+                              //  }
+                            }
+                    }) 
+    }
   });
 </script>

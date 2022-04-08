@@ -1,13 +1,3 @@
-<?php
-    require_once('./../../Model/database.php');  
-    session_start();   
-    $conn = new databse();
-    $conns = $conn->database();
-    // var_dump($_SESSION['user']['user_name']);
-    // die;
-    $user = (isset($_SESSION['user'])) ? $_SESSION['user'] : [];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
