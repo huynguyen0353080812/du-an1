@@ -5,7 +5,6 @@
     include "../../Model/danhmuc.php";
     include "global.php";
     include "header.php";
-
     if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
     $spnew=loadall_product_view();
     $dsdm=loadall_danhmuc();
@@ -21,6 +20,9 @@
                 //     include "../../view/client/product.php";
                 // }
                 include "product.php";
+                break;
+            case 'checkout':
+                include "check-out.php";
                 break;
             case 'cart':
                 include "cart.php";

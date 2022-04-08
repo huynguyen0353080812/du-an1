@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/check-out.css">
-</head>
-
-<body>
     <div class="container">
         <main class="main">
-            <header class="main_header">
+            <!-- <header class="main_header">
                 <div class="logo_left">
                     <h1 class="shop_name">
                         <a href="./index.html">
@@ -21,28 +8,39 @@
                         </a>
                     </h1>
                 </div>
-            </header>
+            </header> -->
             <div class="row">
                 <div class="col-6">
                     <h2 class="section_title">Thông tin nhận hàng</h2>
-                    <form name="frmReg" onsubmit=" validate()" action="" method="">
+                    <form name="frmReg" onsubmit="return validate()" action="" method="">
+                        <?php
+                            if(isset($_SESSION['user'])){
+                                $user_name=$_SESSION['user']['user_name'];
+                                $number_phone=$_SESSION['user']['number_phone'];
+                                $email=$_SESSION['user']['email'];
+                            }else{
+                                $user_name="";
+                                $number_phone="";
+                                $email="";
+                            }
+                        ?>
                         <div class="row">
                             <div class="col-11">
-                                <input class="form-control" type="text" name="txtEmail" placeholder="Email">
+                                <input class="form-control" type="text" name="txtEmail" value="<?=$email?>" placeholder="Email">
                                 <div class="error" id="emailErr"></div>
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-11">
-                                <input class="form-control" type="text" name="txtName" placeholder="Họ tên">
+                                <input class="form-control" type="text" name="txtName" value="<?=$user_name?>" placeholder="Họ tên">
                                 <div class="error" id="nameErr"></div>
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-11">
-                                <input class="form-control" type="text" name="txtMobile" placeholder="Số điện thoại">
+                                <input class="form-control" type="text" name="txtMobile" value="<?=$number_phone?>" placeholder="Số điện thoại">
                                 <div class="error" id="mobileErr"></div>
                             </div>
                         </div>
@@ -104,8 +102,9 @@
                                 <input class="form-control" type="text" placeholder="Ghi chú (tùy chọn)">
                             </div>
                         </div>
+                        
                         <br>
-                        <input type="submit" class="btn btn-primary" value="Đặt hàng">
+                        <input type="submit" class="btn btn-primary float-end" value="Đặt hàng">
                     </form>
                 </div>
                 <div class="col-6">
@@ -134,7 +133,18 @@
                 </div>
         </main>
         <aside class="sidebars">
+            
         </aside>
+        <div class="row">
+            <div class="col-8">
+                <table class="table">
+                    <?php
+                        cart(0);
+                    ?>
+                </table>
+            </div>
+        </div>
+        
         <script>
             function validate() {
                 var name = document.frmReg.txtName.value;
@@ -181,6 +191,3 @@
             }
         </script>
     </div>
-</body>
-
-</html>
