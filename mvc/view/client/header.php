@@ -99,6 +99,10 @@
             <div class="acount">
                 <div class="search">
                     <input type="text" placeholder="Search">
+                    <form action="controller_view.php?act=product" method="post">
+                        <input type="text" name="kyw" placeholder="Tìm kiếm">
+                        <input type="submit" name="timkiem" value="Tìm kiếm">
+                    </form>
                 </div>
                 <div class="user">
                     <i class='bx bxs-user' style='color:#fff9f9'></i>

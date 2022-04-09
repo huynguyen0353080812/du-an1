@@ -72,4 +72,27 @@
                     </tr>
                 </tbody>';
     }
+    function load_ten_dm($iddm){
+        if($iddm>0){
+            $sql="select * from prodcts_sale where id=".$iddm; 
+            $dm=pdo_query_one($sql);
+            extract($dm);
+            return $products_name; 
+        }else{
+            return "";
+        }
+    }
+    function tongdonhang(){
+        $tong=0;
+        foreach ($_SESSION['mycart'] as $cart) {
+            $ttien=$cart[3]*$cart[4];
+            $tong+=$ttien;
+        }
+        return $tong;
+    }
+    function insert_order($id,$name,$phone,$address,$status,$note,$total,$quantity,$created_time){
+        $sql="insert into orders(id,name,phone,address,status,note,total,quantity,create_time)
+        value ('$id','$name','$phone','$address','$status','$note','$total','$quantity','$created_time')";
+        return pdo_execute_return_lastInsertId($sql);
+    }
 ?>

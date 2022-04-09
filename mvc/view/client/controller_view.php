@@ -5,6 +5,7 @@
     include "../../Model/danhmuc.php";
     include "global.php";
     include "header.php";
+
     if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
     $spnew=loadall_product_view();
     $dsdm=loadall_danhmuc();
@@ -19,10 +20,20 @@
                 // }else{
                 //     include "../../view/client/product.php";
                 // }
+                if(isset($_POST['kyw'])&&($_POST['kyw'])!=""){
+                    $kyw=$_POST['kyw'];
+                }else{
+                    $kyw="";
+                }
+                if(isset($_GET['iddm'])&&($_GET['iddm']>0)){
+                    $iddm=$_GET['iddm'];
+                    
+                }else{
+                    $iddm=0;
+                }
+                $dssp=loadall_sanpham($kyw,$iddm);
+                $tendm=load_ten_dm($iddm);
                 include "product.php";
-                break;
-            case 'checkout':
-                include "check-out.php";
                 break;
             case 'cart':
                 include "cart.php";
@@ -49,8 +60,21 @@
                 include "cart.php";
                 // header('location: controller_view.php?act=cart');
                 break;
+            case 'order':
+                if(isset($_POST['dongydathang'])&&($_POST['dongydathang'])){
+                    $id=$_POST['id'];
+                    $name=$_POST['name'];
+                    $email=$_POST['email'];
+                    $phone=$_POST['phone'];
+                    $address=$_POST['address'];
+                    $created_time=date('h:i:sa d/m/Y');
+                    $total=tongdonhang();
+
+                    $idorder=insert_order($id,$name,$phone,$address,$status,$note,$total,$quantity,$created_time);
+                }
+                break;
             default:
-                include "product.php";
+                include "cart.php";
                 break;
         }
     }else{
