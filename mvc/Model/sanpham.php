@@ -90,9 +90,31 @@
         }
         return $tong;
     }
+    function quantity(){
+        foreach ($_SESSION['mycart'] as $cart) {
+            $soluong=$cart[4];
+        }
+        return $soluong;
+    }
     function insert_order($id,$name,$phone,$address,$status,$note,$total,$quantity,$created_time){
-        $sql="insert into orders(id,name,phone,address,status,note,total,quantity,create_time)
+        $sql="insert into orders(id,name,phone,address,status,note,total,quantity,created_time)
         value ('$id','$name','$phone','$address','$status','$note','$total','$quantity','$created_time')";
         return pdo_execute_return_lastInsertId($sql);
     }
+    function insert_order_detail($order_id,$produrt_id,$price,$quantity){
+        $sql="insert into orders_detail(order_id,produrt_id,price,quantity)
+        value ('$order_id','$produrt_id','$price','$quantity')";
+        return pdo_execute($sql);
+    }
+    function loadone_order($id){
+        $sql="select * from orders where id=".$id;
+        $order=pdo_query_one($sql);
+        return $order;
+    }
+    function loadone_order_detail($idorder){
+        $sql="select * from orders_detail where order_id=".$idorder;
+        $order=pdo_query_one($sql);
+        return $order;
+    }
+    
 ?>

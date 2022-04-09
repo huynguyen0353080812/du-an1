@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-6">
                     <h2 class="section_title">Thông tin nhận hàng</h2>
-                    <form name="frmReg" onsubmit="return validate()" action="" method="">
+                    <form name="frmReg" onsubmit="return validate()" action="controller_view.php?act=order" method="post">
                         <?php
                             if(isset($_SESSION['user'])){
                                 $user_name=$_SESSION['user']['user_name'];
@@ -26,92 +26,47 @@
                         ?>
                         <div class="row">
                             <div class="col-11">
-                                <input class="form-control" type="text" name="txtEmail" value="<?=$email?>" placeholder="Email">
+                                <input class="form-control" type="text" name="email" value="<?=$email?>" placeholder="Email">
                                 <div class="error" id="emailErr"></div>
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-11">
-                                <input class="form-control" type="text" name="txtName" value="<?=$user_name?>" placeholder="Họ tên">
+                                <input class="form-control" type="text" name="name" value="<?=$user_name?>" placeholder="Họ tên">
                                 <div class="error" id="nameErr"></div>
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-11">
-                                <input class="form-control" type="text" name="txtMobile" value="<?=$number_phone?>" placeholder="Số điện thoại">
+                                <input class="form-control" type="text" name="phone" value="<?=$number_phone?>" placeholder="Số điện thoại">
                                 <div class="error" id="mobileErr"></div>
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-11">
-                                <input class="form-control" type="text" placeholder="Địa chỉ (tùy chọn)">
+                                <input class="form-control" type="text" name="address" placeholder="Địa chỉ (tùy chọn)">
+                                <div class="error" id="addressErr"></div>
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-11">
-                                <div class="form-control">
-                                    Hà Nội
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-11">
-                                <select class="form-control" id="quanhuyen">
-                                    <option value="" disabled selected hidden>Quận huyện</option>
-                                    <option value="1">Thị xã Sơn Tây</option>
-                                    <option value="2">Quận Ba Đình</option>
-                                    <option value="3">Quận Cầu Giấy</option>
-                                    <option value="4">Quận Đống Đa</option>
-                                    <option value="5">Quận Hà Đông</option>
-                                    <option value="6">Quận Hai Bà Trưng</option>
-                                    <option value="7">Quận Hoàn Kiếm</option>
-                                    <option value="8">Quận Hoàng Mai</option>
-                                    <option value="9">Quận Long Biên</option>
-                                    <option value="10">Quận Tây Hồ</option>
-                                    <option value="11">Quận Thanh Xuân</option>
-                                    <option value="12">Huyện Ba Vì</option>
-                                    <option value="13">Huyện Chương Mỹ</option>
-                                    <option value="14">Huyện Đan Phượng</option>
-                                    <option value="15">Huyện Đông Anh</option>
-                                    <option value="16">Huyện Gia Lâm</option>
-                                    <option value="17">Huyện Hoài Đức</option>
-                                    <option value="18">Huyện Mê Linh</option>
-                                    <option value="19">Huyện Mỹ Đức</option>
-                                    <option value="20">Huyện Phú Xuyên</option>
-                                    <option value="21">Huyện Phúc Thọ</option>
-                                    <option value="22">Huyện Quốc Oai</option>
-                                    <option value="23">Huyện Sóc Sơn</option>
-                                    <option value="24">Huyện Thạch Thất</option>
-                                    <option value="25">Huyện Thanh Oai</option>
-                                    <option value="26">Huyện Thanh Trì</option>
-                                    <option value="27">Huyện Thường Tín</option>
-                                    <option value="28">Quận Bắc Từ Liêm</option>
-                                    <option value="29">Huyện Ứng Hòa</option>
-                                    <option value="30">Quận Nam Từ Liêm</option>
-                                </select>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-11">
-                                <input class="form-control" type="text" placeholder="Ghi chú (tùy chọn)">
+                                <input class="form-control" name="note" type="text" placeholder="Ghi chú (tùy chọn)">
                             </div>
                         </div>
                         
                         <br>
-                        <input type="submit" class="btn btn-primary float-end" value="Đặt hàng">
+                        <input type="submit" name="dongydathang" class="btn btn-primary float-end" value="Đặt hàng">
                     </form>
                 </div>
                 <div class="col-6">
                     <h2 class="section_title">Vận chuyển</h2>
                     <div class="form-control">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" value="" id="flexCheckChecked">
+                            <input class="form-check-input" type="radio" value="" id="flexCheckChecked" checked="checked">
                             <label class="form-check-label" for="flexCheckChecked">
                                 Giao hàng tận nơi là 40.000₫
                             </label>
@@ -123,7 +78,7 @@
                         <h2 class="section_title">Thanh toán</h2>
                         <div class="form-control">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="" id="flexCheckChecked">
+                                <input class="form-check-input" type="radio" value="" id="flexCheckChecked" checked="checked">
                                 <label class="form-check-label" for="flexCheckChecked">
                                     Thanh toán khi giao hàng (COD)
                                 </label>
@@ -147,17 +102,20 @@
         
         <script>
             function validate() {
-                var name = document.frmReg.txtName.value;
-                var email = document.frmReg.txtEmail.value;
-                var mobile = document.frmReg.txtMobile.value;
+                var name = document.frmReg.name.value;
+                var email = document.frmReg.email.value;
+                var mobile = document.frmReg.phone.value;
+                var address = document.frmReg.address.value;
                 //----------
                 var msgName = document.getElementById("nameErr");
                 var msgEmail = document.getElementById("emailErr");
                 var msgMobile = document.getElementById("mobileErr");
+                var msgAddress = document.getElementById("addressErr");
                 //----------
                 var conloiName = true;
                 var conloiEmail = true;
                 var conloiMobile = true;
+                var conloiAddress = true;
                 //Validate name
                 if (name == "") {
                     msgName.innerHTML = "Họ tên không được để trống";
@@ -182,10 +140,16 @@
                     conloiEmail = false;
                 }
                 //-------------
-                if (conloiName || conloiEmail || conloiMobile) {
+                if (address ==""){
+                    msgAddress.innerHTML = "Địa chỉ không được để trống";
+                } else {
+                    msgAddress.innerHTML = "";
+                    conloiAddress = false;
+                }
+                if (conloiName || conloiEmail || conloiMobile || conloiAddress) {
                     return false;
                 } else {
-                    alert("Đặt hàng thành công");
+                    // alert("Đặt hàng thành công");
                     return true;
                 }
             }

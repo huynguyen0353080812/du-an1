@@ -98,7 +98,6 @@
             </div>
             <div class="acount">
                 <div class="search">
-                    <input type="text" placeholder="Search">
                     <form action="controller_view.php?act=product" method="post">
                         <input type="text" name="kyw" placeholder="Tìm kiếm">
                         <input type="submit" name="timkiem" value="Tìm kiếm">
@@ -112,7 +111,7 @@
                     </div>
                 </div>
                 <div class="cart">
-                    <a href="./cart.php"><i class='bx bxs-cart' style='color:#ffffff'>
+                    <a href="./controller_view.php?act=addtocart"><i class='bx bxs-cart' style='color:#ffffff'>
                             <div class="boxcart" id="boxcart">
                                 <!-- <span id="carticon" class="badge bg-danger rounded-pill"><?=$slsp?></span> -->
                             </div>
