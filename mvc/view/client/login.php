@@ -3,8 +3,12 @@
     session_start();
     $conn = new databse();
     $conns = $conn->database();
+    // if ($_GET['id']) {
+    //     echo("thànhcôn");        # code...
+    // }
     $err = [];
     if(isset($_POST['login'])){
+        
         $user_name = $_POST['username'];
         $Password = $_POST['password'];
         $sqllogin = "SELECT * FROM manage_user WHERE user_name = '$user_name'";
