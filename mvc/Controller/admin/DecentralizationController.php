@@ -108,6 +108,30 @@ class DecentralizationController{
         // return true;
         return !empty($matches);
     }
+    public function datatree($data,$id,$text='-')
+    {
+    //    var_dump($a);
+        $array = [];
+       foreach($data as $key => $value ){
+            if ($value['parent_id']==$id) {
+                echo $text='|'.$value['name'];
+                // die;
+                // echo  "<option value='" .$value['id']. "'>".$text.$value['name']."</option >";
+                // die;
+                // if ( !empty($prend_id) && $prend_id == $value['id']) {
+                //     $this->recusion .= "<option selected value='" .$value['id']. "'>".$text.$value['name']."</option >";   
+                // }else{
+                //     if (!($this->id_dm == $value['id'])) {
+                //         $this->recusion .= "<option value='" .$value['id']. "'>".$text.$value['name']."</option >";   
+                //     }
+                //     // $this->recusion .= "<option value='" .$value['id']. "'>".$text.$value['name']."</option >";
+                // }
+                $this->datatree($data,$value['id'],$text.'-');
+            }
+         }
+        // die;
+       return;
+    }
     public function Edit()
     {
         $data = new databse();
@@ -125,6 +149,7 @@ class DecentralizationController{
         $stmt2->execute();
         $result2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         $checked = [];
+    //    $this->datatree($result1,0);
         foreach ($result2 as $key => $value) {
             // var_dump($value['privilege_id']);
             $checked[] = $value['privilege_id'];
@@ -134,9 +159,6 @@ class DecentralizationController{
     public function save_Decentralization()
     {
         extract($_POST);
-        //  var_dump($decentralization);
-        // var_dump($decentralization);
-        // die;
         $data = new databse();
         $conn = $data->database();
         $sql = "DELETE FROM user_privilege WHERE user_id = 8";
@@ -148,10 +170,6 @@ class DecentralizationController{
             $stmt->execute();
         }
         header('location:list_decentralization');
-        // $stmt = $conn->prepare($sql);
-        // $stmt->execute();
-        // var_dump($decentralization);
-        // echo 'ok';
         
     }
     // public function contans()

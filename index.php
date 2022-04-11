@@ -5,11 +5,20 @@
         require_once('commons/helpers.php');
 
         switch ($url) {
-            case 'Dashboard':
+            case '/':
                 $ctr = new HomeController();
                 $ctr->index();
                 break;
+            case 'login':
+                $ctr = new HomeController();
+                $ctr->login();
+                break;
+            //admin
             // phần quản lý tài khoản
+            case 'Dashboard':
+                $ctr = new DashboardController();
+                $ctr->index();
+                break;
             case 'list_user':
                 $ctr = new CustomController();
                 $ctr->index();
@@ -267,6 +276,10 @@
             case 'delete_feed':
                 $ctr = new CommentController();
                 $ctr->delete_feed();
+                break;
+            //
+            case 'value':
+                # code...
                 break;
             default:
             break;

@@ -1,3 +1,20 @@
+<?php
+    require_once('./../../Model/database.php');     
+    $conn = new databse();
+    $conns = $conn->database();
+    // if(isset($_GET['id'])){
+    //     $id = $_GET['id'];
+    // }else{
+    //     $id = '';
+    // }
+    $sql_chitiet = "SELECT * FROM prodcts_sale where id = 49";
+    $stmt = $conns->prepare($sql_chitiet);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    // var_dump($result);
+    // die;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,21 +96,22 @@
         </div>
 
     </div>
+    
     <div class="content">
         <div class="container">
             <div class="container-product_details">
                 <div class="img-product_details">
-                    <img src="./img/5.jpg" alt="">
+                    <img src="./img/<?php echo($result['image']);?>" alt="">
                 </div>
                 <div class="infor-product_details">
                     <div class="name-product_details">
-                        <h2>Nước ép</h2>
+                        <h2><?php echo($result['products_name']);?></h2>
                     </div>
                     <div class="status-product_details">
                         <p>Tình trạng:<span>Còn hàng</span></p>
                     </div>
                     <div class="price-product_details">
-                        <span>60.000Đ</span>
+                        <span><?php  echo number_format(($result['price'])).' vnđ';?></span>
                     </div>
                     <div class="quantity-product_details">
                         <form action="#">
@@ -111,17 +129,20 @@
                         </form>
                     </div>
                     <div class="description-product_details">
-                        <p>Nước ép là 1 cách dễ dàng để giúp cơ thể hấp thụ rất nhiều dưỡng chất, mà không cần phải ăn
-                            các loại trái cây và rau xanh. Nhiều người đều thừa nhận đây là 1 công cụ giúp giảm cân cực
-                            kỳ hữu hiệu. Xu hướng ăn kiêng với nước ép trái cây đã dần trở nên phổ biến trong suốt nhiều
-                            năm qua, nhưng hiệu quả mà nó mang lại vẫn còn chưa rõ ràng cho lắm.</p>
+                        <p><?php echo($result['content']);?></p>
                     </div>
                 </div>
+            </div>
+            <div class="comment">
+                <form action="#">
+                    <input type="text" placeholder="Viết bình luận">
+                    <input type="submit" value="Gửi">
+                </form>
             </div>
         </div>
 
     </div>
-    <div class="footer">
+    <div class="footer-product_details">
         <div class="container">
             <div class="logo">
                 <a href="./index.html"><img src="./img/logo.png" alt=""></a>
