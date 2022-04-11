@@ -60,6 +60,11 @@
                     <input type="date" name="finish" class="form-control" value="<?= $result['finish'] ?>">
                   </div>
 
+                  <div class="form-group">
+                    <label for="status">Dừng trương trình</label> <br>
+                    <a href="change_discount?id=<?= $result['id'] ?>"><button name="status" class=" btn btn-danger" value="Trương trình đã dừng lại" onClick="return confirm('Bạn thực sự muốn dừng trường trình này')">Dừng trương trình</button></a>
+                  </div>
+
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
