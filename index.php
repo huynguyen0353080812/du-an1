@@ -9,6 +9,10 @@
                 $ctr = new HomeController();
                 $ctr->index();
                 break;
+            case 'login':
+                $ctr = new HomeController();
+                $ctr->login();
+                break;
             //admin
             // phần quản lý tài khoản
             case 'Dashboard':
