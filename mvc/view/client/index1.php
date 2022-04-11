@@ -1,13 +1,4 @@
-<?php
-    require_once('./../../Model/database.php');  
-    session_start();   
-    $conn = new databse();
-    $conns = $conn->database();
-    // var_dump($_SESSION['user']['user_name']);
-    // die;
-    $user = (isset($_SESSION['user'])) ? $_SESSION['user'] : [];
-?>
-
+<?php require_once('commons/helpers.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,14 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body onscroll="myfunction()">
     <div class="header">
         <div class="header-img">
-            <img src="./img/1.jpg" alt="">
+            <img src="<?=PUBLIC_URL?>/img/blog3.webp" alt="">
         </div>
         <div class="nav">
             <div class="logo">
@@ -111,20 +103,20 @@
         <div class="top-content">
             <div class="container">
                 <div class="top-content-item">
-                    <a href="#"><img class="new-img" src="./img/2.jpg" alt="">
+                    <a href="#"><img class="new-img" src="<?=PUBLIC_URL?>/img/2.jpg" alt="">
                         <span>Coffee hương vị mới</span>
                         <input type="button" value="Tìm hiểu">
                     </a>
                 </div>
                 <div class="top-content-item1">
                     <div class="top-content-item">
-                        <a href="#"><img class="new-img1" src="./img/2.jpg" alt="">
+                        <a href="#"><img class="new-img1" src="<?=PUBLIC_URL?>/img/2.jpg" alt="">
                             <span>Coffee hương vị mới</span>
                             <input type="button" value="Tìm hiểu">
                         </a>
                     </div>
                     <div class="top-content-item">
-                        <a href="#"><img class="new-img1" src="./img/2.jpg" alt="">
+                        <a href="#"><img class="new-img1" src="<?=PUBLIC_URL?>/img/2.jpg" alt="">
                             <span>Coffee hương vị mới</span>
                             <input type="button" value="Tìm hiểu">
                         </a>
@@ -141,7 +133,7 @@
                     <div class="mid-content-item">
                         <div class="infor">
                             <div class="img">
-                                <img src="./img/4.jpg" alt="">
+                                <img src="<?=PUBLIC_URL?>/img/4.jpg" alt="">
                             </div>
                             <div class="text">
                                 <div class="name">

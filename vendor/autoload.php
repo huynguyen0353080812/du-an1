@@ -11,5 +11,5 @@
     require_once('mvc/Controller/admin/DecentralizationController.php');
     require_once('mvc/Controller/admin/NewsController.php');
     require_once('mvc/Controller/admin/NguyenLieuController.php');
-    // require_once('mvc/Controller/CartController.php');
+    require_once('mvc/Controller/CartController.php');
     require_once('mvc/Model/Base.php');

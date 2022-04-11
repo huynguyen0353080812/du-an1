@@ -1,0 +1,330 @@
+*{
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: arial;
+}
+.header{
+    position: fixed;
+    top: 0px !important;
+    width: 100%;
+    left: 0px;
+    z-index: 999;
+    transition: all 0.3s ease 0s;
+    height: 110px;
+    /* background: #422b1d; */
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.show{
+    transition: 1s ease-in-out;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+}
+.category{
+    position: absolute;
+    top: 120px;
+    width: 85%;
+    left: 120px;
+    height: 90px;
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.block_category{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.block_category span{
+    color: #e4b95b;
+    padding-left: 15px;
+}
+.image_banner{
+    width: 100%;
+    height: 640px;
+}
+.image_logo{
+    width: 100px;
+}
+i{
+    color: wheat;
+}
+.nav{
+    position: relative;
+    right: 0%;
+}
+.nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav ul li{
+    display: block;
+    padding: 20px;
+}
+.nav ul li a{
+    color: #fff;
+    text-decoration: none
+}
+.buy{
+    width: 230px;
+    display: flex;
+    justify-content: center;
+}
+.buy .search, .cart{
+    width: 50px;
+    border-right:1px solid wheat ;
+}
+/*  */
+section{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.block1{
+    position: relative;
+    width: 44%;
+    height: 400px;
+    background: rebeccapurple;
+    margin-right: 20px;
+}
+.block2{
+    position: relative;
+    right: 20px;
+    width: 30%;
+    height: 400px;
+    /* background: red; */
+    margin-left: 20px;
+}
+.smallblock1{
+    height: 48%;
+    width: 100%;
+    background: red;
+}
+.smallblock2{
+    /* top: 5px; */
+    margin-top: 15px;
+    height: 48%;
+    width: 100%;
+    background: red;
+}
+/*  */
+article{
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    height: 700px;
+    background: rebeccapurple;
+}
+article .content{
+    position: fixed;
+    position: relative;
+    width: 80%;
+    height: 100%;
+    /* background: red; */
+    z-index: 20;
+    display: grid;
+    grid-template-columns: repeat(2,2fr);
+    justify-content: center;
+    align-items: center;
+    grid-gap: 50px;
+}
+.image_content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.image_products{
+    width: 100px;
+    height: 100px;
+}
+.products{
+    display: flex;
+}
+.detail_price{
+    margin-left: 20px;
+}
+.detail_price .price{
+    position: relative;
+    border-bottom: 1px dashed rgb(255, 255, 255);
+    width: 100%;
+    height: 39px;
+    display: flex;
+    color: #fff;
+    justify-content: space-around;
+    align-items: center;
+}
+.infomation_pro{
+    margin-top: 10px;
+}
+.infomation_pro p{
+    color: #fff;
+}
+.module_banner1{
+    width: 100%;
+    height: 100%;
+}
+/*  */
+aside{
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    height: 484px;
+    /* background: rebeccapurple */
+}
+aside .container{
+    position: fixed;
+    position: relative;
+    width: 60%;
+    height: 100%;
+    /* background: red; */
+    z-index: 20;
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 50px;
+}
+.container .small_box{
+    display: flex;
+    
+}
+.container .small_box .products_detail{
+    margin-left: 10px;
+    /* padding: 0px 0px; */
+    /* padding-left:10px ; */
+
+}
+.container .small_box .products_detail .name_products{
+    /* padding: 0px 0px; */
+    /* padding-left:10px ; */
+    text-align: center;
+}
+.container .small_box .products_detail .image{
+    border: 1px solid #f1f1f1;
+}
+.container .small_box .products_detail .image .image_products1{
+    width: 270px;
+}
+/*  */
+.news{
+    position: relative;
+    margin-top: 30px;
+    width: 80%;
+    height: 500px;;
+    /* background: rgb(233, 233, 233) */
+}
+.news .container{
+    position: fixed;
+    position: relative;
+    width: 90%;
+    height: 100%;
+    /* background: red; */
+    z-index: 20;
+    grid-template-columns: 1.5fr 1fr;
+    grid-gap: -100px;
+    justify-content: center;
+    align-items: center;
+    grid-gap: -10px;
+    display: grid;
+}
+.news .container .small_box{
+    height: 80%;
+    width: 100%;
+    background: #7a5c3d;
+    border-radius: 10px;
+    
+}
+/* .news .container .small_box {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+} */
+.news .container .small_box .title{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.news .container .small_box:nth-child(2){
+    height: 60%;
+    width: 100%;
+    background: rebeccapurple;
+
+    border-radius: 10px;
+}
+/*  */
+.news1{
+    /* position: relative; */
+    margin-top: 30px;
+    width: 100%;
+    height: 460px;;
+    background: #eae7de;
+}
+.news1 .small_box{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+}
+.news1 .small_box .content{
+    width: 100%;
+    /* background: red; */
+    /* height:100%; */
+    display: flex;
+}
+.news1 .small_box .content .box{
+    border-radius: 10px;
+    margin-top: 50px;
+    width: 100%;
+    height: 250px;
+    background: rgb(255, 255, 255);
+    /* margin: 0px 20px; */
+}
+.news1 .small_box .content .box .image image{
+    /* margin: 0px 20px; */
+        object-fit: cover;
+    /* object-fit: cover; */
+}
+.news1 .small_box .content .box:nth-child(2){
+    
+    margin: 50px 20px;
+}
+/*  */
+.feddback{
+    position: relative;
+    /* margin-top: 30px; */
+    /* position: relative; */
+    width: 100%;
+    height: 300px;;
+    background: #eae7de;
+    display: flex;
+    justify-content: center;
+}
+.feddback .content{
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    background: red;
+    z-index: 10;
+    top: 0%;
+    /* top: 100px; */
+}
+/* .feddback .title{
+    position: absolute;
+    width: 80%;
+    background: red;
+    height: 10px;
+    z-index: 10;
+} */
+.module_banner2{
+    width: 100%;
+    height: 100%;
+}
