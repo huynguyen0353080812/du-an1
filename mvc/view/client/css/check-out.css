@@ -32,14 +32,3 @@ a{
     color: red;
     font-size: 90%;
 }
-input[type="submit"] {
-    font-size: 110%;
-    font-weight: 100;
-    background: #006dcc;
-    color: #fff;
-    margin-top: 10px;
-    cursor: pointer;
-}
-input[type="submit"]:hover {
-    background: #0165b6;
-}

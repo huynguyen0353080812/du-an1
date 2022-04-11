@@ -121,3 +121,9 @@
     text-transform: uppercase;
     padding-left:10px;
 }
+.boxtitle p{
+    font-size: 20px;
+}
+.center{
+    text-align: center;
+}

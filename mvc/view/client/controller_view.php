@@ -20,6 +20,19 @@
                 // }else{
                 //     include "../../view/client/product.php";
                 // }
+                if(isset($_POST['kyw'])&&($_POST['kyw'])!=""){
+                    $kyw=$_POST['kyw'];
+                }else{
+                    $kyw="";
+                }
+                if(isset($_GET['iddm'])&&($_GET['iddm']>0)){
+                    $iddm=$_GET['iddm'];
+                    
+                }else{
+                    $iddm=0;
+                }
+                $dssp=loadall_sanpham($kyw,$iddm);
+                $tendm=load_ten_dm($iddm);
                 include "product.php";
                 break;
             case 'cart':
@@ -47,8 +60,35 @@
                 include "cart.php";
                 // header('location: controller_view.php?act=cart');
                 break;
+            case 'order':
+                if(isset($_POST['dongydathang'])&&($_POST['dongydathang'])){
+                    $name=$_POST['name'];
+                    $email=$_POST['email'];
+                    $phone=$_POST['phone'];
+                    $address=$_POST['address'];
+                    $quantity=quantity();
+                    $note=$_POST['note'];
+                    $created_time=date('Y/m/d');
+                    $status="115/x";
+                    //h:i:sa 
+                    $total=tongdonhang();
+
+                    $idorder=insert_order("",$name,$phone,$address,$status,$note,$total,$quantity,$created_time);
+                
+                    foreach ($_SESSION['mycart'] as $cart) {
+                        insert_order_detail($idorder,$cart[0],$cart[3],$cart[4]);
+                    }
+                    $_SESSION['mycart']=[];
+                }
+                $order=loadone_order($idorder);
+                $orderct=loadone_order_detail($idorder);
+                include "check-out-confirm.php";
+                break;
+            case 'checkout':
+                include "check-out.php";
+                break;
             default:
-                include "product.php";
+                include "cart.php";
                 break;
         }
     }else{

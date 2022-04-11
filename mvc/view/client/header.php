@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/product.css">
     <link rel="stylesheet" href="./css/cart.css">
+    <link rel="stylesheet" href="./css/check-out.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="./js/thuvien.js"></script>
@@ -52,9 +53,9 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="./index.html">Trang chủ</a></li>
+                    <li><a href="./index.php">Trang chủ</a></li>
                     <li><a href="#">Giới thiệu</a></li>
-                    <li class="menu_link"><a href="#">Sản phẩm &#8744;</a>
+                    <li class="menu_link"><a href="./controller_view.php">Sản phẩm &#8744;</a>i
                         <ul class="menu_dow">
                             <table>
                                 <tr>
@@ -97,7 +98,10 @@
             </div>
             <div class="acount">
                 <div class="search">
-                    <input type="text" placeholder="Search">
+                    <form action="controller_view.php?act=product" method="post">
+                        <input type="text" name="kyw" placeholder="Tìm kiếm">
+                        <input type="submit" name="timkiem" value="Tìm kiếm">
+                    </form>
                 </div>
                 <div class="user">
                     <i class='bx bxs-user' style='color:#fff9f9'></i>
@@ -107,7 +111,7 @@
                     </div>
                 </div>
                 <div class="cart">
-                    <a href="controller_view.php"><i class='bx bxs-cart' style='color:#ffffff'>
+                    <a href="./controller_view.php?act=addtocart"><i class='bx bxs-cart' style='color:#ffffff'>
                             <div class="boxcart" id="boxcart">
                                 <!-- <span id="carticon" class="badge bg-danger rounded-pill"><?=$slsp?></span> -->
                             </div>
