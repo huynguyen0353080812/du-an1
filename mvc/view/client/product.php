@@ -77,7 +77,7 @@
                                             <img src="' . $hinh . '" alt="">
                                         </div>
                                         <div class="product-name">
-                                            <a href="#">' . $products_name . '</a>
+                                            <a href="">' . $products_name . '</a>
                                         </div>
                                         <form action="controller_view.php?act=addtocart" method="post">
                                             <input type="number" name="soluong" min="1" max="10" value="1">

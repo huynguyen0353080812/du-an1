@@ -454,8 +454,22 @@ form .form-control{
     float: left;
     color: rgb(92, 90, 90);
 }
+.comment{
+    text-align: center;
+    width: 60%;
+}
+.comment input[type='text']{
+    width: 80%;
+    padding: 10px 5px;
+    font-size: 14px;
+    outline: none;
+}
+.comment input[type='submit']{
+    width: 15%;
+    padding: 10px 0;
+}
 .footer-product_details{
-    margin-top: 30px;
+    margin-top: 20px;
     background-image: linear-gradient(to right, #b1932f, #bda107);
 }
 

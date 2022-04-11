@@ -133,6 +133,12 @@
                     </div>
                 </div>
             </div>
+            <div class="comment">
+                <form action="#">
+                    <input type="text" placeholder="Viết bình luận">
+                    <input type="submit" value="Gửi">
+                </form>
+            </div>
         </div>
 
     </div>
