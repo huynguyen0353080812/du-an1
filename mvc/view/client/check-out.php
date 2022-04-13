@@ -1,4 +1,4 @@
-    <div class="container">
+    <div class="container-cart">
         <main class="main">
             <!-- <header class="main_header">
                 <div class="logo_left">
@@ -69,7 +69,7 @@
                         </div>
                         
                         <br>
-                        <input type="submit" name="dongydathang" class="btn btn-primary float-end" value="Đặt hàng">
+                        <input type="submit" name="dongydathang" class="btn btn-warning" value="Đặt hàng">
                     </form>
                 </div>
                 <div class="col-6">
@@ -78,7 +78,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="radio" value="" id="flexCheckChecked" checked="checked">
                             <label class="form-check-label" for="flexCheckChecked">
-                                Giao hàng tận nơi là 40.000₫
+                                Giao hàng tận nơi
                             </label>
                         </div>
                     </div>
@@ -97,9 +97,6 @@
                     </div>
                 </div>
         </main>
-        <aside class="sidebars">
-            
-        </aside>
         <div class="row">
             <div class="col-8">
                 <table class="table">

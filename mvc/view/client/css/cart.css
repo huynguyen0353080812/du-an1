@@ -1,5 +1,5 @@
 .container-cart{
-    margin-top: 50px;
+    margin-top: 108px;
     margin-bottom: 50px;
     position:relative !important;
     -webkit-font-smoothing: antialiased;
@@ -8,9 +8,6 @@
 .boxcenter {
     width: 50%;
     margin: 0 auto;
-}
-.logo img{
-    width: 131% !important;;
 }
 td img {
     height: 100px;
