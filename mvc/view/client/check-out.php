@@ -78,7 +78,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="radio" value="" id="flexCheckChecked" checked="checked">
                             <label class="form-check-label" for="flexCheckChecked">
-                                Giao hàng tận nơi là 40.000₫
+                                Giao hàng tận nơi
                             </label>
                         </div>
                     </div>
