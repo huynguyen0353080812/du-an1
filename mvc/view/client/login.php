@@ -3,15 +3,13 @@
         <div class="container">
             <div class="login">
                 <h1>Đăng nhập</h1>
-                <form action="" method="post">
+                <form action="login" method="POST">
                     <div class="form-control">
                         <input type="text" placeholder="Username" name="username">
-                        <span></span>
                         <small><?php echo(isset($err['username']))?$err['username']:''?></small>
                     </div>
                     <div class="form-control">
                         <input type="password" placeholder="Password" name="password">
-                        <span></span>
                         <small><?php echo(isset($err['password']))?$err['password']:''?></small>
                     </div>
                     <input type="submit" value="Login" name="login">

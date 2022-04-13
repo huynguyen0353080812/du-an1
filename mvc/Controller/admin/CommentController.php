@@ -42,6 +42,17 @@
         }
         public function SendMail()
         {
+            // echo $_GET['tieude'];
+            echo $a=
+            "<table>
+            <tr>
+                <th>huynugyen</th>
+            </tr>
+            <tr>
+                <td>huynugyen</td>
+            </tr>
+        </table>";
+            // die;
             if (isset($_GET['sendto'])) {
                 $email = $_GET['sendto'];
                 include 'public/Email/library.php'; // include the library file
@@ -66,7 +77,8 @@
 //                    $mail->addBCC('BCCemail@gmail.com');
                     $mail->isHTML(true);                                  // Set email format to HTML
                     $mail->Subject = $_GET['tieude'];
-                    $mail->Body = $_GET['content'];
+
+                    $mail->Body = $a;
                     $mail->AltBody = 'cảm ỏn'; //None HTML
                     $result = $mail->send();
                     if (!$result) {

@@ -9,9 +9,13 @@
                 $ctr = new HomeController();
                 $ctr->index();
                 break;
-            case 'login':
+            case 'page_login':
                 $ctr = new HomeController();
                 $ctr->login();
+                break;
+            case 'login':
+                $ctr = new HomeController();
+                $ctr->savelogin();
                 break;
             //admin
             // phần quản lý tài khoản

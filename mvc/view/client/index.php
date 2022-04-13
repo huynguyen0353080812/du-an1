@@ -156,7 +156,7 @@
                         <div class="option">
                             <div class="xx"></div>
                             <ul>
-                                <li><a href="login">Đăng Nhập</a></li>
+                                <li><a href="page_login">Đăng Nhập</a></li>
                                 <li><a href="">Đăng Xuất</a></li>
                             </ul>
                         </div>

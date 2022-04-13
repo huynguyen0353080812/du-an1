@@ -96,7 +96,7 @@
                     <?php if ($arr[1]== 'z'): ?>
                     <input type="radio" class="checked" name="age" data-id="<?= $value['id'] ?>/z" value="60" checked>
                     <?php else:?>
-                    <input type="radio" class="checked" name="age" data-id="<?= $value['id'] ?>/z" value="60">
+                    <input type="radio" class="checked" name="age" data-id="<?= $value['id'] ?>/z" data-status="<?= 's'?>"value="60">
                     <?php endif; ?>
                   </div>
                 </div>
@@ -135,12 +135,14 @@
   $('.checked').each((index, data) => {
     data.addEventListener('click', () => {
       var id = $(data).data('id');
-      console.log(data);
+      var status = $(data).data('status')
+      console.log(status);
       $.ajax({
         url: "update_status",
         method: "GET",
         data: {
           id: id,
+
         },
         success: function (data) {
           location.reload();

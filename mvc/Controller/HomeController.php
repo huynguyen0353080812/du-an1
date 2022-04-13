@@ -99,8 +99,39 @@ class HomeController{
     //         echo "Lỗi: " . $e->getMessage();    
     //     }
     // }
-    // public function login()
-    // {
+    public function savelogin()
+    {
+        echo $username;
+        die;
+        if ($bnt) {
+            $products = new databse();
+            $rows = $products->database();
+            $sql = "SELECT * FROM `manage_user` WHERE user_name= '".$Email."'";
+            $stmt = $rows->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($result) {
+               if (password_verify($Password,$result['password'])) {
+                   if ($result['status'] == 'on') {
+                        $time = time()+10;
+                        $sql1 = "UPDATE `manage_user` SET last_login = $time WHERE id = '".$result['id']."'";
+                        $stmt1 = $rows->prepare($sql1);
+                        $stmt1->execute();
+                        $_SESSION['user_name'] = $result;
+                        $info = $_SESSION['user_name'];
+                        return $this->index('',$info);
+                   }else {
+                    return $this->index($erros = 'Tài Khoản Chưa Kích Hoạt!');
+                   }
+               }else {
+                    return $this->index($erros = 'Password Không Tồn Tại!');
+               }
+            }else{
+                return $this->index($erros = 'Email không Tồn Tại!');
+            }
+        }
+    }
+    // public function login(){
     //     extract($_POST);
     //     if ($bnt) {
     //         $products = new databse();
