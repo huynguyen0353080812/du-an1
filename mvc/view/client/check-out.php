@@ -46,6 +46,16 @@
                         </div>
                         <br>
                         <div class="row">
+                            <div class="col-7">
+                                <input class="form-control ml-10" placeholder="Mã giảm giá" type="text">
+                                
+                            </div>
+                            <div class="col-4">
+                            <input type="button" class="btn btn-primary " value="Sử dụng">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
                             <div class="col-11">
                                 <input class="form-control" type="text" name="address" placeholder="Địa chỉ (tùy chọn)">
                                 <div class="error" id="addressErr"></div>
@@ -57,9 +67,12 @@
                                 <input class="form-control" name="note" type="text" placeholder="Ghi chú (tùy chọn)">
                             </div>
                         </div>
-                        
                         <br>
-                        <input type="submit" name="dongydathang" class="btn btn-primary float-end" value="Đặt hàng">
+                        
+                        <input type="submit" name="dongydathang" class="btn btn-warning flex_button" value="Đặt hàng">
+                    </form>
+                    <form action="">
+                        
                     </form>
                 </div>
                 <div class="col-6">
@@ -68,7 +81,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="radio" value="" id="flexCheckChecked" checked="checked">
                             <label class="form-check-label" for="flexCheckChecked">
-                                Giao hàng tận nơi là 40.000₫
+                                Giao hàng tận nơi
                             </label>
                         </div>
                     </div>

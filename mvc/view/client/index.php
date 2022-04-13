@@ -25,7 +25,7 @@
                         <li><a href="">Trang Chủ</a></li>
                         <li><a href="">Giới Thiệu</a></li>
                         <li>
-                            <a href="">Sản Phẩm</a>
+                            <a href="mvc/view/client/controller_view.php">Sản Phẩm</a>
                             <div class="categores">
                                 <div class="boxx"></div>
                                 <ul class="level0">
@@ -149,7 +149,8 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div class="cart">
-                        <i class="fa-solid fa-cart-shopping"></i>
+                        <a href="mvc/view/client/controller_view.php?act=addtocart"><i class="fa-solid fa-cart-shopping"></i></a>
+                        
                     </div>
                     <div class="user">
                         <i class="fa-solid fa-user"></i>
@@ -338,26 +339,39 @@
                 <div class="small_box">
                     <div class="swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="products_detail">
-                                    <div class="box1">
-                                        <i class="fa-solid fa-cart-arrow-down"></i>
-                                    </div>
-                                    <div class="box2">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="image">
-                                        <img src="<?= PUBLIC_URL ?>img/product1-8e.webp" alt="" class="image_products1">
-                                    </div>
-                                    <div class="price_products">
-                                        <p>200000</p>
-                                    </div>
-                                    <div class="name_products">
-                                        <p>VIETNAMESE COFFEE</p>
-                                    </div>
-
-                                </div>
-                            </div>
+                            <!-- <?php
+                                foreach ($spnew as $sp) {
+                                    extract($sp);
+                                    $hinh = $img_path . $image;
+                                    echo'<div class="swiper-slide">      
+                                        <div class="products_detail">
+                                            <div class="box1">
+                                                <form action="controller_view.php?act=addtocart" method="post">
+                                                    <input type="hidden" name="id" value="'.$id.'">
+                                                    <input type="hidden" name="products_name" value="'.$products_name.'">
+                                                    <input type="hidden" name="image" value="'.$image.'">
+                                                    <input type="hidden" name="price" value="'.$price.'"> 
+                                                    <i name="addtocart" type ="submit" class="fa-solid fa-cart-arrow-down"></i>
+                                                </form>
+                                            </div>
+                                            <div class="box2">
+                                                <i class="fa-solid fa-heart"></i>
+                                            </div>
+                                            <div class="image">
+                                                <img src="' . $hinh . '" alt="" class="image_products1">
+                                            </div>
+                                            <div class="price_products">
+                                                <p><span>'.$price.'</span></p>
+                                            </div>
+                                            <div class="name_products">
+                                                <a href="">' . $products_name . '</a>
+                                            </div>
+        
+                                        </div>
+                                    </div>';
+                                }
+                            ?> -->
+                            
                             <div class="swiper-slide">
                                 <div class="products_detail">
                                     <div class="box1">
