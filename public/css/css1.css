@@ -414,7 +414,7 @@ aside .container .title-text h1{
     border-radius: 50%;
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
     right: 8%;
-    transform: translateX(185px);
+    transform: translateX(85px);
     /* overflow: hidden; */
     /* transition: 1s ease-out; */
     animation: address2 0.5s ease-out;
@@ -434,7 +434,7 @@ aside .container .title-text h1{
     border-radius: 50%;
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
     right: 8%;
-    transform: translateX(185px);
+    transform: translateX(85px);
     /* overflow: hidden; */
     /* transition: 1s ease-out; */
     animation: address4 1s ease-out;
