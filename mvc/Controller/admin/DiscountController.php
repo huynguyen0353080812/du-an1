@@ -12,11 +12,12 @@
             foreach ($result as $key => $value) {
                 $value['finish'];
                 $value['begin'];
-                    
-                if (strtotime($now) < strtotime($value['begin'])) {   
+                $value['status'];
+                if($value['status'] == "Trương trình đã dừng lại") {
+                   break;
+                } else if (strtotime($now) < strtotime($value['begin'])) {   
                     $status = "Chưa bắt đầu";   
                 } else {
-
                 if(strtotime($now) < strtotime($value['finish'])) {
                     $status = "Đang diễn ra";  
                 } else {                    
@@ -64,6 +65,13 @@
             $id = $_GET['id'];
             $customer = new Base();
             $result = $customer->delete('discount',$id);
+            header('location:list_discount');
+        }
+
+        public function changeStatus() {
+            $id = $_GET['id'];
+            $customer = new Base();
+            $result = $customer->update('discount',["status='$status'"],$id);
             header('location:list_discount');
         }
 

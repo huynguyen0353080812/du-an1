@@ -180,6 +180,9 @@
                 $ctr = new DiscountController();
                 $ctr -> remove();
                 break;    
+            case 'change_discount':
+                $ctr = new DiscountController();
+                $ctr -> changeStatus();    
                       
             // N E W S 
             case 'list_news':

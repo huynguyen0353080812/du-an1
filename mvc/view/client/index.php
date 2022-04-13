@@ -25,7 +25,7 @@
                         <li><a href="">Trang Chủ</a></li>
                         <li><a href="">Giới Thiệu</a></li>
                         <li>
-                            <a href="">Sản Phẩm</a>
+                            <a href="mvc/view/client/controller_view.php">Sản Phẩm</a>
                             <div class="categores">
                                 <div class="boxx"></div>
                                 <ul class="level0">
@@ -149,7 +149,7 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div class="cart">
-                        <i class="fa-solid fa-cart-shopping"></i>
+                        <a href="mvc/view/client/controller_view.php?act=addtocart"><i class="fa-solid fa-cart-shopping"></i></a>
                     </div>
                     <div class="user">
                         <i class="fa-solid fa-user"></i>

@@ -50,8 +50,13 @@
                   <div class="form-group">
     
                   <div class="form-group">
-                    <label for="image">Ảnh</label>
+                    <label for="image">Ảnh đại diện</label>
                     <input type="file" name="image" class="form-control" id="image">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="images[]">Ảnh phụ</label>
+                    <input type="file" name="images[]" class="form-control" id="images[]" multiple="multiple">
                   </div>
 
                   <div class="form-group">
@@ -63,6 +68,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Thêm mới</button>
+                  <a href="list_product"><button type="button" class="btn btn-danger">Quay lại</button></a>
                 </div>
               </form>
             </div>
@@ -81,39 +87,54 @@
   </div>
 
   <?php require_once('mvc/view/script.php'); ?>
-<script>
+  <script>
 $(function () {
   $.validator.setDefaults({
 
   });
   $('#quickForm').validate({
     rules: {
+      categories_id: {
+        min: 1
+      },
       products_name: {
         required: true
       },
-      image: {
-        require: true
-      }
       price: {
+        required: true,
+        min: 1
+      },
+      image: {
+        required: true
+      },
+      images: {
         required: true
       },
       content: {
         required: true
-      },
+      }
     },
     messages: {
+      categories_id: {
+        min: "Please enter data"
+      },
       products_name: {
         required: "Please enter data"
       },
-      image: {
-        required: "Please choese image"
-      },
       price: {
+        required: "Please enter data",
+        min: "Please more than 1"
+      },
+      image: {
         required: "Please enter data"
       },
-      content:{
-        require:"Please enter data"
-      } 
+      images: {
+        required: "Please enter data"
+      },
+      content: {
+        required: "Please enter data"
+      }
+    
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {

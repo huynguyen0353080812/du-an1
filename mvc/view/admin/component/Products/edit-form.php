@@ -49,18 +49,34 @@
                   <div class="form-group">
     
                   <div class="form-group">
-                    <label for="image">Ảnh</label> 
+                    <label for="image">Ảnh đại diện</label> 
                     <div class="row">
                     <div class="col-md-6">
-                    <img src="public/img/<?= $result['image'] ?>" width="600px" name = "image_cu">  
-                    </div>
+                     <img src="public/img/<?= $result['image'] ?>" width="660px" name="image_cu">  
+                      </div>
 
                     <div class="col-md-6">
-                    <input type="file" name="image" class="form-control" id="image" value="public/img/<?= $result['image'] ?>">  
-                    </div>
-                    </div>
+                     <input type="file" name="image" class="form-control" id="image" value="public/img/<?= $result['image'] ?>">  
+                    </div> 
+                  </div>  
+                </div>    
+                     <input type="hidden" name="anhcu" value="<?= $result['image'] ?>">
+
+                    <div class="form-group">
+                    <label for="images">Ảnh phụ</label> 
+                      <div class="row">
+                      <div class="col-md-6">
+                        <?php foreach ($library as $value):?>
+                        <img src="public/library_img/<?= $value['image_pro'] ?>" style="width: 330px;" name="image_library">  
+                        <?php endforeach; ?>
+                      </div>
+
+                      <div class="col-md-6">
+                      <input type="file" name="images[]" class="form-control" id="images[]" multiple="multiple" >   
+                      </div>
+                      </div>
                   </div>
-                      <input type="hidden" name="anhcu" value="<?= $result['image'] ?>">
+
                   <div class="form-group">
                     <label for="content">Nội dung</label>
                     <textarea name="content" id="content" cols="30" class="form-control" rows="6" value=""><?= $result['content'] ?></textarea>
@@ -70,6 +86,8 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Cập nhật</button>
+                  <a href="list_product"><button type="button" class="btn btn-danger">Quay lại</button></a>
+                  
                 </div>
               </form>
             </div>
@@ -88,35 +106,48 @@
   </div>
 
   <?php require_once('mvc/view/script.php'); ?>
-<script>
+  <script>
 $(function () {
   $.validator.setDefaults({
 
   });
   $('#quickForm').validate({
     rules: {
-      email: {
-        required: true,
-        email: true,
+      categories_id: {
+        min: 1
       },
-      password: {
-        required: true,
-        minlength: 5
-      },
-      terms: {
+      products_name: {
         required: true
       },
+      price: {
+        required: true,
+        min: 1
+      },
+      image_cu: {
+        required: true
+      },
+      content: {
+        required: true
+      }
     },
     messages: {
-      email: {
-        required: "Please enter a email address",
-        email: "Please enter a vaild email address"
+      categories_id: {
+        min: "Please enter data"
       },
-      password: {
-        required: "Please provide a password",
-        minlength: "Your password must be at least 5 characters long"
+      products_name: {
+        required: "Please enter data"
       },
-      terms: "Please accept our terms"
+      price: {
+        required: "Please enter data",
+        min: "Please more than 1"
+      },
+      image_cu: {
+        required: "Please enter data"
+      },
+      content: {
+        required: "Please enter data"
+      }
+    
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {

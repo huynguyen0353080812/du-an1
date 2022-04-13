@@ -40,7 +40,7 @@
                         <td>1.</td>
                         <td><?= $value['code'] ?></td>
                         <td><?= $value['name'] ?></td>
-                        <td><?= $value['discount_number'] ?></td>
+                        <td><?= $value['discount_number']?>%</td>
                         <td><?= $value['quantity'] ?></td>
                         <td><?= $value['begin'] ?></td>
                         <td><?= $value['finish'] ?></td>

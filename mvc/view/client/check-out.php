@@ -46,6 +46,16 @@
                         </div>
                         <br>
                         <div class="row">
+                            <div class="col-7">
+                                <input class="form-control ml-10" placeholder="Mã giảm giá" type="text">
+                                
+                            </div>
+                            <div class="col-4">
+                            <input type="button" class="btn btn-primary " value="Sử dụng">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
                             <div class="col-11">
                                 <input class="form-control" type="text" name="address" placeholder="Địa chỉ (tùy chọn)">
                                 <div class="error" id="addressErr"></div>
