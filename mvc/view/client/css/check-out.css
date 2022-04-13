@@ -32,3 +32,10 @@ a{
     color: red;
     font-size: 90%;
 }
+.flex_button{
+    display:flex;
+    margin-top: 100px !important;
+}
+.ml-10{
+    margin-left: 10px;
+}
