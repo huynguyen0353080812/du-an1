@@ -53,7 +53,7 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="./index.php">Trang chủ</a></li>
+                    <li><a href="../../../index.php">Trang chủ</a></li>
                     <li><a href="#">Giới thiệu</a></li>
                     <li class="menu_link"><a href="./controller_view.php">Sản phẩm &#8744;</a>i
                         <ul class="menu_dow">
