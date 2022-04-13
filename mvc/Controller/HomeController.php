@@ -17,8 +17,18 @@ class HomeController{
         require_once("mvc/view/client/index.php");
     }
     public function login()
-    {
+    { 
+        $products = new databse();
+        $rows = $products->database();
+        $sql = "SELECT * FROM `manage_user`";
+        $stmt = $rows->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
         require_once("mvc/view/client/login.php");
+    }
+    public function product_details(Type $var = null)
+    {
+        require_once("mvc/view/client/product_details.php");
     }
     // public function list_user()
     // {

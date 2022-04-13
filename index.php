@@ -3,7 +3,6 @@
         
         require_once('vendor/autoload.php');
         require_once('commons/helpers.php');
-
         switch ($url) {
             case '/':
                 $ctr = new HomeController();
@@ -12,6 +11,10 @@
             case 'login':
                 $ctr = new HomeController();
                 $ctr->login();
+                break;
+            case 'product_details':
+                $ctr = new HomeController();
+                $ctr->product_details();
                 break;
             //admin
             // phần quản lý tài khoản
