@@ -1,10 +1,11 @@
+<br>
 <footer>
             <div class="image">
-                <img src="<?= PUBLIC_URL ?>img/footer.webp" alt="" class="image_footer">
+                <img src="../../../public/img/footer.webp" alt="" class="image_footer">
             </div>
             <div class="content">
                 <div class="logo">
-                    <img src="<?= PUBLIC_URL ?>img/logo.png" alt="" class="image_logo">
+                    <img src="../../../public/img/logo.png" alt="" class="image_logo">
                 </div>
                 <div class="describe">
                     <div class="block">
@@ -55,7 +56,7 @@
         </footer>
     </div>
     <div class="back-to-top">
-        <button onclick="back_to_top()" id="back-to-top"><img src="<?= PUBLIC_URL ?>img/top.webp" alt="" class="ccc"></button>
+        <button onclick="back_to_top()" id="back-to-top"><img src="../../../public/img/top.webp" alt="" class="ccc"></button>
     </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
