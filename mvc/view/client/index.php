@@ -152,13 +152,54 @@
                         <a href="mvc/view/client/controller_view.php?act=addtocart"><i class="fa-solid fa-cart-shopping"></i></a>
                     </div>
                     <div class="user">
-                        <i class="fa-solid fa-user"></i>
-                        <div class="option">
-                            <div class="xx"></div>
-                            <ul>
-                                <li><a href="login">Đăng Nhập</a></li>
-                                <li><a href="">Đăng Xuất</a></li>
-                            </ul>
+                        <?php if (!isset($_SESSION['user_name'] )): ?>
+                            <i class="fa-solid fa-user"></i>
+                            <div class="option" style="margin-right:0px;margin-top: 5px;">
+                                <div class="xx"></div>
+                                <ul>
+                                    <li><a href="page_login">Đăng Nhập</a></li>
+                                    <li><a href="">Đăng Ký</a></li>
+                                </ul>
+                            </div>
+                        <?php else: ?>
+                        <!-- <style>
+                            .infomation_user{
+                                position: absolute;
+                                color:#fff;
+                                top:19%;
+                                right:5%;
+                            }
+                            .infomation_user .avatar{
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                                background:red;
+                            }
+                            .infomation_user .avatar .bbb{
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        </style> -->
+                            <div class="infomation_user">
+                                <div class="avatar">
+                                    <img src="<?= PUBLIC_URL ?>img/module_banner3.png" alt=""class ="bbb"> 
+                                </div>
+                                <p><?php echo $_SESSION['user_name']['user_name'] ?></p>
+                                <div class="option" style="margin-right:-20px;">
+                                <div class="xx"></div>
+                                <ul>
+                                    <li><a href="page_login">Thông Tin Tài</a></li>
+                                    <li><a href="">Thông Tin Đơn</a></li>
+                                    <li><a href="">Yêu Thích</a></li>
+                                    <?php if ($_SESSION['user_name']['role']==1 || $_SESSION['user_name']['role']==3): ?>
+                                        <li><a href="Dashboard">Quản Lý</a></li>
+                                    <?php endif; ?>
+                                    <li><a href="log_out">Đăng Xuất</a></li>
+                                </ul>
+                            </div> 
+                        <?php endif; ?>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ if (isset($order) && (is_array($order))) {
 }
 ?>
 <br>
-<div class="container text-center">
+<div class="container-product text-center">
     <div class="row ">
         <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
             <div class="card-header">ĐẶT HÀNG THÀNH CÔNG</div>

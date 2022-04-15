@@ -168,20 +168,18 @@
           id:id
         },
         success: function (data) {
-          location.reload();
-          // $('.modal-content').css("display", "none");
-          // alert(data);
-          // if (data == 'gửi thành công') {
-          //   Swal.fire({
-          //     position: '',
-          //     icon: 'success',
-          //     title: 'Your work has been saved',
-          //     showConfirmButton: false,
-          //     timer: 1500
-          //   }).then((result) => {
-          //       location.reload();
-          //   })
-          // }
+          $('.modal-content').css("display", "none");
+          if (data == 'gửi thành công') {
+            Swal.fire({
+              position: '',
+              icon: 'success',
+              title: 'Your work has been saved',
+              showConfirmButton: false,
+              timer: 1500
+            }).then((result) => {
+                location.reload();
+            })
+          }
         }
       });
     });

@@ -18,6 +18,7 @@
       </div>
       <!-- /.card-header -->
       <div class="card-body">
+        
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
@@ -41,7 +42,9 @@
               <td>
                 <?php   
                                     if ($value['role']==1) {
-                                        echo $vai_tro = 'quản trị viên';
+                                        echo $vai_tro = 'Nhân viên';
+                                    }elseif ($value['role']==3) {
+                                      echo $vai_tro = 'Quản trị viên';
                                     }else {
                                         echo $vai_tro = 'khách hàng';
                                     } 
@@ -61,10 +64,28 @@
             </tr>
             <?php endforeach; ?>
           </tbody>
+          <?php if ($current_page > 3):?>
+                    <a href="?per_page=<?php echo $item_perpage ?>&page=1"><i class="fas fa-angle-double-left"></i></a>
+                <?php endif; ?>
+                <div id="countpage">
+                    <?php for($i=1; $i <= $countotal; $i++):?>
+                        <?php if ($i != $current_page): ?>
+                            <?php if ($i > $current_page - 3 && $i < $current_page + 3) : ?>
+                                <!-- lấy ra số lượng bản thỏa mãn điều kiện trên -->
+                                <a class = "count" class="page-link" href="?per_page=<?php echo $item_perpage ?>&page=<?php echo $i ?>"><?php echo $i ?></a>
+                                <?php endif; ?>
+                        <?php else: ?>
+                            <strong><?php echo $i ?></strong>
+                        <?php endif; ?>
+                    <?php endfor; ?>
+                    <?php if ($current_page < $countotal - 3):?>
+                        <a href="?per_page=<?php echo $item_perpage ?>&page=<?php echo $countotal ?>"><i class="fas fa-angle-double-right"></i></a>
+                    <?php endif; ?>
         </table>
       </div>
       <!-- /.card-body -->
     </div>
+    
   </div>
 </div>
 <script src="<?= PUBLIC_URL ?>plugins/jquery/jquery.min.js"></script>

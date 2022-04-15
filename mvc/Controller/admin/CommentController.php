@@ -100,5 +100,6 @@
             $id = $_GET['id'];
             $customer = new Base();
             $result = $customer->delete('feedback',$id);
+            echo 'gửi thành công';
         }
     }

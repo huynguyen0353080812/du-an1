@@ -16,14 +16,23 @@ class HomeController{
         // die;
         require_once("mvc/view/client/index.php");
     }
-    public function login()
-    { 
-        $products = new databse();
-        $rows = $products->database();
-        $sql = "SELECT * FROM `manage_user`";
-        $stmt = $rows->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    public function login($erros = '')
+    {
+        // echo $erros;
+        // die;
+        // echo $erros;
+        // die;
+        // if (isset($erros)) {
+        //     $_SESSION['erro'] =$erros;
+        // }else if (condition) {
+        //     unset( $_SESSION['erro']);
+        //     require_once("mvc/view/client/login.php");
+        // // }
+        // if ($erros) {
+        //     unset( $_SESSION['erro']);
+        // }else{
+        //     $_SESSION['erro'] =$erros;
+        // }
         require_once("mvc/view/client/login.php");
     }
     public function product_details(Type $var = null)
@@ -46,7 +55,7 @@ class HomeController{
     //     // $this->category;
     //     $products = new databse();
     //     $rows = $products->database();
-    //     try {
+    //     try {        
     //         $sql = "SELECT orders.name,prodcts_sale.products_name,orders_detail.order_id,prodcts_sale.price FROM `orders_detail`JOIN prodcts_sale ON orders_detail.produrt_id = prodcts_sale.id JOIN orders ON orders_detail.order_id = orders.id HAVING orders_detail.order_id = 85;";
     //         $stmt = $rows->prepare($sql);
     //         $stmt->execute();
@@ -109,8 +118,32 @@ class HomeController{
     //         echo "Lỗi: " . $e->getMessage();    
     //     }
     // }
-    // public function login()
-    // {
+    public function savelogin()
+    {
+        extract($_POST);
+        // echo 'ok';
+        // die;
+        if ($bnt) {
+            $products = new databse();
+            $rows = $products->database();
+            $sql = "SELECT * FROM `manage_user` WHERE user_name= '".$username."'";
+            // var_dump($sql);
+            $stmt = $rows->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($result) {
+               if (password_verify($password,$result['password'])) {
+                         $_SESSION['user_name'] = $result;
+                         header('location:http://localhost:81/du-an1');
+               }else {
+                    return $this->login($erros = 'Password');
+               }
+            }else{
+                return $this->login($erros = 'Email');
+            }
+        }
+    }
+    // public function login(){
     //     extract($_POST);
     //     if ($bnt) {
     //         $products = new databse();
@@ -140,11 +173,11 @@ class HomeController{
     //         }
     //     }
     // }
-    // // public function delete()
-    // // {
-    // //     unset($_SESSION['user_name']);
-    // //     return header("Location:http://localhost:81/Duanmau/");
-    // // }
+    public function delete()
+    {
+        unset($_SESSION['user_name']);
+        return header("Location:http://localhost:81/du-an1/");
+    }
     // // public function search()
     // // {
     // //         $keyword = $_GET['keyword'];

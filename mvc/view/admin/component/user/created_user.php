@@ -1,4 +1,16 @@
 <?php require_once('mvc/view/admin/index.php'); ?>
+<style>
+                    .form__div .form-group{
+                      display: flex;
+                    }
+                    #vai_tro-error , #status-error{
+                      position: absolute;
+                      /* top: initial; */
+                      margin-top: 28px;
+                      margin-left: 5px;
+                    }
+              
+                  </style>
 <div class="content-wrapper">
     <div class="content-header">
       <div class="container-fluid">
@@ -21,46 +33,54 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action = "created_user" method="POST" enctype="multipart/form-data" id="quickForm" novalidate="novalidate">
+              <form id="quickForm" action = "created_user" method="POST" enctype="multipart/form-data" novalidate="novalidate">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">user_name</label>
-                    <input type="text" name="user_name" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" name="user_name" class="form-control" id="exampleInputEmail11" placeholder="Nhập Tên">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">number phone</label>
-                    <input type="text" name="number_phone" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="text" name="number_phone" class="form-control" id="exampleInputEmail111" placeholder="Nhập số điện thoại">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name="Email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" >
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" name="Email" class="form-control" id="exampleInputEmail1111" placeholder="Enter email" >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Avatar</label>
-                    <input type="file" name="image" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <input type="file" name="image" class="form-control" id="exampleInputPassword111111111111 " placeholder="Enter email">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" name="Password" class="form-control" id="exampleInputPassword1" placeholder="Password" >
                   </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">password_again</label>
+                    <input type="password" name="name11" class="form-control" id="exampleInputPassword111111111111" placeholder="Nhập Tên" >
+                  </div>
                   <div class="form__div">
                         <fieldset>
                             <legend>Vai Trò</legend>
-                            <label for="">khách hàng</label>
-                            <input type="radio" name="vai_tro" id="" value="0">
-                            <label for="">Quản trị viên</label>
-                            <input type="radio" name="vai_tro" id="" value = "1">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Khách Hàng</label>
+                                <input type="radio" name="vai_tro" class="form-control" id="exampleInputPassword1111111111" placeholder="status" style = "width:50px; height:15px;" value = "0">
+                                <label for="exampleInputPassword1">Nhân viên</label>
+                                <input type="radio" name="vai_tro" class="form-control" id="exampleInputPassword1111111111" placeholder="status" style = "width:50px; height:15px;" value = "1">
+                            </div>
                         </fieldset>
-                    </div>
-                    <div class="form__div">
+                  </div>
+                  <div class="form__div">
                         <fieldset>
-                            <legend>trạng thái</legend>
-                            <label for="">Kích Hoạt</label>
-                            <input type="radio" name="status" id="on">
-                            <label for="">khóa</label>
-                            <input type="radio" name="status" id="off">
+                            <legend>Trạng Thái</legend>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Kích Hoạt</label>
+                                <input type="radio" name="status" class="form-control" id="exampleInputPassword11111111111" placeholder="status" style = "width:50px; height:15px;" value = "on">
+                                <label for="exampleInputPassword1">Khóa Tài Khoản</label>
+                                <input type="radio" name="status" class="form-control" id="exampleInputPassword11111111111" placeholder="status" style = "width:50px; height:15px;" value = "off">
+                            </div>
                         </fieldset>
-                    </div>
+                        </div>
                   <div class="form-group mb-0">
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
@@ -99,26 +119,51 @@
 <!-- AdminLTE for demo purposes -->
 <script src="public/dist/js/demo.js"></script>
 <script>
-$(function () {
+$(function vali () {
   $.validator.setDefaults({
-
+    submitHandler: function () {
+      $.ajax({
+            url: "list_user",
+            method: "GET",
+            data: {
+              messeger: null,
+            },
+            success: function (data) {
+              location.assign("http://localhost:81/du-an1/list_user?messeger");
+            }
+          });
+    }
   });
   $('#quickForm').validate({
     rules: {
+      name11: {
+        required: true,
+        equalTo: "#exampleInputPassword1"
+      },
       user_name: {
-        required: true
+        required: true,
       },
       number_phone: {
         required: true,
-        minlength: 5,
+        minlength: 5
       },
-      email: {
+      Email: {
         required: true,
-        email: true,
+        email: true
       },
       Password: {
         required: true,
-        minlength: 5,
+        minlength: 5
+      },
+      vai_tro: {
+        required: true,
+      },
+      status: {
+        required: true,
+      },
+      image: {
+        required: true,
+        extension: "jpg|csv"
       },
       terms: {
         required: true,
@@ -126,20 +171,34 @@ $(function () {
     },
     messages: {
       user_name: {
-        required: "Please enter a name",
+        required: "làm ơn nhập trường tên!",
+      },
+      name11: {
+        required: "Không được để trống trường password",
+        equalTo: "Yêu cầu phải giống như Password trên"
       },
       number_phone: {
         required: "Please enter a number phone",
       },
-      email: {
-        required: "Please enter a email address",
+      Email: {
+        required: "không được để Trống Email",
         email: "Please enter a vaild email address"
       },
-      password: {
-        required: "Please provide a password",
-        minlength: "Your password must be at least 5 characters long"
+      Password: {
+          required: "Không được để trống trường password",
+          minlength: "Độ Dài phải trên 5"
       },
-      terms: "Please accept our terms"
+      vai_tro: {
+          required: "hãy chọn vai trò",
+      },
+      status: {
+          required: "trạng thái tài khoản",
+      },
+      image: {
+          required: "Hãy Chọn File",
+          extension: "định dạng là jpg hoặc PNG"
+      },
+      terms: "Xác Nhận Điều Này"
     },
     errorElement: 'span',
     errorPlacement: function (error, element) {

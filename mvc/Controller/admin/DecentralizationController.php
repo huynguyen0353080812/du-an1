@@ -2,32 +2,35 @@
  require_once('mvc/Model/database.php'); 
  require_once('mvc/Model/Base.php');
 class DecentralizationController{
+    private $recusion = '';
     public function __construct()
     {
+        $id = $_SESSION['user_name']['id'];
         $data = new databse();
         $conn = $data->database();
-        $sql = "SELECT * FROM `user_privilege` JOIN privilege ON user_privilege.privilege_id = privilege.id WHERE user_id = 8";
+        $sql = "SELECT * FROM `user_privilege` JOIN privilege ON user_privilege.privilege_id = privilege.id WHERE user_id = $id";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // echo "<pre>";
-        $total = [];
-        foreach ($result as $key => $value) {
-            $total ['privilege'][] = $value['url_match'];
-            // die;
-        }
-        $_SESSION['user_name'] = $total;
-        // echo "<pre>";
-        // var_dump($_SESSION['user_name']);
+        // var_dump($result);
         // die;
-        // var_dump($_SESSION['user_name']);
-        // include ('mvc/view/admin/component/Decentrali
+        $total = [];
+        if ($result) {
+            foreach ($result as $key => $value) {
+                $total ['privilege'][] = $value['url_match'];
+                // die;
+            }
+            $_SESSION['user_name1'] = $total;
+        }else{
+            header('location:http://localhost:81/du-an1');
+        }
     }
     public function index()
     {
         $data = new databse();
         $conn = $data->database();
-        $sql = "SELECT * FROM manage_user  WHERE role = 1";
+        $sql = "SELECT * FROM manage_user  WHERE role = 1 OR role = 3";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -37,7 +40,7 @@ class DecentralizationController{
     {
         $uri = $uri != false ? $uri : $_SERVER['REQUEST_URI'];
         // var_dump($uri);
-        $privilieges = $_SESSION['user_name']['privilege'];
+        $privilieges = $_SESSION['user_name1']['privilege'];
     
         // $privilieges = array(
         //     "Manage_user",
@@ -108,64 +111,122 @@ class DecentralizationController{
         // return true;
         return !empty($matches);
     }
-    public function datatree($data,$id,$text='-')
+    public function datatree($data,$id,$data2,$text='-')
     {
-    //    var_dump($a);
+    //    echo 'huynguyen';
+    //    die;
+    // var_dump($data2);
+        // echo $id_prvi;
+        // die;
         $array = [];
+        $a = 'không tồn tại';
+        $b = 'tồn tại';
        foreach($data as $key => $value ){
-            if ($value['parent_id']==$id) {
-                echo $text='|'.$value['name'];
-                // die;
-                // echo  "<option value='" .$value['id']. "'>".$text.$value['name']."</option >";
-                // die;
-                // if ( !empty($prend_id) && $prend_id == $value['id']) {
-                //     $this->recusion .= "<option selected value='" .$value['id']. "'>".$text.$value['name']."</option >";   
-                // }else{
-                //     if (!($this->id_dm == $value['id'])) {
-                //         $this->recusion .= "<option value='" .$value['id']. "'>".$text.$value['name']."</option >";   
-                //     }
-                //     // $this->recusion .= "<option value='" .$value['id']. "'>".$text.$value['name']."</option >";
-                // }
-                $this->datatree($data,$value['id'],$text.'-');
-            }
+        // if ($value['group_id']==$id_prvi) {
+        //     echo $value['name']."</br>";
+        //                  if (!$value['parent_id']==0) {
+        //                     if (!in_array($value['parent_id'],$data2) || !in_array($value['id'],$data2)) {
+        //                         $this->recusion .= "<input type = 'checkbox' disabled  value='" .$value['id']. "'>".$text.$value['name'].$value['id'].">";
+        //                     }else {
+        //                         $this->recusion .= "<input type = 'checkbox' checked = '' value='" .$value['id']. "'>".$text.$value['name'].$value['id'].">";
+        //                     }
+        //                 }else {
+        //                     if (!in_array($value['id'],$data2)) {
+        //                         $this->recusion .= "<input type = 'checkbox' value='" .$value['id']. "'>".$text.$value['name'].$value['id'].">";
+        //                     }else {
+        //                         $this->recusion .= "<input type = 'checkbox' checked value='" .$value['id']. "'>".$text.$value['name'].$value['id']." >";
+        //                     }
+        //                 }
+        //  }
+         
+        // die; 
+            // if ($value['parent_id']==$id) {
+            //     // echo $text='|'.$value['name'];
+            //     // die;
+            //     // echo  "<option value='" .$value['id']. "'>".$text.$value['name']."</option >";
+            //     // die;
+                if ( !empty($prend_id) && $prend_id == $value['id']) {
+                    $this->recusion .= "<option selected value='" .$value['id']. "'>".$text.$value['name'].$a."</option >";   
+                }else{
+                    // echo "<pre>";
+                //    var_dump($value['name']);
+                    if (!$value['parent_id']==0) {
+                        if (!in_array($value['parent_id'],$data2) || !in_array($value['id'],$data2)) {
+                            $this->recusion .= "<input type = 'checkbox' disabled  value='" .$value['id']. "'>".$text.$value['name'].$value['id'].$a.">";
+                        }else {
+                            $this->recusion .= "<input type = 'checkbox' checked = '' value='" .$value['id']. "'>".$text.$value['name'].$value['id'].$b.">";
+                        }
+                    }else {
+                        if (!in_array($value['id'],$data2)) {
+                            $this->recusion .= "<input type = 'checkbox' value='" .$value['id']. "'>".$text.$value['name'].$value['id'].$a.">";
+                        }else {
+                            $this->recusion .= "<input type = 'checkbox' checked value='" .$value['id']. "'>".$text.$value['name'].$value['id'].$b." >";
+                        }
+                    }
+            //         // if (!($this->id_dm == $value['id'])) {
+            //         //     $this->recusion .= "<option value='" .$value['id']. "'>".$text.$value['name']."</option >";   
+            //         // }
+                    
+            //     //   $this->recusion .= "<option value='" .$value['id']. "'>".$text.$value['name'].$value['id']."</option >";
+            //     //   var_dump($data2);
+                }
+                $this->datatree($data,$value['id'],$data2,$text.'-');
+            // }
          }
         // die;
-       return;
+       return $this->recusion;
     }
     public function Edit()
     {
+        $id = $_GET['id'];
         $data = new databse();
         $conn = $data->database();
         $sql = "SELECT * FROM privilege_group";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $sql = "SELECT * FROM privilege";
+        $sql = "SELECT * FROM privilege ";
         $stmt1 = $conn->prepare($sql);
         $stmt1->execute();
         $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
-        $sql = "SELECT * FROM user_privilege";
+        $sql = "SELECT * FROM user_privilege WHERE user_id = $id";
         $stmt2 = $conn->prepare($sql);
         $stmt2->execute();
         $result2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         $checked = [];
-    //    $this->datatree($result1,0);
         foreach ($result2 as $key => $value) {
             // var_dump($value['privilege_id']);
             $checked[] = $value['privilege_id'];
         }
+        // echo $this->datatree($result1,0,$checked);
+        // die;
+        // foreach ($result as $key => $value) {
+        //     // var_dump($value);
+        //     // die;
+        //     echo $value['name']."</br>";
+        //     echo $this->datatree($result1,0,$checked,$value['id']);
+        //     // die;
+        // }
+        // die;
+        // echo "<pre>";
+        // var_dump($checked);
+        // die;
         include ('mvc/view/admin/component/Decentralization/Edit_Decentralization.php');
     }
     public function save_Decentralization()
     {
         extract($_POST);
+        // echo $id;
+        // die;
+        // var_dump($decentralization);
+        // die;
         $data = new databse();
         $conn = $data->database();
-        $sql = "DELETE FROM user_privilege WHERE user_id = 8";
+        $sql = "DELETE FROM user_privilege WHERE user_id = $id";
         $stmt2 = $conn->prepare($sql);
         $stmt2->execute();
         foreach ($decentralization as $key => $value) {
-            $sql = "INSERT INTO `user_privilege` SET privilege_id='$value',user_id=8,created_time=1632970609,last_update=1632970609";
+            $sql = "INSERT INTO `user_privilege` SET privilege_id='$value',user_id=$id,created_time=1632970609,last_update=1632970609";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
         }

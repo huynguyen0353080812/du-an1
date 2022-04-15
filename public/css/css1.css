@@ -87,10 +87,7 @@ i{
     position: absolute;
     display: none;
     width: 100px;
-    height: 50px;
-    right: 6%;
-    margin-top: 7px;
-    /* margin-right: 130px; */
+    right: 5%;
     background: #fff;
     border-radius:5px ;
 }
@@ -117,6 +114,24 @@ i{
 }
 .buy .user:hover .option{
     display: block;
+}
+.infomation_user{
+    position: absolute;
+    color:#fff;
+    top:19%;
+    right:5%;
+}
+.infomation_user .avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background:red;
+}
+.infomation_user .avatar .bbb{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 /*  */
 section{

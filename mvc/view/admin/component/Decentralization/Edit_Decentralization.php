@@ -28,6 +28,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <form action="save_Decentralization" method="post">
+                <input type="hidden" name="id" value = "<?php echo $_GET['id'] ?>">
                   <!-- <div class="row"> -->
                     <?php foreach ($result as $key => $value):?>
                     <div class="col-sm-6">
@@ -37,12 +38,19 @@
                         <?php foreach ($result1 as $key => $value1):?>
                           <?php if ($value1['group_id'] == $value['id'] ):?>
                           <div class="custom-control custom-checkbox">
+                                 <?php if (!in_array($value1['parent_id'],$checked) && $value1['parent_id'] !=0 ): ?>
                                   <input 
-                                  <?php if (in_array($value1['id'],$checked)):?>
-                                    checked = "";
-                                  <?php endif;?>
-                                  class="custom-control-input" type="checkbox" name = "decentralization[]" id="customCheckbox<?php echo $value1['id'] ?>" value="<?php echo $value1['id'] ?>" style = "margin:0px 20px;">
-                            <label for="customCheckbox<?php echo $value1['id'] ?>" class="custom-control-label"><?php echo $value1['name'] ?></label>
+                                      
+                                    class="custom-control-input" type="checkbox" name = "decentralization[]" id="customCheckbox<?php echo $value1['id'] ?>" value="<?php echo $value1['id'] ?>" style = "margin:0px 20px;" disabled>
+                                    <label for="customCheckbox<?php echo $value1['id'] ?>" class="custom-control-label"><?php echo $value1['name'] ?></label>
+                                  <?php else: ?>
+                                    <input 
+                                      <?php if (in_array($value1['id'],$checked)):?>
+                                      checked = "";
+                                    <?php endif;?>
+                                    class="custom-control-input" type="checkbox" name = "decentralization[]" id="customCheckbox<?php echo $value1['id'] ?>" value="<?php echo $value1['id'] ?>" style = "margin:0px 20px;">
+                                    <label for="customCheckbox<?php echo $value1['id'] ?>" class="custom-control-label"><?php echo $value1['name'] ?></label>
+                                  <?php endif; ?>
                           </div>
                           <?php endif; ?>
                         <?php endforeach; ?>
@@ -151,3 +159,9 @@
     }
   });
 </script> -->
+<!--  <input 
+<?php if (in_array($value1['id'],$checked)):?>
+                                    checked = "";
+                                  <?php endif;?>
+                                  class="custom-control-input" type="checkbox" name = "decentralization[]" id="customCheckbox<?php echo $value1['id'] ?>" value="<?php echo $value1['id'] ?>" style = "margin:0px 20px;" >
+                            <label for="customCheckbox<?php echo $value1['id'] ?>" class="custom-control-label"><?php echo $value1['name'] ?></label> -->

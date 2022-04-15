@@ -1,12 +1,15 @@
 <?php require_once('mvc/Controller/admin/DecentralizationController.php'); ?>
 <?php  
+if (isset($_SESSION['user_name'])) {
   $RegexResults = new DecentralizationController();
   $sss = $RegexResults -> checkPrivilege();
   if (!$sss) {
     echo "Bạn Không Có Quyền Truy Cập";
     die;
   }
-
+}else {
+  header('location:http://localhost:81/du-an1');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,12 +105,13 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <!-- <div class="image">
+        <div class="image">
           <img src="<?= PUBLIC_URL ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div> -->
+
+          <a href="#" class="d-block"><?php echo $_SESSION['user_name']['user_name'] ?></a>
+        </div>
       </div>
 
       <!-- SidebarSearch Form -->

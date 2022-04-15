@@ -41,7 +41,7 @@
                     <td>
                     <?php   
                                     if ($value['role']==1) {
-                                        echo $vai_tro = 'quản trị viên';
+                                        echo $vai_tro = 'Nhân viên';
                                     }else {
                                         echo $vai_tro = 'khách hàng';
                                     } 

@@ -10,10 +10,10 @@
         }
         public function index()
         {
-            $category = $this->customer->all('categories');
+                // $category = $this->customer->all('categories');
                 $data = new databse();
                 $conn = $data->database();
-                $item_perpage = isset($_GET['per_page'])? $_GET['per_page']:10;
+                $item_perpage = isset($_GET['per_page'])? $_GET['per_page']:4;
                 $current_page = isset($_GET['page'])? $_GET['page']:1;
                 $offset = ($current_page - 1)*$item_perpage;
                 $sql = "SELECT* FROM prodcts_sale ORDER BY `prodcts_sale`.`price` ASC lIMIT $item_perpage OFFSET $offset";
@@ -24,6 +24,7 @@
                 $result1 = $this->customer->all('prodcts_sale');
                 $count = count($result1);
                 $countotal = ceil($count/$item_perpage);
+                // die;
                 include('mvc/view/admin/component/Products/list.php'); 
         }
         public function editForm()

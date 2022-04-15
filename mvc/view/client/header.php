@@ -9,11 +9,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/product.css">
     <link rel="stylesheet" href="./css/cart.css">
     <link rel="stylesheet" href="./css/check-out.css">
+    <link rel="stylesheet" href="../../../public/fontawesome-free-6.0.0/css/all.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="../../../public/css/css1.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="./js/thuvien.js"></script>
@@ -46,78 +50,150 @@
 </head>
 
 <body>
-    <div class="nav-control">
-        <div class="container">
-            <div class="logo">
-                <img src="./img/logo.png" alt="">
-            </div>
-            <div class="menu">
-                <ul>
-                    <li><a href="../../../index.php">Trang chủ</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li class="menu_link"><a href="./controller_view.php">Sản phẩm &#8744;</a>i
-                        <ul class="menu_dow">
-                            <table>
-                                <tr>
-                                    <th><a href="#">Coffee</a></th>
-                                    <th><a href="#">Nước ép</a></th>
-                                    <th><a href="#">Trà sữa</a></th>
-                                    <th><a href="#">Cocktail</a></th>
-
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Esspero</a></td>
-                                    <td><a href="#">Dưa hấu</a></td>
-                                    <td><a href="#">Kiwi</a></td>
-                                    <td><a href="#">Cocktail B-52</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Esspero</a></td>
-                                    <td><a href="#">Dưa hấu</a></td>
-                                    <td><a href="#">Kiwi</a></td>
-                                    <td><a href="#">Cocktail B-52</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Esspero</a></td>
-                                    <td><a href="#">Dưa hấu</a></td>
-                                    <td><a href="#">Kiwi</a></td>
-                                    <td><a href="#">Cocktail B-52</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Esspero</a></td>
-                                    <td><a href="#">Dưa hấu</a></td>
-                                    <td><a href="#">Kiwi</a></td>
-                                    <td><a href="#">Cocktail B-52</a></td>
-                                </tr>
-                            </table>
+    <div class="header">
+        <div class="logo">
+            <img src="../../../public/img/logo.png" alt="" class="image_logo">
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="../../../index.php">Trang Chủ</a></li>
+                <li><a href="">Giới Thiệu</a></li>
+                <li>
+                    <a href="./controller_view.php">Sản Phẩm</a>
+                    <div class="categores">
+                        <div class="boxx"></div>
+                        <ul class="level0">
+                            <li>
+                                <a href="">COFFEE</a>
+                                <ul class="level1">
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="">NƯỚC ÉP</a>
+                                <ul class="level1">
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="">TRÀ SỮA</a>
+                                <ul class="level1">
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="">COCKTAIL</a>
+                                <ul class="level1">
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                    <li><a href="">
+                                            Espresso
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Liên hệ</a></li>
-                </ul>
-            </div>
-            <div class="acount">
-                <div class="search">
-                    <form action="controller_view.php?act=product" method="post">
-                        <input type="text" name="kyw" placeholder="Tìm kiếm">
-                        <input type="submit" name="timkiem" value="Tìm kiếm">
-                    </form>
-                </div>
-                <div class="user">
-                    <i class='bx bxs-user' style='color:#fff9f9'></i>
-                    <div class="login-form">
-                        <a href="#">Đăng nhập</a>
-                        <a href="#">Đăng kí</a>
-                    </div>
-                </div>
-                <div class="cart">
-                    <a href="./controller_view.php?act=addtocart"><i class='bx bxs-cart' style='color:#ffffff'>
-                            <div class="boxcart" id="boxcart">
-                                <!-- <span id="carticon" class="badge bg-danger rounded-pill"><?=$slsp?></span> -->
+                        <div class="banner_menu">
+                            <div class="imga">
+                                <img src="../../../public/img/mega-menu-images1.webp" alt="" class="image_menu">
                             </div>
-                        </i></a>
+                            <div class="imga">
+                                <img src="../../../public/img/mega-menu-images2.webp" alt="" class="image_menu">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="">Tin Tức</a></li>
+                <li><a href="">Liên Hệ</a></li>
+            </ul>
+        </div>
+        <div class="buy">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="cart">
+                <a href="./controller_view.php?act=addtocart"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <div class="user">
+                <i class="fa-solid fa-user"></i>
+                <div class="option">
+                    <div class="xx"></div>
+                    <ul>
+                        <li><a href="login">Đăng Nhập</a></li>
+                        <li><a href="">Đăng Xuất</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-
     </div>
