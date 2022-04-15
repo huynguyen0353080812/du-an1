@@ -1,11 +1,11 @@
 <br>
 <footer>
             <div class="image">
-                <img src="../../../public/img/footer.webp" alt="" class="image_footer">
+                <img src="<?= PUBLIC_URL ?>img/footer.webp" alt="" class="image_footer">
             </div>
             <div class="content">
                 <div class="logo">
-                    <img src="../../../public/img/logo.png" alt="" class="image_logo">
+                    <img src="<?= PUBLIC_URL ?>img/logo.png" alt="" class="image_logo">
                 </div>
                 <div class="describe">
                     <div class="block">

@@ -6,7 +6,20 @@
         public function index()
         {
             $customer = new Base();
-            $result = $customer->all('manage_user');
+            $data = new databse();
+                $conn = $data->database();
+            // $result = $customer->all('manage_user');
+                 $item_perpage = isset($_GET['per_page'])? $_GET['per_page']:4;
+                $current_page = isset($_GET['page'])? $_GET['page']:1;
+                $offset = ($current_page - 1)*$item_perpage;
+                $sql = "SELECT* FROM manage_user ORDER BY `manage_user`.`id` ASC lIMIT $item_perpage OFFSET $offset";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+                $i = 0;
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $result1 = $customer->all('manage_user');
+                $count = count($result1);
+                $countotal = ceil($count/$item_perpage);
             require_once("mvc/view/admin/component/user/list_user.php");
         }
         public function edit()
@@ -30,7 +43,6 @@
             }else{
                 $avatar = "";
             }
-            // die;
             $password = password_hash($Password,PASSWORD_DEFAULT);
             $customer = new Base();
             $result = $customer->insert('manage_user',["user_name='$user_name',number_phone='$number_phone',email = '$Email',password = '$password',image='$avatar',status='$status',role='$vai_tro'"]);

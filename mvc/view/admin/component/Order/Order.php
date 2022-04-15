@@ -27,7 +27,8 @@
               <th>Đóng gói</th>
               <th>Giao Hàng</th>
               <th>Thành Công</th>
-              <th>Edit</th>
+              <th>Hủy Đơn</th>
+              <th>view</th>
             </tr>
           </thead>
           <tbody>
@@ -52,6 +53,8 @@
                 <?php echo 'thanh công'; ?>
                 <?php elseif ($arr[1] == 's'):?>
                 <?php echo 'đang giao hàng'; ?>
+                <?php elseif ($arr[1] == 'h'):?>
+                <?php echo 'Đã Hủy'; ?>
                 <?php endif; ?>
               </td>
               <td class="td_status">
@@ -103,10 +106,20 @@
                 </form>
               </td>
               <td>
+                <div class="form-group">
+                  <div class="custom-control custom-checkbox">
+                    <?php if ($arr[1]== 'h'): ?>
+                    <input type="radio" class="checked" name="age" data-id="<?= $value['id'] ?>/h" value="60" checked>
+                    <?php else:?>
+                    <input type="radio" class="checked" name="age" data-id="<?= $value['id'] ?>/h" data-status="<?= 's'?>"value="60">
+                    <?php endif; ?>
+                  </div>
+                </div>
+                </form>
+              </td>
+              <td>
                 <span class="badge badge-success"><a href="order_detail?id=<?=$value['id']?>"><i class="fas fa-eye"
                       style="color: #ffff;"></i></a></span>
-                <span class="badge bg-danger" data-id="<?php echo $value['id']?>"><i
-                    class="fas fa-trash-alt"></i></span>
               </td>
             </tr>
             <?php endforeach; ?>
@@ -150,18 +163,4 @@
       });
     });
   });
-  $('.bg-danger').on('click', function () {
-    var id = $(this).data('id');
-    $.ajax({
-      url: "delete_order",
-      method: "GET",
-      data: {
-        id: id,
-      },
-      success: function (data) {
-        // alert(data);
-        location.reload();
-      }
-    });
-  })
 </script>

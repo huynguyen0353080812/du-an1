@@ -16,8 +16,23 @@ class HomeController{
         // die;
         require_once("mvc/view/client/index.php");
     }
-    public function login()
+    public function login($erros = '')
     {
+        // echo $erros;
+        // die;
+        // echo $erros;
+        // die;
+        // if (isset($erros)) {
+        //     $_SESSION['erro'] =$erros;
+        // }else if (condition) {
+        //     unset( $_SESSION['erro']);
+        //     require_once("mvc/view/client/login.php");
+        // // }
+        // if ($erros) {
+        //     unset( $_SESSION['erro']);
+        // }else{
+        //     $_SESSION['erro'] =$erros;
+        // }
         require_once("mvc/view/client/login.php");
     }
     // public function list_user()
@@ -36,7 +51,7 @@ class HomeController{
     //     // $this->category;
     //     $products = new databse();
     //     $rows = $products->database();
-    //     try {
+    //     try {        
     //         $sql = "SELECT orders.name,prodcts_sale.products_name,orders_detail.order_id,prodcts_sale.price FROM `orders_detail`JOIN prodcts_sale ON orders_detail.produrt_id = prodcts_sale.id JOIN orders ON orders_detail.order_id = orders.id HAVING orders_detail.order_id = 85;";
     //         $stmt = $rows->prepare($sql);
     //         $stmt->execute();
@@ -101,33 +116,26 @@ class HomeController{
     // }
     public function savelogin()
     {
-        echo $username;
-        die;
+        extract($_POST);
+        // echo 'ok';
+        // die;
         if ($bnt) {
             $products = new databse();
             $rows = $products->database();
-            $sql = "SELECT * FROM `manage_user` WHERE user_name= '".$Email."'";
+            $sql = "SELECT * FROM `manage_user` WHERE user_name= '".$username."'";
+            // var_dump($sql);
             $stmt = $rows->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($result) {
-               if (password_verify($Password,$result['password'])) {
-                   if ($result['status'] == 'on') {
-                        $time = time()+10;
-                        $sql1 = "UPDATE `manage_user` SET last_login = $time WHERE id = '".$result['id']."'";
-                        $stmt1 = $rows->prepare($sql1);
-                        $stmt1->execute();
-                        $_SESSION['user_name'] = $result;
-                        $info = $_SESSION['user_name'];
-                        return $this->index('',$info);
-                   }else {
-                    return $this->index($erros = 'Tài Khoản Chưa Kích Hoạt!');
-                   }
+               if (password_verify($password,$result['password'])) {
+                         $_SESSION['user_name'] = $result;
+                         header('location:http://localhost:81/du-an1');
                }else {
-                    return $this->index($erros = 'Password Không Tồn Tại!');
+                    return $this->login($erros = 'Password');
                }
             }else{
-                return $this->index($erros = 'Email không Tồn Tại!');
+                return $this->login($erros = 'Email');
             }
         }
     }
@@ -161,11 +169,11 @@ class HomeController{
     //         }
     //     }
     // }
-    // // public function delete()
-    // // {
-    // //     unset($_SESSION['user_name']);
-    // //     return header("Location:http://localhost:81/Duanmau/");
-    // // }
+    public function delete()
+    {
+        unset($_SESSION['user_name']);
+        return header("Location:http://localhost:81/du-an1/");
+    }
     // // public function search()
     // // {
     // //         $keyword = $_GET['keyword'];

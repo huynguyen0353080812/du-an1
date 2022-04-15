@@ -17,6 +17,10 @@
                 $ctr = new HomeController();
                 $ctr->savelogin();
                 break;
+            case 'log_out':
+                $ctr = new HomeController();
+                $ctr->delete();
+                break;
             //admin
             // phần quản lý tài khoản
             case 'Dashboard':
@@ -37,7 +41,6 @@
                 break;
             case 'created_user':
                 $ctr = new CustomController();
-                die;
                 $ctr->created_user();
                 break;
             case 'update_acount':

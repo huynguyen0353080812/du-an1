@@ -28,6 +28,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <form action="save_Decentralization" method="post">
+                <input type="hidden" name="id" value = "<?php echo $_GET['id'] ?>">
                   <!-- <div class="row"> -->
                     <?php foreach ($result as $key => $value):?>
                     <div class="col-sm-6">

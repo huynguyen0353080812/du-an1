@@ -55,7 +55,7 @@
                             <?php endif; ?>
                             
                             >
-                            <label for="">Quản trị viên</label>
+                            <label for="">Nhân viên</label>
                             <input type="radio" name="vai_tro" id="" value = "1"
                             <?php if ($result['role']==1):?>
                                 checked=""

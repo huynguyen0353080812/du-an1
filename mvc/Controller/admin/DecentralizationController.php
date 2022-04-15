@@ -5,30 +5,32 @@ class DecentralizationController{
     private $recusion = '';
     public function __construct()
     {
+        $id = $_SESSION['user_name']['id'];
         $data = new databse();
         $conn = $data->database();
-        $sql = "SELECT * FROM `user_privilege` JOIN privilege ON user_privilege.privilege_id = privilege.id WHERE user_id = 8";
+        $sql = "SELECT * FROM `user_privilege` JOIN privilege ON user_privilege.privilege_id = privilege.id WHERE user_id = $id";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // echo "<pre>";
-        $total = [];
-        foreach ($result as $key => $value) {
-            $total ['privilege'][] = $value['url_match'];
-            // die;
-        }
-        $_SESSION['user_name'] = $total;
-        // echo "<pre>";
-        // var_dump($_SESSION['user_name']);
+        // var_dump($result);
         // die;
-        // var_dump($_SESSION['user_name']);
-        // include ('mvc/view/admin/component/Decentrali
+        $total = [];
+        if ($result) {
+            foreach ($result as $key => $value) {
+                $total ['privilege'][] = $value['url_match'];
+                // die;
+            }
+            $_SESSION['user_name1'] = $total;
+        }else{
+            header('location:http://localhost:81/du-an1');
+        }
     }
     public function index()
     {
         $data = new databse();
         $conn = $data->database();
-        $sql = "SELECT * FROM manage_user  WHERE role = 1";
+        $sql = "SELECT * FROM manage_user  WHERE role = 1 OR role = 3";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -38,7 +40,7 @@ class DecentralizationController{
     {
         $uri = $uri != false ? $uri : $_SERVER['REQUEST_URI'];
         // var_dump($uri);
-        $privilieges = $_SESSION['user_name']['privilege'];
+        $privilieges = $_SESSION['user_name1']['privilege'];
     
         // $privilieges = array(
         //     "Manage_user",
@@ -176,17 +178,18 @@ class DecentralizationController{
     }
     public function Edit()
     {
+        $id = $_GET['id'];
         $data = new databse();
         $conn = $data->database();
         $sql = "SELECT * FROM privilege_group";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $sql = "SELECT * FROM privilege";
+        $sql = "SELECT * FROM privilege ";
         $stmt1 = $conn->prepare($sql);
         $stmt1->execute();
         $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
-        $sql = "SELECT * FROM user_privilege";
+        $sql = "SELECT * FROM user_privilege WHERE user_id = $id";
         $stmt2 = $conn->prepare($sql);
         $stmt2->execute();
         $result2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
@@ -213,15 +216,17 @@ class DecentralizationController{
     public function save_Decentralization()
     {
         extract($_POST);
+        // echo $id;
+        // die;
         // var_dump($decentralization);
         // die;
         $data = new databse();
         $conn = $data->database();
-        $sql = "DELETE FROM user_privilege WHERE user_id = 8";
+        $sql = "DELETE FROM user_privilege WHERE user_id = $id";
         $stmt2 = $conn->prepare($sql);
         $stmt2->execute();
         foreach ($decentralization as $key => $value) {
-            $sql = "INSERT INTO `user_privilege` SET privilege_id='$value',user_id=8,created_time=1632970609,last_update=1632970609";
+            $sql = "INSERT INTO `user_privilege` SET privilege_id='$value',user_id=$id,created_time=1632970609,last_update=1632970609";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
         }
