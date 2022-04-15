@@ -1,4 +1,4 @@
-    <div class="container-cart">
+    <div class="container-product">
         <main class="main">
             <!-- <header class="main_header">
                 <div class="logo_left">
