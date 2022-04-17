@@ -236,18 +236,103 @@ section .comtainer .menu_list ul li a{
    color: rgb(74, 74, 74);
 }
 /*  */
-section .comtainer .manger_user .infomation{
-    border-radius: 10px;
-    margin-top: 70px;
-    width: 900px;
-    height: 90%;
-    background: rgb(255, 255, 255);
-}
-section .comtainer .manger_user .infomation table{
+.manger_user{
     width: 100%;
-    height: 30%;
+}
+.infomation{
+    background-color: white;
+}
+.manger_user h4{
+    margin-top: 15px;
+}
+.manger_user .status{
+    margin: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(199, 193, 193);
+    color: gray;
+    padding-top: 5px;
+}
+.image-detail{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    border-bottom: 1px solid rgb(199, 193, 193);
+    margin: 0 15px;
+}
+.image-detail .img{
+    display: flex;
+    align-items: center;
+}
+
+.image-detail img{
+    width: 100px;
+    height: 120px;
+}
+.image-detail .img div{
+    padding: 5px;
+}
+.image-detail .img span ,.price-btn p{
+    font-size: 18px;
+    font-weight: bold;
+}
+.price{
+    width: 100%;
+    text-align: right;
+    padding-right: 20px;
+    padding-top: 25px;
+}
+.price-btn{
+    width: 100%;
+    text-align: right;
+    margin-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+.price-btn .btn , .btn button{
+    padding: 5px;
+}
+.btn button{
+    border-radius: 3px;
+    border: 1px solid #4242f5;
+    color: #4242f5;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+.btn button:nth-child(3){
+    background-color: red;
+    color: white;
+    border: none;
 }
 /*  */
+/* manger_detail */
+.manger_user_detail{
+    width: 100%;
+    margin-top: 15px;
+}
+.information_details{
+    margin-left: 15px;
+    margin-top: 15px;
+    display: flex;
+}
+.information_details div:nth-child(1) , .information_details div:nth-child(2) , .information_details div:nth-child(3){
+    flex: 1;
+    margin: 5px 10px;
+}
+.information_details div:nth-child(1) span ,.information_details div:nth-child(2) span , .information_details div:nth-child(3) span{
+    font-size: 18px;
+    font-weight: bold;
+}
+.information_details .description{
+    background-color: white;
+    width: 100%;
+    height: 150px;
+    padding: 10px 0 0 10px;
+    border-radius: 5px;
+    
+}
+
+
+/* end */
 footer{
     position: relative;
     /* margin-top: 30px; */
