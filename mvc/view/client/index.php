@@ -22,7 +22,7 @@
                 </div>
                 <div class="nav">
                     <ul>
-                        <li><a href="">Trang Chủ</a></li>
+                        <li><a href="<?php  echo BASE_URL ?>">Trang Chủ</a></li>
                         <li><a href="">Giới Thiệu</a></li>
                         <li>
                             <a href="mvc/view/client/controller_view.php">Sản Phẩm</a>
@@ -141,15 +141,29 @@
                             </div>
                         </li>
                         <li><a href="">Tin Tức</a></li>
-                        <li><a href="">Liên Hệ</a></li>
+                        <li><a href="feedback">Liên Hệ</a></li>
                     </ul>
                 </div>
+                <style>
+                    .cart span  {
+                        width: 19px;
+                        /* left: 300px;
+                        bottom: 38px; */
+                        top: 35px;
+                        right:224px;
+                        height: 19px;
+                        background: #fed700;
+                        position: absolute;
+                        border-radius:50%;
+                        text-align: center;
+                                            
+                    }
+                </style>
                 <div class="buy">
                     <div class="search">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div class="cart">
-                        <a href="mvc/view/client/controller_view.php?act=addtocart"><i class="fa-solid fa-cart-shopping"></i></a>
                     </div>
                     <div class="user">
                         <?php if (!isset($_SESSION['user_name'] )): ?>
@@ -190,7 +204,7 @@
                                 <div class="option" style="margin-right:-20px;">
                                 <div class="xx"></div>
                                 <ul>
-                                    <li><a href="page_login">Thông Tin Tài</a></li>
+                                    <li><a href="manage_user?id=<?= $_SESSION['user_name']['id'] ?>">Thông Tin Tài</a></li>
                                     <li><a href="">Thông Tin Đơn</a></li>
                                     <li><a href="">Yêu Thích</a></li>
                                     <?php if ($_SESSION['user_name']['role']==1 || $_SESSION['user_name']['role']==3): ?>
@@ -379,128 +393,28 @@
                 <div class="small_box">
                     <div class="swiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="products_detail">
-                                    <div class="box1">
-                                        <i class="fa-solid fa-cart-arrow-down"></i>
-                                    </div>
-                                    <div class="box2">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="image">
-                                        <img src="<?= PUBLIC_URL ?>img/product1-8e.webp" alt="" class="image_products1">
-                                    </div>
-                                    <div class="price_products">
-                                        <p>200000</p>
-                                    </div>
-                                    <div class="name_products">
-                                        <p>VIETNAMESE COFFEE</p>
-                                    </div>
+                            <?php foreach ($result as $key => $value): ?>
+                                <div class="swiper-slide">
+                                    <div class="products_detail">
+                                        <div class="box1" data-id= <?php echo $value['id'] ?>>
+                                            <i class="fa-solid fa-cart-arrow-down"></i>
+                                        </div>
+                                        <div class="box2">
+                                            <a href="product_details?id=<?php echo  $value['id']?>"><i class="fa-solid fa-eye"></i></a>
+                                        </div>
+                                        <div class="image">
+                                            <img src="<?= PUBLIC_URL ?>img/<?php echo $value['image'] ?>" alt="" class="image_products1">
+                                        </div>
+                                        <div class="price_products">
+                                            <p><?php echo number_format($value['price'],0,",",".") ?></p>
+                                        </div>
+                                        <div class="name_products">
+                                            <p><?php echo $value['products_name'] ?></p>
+                                        </div>
 
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="products_detail">
-                                    <div class="box1">
-                                        <i class="fa-solid fa-cart-arrow-down"></i>
-                                    </div>
-                                    <div class="box2">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="image">
-                                        <img src="<?= PUBLIC_URL ?>img/product2-9.webp" alt="" class="image_products1">
-                                    </div>
-                                    <div class="price_products">
-                                        <p>200000</p>
-                                    </div>
-                                    <div class="name_products">
-                                        <p>VIETNAMESE COFFEE</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="products_detail">
-                                    <div class="box1">
-                                        <i class="fa-solid fa-cart-arrow-down"></i>
-                                    </div>
-                                    <div class="box2">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="image">
-                                        <img src="<?= PUBLIC_URL ?>img/product3-e4.webp" alt="" class="image_products1">
-                                    </div>
-                                    <div class="price_products">
-                                        <p>200000</p>
-                                    </div>
-                                    <div class="name_products">
-                                        <p>VIETNAMESE COFFEE</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="products_detail">
-                                    <div class="box1">
-                                        <i class="fa-solid fa-cart-arrow-down"></i>
-                                    </div>
-                                    <div class="box2">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="image">
-                                        <img src="<?= PUBLIC_URL ?>img/product4-ce.webp" alt="" class="image_products1">
-                                    </div>
-                                    <div class="price_products">
-                                        <p>200000</p>
-                                    </div>
-                                    <div class="name_products">
-                                        <p>VIETNAMESE COFFEE</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="products_detail">
-                                    <div class="box1">
-                                        <i class="fa-solid fa-cart-arrow-down"></i>
-                                    </div>
-                                    <div class="box2">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="image">
-                                        <img src="<?= PUBLIC_URL ?>img/product4-ce.webp" alt="" class="image_products1">
-                                    </div>
-                                    <div class="price_products">
-                                        <p>200000</p>
-                                    </div>
-                                    <div class="name_products">
-                                        <p>VIETNAMESE COFFEE</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="products_detail">
-                                    <div class="image">
-                                        <img src="<?= PUBLIC_URL ?>img/product4-ce.webp" alt="" class="image_products1">
-                                    </div>
-                                    <div class="price_products">
-                                        <p>200000</p>
-                                    </div>
-                                    <div class="name_products">
-                                        <p>VIETNAMESE COFFEE</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="products_detail">
-                                    <div class="image">
-                                        <img src="<?= PUBLIC_URL ?>img/product4-ce.webp" alt="" class="image_products1">
-                                    </div>
-                                    <div class="price_products">
-                                        <p>200000</p>
-                                    </div>
-                                    <div class="name_products">
-                                        <p>VIETNAMESE COFFEE</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
                             <div class="swiper-slide">
                                 <div class="products_detail">
                                     <div class="image">
@@ -515,19 +429,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="products_detail">
-                                    <div class="image">
-                                        <img src="<?= PUBLIC_URL ?>img/product4-ce.webp" alt="" class="image_products1">
-                                    </div>
-                                    <div class="price_products">
-                                        <p>200000</p>
-                                    </div>
-                                    <div class="name_products">
-                                        <p>VIETNAMESE COFFEE</p>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <!-- <div class="swiper-slide">Resize me!</div>
                             <div class="swiper-slide">Resize me!</div> -->
                         </div>
@@ -781,6 +683,7 @@
     <div class="back-to-top">
         <button onclick="back_to_top()" id="back-to-top"><img src="<?= PUBLIC_URL ?>img/top.webp" alt="" class="ccc"></button>
     </div>
+    <script src="<?= PUBLIC_URL ?>plugins/jquery/jquery.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper', {
@@ -826,12 +729,53 @@
                 nav.classList.remove("show");
             }
         }
+        // alert('huynguyen');
         scrollFunction();
         function back_to_top() {
             document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
+            $('html, body').animate({
+                scrollTop:0
+            },1000);
         }
     </script>
+            <script>
+            $(document).ready(function () {
+                // alert('huy');
+                show_cart();
+                function show_cart () {
+                    // alert('huy');   
+                    $.ajax({
+                        url: "cartquantity",
+                        method:"GET",
+                        success:function(data) {
+                            $('.cart').html(data);
+                        }
+                    });
+                }
+                $('.box1').on('click',function() {
+                    // alert('huy');
+                        var id_pro = $(this).data('id');
+                        // alert(id);
+                        $.ajax({
+                            url: "cart",
+                            method:"GET",
+                            data:{
+                            //key => value
+                                id:id_pro,
+                                sss:null
+                            },  
+                            success:function(data){
+                                // alert(data)
+                                // alert("insert thành công"+data);
+                                $('html, body').animate({
+                                    scrollTop:0
+                                },1000);
+                                show_cart();
+                            }
+                        });
+                });
+            });
+        </script>
 </body>
 
 </html>

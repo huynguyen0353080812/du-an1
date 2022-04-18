@@ -11,12 +11,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/bootstrap.css">
     <link rel="stylesheet" href="./css/product.css">
-    <link rel="stylesheet" href="./css/cart.css">
-    <link rel="stylesheet" href="./css/check-out.css">
+    <!-- <link rel="stylesheet" href="./css/cart.css"> -->
+    <!-- <link rel="stylesheet" href="./css/check-out.css"> -->
     <link rel="stylesheet" href="../../../public/fontawesome-free-6.0.0/css/all.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="css/css.css">
-    <link rel="stylesheet" href="../../../public/css/css1.css">
+    <!-- <link rel="stylesheet" href="css/css.css"> -->
+    <!-- <link rel="stylesheet" href="../../../public/css/css1.css"> -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

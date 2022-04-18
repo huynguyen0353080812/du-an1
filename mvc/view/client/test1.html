@@ -1,166 +1,100 @@
+<style>
+  h1{
+text-align: center;
+font-size: 25px;
+}
+div.container{
+width: 960px;
+height: 610px;
+margin:50px auto;
+font-family: 'Droid Serif', serif;
+position:relative;
+}
+div.main{
+width: 320px;
+float:left;
+padding: 10px 60px 40px;
+background: ghostwhite;
+border: 1px dotted #ccc;
+box-shadow: 0 0 10px;
+border-radius: 2px;
+font-size: 13px;
+}
+input[type=text],textarea {
+width: 97.7%;
+height: 34px;
+padding-left: 5px;
+margin-bottom: 20px;
+margin-top: 8px;
+box-shadow: 0 0 5px;
+border: 1px solid #b7b7b7;
+color: #4f4f4f;
+font-size: 16px;
+}
+textarea{
+height: 60px;
+resize: none;
+}
+input[type=radio],[type=checkbox]{
+margin:10px 10px 0 10px;
+}
+label{
+color: #464646;
+text-shadow: 0 1px 0 #fff;
+font-size: 14px;
+font-weight: bold;
+}
+#btn{
+font-size: 17px;
+border: 1px solid gray;
+padding: 7px 35px;
+background-color: #E3B5F5;
+font-weight:bold;
+box-shadow: 0 0 5px;
+border-radius: 2px;
+cursor: pointer;
+width:100%;
+}
+</style>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="utf-8" />
-  <title>Swiper demo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Link Swiper's CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-
-  <!-- Demo styles -->
-  <style>
-    html,
-    body {
-      position: relative;
-      height: 100%;
-    }
-
-    body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    }
-
-    .swiper {
-      width: 100%;
-      height: 100%;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-
-      /* Center slide text vertically */
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-    }
-
-    @media (max-width: 760px) {
-      .swiper-button-next {
-        right: 20px;
-        transform: rotate(90deg);
-      }
-
-      .swiper-button-prev {
-        left: 20px;
-        transform: rotate(90deg);
-      }
-    }
-  </style>
+<title>Reset Form Using jQuery - Demo Preview</title>
+<meta name="robots" content="noindex, nofollow">
+<!-- Include CSS File Here -->
+<link rel="stylesheet" href="css/style.css"/>
+<!-- Include JavaScript File Here -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/reset.js"></script>
 </head>
-
 <body>
-  <!-- Swiper -->
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="products_detail">
-          <div class="swiper-slide">
-            <div class="image">
-              <img src="img/product1-8e.webp" alt="" class="image_products1">
-            </div>
-            <!-- <div class="name_products">
-                  <p>200000</p>
-                  <p>VIETNAMESE COFFEE</p>
-              </div> -->
-
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="products_detail">
-          <div class="swiper-slide">
-            <div class="image">
-              <img src="img/product1-8e.webp" alt="" class="image_products1">
-            </div>
-            <!-- <div class="name_products">
-                  <p>200000</p>
-                  <p>VIETNAMESE COFFEE</p>
-              </div> -->
-
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="products_detail">
-          <div class="swiper-slide">
-            <div class="image">
-              <img src="img/product1-8e.webp" alt="" class="image_products1">
-            </div>
-            <!-- <div class="name_products">
-                  <p>200000</p>
-                  <p>VIETNAMESE COFFEE</p>
-              </div> -->
-
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="products_detail">
-          <div class="swiper-slide">
-            <div class="image">
-              <img src="img/product1-8e.webp" alt="" class="image_products1">
-            </div>
-            <!-- <div class="name_products">
-                  <p>200000</p>
-                  <p>VIETNAMESE COFFEE</p>
-              </div> -->
-
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">Resize me!5</div>
-      <div class="swiper-slide">Resize me!6</div>
-      <div class="swiper-slide">Resize me!</div>
-      <div class="swiper-slide">Resize me!</div>
-      <div class="swiper-slide">Resize me!</div>
-      <div class="swiper-slide">Resize me!</div>
-    </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
-
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper('.swiper', {
-      slidesPerView: 4,
-      direction: getDirection(),
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      on: {
-        resize: function () {
-          swiper.changeDirection(getDirection());
-        },
-      },
-    });
-
-    function getDirection() {
-      var windowWidth = window.innerWidth;
-      var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
-
-      return direction;
-    }
-  </script>
+<div class="container">
+<div class="main">
+<h1>Reset Form Using jQuery</h1>
+<form action="#" method="post" id="form">
+<label>Name :</label>
+<input type="text" name="name" />
+<label>Email :</label>
+<input type="text" name="email" />
+<label>Gender :</label>
+<input type="radio" name="sex" value="male">Male
+<input type="radio" name="sex" value="female">Female
+<label>Message :</label>
+<textarea name="textarea" ></textarea>
+<label>Language Known :</label>
+<input type="checkbox" name="vehicle" value="Bike">English
+<input type="checkbox" name="vehicle" value="Car">French
+<input type="button" id="btn" value="Reset" />
+</form>
+</div>
+</div>
 </body>
-
 </html>
+<script src="../../../public/plugins/jquery/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#btn").click(function(){
+    /* Single line Reset function executes on click of Reset Button */
+    $("#form")[0].reset();
+    });});  
+</script>

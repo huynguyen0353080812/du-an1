@@ -22,7 +22,7 @@
                 </div>
                 <div class="nav">
                     <ul>
-                        <li><a href="">Trang Chủ</a></li>
+                        <li><a href="<?php  echo BASE_URL ?>">Trang Chủ</a></li>
                         <li><a href="">Giới Thiệu</a></li>
                         <li>
                             <a href="">Sản Phẩm</a>

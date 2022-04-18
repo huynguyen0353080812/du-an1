@@ -282,6 +282,12 @@ section .comtainer .manger_user .infomation{
 .form-info:nth-child(2){
     display: flex;
     margin-top: 50px;
+    align-items: center;
+}
+.form-info:nth-child(2) label{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 5px;
 }
 .form-info:nth-child(3){
     display: flex;
@@ -290,16 +296,82 @@ section .comtainer .manger_user .infomation{
 .input{
     display: grid;
 }
+.date input{
+    width: 180px;
+    height: 30px;
+}
 .input .form-control input{
     margin-top: 20px;
     width: 250px;
     height: 30px;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+.input .form-control label{
+    margin-right: 20px;
+}
+.sex .form-control input[type='radio']{
+    width: 30px;
+    height: 15px;
+
+}
+.form-info button{
+    background-color: rgb(110, 110, 247);
+    padding: 10px;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.form-info button:hover{
+    background-color: blue;
 }
 /* contac */
 .contac{
     width: 100%;
     height: 95%;
     border-left: 1px solid rgb(232, 223, 223);
+    padding: 15px 10px;
+}
+.contac h3{
+    color: gray;
+    opacity: 0.8;
+    margin-top: 5px;
+    
+}
+.phone , .email{
+    margin-top: 10px;
+    padding-bottom: 5px;
+}
+.phone , .email{
+    border-bottom: 2px solid rgba(215, 215, 243, 0.5);
+
+}
+.email , .phone{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.contac button{
+    outline: none;
+    background: transparent;
+    border-radius: 3px;
+    border: 1px solid blue;
+    padding: 5px 10px;
+    color: blue;
+    cursor: pointer;
+
+}
+.contac i{
+    color: gray;
+    font-size: 20px;
+    margin: 0 5px;
+}
+.cc{
+    flex: 1;
 }
 /*  */
 footer{

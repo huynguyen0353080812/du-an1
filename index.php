@@ -3,7 +3,6 @@
         
         require_once('vendor/autoload.php');
         require_once('commons/helpers.php');
-
         switch ($url) {
             case '/':
                 $ctr = new HomeController();
@@ -20,6 +19,77 @@
             case 'log_out':
                 $ctr = new HomeController();
                 $ctr->delete();
+                break;
+            case 'product_detail':
+                $ctr = new HomeController();
+                $ctr->product_detail();
+                break;
+           case 'manage_user':
+                $ctr = new HomeController();
+                $ctr->profile();
+                break;     
+            case 'update_user':
+                $ctr = new HomeController();
+                $ctr->saveProfile();
+                break;  
+            case 'edit_password':
+                $ctr = new HomeController();
+                $ctr->editPassword();
+                break; 
+            case 'update_password':
+                $ctr = new HomeController();
+                $ctr->updatePassword();
+                break; 
+            // cart
+            case 'cart':
+                $ctr = new CartController();
+                $ctr->add();
+                break;
+            case 'cartquantity':
+                $ctr = new CartController();
+                $ctr->showquantity();
+                break;
+            case 'Cartshow':
+                $ctr = new CartController();
+                $ctr->Cartshow();
+                break;
+            case 'showquantity':
+                $ctr = new CartController();
+                $ctr->sssss();
+                break;
+            case 'update_protducts':
+                $ctr = new CartController();
+                $ctr->update();
+                break;
+            case 'delete_protducts':
+                $ctr = new CartController();
+                $ctr->remove();
+                break;
+            case 'price_protducts':
+                $ctr = new CartController();
+                $ctr->price_protducts();
+                break;
+            case 'bill':
+                $ctr = new CartController();
+                $ctr->bill();
+                break;
+            case 'order':
+                $ctr = new CartController();
+                $ctr->order();
+                break;
+            //
+            case 'product_details':
+                $ctr = new HomeController();
+                $ctr->product_details();
+                break;
+            //feedback
+            case 'feedback':
+                $ctr = new HomeController();
+                $ctr->feedback();
+                break;
+            case 'Send_Feedback':
+                $ctr = new HomeController();
+                $ctr->Send_Feedback();
                 break;
             //admin
             // phần quản lý tài khoản

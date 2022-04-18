@@ -1,0 +1,113 @@
+/*  */
+article{
+    width: 100%;
+    height: 900px;
+}
+.content1{
+    width: 100%;
+    height: 450px;
+    margin: auto;
+    background: rgb(255, 255, 255);
+    position: relative;
+    top: 450px;
+    z-index: 2;
+}
+.smallcontent{
+    width: 900px;
+    height: 600px;
+    background: rgb(255, 255, 255);
+    position: absolute;
+    left: 300px;
+    top: -200px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+iframe{
+    position: absolute  ;
+    z-index: 1;
+}
+/*  */
+h2{
+    margin-top: px;
+}
+.bang{
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.the{
+    width: 500px;
+    height: 40px;
+    border: 1px solid rgb(163, 156, 156);
+    border-radius: 5px;
+  
+}
+.hometow{
+    border: 1px solid rgb(163, 156, 156);
+    width: 505px;
+    border-radius: 5px;
+}
+p{
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+/* .block{
+    width: 500px;
+    height: 40px;
+    border: 1px solid rgb(163, 156, 156);
+    border-radius: 5px;
+    display: flex;
+    position: relative;
+} */
+.chon{
+   margin-top: 10px;
+   margin-left: 25px
+}
+.chu{
+    font-size: 20px;
+    font-weight:600 ;
+    text-align: center;
+}
+label{
+    margin-top: 8px;
+    margin-left: 4px;
+}
+.block1{
+    width: 500px;
+    height: 40px;
+    border: 1px solid rgb(163, 156, 156);
+    border-radius: 5px;
+    display: flex;
+    position: relative;
+}
+textarea{
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    border: 1px solid rgb(190, 188, 188);
+    width: 92%;
+}
+button{
+    margin-top: 30px;
+    margin-left: 35%;
+    width: 70px;
+    height: 40px;
+    background: rgb(240, 73, 73);
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+.chu3{
+    font-size: 19px;
+    font-weight:550 ;
+    margin-top: 45px;
+    margin-left: 10px;
+}
+.chu5{
+    position: relative;
+    top: 5px;
+    font-size: 15px;
+    font-weight: 200;
+}
+/*  */

@@ -6,35 +6,62 @@ session_start();
 class HomeController{
     public function index(Type $var = null)
     {
-        // $products = new databse();
-        // $rows = $products->database();
-        // $sql = "SELECT * FROM `manage_user`";
-        // $stmt = $rows->prepare($sql);
-        // $stmt->execute();
-        // $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $products = new databse();
+        $rows = $products->database();
+        $sql = "SELECT * FROM `prodcts_sale`";
+        $stmt = $rows->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // var_dump($result);
         // die;
         require_once("mvc/view/client/index.php");
     }
     public function login($erros = '')
     {
-        // echo $erros;
-        // die;
-        // echo $erros;
-        // die;
-        // if (isset($erros)) {
-        //     $_SESSION['erro'] =$erros;
-        // }else if (condition) {
-        //     unset( $_SESSION['erro']);
-        //     require_once("mvc/view/client/login.php");
-        // // }
-        // if ($erros) {
-        //     unset( $_SESSION['erro']);
-        // }else{
-        //     $_SESSION['erro'] =$erros;
-        // }
         require_once("mvc/view/client/login.php");
     }
+    public function product_details(Type $var = null)
+    {
+        require_once("mvc/view/client/product_details.php");
+    }
+    public function profile() {
+        $this->customer = new Base();
+        $id = $_GET['id'];
+        $result = $this->customer->find('manage_user',$id);
+        require_once("mvc/view/client/manger_user.php");
+    }
+    public function editPassword() {
+        $this->customer = new Base();
+        $id = $_GET['id'];
+        $result = $this->customer->find('manage_user',$id);
+        require_once("mvc/view/client/edit_password.php");
+    }
+    public function updatePassword() {
+        $this->customer = new Base();
+        extract($_POST);
+        $id = $id;
+        $result = $this->customer->find('manage_user',$id);
+        $result['password'];
+        if($result['password'] == $_POST['old_password']){
+            if($_POST['new_password'] == $_POST['confirm_new_password']) {
+                $result1 = $this->customer->update('manage_user',["password='$confirm_new_password'"],$id);
+            } else {
+                $erros = "Mật khẩu của bạn không đúng";
+            }
+        } else {
+            $erros = "Mật khẩu của bạn không đúng";
+        }
+        
+        header('location:page_login');
+    }
+    public function saveProfile() {
+        $this->customer = new Base();
+        extract($_POST);
+        $id = $id;
+        $result = $this->customer->update('manage_user',["number_phone='$number_phone',email='$email'"],$id);
+        header('location:page_login');
+    }
+
     // public function list_user()
     // {
     //     require_once("mvc/view/admin/component/user/list_user.php");
@@ -75,45 +102,42 @@ class HomeController{
     //     }
     //     include ('mvc/view/client/component/index.php');
     // }
-    // public function product_details(){
-    //     $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-    //     var_dump($url);
-    //     die;
-    //     $this->category;
-    //     $products = new databse();
-    //     $rows = $products->database();
-    //     $id = $_GET['id'];
-    //     $category = $this->category;
-    //     $sql = "SELECT * FROM prodcts_sale WHERE id = $id";
-    //     $stmt = $rows->prepare($sql);
-    //     $stmt->execute();
-    //     try {
-    //         $sql = "SELECT * FROM prodcts_sale WHERE id = $id";
-    //         $stmt = $rows->prepare($sql);
-    //         $stmt->execute();
-    //         $i = 0;
-    //         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //         // 
-    //         $sql = "SELECT * FROM image_library WHERE products_id = $id";
-    //         $stmt = $rows->prepare($sql);
-    //         $stmt->execute();
-    //         $i = 0;
-    //         $image_library = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //         $id = 1;
-    //         $id_img = 1;
-    //         // 
-    //         $id_get = $_GET['id'];
-    //         $sql = "SELECT comment.user_id,comment.id,manage_user.image,manage_user.user_name,comment.text,comment.created_time FROM `comment` INNER JOIN manage_user ON comment.user_id = manage_user.id WHERE comment.products_id = $id_get";
-    //         $stmt = $rows->prepare($sql);
-    //         $stmt->execute();
-    //         $comment = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //         // var_dump($comment);
-    //         // die;
-    //         include ('mvc/view/client/component/product_details.php');
-    //     } catch (\Throwable $th) {
-    //         echo "Lỗi: " . $e->getMessage();    
-    //     }
-    // }
+    public function product_detailss(){
+        // $this->category;
+        $products = new databse();
+        $rows = $products->database();
+        $id = $_GET['id'];
+        // $category = $this->category;
+        $sql = "SELECT * FROM prodcts_sale WHERE id = $id";
+        $stmt = $rows->prepare($sql);
+        $stmt->execute();
+        try {
+            $sql = "SELECT * FROM prodcts_sale WHERE id = $id";
+            $stmt = $rows->prepare($sql);
+            $stmt->execute();
+            $i = 0;
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            // 
+            $sql = "SELECT * FROM image_library WHERE products_id = $id";
+            $stmt = $rows->prepare($sql);
+            $stmt->execute();
+            $i = 0;
+            $image_library = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $id = 1;
+            $id_img = 1;
+            // 
+            $id_get = $_GET['id'];
+            $sql = "SELECT comment.user_id,comment.id,manage_user.image,manage_user.user_name,comment.text,comment.created_time FROM `comment` INNER JOIN manage_user ON comment.user_id = manage_user.id WHERE comment.products_id = $id_get";
+            $stmt = $rows->prepare($sql);
+            $stmt->execute();
+            $comment = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            // var_dump($comment);
+            // die;
+            include ('mvc/view/client/products_detail.php');
+        } catch (\Throwable $th) {
+            echo "Lỗi: " . $e->getMessage();    
+        }
+    }
     public function savelogin()
     {
         extract($_POST);
@@ -130,7 +154,7 @@ class HomeController{
             if ($result) {
                if (password_verify($password,$result['password'])) {
                          $_SESSION['user_name'] = $result;
-                         header('location:http://localhost/du-an1/');
+                         header('location:'.BASE_URL);
                }else {
                     return $this->login($erros = 'Password');
                }
@@ -172,7 +196,7 @@ class HomeController{
     public function delete()
     {
         unset($_SESSION['user_name']);
-        return header("Location:http://localhost:81/du-an1/");
+        return header("Location:".BASE_URL);
     }
     // // public function search()
     // // {
@@ -239,5 +263,24 @@ class HomeController{
     // //     $stmt->execute();
     // //     return header('location:product_details?id=49#menu_2');
     // // }
+    public function product_detail()
+    {
+        require_once("mvc/view/client/products_detail.php");
+    }
+    public function feedback()
+    {
+        require_once("mvc/view/client/feedback.php");
+    }
+    public function Send_Feedback()
+    {
+        extract($_POST);
+        // echo $email;
+        $products = new databse();
+        $rows = $products->database();
+        $sql = "INSERT INTO `feedback` SET user_name = '$user_name',number_phone = $phone ,email = '$email',note='$note',status = 1";
+        $stmt = $rows->prepare($sql);
+        $stmt->execute();
+        header('location:'.BASE_URL);
+    }
 }
 ?>

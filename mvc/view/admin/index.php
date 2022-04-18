@@ -1,20 +1,14 @@
 <?php require_once('mvc/Controller/admin/DecentralizationController.php'); ?>
 <?php  
-// if (isset($_SESSION['user_name'])) {
-//   $RegexResults = new DecentralizationController();
-//   $sss = $RegexResults -> checkPrivilege();
-//   if (!$sss) {
-//     echo "Bạn Không Có Quyền Truy Cập";
-//     die;
-//   }
-// }else {
-//   header('location:http://localhost/du-an1/');
-// }
-$RegexResults = new DecentralizationController();
-$sss = $RegexResults -> checkPrivilege();
-if (!$sss) {
-  echo "Bạn Không Có Quyền Truy Cập";
-  die;
+if (isset($_SESSION['user_name'])) {
+  $RegexResults = new DecentralizationController();
+  $sss = $RegexResults -> checkPrivilege();
+  if (!$sss) {
+    echo "Bạn Không Có Quyền Truy Cập";
+    die;
+  }
+}else {
+  header('location:"'.BASE_URL.'"');
 }
 ?>
 <!DOCTYPE html>
@@ -59,7 +53,7 @@ if (!$sss) {
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="<?php echo BASE_URL ?>" class="nav-link">Home</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">

@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../../public/fontawesome-free-6.0.0/css/all.css">
+    <link rel="stylesheet" href="<?= PUBLIC_URL ?>fontawesome-free-6.0.0/css/all.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="<?= PUBLIC_URL ?>css/css1.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
@@ -17,14 +18,14 @@
         <header>
             <div class="header">
                 <div class="logo">
-                    <img src="img/logo.png" alt="" class="image_logo">
+                    <img src="<?= PUBLIC_URL ?>img/logo.png" alt="" class="image_logo">
                 </div>
                 <div class="nav">
                     <ul>
-                        <li><a href="">Trang Chủ</a></li>
+                        <li><a href="<?php  echo BASE_URL ?>">Trang Chủ</a></li>
                         <li><a href="">Giới Thiệu</a></li>
                         <li>
-                            <a href="">Sản Phẩm</a>
+                            <a href="mvc/view/client/controller_view.php">Sản Phẩm</a>
                             <div class="categores">
                                 <div class="boxx"></div>
                                 <ul class="level0">
@@ -131,16 +132,16 @@
                                 </ul>
                                 <div class="banner_menu">
                                     <div class="imga">
-                                        <img src="img/mega-menu-images1.webp" alt="" class="image_menu">
+                                        <img src="<?= PUBLIC_URL ?>img/mega-menu-images1.webp" alt="" class="image_menu">
                                     </div>
                                     <div class="imga">
-                                        <img src="img/mega-menu-images2.webp" alt="" class="image_menu">
+                                        <img src="<?= PUBLIC_URL ?>img/mega-menu-images2.webp" alt="" class="image_menu">
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li><a href="">Tin Tức</a></li>
-                        <li><a href="">Liên Hệ</a></li>
+                        <li><a href="feedback">Liên Hệ</a></li>
                     </ul>
                 </div>
                 <div class="buy">
@@ -151,45 +152,86 @@
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
                     <div class="user">
-                        <i class="fa-solid fa-user"></i>
-                        <div class="option">
-                            <div class="xx"></div>
-                            <ul>
-                                <li><a href="">Đăng Nhập</a></li>
-                                <li><a href="">Đăng Xuất</a></li>
-                            </ul>
+                        <?php if (!isset($_SESSION['user_name'] )): ?>
+                            <i class="fa-solid fa-user"></i>
+                            <div class="option" style="margin-right:0px;margin-top: 5px;">
+                                <div class="xx"></div>
+                                <ul>
+                                    <li><a href="page_login">Đăng Nhập</a></li>
+                                    <li><a href="">Đăng Ký</a></li>
+                                </ul>
+                            </div>
+                        <?php else: ?>
+                        <!-- <style>
+                            .infomation_user{
+                                position: absolute;
+                                color:#fff;
+                                top:19%;
+                                right:5%;
+                            }
+                            .infomation_user .avatar{
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                                background:red;
+                            }
+                            .infomation_user .avatar .bbb{
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+                        </style> -->
+                            <div class="infomation_user">
+                                <div class="avatar">
+                                    <img src="<?= PUBLIC_URL ?>img/module_banner3.png" alt=""class ="bbb"> 
+                                </div>
+                                <p><?php echo $_SESSION['user_name']['user_name'] ?></p>
+                                <div class="option" style="margin-right:-20px;">
+                                <div class="xx"></div>
+                                <ul>
+                                    <li><a href="manage_user">Thông Tin Tài</a></li>
+                                    <li><a href="">Thông Tin Đơn</a></li>
+                                    <li><a href="">Yêu Thích</a></li>
+                                    <?php if ($_SESSION['user_name']['role']==1 || $_SESSION['user_name']['role']==3): ?>
+                                        <li><a href="Dashboard">Quản Lý</a></li>
+                                    <?php endif; ?>
+                                    <li><a href="log_out">Đăng Xuất</a></li>
+                                </ul>
+                            </div> 
+                        <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="category">
                 <div class="block_category">
-                    <img src="img/header_category1_image.jpg" alt="">
+                    <img src="<?= PUBLIC_URL ?>img/header_category1_image.jpg" alt="">
                     <span>Coffee</span>
                 </div>
                 <div class="block_category">
-                    <img src="img/header_category2_image.webp" alt="">
+                    <img src="<?= PUBLIC_URL ?>img/header_category2_image.webp" alt="">
                     <span>Coffee</span>
                 </div>
                 <div class="block_category">
-                    <img src="img/header_category3_image.webp" alt="">
+                    <img src="<?= PUBLIC_URL ?>img/header_category3_image.webp" alt="">
                     <span>Coffee</span>
                 </div>
                 <div class="block_category">
-                    <img src="img/header_category4_image.webp" alt="">
+                    <img src="<?= PUBLIC_URL ?>img/header_category4_image.webp" alt="">
                     <span>Coffee</span>
                 </div>
                 <div class="block_category">
-                    <img src="img/header_category5_image.webp" alt="">
+                    <img src="<?= PUBLIC_URL ?>img/header_category5_image.webp" alt="">
                     <span>Coffee</span>
                 </div>
                 <div class="block_category">
-                    <img src="img/header_category6_image.webp" alt="">
+                    <img src="<?= PUBLIC_URL ?>img/header_category6_image.webp" alt="">
                     <span>Coffee</span>
                 </div>
             </div>
             <div class="banner">
-                <!-- <img src="img/3.jpg" alt="" class="image_banner"> -->
+                <!-- <img src="<?= PUBLIC_URL ?>img/3.jpg" alt="" class="image_banner"> -->
             </div>
         </header>
         <section>
@@ -227,46 +269,24 @@
                     <h4>Thông Tin Tài Khoản</h4>
                     <div class="infomation">
                         <div class="infomation_acount">
-                            <form action="" method="post">
+                            
                                 <div class="form-info">
                                     <div class="avatar_info">
 
                                     </div>
                                     <div class="input">
                                         <div class="form-control">
-                                            <label for="">Họ và tên</label>
-                                            <input type="text">
-                                        </div>
-                                        <div class="form-control">
-                                            <label for="">Nickname</label>
-                                            <input type="text">
+                                            <label for="">Tên đăng nhập</label>
+                                            <h3><?= $result['user_name'] ?></h3>
                                         </div>
                                     </div>
 
                                 </div>
-                                <div class="form-info">
-                                    <div class="date">
-                                        <div class="form-control">
-                                            <label for="">Ngày sinh</label>
-                                            <input type="date">
-                                        </div>
-                                    </div>
-                                    <div class="sex">
-                                        <div class="form-control">
-                                            <label for="">Giới tính:</label>
-                                            Nam<input type="radio" name="sex">
-                                            Nữ<input type="radio" name="sex">
-                                            Khác<input type="radio" name="sex">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="form-info">
-                                    <button type="submit">Lưu Thay đổi</button>
-                                </div>
-                            </form>
+                            
                         </div>
                         <div class="contac">
+                        <form action="update_user" method="POST">
+                            <input type="hidden" name="id" value="<?= $result['id'] ?>">
                             <h3>Số điện thoại và email</h3>
                             <div class="phone">
                                 <div>
@@ -274,10 +294,7 @@
                                 </div>
                                 <div class="cc">
                                     <label for="">Số Điện thoại</label>
-                                    <p>0353080812</p>
-                                </div>
-                                <div>
-                                    <button>Cập nhật</button>
+                                    <input type="tel" value="<?= $result['number_phone'] ?>" name="number_phone">
                                 </div>
                             </div>
                             <div class="email">
@@ -286,25 +303,16 @@
                                 </div>
                                 <div class="cc">
                                     <label for="">Địa chỉ Email</label>
-                                    <p>0353080812</p>
+                                    <input type="text" value="<?= $result['email'] ?>" name="email">
                                 </div>
-                                <div>
-                                    <button>Cập nhật</button>
-                                </div>
-                            </div>
-                            <h3>Bảo mật</h3>
-                            <div class="phone">
-                                <div>
-                                    <i class='bx bxs-lock'></i>
-                                </div>
-                                <div class="cc">
-                                    <label for="">Đổi mật khẩu</label>
 
-                                </div>
-                                <div>
-                                    <button>Cập nhật</button>
-                                </div>
+                                <button type="submit" class="btn btn-primary">Lưu</button>
+                                </form>
+
                             </div>
+                        <div class="">
+                            <a href="edit_password?id=<?= $result['id'] ?>"><button class="btn btn-primary">Đổi mật khẩu</button></a>
+                        </div>                
                         </div>
                     </div>
                 </div>
@@ -312,11 +320,11 @@
         </section>
         <footer>
             <div class="image">
-                <img src="img/footer.webp" alt="" class="image_footer">
+                <img src="<?= PUBLIC_URL ?>img/footer.webp" alt="" class="image_footer">
             </div>
             <div class="content">
                 <div class="logo">
-                    <img src="img/logo.png" alt="" class="image_logo">
+                    <img src="<?= PUBLIC_URL ?>img/logo.png" alt="" class="image_logo">
                 </div>
                 <div class="describe">
                     <div class="block">
@@ -367,7 +375,7 @@
         </footer>
     </div>
     <div class="back-to-top">
-        <button onclick="back_to_top()" id="back-to-top"><img src="img/top.webp" alt="" class="ccc"></button>
+        <button onclick="back_to_top()" id="back-to-top"><img src="<?= PUBLIC_URL ?>img/top.webp" alt="" class="ccc"></button>
     </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>

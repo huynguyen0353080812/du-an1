@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Danh Sách Tài Khoản</h1>
+            <h1 class="m-0">Danh Sách Thống Kê</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -18,7 +18,7 @@
     <div class="content">
     <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Bordered Table</h3>
+                <h3 class="card-title">Thống kê sản phẩm theo danh mục</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

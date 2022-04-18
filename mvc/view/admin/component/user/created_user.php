@@ -16,7 +16,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">CREATE USER</h1>
+            <h1 class="m-0">create account</h1>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" action = "created_user" method="POST" enctype="multipart/form-data" novalidate="novalidate">
+              <form id="quickForm" action="created_user" method="POST" enctype="multipart/form-data" novalidate="novalidate">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">user_name</label>
@@ -120,20 +120,20 @@
 <script src="public/dist/js/demo.js"></script>
 <script>
 $(function vali () {
-  $.validator.setDefaults({
-    submitHandler: function () {
-      $.ajax({
-            url: "list_user",
-            method: "GET",
-            data: {
-              messeger: null,
-            },
-            success: function (data) {
-              location.assign("http://localhost:81/du-an1/list_user?messeger");
-            }
-          });
-    }
-  });
+    // $.validator.setDefaults({
+    //   submitHandler: function () {
+    //     // $.ajax({
+    //     //       url: "list_user",
+    //     //       method: "GET",
+    //     //       data: {
+    //     //         messeger: null,
+    //     //       },
+    //     //       success: function (data) {
+    //     //         location.assign("http://localhost:81/du-an1/list_user?messeger");
+    //     //       }
+    //     //     });
+    //   }
+    // });
   $('#quickForm').validate({
     rules: {
       name11: {
