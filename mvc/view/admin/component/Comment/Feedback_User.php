@@ -10,6 +10,10 @@
     border-bottom: 1px solid #d3cece;
     margin: 10px 0px ;
   }
+  .modal-dialog{
+    position: relative;
+    top: -110px; 
+  }
   /* .modal-content{
     display:none  ;
   } */

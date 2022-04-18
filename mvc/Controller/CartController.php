@@ -1,6 +1,8 @@
 <?php
 require_once('mvc/Model/Base.php'); 
 require_once('mvc/Model/database.php');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 class CartController {
     private $Cart = [];
     private $Cart_total;
@@ -96,19 +98,103 @@ class CartController {
     }
     public function order()
     {
+        // echo "<pre>";
+        // var_dump($_SESSION['user_name']['email']);
+        // die;
             extract($_POST);
             $total= $this->Cart_total;
-            echo $total;
+            $g = "
+                <div class='infomation'style='display:grid; grid-template-columns: repeat(2,1fr);text-align: center;width:230px'>
+                    <div class='name'>
+                        <strong>Thông Tin :</strong>
+                        <strong>$name_user</strong>
+                        <span>$number_phone</span>
+                    </div>
+                    <div class='adreess'>
+                        <strong>Địa chỉ :</strong>
+                        <span>$adress_user</span>
+                    </div>
+                </div>
+            ";
+            $a = "
+            <table style ='text-align: center;'border=1>
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>số lượng</th>
+                    <th>đơn giá</th>
+                </tr>
+            ";
+            $c = "
+            <tr>
+                    <td colspan='4'>Tông Tiền :" . number_format($total) . "đ</td>
+            </tr>
+            </table>
+            ";
+            $b = '';
+            $tong = 0;
+            foreach ($_SESSION['Cart'] as $key => $value) {
+                $tong += $value['price'];
+                $b .= "
+                        <tr>
+                            <td>" . $value['products_name']."</td>
+                            <td>" . $value['quantity'] . "</td>
+                            <td>" . number_format($value['price']) . "đ</td>
+                        </tr>
+                        ";
+            }
+
+            $d =$g . $a . $b . $c ;
+            echo $d;
+            include 'public/Email/library.php'; // include the library file
+            require_once 'public/Email/vendor/autoload.php';
+            $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+            try {
+                //Server settings
+                $mail->CharSet = "UTF-8";
+                $mail->SMTPDebug = 0;                                 // Enable verbose debug output
+                $mail->isSMTP();                                      // Set mailer to use SMTP
+                $mail->Host = SMTP_HOST;  // Specify main and backup SMTP servers
+                $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                $mail->Username = SMTP_UNAME;                 // SMTP username
+                $mail->Password = SMTP_PWORD;                           // SMTP password
+                $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+                $mail->Port = SMTP_PORT;                                    // TCP port to connect to
+                //Recipients
+                $mail->setFrom(SMTP_UNAME, "Coffee House");
+                $mail->addAddress($_SESSION['user_name']['email'], 'Tên người nhận');     // Add a recipient | name is option
+                $mail->addReplyTo(SMTP_UNAME, 'Tên người trả lời');
+//                    $mail->addCC('CCemail@gmail.com');
+//                    $mail->addBCC('BCCemail@gmail.com');
+                $mail->isHTML(true);                                  // Set email format to HTML
+                $mail->Subject ='chào bạn';
+                $mail->Body = $d;
+                $mail->AltBody = 'cảm ỏn'; //None HTML
+                $result = $mail->send();
+                if (!$result) {
+                    $error = "Có lỗi xảy ra trong quá trình gửi mail";
+                }else{
+                    $products = new databse();
+                    $rows = $products->database();
+                    $sql = "UPDATE feedback SET status = 0 WHERE email = '$email'";
+                    $stmt = $rows->prepare($sql);
+                    $stmt->execute();    
+                }
+                echo 'gửi thành công';
+            } catch (Exception $e) {
+                echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+            }
+            $total= $this->Cart_total;
+            // echo $total;
             date_default_timezone_set('Asia/Ho_Chi_Minh');
             $date = date_create();
             $products = new databse();
             $rows = $products->database();
-            $sql = "INSERT INTO orders SET name = '$adress_user',phone=$number_phone,address = '$adress_user',total= $total,status='115/x'";
+            $sql = "INSERT INTO orders SET name = '$name_user',phone=$number_phone,address = '$adress_user',total= $total,status='115/x'";
             $stmt = $rows->prepare($sql);
             $stmt->execute();
             $id = $rows->lastInsertId();
             foreach ($_SESSION['Cart'] as $key => $value) {
-                $sql1 = "INSERT INTO orders_detail SET order_id = $id,produrt_id = ".$value['id'].",quantity=".$value['quantity']."";
+                $sql1 = "INSERT INTO orders_detail SET order_id = $id,produrt_id = ".$value['id'].",quantity=".$value['quantity'].",price=".$value['price']."";
                 $stmt1 = $rows->prepare($sql1);
                 $stmt1->execute();
             }

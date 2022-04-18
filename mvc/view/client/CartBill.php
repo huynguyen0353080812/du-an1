@@ -95,9 +95,9 @@
             <div class="card-body">
               <h5 class="card-title">Địa chỉ giao Hàng</h5>
                 <form action="" method="POST">
-                  <span>tên ngươi nhận:</span><input type="text" name="" id="user_name" class="user_name"><br>
-                  <span>Địa Chỉ:</span><br><input type="text" name="" id="" class ="adress_user" ><br>
-                  <span>Số điện thoại:</span><input type="text" name="" id="" class ="number_phone" style = "margin-top: 10px;">
+                  <span>tên ngươi nhận:</span><input type="text" id="user_name"  class="user_name"><br>
+                  <span>Địa Chỉ:</span><br><input type="text" name="adress_user" id="" class ="adress_user" ><br>
+                  <span>Số điện thoại:</span><input type="text" name="number_phone" id="" class ="number_phone" style = "margin-top: 10px;">
                 </form>
             </div>
           </div>
@@ -139,6 +139,8 @@
                     var name_user = $('#user_name').val()
                     var adress_user = $('.adress_user').val()
                     var number_phone = $('.number_phone').val()
+                    // alert(name_user);
+
                     $.ajax({
                             url: "order",
                             method:"POST",
@@ -148,7 +150,6 @@
                               number_phone:number_phone
                             },  
                             success:function(data){
-                                alert(data)
                                 location.assign("<?php echo BASE_URL?>");
                             }
                         });

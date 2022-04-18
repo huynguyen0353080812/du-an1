@@ -302,6 +302,7 @@ section .comtainer .menu_list ul li a{
     background-color: red;
     color: white;
     border: none;
+    
 }
 /*  */
 /* manger_detail */
@@ -310,7 +311,7 @@ section .comtainer .menu_list ul li a{
     margin-top: 15px;
 }
 .information_details{
-    margin-left: 15px;
+    margin-left: -22px;
     margin-top: 15px;
     display: flex;
 }

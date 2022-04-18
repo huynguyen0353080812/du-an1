@@ -64,7 +64,7 @@ class HomeController{
     //     }
     //     include ('mvc/view/client/component/index.php');
     // }
-    public function product_details(){
+    public function product_detailss(){
         // $this->category;
         $products = new databse();
         $rows = $products->database();
