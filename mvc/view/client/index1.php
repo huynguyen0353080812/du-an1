@@ -1,4 +1,4 @@
-<?php require_once('commons/helpers.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="<?=PUBLIC_URL?>css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body onscroll="myfunction()">
     <div class="header">
         <div class="header-img">
-            <img src="<?=PUBLIC_URL?>/img/blog3.webp" alt="">
+            <img src="/img/blog3.webp" alt="">
         </div>
         <div class="nav">
             <div class="logo">

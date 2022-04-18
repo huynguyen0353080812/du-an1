@@ -101,11 +101,11 @@
         <div class="container">
             <div class="container-product_details">
                 <div class="img-product_details">
-                    <img src="./img/<?php echo($result['image']);?>" alt="">
+                    <img src="./img/<?php echo $result['image'];?>" alt="">
                 </div>
                 <div class="infor-product_details">
                     <div class="name-product_details">
-                        <h2><?php echo($result['products_name']);?></h2>
+                        <h2><?php echo $result['products_name'];?></h2>
                     </div>
                     <div class="status-product_details">
                         <p>Tình trạng:<span>Còn hàng</span></p>

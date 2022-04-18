@@ -8,7 +8,7 @@ if (isset($_SESSION['user_name'])) {
     die;
   }
 }else {
-  header('location:http://localhost:81/du-an1');
+  header('location:"'.BASE_URL.'"');
 }
 ?>
 <!DOCTYPE html>
@@ -53,7 +53,7 @@ if (isset($_SESSION['user_name'])) {
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="<?php echo BASE_URL ?>" class="nav-link">Home</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">

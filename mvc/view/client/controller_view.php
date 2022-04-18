@@ -6,7 +6,7 @@
     include "global.php";
     include "header.php";
 
-    if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
+    if(!isset($_SESSION['Cart'])) $_SESSION['Cart']=[];
     $spnew=loadall_product_view();
     $dsdm=loadall_danhmuc();
     if(isset($_GET['act'])&&($_GET['act']!="")){
@@ -47,15 +47,15 @@
                     $soluong=$_POST['soluong'];
                     $ttien=$soluong * $price;
                     $spadd=[$id,$products_name,$image,$price,$soluong,$ttien];
-                    array_push($_SESSION['mycart'],$spadd);
+                    array_push($_SESSION['Cart'],$spadd);
                 }
                 include "cart.php";
                 break;
             case 'delcart':
                 if(isset($_GET['idcart'])){
-                    array_splice($_SESSION['mycart'],$_GET['idcart'],1);
+                    array_splice($_SESSION['Cart'],$_GET['idcart'],1);
                 }else{
-                    $_SESSION['mycart']=[];
+                    $_SESSION['Cart']=[];
                 }
                 include "cart.php";
                 // header('location: controller_view.php?act=cart');
@@ -75,10 +75,10 @@
 
                     $idorder=insert_order("",$name,$phone,$address,$status,$note,$total,$quantity,$created_time);
                 
-                    foreach ($_SESSION['mycart'] as $cart) {
+                    foreach ($_SESSION['Cart'] as $cart) {
                         insert_order_detail($idorder,$cart[0],$cart[3],$cart[4]);
                     }
-                    $_SESSION['mycart']=[];
+                    $_SESSION['Cart']=[];
                 }
                 $order=loadone_order($idorder);
                 $orderct=loadone_order_detail($idorder);

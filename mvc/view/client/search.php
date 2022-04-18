@@ -1,31 +1,29 @@
-<?php 
-    session_start();
-    require_once('./../../Model/database.php');
-    include "../../Model/pdo.php";
-    include "../../Model/sanpham.php";
-    include "../../Model/danhmuc.php";
-    include "global.php";
-    include "header.php";
-
-    $conn = new databse();
-    $conns = $conn->database();
-
-    // var_dump($conns);
-    // die;
-    if(isset($_GET['search'])){
-        $key = $_GET['key'];
-        $sql_search = "SELECT * FROM `prodcts_sale` WHERE `products_name` LIKE '%$key%'";
-            // var_dump($sql_search);
+<?php include_once("mvc/view/client/layout.php"); ?>
+    <?php 
+        session_start();
+        require_once('./../../Model/database.php');
+        include "../../Model/pdo.php";
+        include "../../Model/sanpham.php";
+        include "../../Model/danhmuc.php";
+        include "global.php";
+        $conn = new databse();
+        $conns = $conn->database();
+        if(isset($_GET['search'])){
+            $key = $_GET['key'];
+            $sql_search = "SELECT * FROM `prodcts_sale` WHERE `products_name` LIKE '%$key%'";
+                // var_dump($sql_search);
+                // die;
+            $stmt = $conns->prepare($sql_search);
+            $stmt->execute();
+            
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            // var_dump($result);
             // die;
-        $stmt = $conns->prepare($sql_search);
-        $stmt->execute();
+        }
         
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // var_dump($result);
-        // die;
-    }
-    
-?>
+    ?>
+   <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/product.css">
     <div class="container-product">
         <div class="row">
             <div class="col-3 primary">
@@ -96,7 +94,14 @@
                 </div>
                 <div class="product-view">
                     <div class="row">
-                    <?php if($result){
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <button class="dathang btn btn-warning float-end color-333">Thêm vào giỏ hàng</button> -->
+    <?php if($result){
         foreach($result as $value){
             extract($value);
             global $img_path;
@@ -121,10 +126,3 @@
                     </div>';
         }
         } ?>
-        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- <button class="dathang btn btn-warning float-end color-333">Thêm vào giỏ hàng</button> -->

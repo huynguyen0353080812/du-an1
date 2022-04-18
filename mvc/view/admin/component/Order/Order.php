@@ -99,11 +99,10 @@
                     <?php if ($arr[1]== 'z'): ?>
                     <input type="radio" class="checked" name="age" data-id="<?= $value['id'] ?>/z" value="60" checked>
                     <?php else:?>
-                    <input type="radio" class="checked" name="age" data-id="<?= $value['id'] ?>/z" data-status="<?= 's'?>"value="60">
+                    <input type="radio" class="checked" name="age" data-id="<?= $value['id'] ?>/z" value="60">
                     <?php endif; ?>
                   </div>
                 </div>
-                </form>
               </td>
               <td>
                 <div class="form-group">
@@ -111,7 +110,7 @@
                     <?php if ($arr[1]== 'h'): ?>
                     <input type="radio" class="checked" name="age" data-id="<?= $value['id'] ?>/h" value="60" checked>
                     <?php else:?>
-                    <input type="radio" class="checked" name="age" data-id="<?= $value['id'] ?>/h" data-status="<?= 's'?>"value="60">
+                    <input type="radio" class="checked" name="age" data-id="<?= $value['id'] ?>/h"value="60">
                     <?php endif; ?>
                   </div>
                 </div>

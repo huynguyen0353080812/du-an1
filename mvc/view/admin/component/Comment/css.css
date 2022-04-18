@@ -1,8 +1,13 @@
+.modal-dialog{
+    position: relative;
+    top: -10px; 
+}
 .modal-content{
     position: absolute;
     bottom: -250px;
     z-index: 30;
     display: none;
+    /* top: 10%; */
 }
 .action1::before {
     position: absolute;
