@@ -130,7 +130,7 @@ class HomeController{
             if ($result) {
                if (password_verify($password,$result['password'])) {
                          $_SESSION['user_name'] = $result;
-                         header('location:http://localhost:81/du-an1');
+                         header('location:http://localhost/du-an1/');
                }else {
                     return $this->login($erros = 'Password');
                }

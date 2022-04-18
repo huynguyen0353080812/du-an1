@@ -1,14 +1,20 @@
 <?php require_once('mvc/Controller/admin/DecentralizationController.php'); ?>
 <?php  
-if (isset($_SESSION['user_name'])) {
-  $RegexResults = new DecentralizationController();
-  $sss = $RegexResults -> checkPrivilege();
-  if (!$sss) {
-    echo "Bạn Không Có Quyền Truy Cập";
-    die;
-  }
-}else {
-  header('location:http://localhost:81/du-an1');
+// if (isset($_SESSION['user_name'])) {
+//   $RegexResults = new DecentralizationController();
+//   $sss = $RegexResults -> checkPrivilege();
+//   if (!$sss) {
+//     echo "Bạn Không Có Quyền Truy Cập";
+//     die;
+//   }
+// }else {
+//   header('location:http://localhost/du-an1/');
+// }
+$RegexResults = new DecentralizationController();
+$sss = $RegexResults -> checkPrivilege();
+if (!$sss) {
+  echo "Bạn Không Có Quyền Truy Cập";
+  die;
 }
 ?>
 <!DOCTYPE html>
