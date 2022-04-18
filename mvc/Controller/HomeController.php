@@ -20,6 +20,10 @@ class HomeController{
     {
         require_once("mvc/view/client/login.php");
     }
+    public function product_details(Type $var = null)
+    {
+        require_once("mvc/view/client/product_details.php");
+    }
     // public function list_user()
     // {
     //     require_once("mvc/view/admin/component/user/list_user.php");

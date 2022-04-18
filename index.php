@@ -3,7 +3,6 @@
         
         require_once('vendor/autoload.php');
         require_once('commons/helpers.php');
-
         switch ($url) {
             case '/':
                 $ctr = new HomeController();

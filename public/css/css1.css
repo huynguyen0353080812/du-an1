@@ -404,7 +404,7 @@ aside .container{
 aside .container .title-text h1{
     color: #e4b95b;
 }
-.container .small_box{
+aside .container .small_box{
     margin-top: 50px;
     display: flex;
     width: 100%;
@@ -412,13 +412,13 @@ aside .container .title-text h1{
     position: absolute;
     /* width: 1230px; */
 }
-.container .small_box .swiper .swiper-wrapper .swiper-slide .products_detail{
+aside .container .small_box .swiper .swiper-wrapper .swiper-slide .products_detail{
     margin-left: 10px;
     position: relative;
     cursor: pointer;
 }
 
-.container .small_box .products_detail .box1{
+aside .container .small_box .products_detail .box1{
     /* margin-left: 10px; */
     margin-top: 10px;
     position: absolute;
@@ -429,16 +429,16 @@ aside .container .title-text h1{
     border-radius: 50%;
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
     right: 8%;
-    transform: translateX(85px);
+    transform: translateX(185px);
     /* overflow: hidden; */
     /* transition: 1s ease-out; */
     animation: address2 0.5s ease-out;
 }
-.container .small_box .products_detail .box1 i , .box2 i{
+aside .container .small_box .products_detail .box1 i , .box2 i{
     margin-top: 12px;
     color: #ffffff;
 }
-.container .small_box .products_detail .box2{
+aside .container .small_box .products_detail .box2{
     /* margin-left: 10px; */
     margin-top: 60px;
     position: absolute;
@@ -449,7 +449,7 @@ aside .container .title-text h1{
     border-radius: 50%;
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
     right: 8%;
-    transform: translateX(85px);
+    transform: translateX(185px);
     /* overflow: hidden; */
     /* transition: 1s ease-out; */
     animation: address4 1s ease-out;
