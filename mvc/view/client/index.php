@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/css.css">
     <link rel="stylesheet" href="<?= PUBLIC_URL ?>css/css1.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
 </head>
 
 <body>
