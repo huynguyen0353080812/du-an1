@@ -20,10 +20,10 @@ class HomeController{
     {
         require_once("mvc/view/client/login.php");
     }
-    public function product_details(Type $var = null)
-    {
-        require_once("mvc/view/client/product_details.php");
-    }
+    // public function product_details(Type $var = null)
+    // {
+    //     require_once("mvc/view/client/product_details.php");
+    // }
     public function profile() {
         $this->customer = new Base();
         $id = $_GET['id'];
@@ -105,7 +105,7 @@ class HomeController{
     //     }
     //     include ('mvc/view/client/component/index.php');
     // }
-    public function product_detailss(){
+    public function product_details(){
         // $this->category;
         $products = new databse();
         $rows = $products->database();
@@ -285,5 +285,38 @@ class HomeController{
         $stmt->execute();
         header('location:'.BASE_URL);
     }
+    public function send_comment()
+    {
+        if(isset($_POST['send_comment'])){
+        extract($_POST);
+        $conn = new databse();
+        $conns = $conn->database();
+        if($user_id){
+            $sql = "INSERT INTO `comment` SET products_id = $products_id , user_id = $user_id , text = '$content_comment'";
+            $stmt = $conns->prepare($sql);
+            $stmt->execute();
+            header("location:product_details?id=$products_id");
+        }else{
+            header("location:page_login");
+        }
+    }
+        
 }
+    public function Delete_comment()
+    {
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+        }
+        $id_pro = $_GET['pro_id'];
+        // echo $id_pro;
+        // die;
+        $conn = new databse();
+        $conns = $conn->database();
+        $sql = "DELETE FROM comment WHERE id = $id";
+        $stmt = $conns->prepare($sql);
+        $stmt->execute();
+        header("location:product_details?id=$id_pro");
+    }
+}
+
 ?>

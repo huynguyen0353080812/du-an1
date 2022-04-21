@@ -82,6 +82,15 @@
                 $ctr = new HomeController();
                 $ctr->product_details();
                 break;
+            //
+            case 'send_comment':
+                $ctr = new HomeController();
+                $ctr->send_comment();
+                break;
+            case 'Delete_comment':
+                $ctr = new HomeController();
+                $ctr->Delete_comment();
+                break;
             //feedback
             case 'feedback':
                 $ctr = new HomeController();

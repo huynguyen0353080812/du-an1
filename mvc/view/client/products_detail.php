@@ -78,11 +78,11 @@
                         </div>
                         <div id="menu_2" class="tabs-content-item">
                             <div class="content_details">
-                                    <form id = "formId">
-                                        <input type="hidden" name="products_id " value = "<?php echo $_GET['id']?>" class = "products_id">
+                                    <form id = "formId" action="send_comment" method = "POST">
+                                        <input type="hidden" name="products_id" value = "<?php echo $_GET['id']?>" class = "products_id">
                                         <input type="hidden" name="user_id" value = "<?php echo isset($_SESSION['user_name']['id'])?$_SESSION['user_name']['id']:''; ?>" class = "user_id">
-                                        <textarea name="" id="" cols="30" rows="10" placeholder="Hãy viết bình luận......"></textarea>
-                                        <button class = "bnt_comment">gửi</button>
+                                        <textarea style="resize:none" name="content_comment" id="" cols="30" rows="10" placeholder="Hãy viết bình luận......"></textarea>
+                                        <button class = "bnt_comment" name="send_comment">gửi</button>
                                         <!-- <button type="reset" class = "bnt_comment">gửi</button> -->
                                     </form>
                                     <div class="hr"></div>
@@ -98,10 +98,10 @@
                                             <h6 class = "date"><?= $value['created_time'] ?></h6>
                                                 <p><?= $value['text'] ?></p>
                                                 <?php if (!isset($_SESSION['user_name'])):?>
-                                                    <p>huynguyen</p>
+                                                    <p></p>
                                                 <?php else: ?>
                                                     <?php if ($_SESSION['user_name']['id']==$value['user_id']):?>
-                                                        <a href="delete_comment?id=<?= $value['id'] ?>"><button class = "delete_comment">xóa</button></a>
+                                                        <a href="Delete_comment?id=<?= $value['id']?>&&pro_id=<?php echo  $_GET['id']  ?>"><button class="delete_comment">xóa</button></a>
                                                     <?php endif; ?>
                                                 <?php endif; ?>
 
@@ -301,7 +301,7 @@
         </article>
     </main>
 <script type="text/javascript" >
-            $(document).ready(function () {
+            // $(document).ready(function () {
                 // $('.tabs-content-item').hide();
                 // $('.tabs-content-item:first-child').fadeIn();
                 // $('.nav-tabs li').
@@ -313,46 +313,46 @@
                 //     $(item_content).fadeIn()
                 //     return false;
                 // })
-                $('.DH').click(function() {
-                        var quantity = $('#quantity').val();
-                        var id = $(this).data('id');
-                        // alert(quantity);
-                        $.ajax({
-                            url: "cart",
-                            method:"GET",
-                            data:{
-                                id:id,
-                                quantity:quantity,
-                                type:1
-                            },  
-                            success:function(data){
-                                // alert(data);
-                                $('html, body').animate({
-                                    scrollTop:0
-                                },1000);
-                                location.reload();
-                            }
-                        });
-                })
-                $('.bnt_comment').on('click',function() {
-                    var textarea = $('textarea').val();
-                    var products_id = $('.products_id').val();
-                    var user_id = $('.user_id').val();
-                    $.ajax({
-                            url: "inser_comment",
-                            method:"POST",
-                            data:{
-                                textarea:textarea,
-                                products_id:products_id,
-                                user_id:user_id
-                            },  
-                            success:function(data){
-                                // alert(data);
-                                // $("#formId")[0].reset();
-                                location.reload();
-                            }
-                        });
-                })
+            //     $('.DH').click(function() {
+            //             var quantity = $('#quantity').val();
+            //             var id = $(this).data('id');
+            //             // alert(quantity);
+            //             $.ajax({
+            //                 url: "cart",
+            //                 method:"GET",
+            //                 data:{
+            //                     id:id,
+            //                     quantity:quantity,
+            //                     type:1
+            //                 },  
+            //                 success:function(data){
+            //                     // alert(data);
+            //                     $('html, body').animate({
+            //                         scrollTop:0
+            //                     },1000);
+            //                     location.reload();
+            //                 }
+            //             });
+            //     })
+            //     $('.bnt_comment').on('click',function() {
+            //         var textarea = $('textarea').val();
+            //         var products_id = $('.products_id').val();
+            //         var user_id = $('.user_id').val();
+            //         $.ajax({
+            //                 url: "inser_comment",
+            //                 method:"POST",
+            //                 data:{
+            //                     textarea:textarea,
+            //                     products_id:products_id,
+            //                     user_id:user_id
+            //                 },  
+            //                 success:function(data){
+            //                     // alert(data);
+            //                     // $("#formId")[0].reset();
+            //                     location.reload();
+            //                 }
+            //             });
+            //     })
 
-            });
+            // });
         </script>
