@@ -72,7 +72,7 @@ class CartController {
     public function sssss(Type $var = null)
     {   
         if ($this->Cart_total>0) {
-            echo number_format("$this->Cart_total",0,",",".");
+            echo $this->Cart_total;
         }else {
             echo $this->Cart_total = 0;
         }
@@ -189,7 +189,7 @@ class CartController {
             $date = date_create();
             $products = new databse();
             $rows = $products->database();
-            $sql = "INSERT INTO orders SET name = '$name_user',phone=$number_phone,address = '$adress_user',total= $total,status='115/x'";
+            $sql = "INSERT INTO orders SET name = '$name_user',phone=$number_phone,address = '$adress_user',total= $total,status='115/x',user_id =8";
             $stmt = $rows->prepare($sql);
             $stmt->execute();
             $id = $rows->lastInsertId();

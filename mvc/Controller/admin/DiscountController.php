@@ -74,5 +74,36 @@
             $result = $customer->update('discount',["status='$status'"],$id);
             header('location:list_discount');
         }
+        public function CheckDiscount()
+        {
+            extract($_POST);
+            // echo $discount;
+            // die;
+            $customer = new Base();
+            $result = $customer->all('discount');
+            $arr = [];
+            foreach ($result as $key => $value) {
+                $arr[] .= $value['code'];
+                // var_dump($value['code']);   
+            }
+            if (in_array($discount,$arr)) {
+                // echo $action = 111;
+                $result1 = $customer->where('','discount','code = "'.$discount.'"');
+                // echo $action = $result1['discount_number'];
+                if ($result1['status'] =='Đã kết thúc') {
+                    echo $action = 'hết hạn r má';
+                }else{
+                    echo $action = $result1['discount_number'];
+                }
+            }else{
+                echo $action = 'không tồn tại';
+             }
+            // die;
+            // if (in_array($discount,$arr)) {
+            //   echo $action = 111;
+            // }else{
+            //    echo $action = 'không tồn tại';
+            // }
+        }
 
     }

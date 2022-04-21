@@ -8,7 +8,7 @@ if (isset($_SESSION['user_name'])) {
     die;
   }
 }else {
-  header('location:"'.BASE_URL.'"');
+  header('location:'.BASE_URL.'');
 }
 ?>
 <!DOCTYPE html>

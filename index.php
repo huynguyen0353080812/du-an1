@@ -24,6 +24,10 @@
                 $ctr = new HomeController();
                 $ctr->product_detail();
                 break;
+            case 'register':
+                $ctr = new HomeController();
+                $ctr->register();
+                break;
             // cart
             case 'cart':
                 $ctr = new CartController();
@@ -74,6 +78,24 @@
             case 'Send_Feedback':
                 $ctr = new HomeController();
                 $ctr->Send_Feedback();
+                break;
+            //manger_buill
+            case 'manger_bill':
+                $ctr = new HomeController();
+                $ctr->manger_bill();
+                break;
+            case 'bill_detail':
+                $ctr = new HomeController();
+                $ctr->bill_detail();
+                break;
+            case 'cancel_order':
+                $ctr = new HomeController();
+                $ctr->cancel_order();
+                break;
+            //
+            case 'search':
+                $ctr = new HomeController();
+                $ctr->search();
                 break;
             //admin
             // phần quản lý tài khoản
@@ -239,8 +261,12 @@
                 break;    
             case 'change_discount':
                 $ctr = new DiscountController();
-                $ctr -> changeStatus();    
-                      
+                $ctr -> changeStatus();  
+                break;
+            case 'CheckDiscount':
+                $ctr = new DiscountController();
+                $ctr -> CheckDiscount();  
+                break;
             // N E W S 
             case 'list_news':
                 $ctr = new NewsController();

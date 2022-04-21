@@ -207,40 +207,47 @@ i{
   transition: 1s ease-in-out;
 }
 /*  */
-section{
-    top: 0%;
-    width: 80%;
-    height: 600px;
+article{
+    top: 30px;
+    width: 1230px;
+    /* height: 600px; */
     /* background:; */
+    /* background: red; */
     position: relative;
+    /* bottom: 20px; */
 }
-section .comtainer{
+article .comtainer{
     width: 100%;
-    height: 500px;
     display: grid;
     grid-template-columns: 1fr 4fr;
     justify-content: center;
+    /* background: red; */
 }
-section .comtainer .menu_list ul{
+article .comtainer .menu_list ul{
     margin-top: 10px;
 }
-section .comtainer .menu_list ul li{
+article .comtainer .menu_list ul li{
     margin-top: 50px;
     list-style: none;
 }
-section .comtainer .menu_list ul li i{
+article .comtainer .menu_list ul li i{
     color: rgb(155, 155, 155);
 }
-section .comtainer .menu_list ul li a{
+article .comtainer .menu_list ul li a{
    text-decoration: none;
    color: rgb(74, 74, 74);
 }
 /*  */
 .manger_user{
     width: 100%;
+    height: 100%;
+    position: relative;
 }
-.infomation{
+.infomation_bill{
     background-color: white;
+    border-radius:10px ;
+    /* position: absolute; */
+    /* bottom: 100px; */
 }
 .manger_user h4{
     margin-top: 15px;
@@ -251,12 +258,15 @@ section .comtainer .menu_list ul li a{
     border-bottom: 1px solid rgb(199, 193, 193);
     color: gray;
     padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 .image-detail{
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 1fr 1fr;
     border-bottom: 1px solid rgb(199, 193, 193);
     margin: 0 15px;
+    width: 95%;
 }
 .image-detail .img{
     display: flex;
@@ -339,6 +349,7 @@ footer{
     /* margin-top: 30px; */
     /* width: 100%; */
     height: 500px;
+    top: 120px;
     /* background: red; */
 }
 .image_footer{
@@ -404,4 +415,20 @@ p{
 .back-to-top button .ccc{
     width: 40px;
     height: 39px;
+}
+.ok{
+    width: 200px;
+    height: 200px;
+    background: #e4b95b;
+}
+/* article .comtainer .manger_user .infomation_bill {
+    width: 900px;
+    height: 30%;
+    background: #fff;
+} */
+.fa-truck-fast{
+    position: absolute;
+    margin-left: 60px;
+    margin-top: 7px;
+    color: gray;
 }

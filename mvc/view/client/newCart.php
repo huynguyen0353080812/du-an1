@@ -61,12 +61,10 @@ ul.the li {
                     <th scope="row">1</th>
                     <td><img src="<?= PUBLIC_URL ?>img/<?= $values['image'] ?>" alt="" style = "width:150px"></td>
                     <td><?php echo $values['products_name']; ?></td>
-                    <td><input type="number" min = 1 value="<?php echo $values['quantity'] ?>" class="update_quantity" name="quantity" data-id="<?php echo $values['id']; ?>"style = "border:1px solid black;"></td>
-                    <td><?php echo $values['price']; ?></td>
+                    <td><input type="number" min = 1 value="<?php echo $values['quantity'] ?>" class="update_quantity" name="quantity" data-id="<?php echo $values['id']; ?>"style = "border:1px solid black;text-align: center;"></td>
+                    <td><?php echo number_format($values['price'],0,",",".") ?></td>
                     <td class ="price" data-id="<?php echo $values['price']; ?>">
-                        <form action="" method="post" id = "form"> 
-                            <input type="text">
-                        </form>
+                        <?php echo number_format($values['price']*$values['quantity'],0,",",".")?>
                     </td>
                     <td><button class = "bnt_delete" data-id="<?php echo $values['id']; ?>">xóa</button></td>
                 </tr>
@@ -131,6 +129,7 @@ ul.the li {
                                     scrollTop:0
                                 },1000);
                                 total();
+                                 location.reload();  
                                 price();
                             }
                         });

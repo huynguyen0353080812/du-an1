@@ -6,6 +6,8 @@ session_start();
 class HomeController{
     public function index(Type $var = null)
     {
+        // unset($_SESSION['Cart']);
+        // die;
         $products = new databse();
         $rows = $products->database();
         $sql = "SELECT * FROM `prodcts_sale`";
@@ -20,10 +22,10 @@ class HomeController{
     {
         require_once("mvc/view/client/login.php");
     }
-    public function product_details(Type $var = null)
-    {
-        require_once("mvc/view/client/product_details.php");
-    }
+    // public function product_details(Type $var = null)
+    // {
+    //     require_once("mvc/view/client/product_details.php");
+    // }
     // public function list_user()
     // {
     //     require_once("mvc/view/admin/component/user/list_user.php");
@@ -64,7 +66,7 @@ class HomeController{
     //     }
     //     include ('mvc/view/client/component/index.php');
     // }
-    public function product_detailss(){
+    public function product_details(){
         // $this->category;
         $products = new databse();
         $rows = $products->database();
@@ -125,6 +127,10 @@ class HomeController{
             }
         }
     }
+    public function register()
+    {
+        require_once("mvc/view/client/register.php");
+    }
     // public function login(){
     //     extract($_POST);
     //     if ($bnt) {
@@ -160,18 +166,18 @@ class HomeController{
         unset($_SESSION['user_name']);
         return header("Location:".BASE_URL);
     }
-    // // public function search()
-    // // {
-    // //         $keyword = $_GET['keyword'];
-    // //         $products = new databse();
-    // //         $rows = $products->database();
-    // //         $sql = "SELECT * FROM `prodcts_sale` WHERE `products_name` LIKE '%$keyword%'";
-    // //         $stmt = $rows->prepare($sql);
-    // //         $stmt->execute();
-    // //         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // //         include ('mvc/view/client/component/search.php');
+    public function search()
+    {
+            // $keyword = $_GET['keyword'];
+            // $products = new databse();
+            // $rows = $products->database();
+            // $sql = "SELECT * FROM `prodcts_sale` WHERE `products_name` LIKE '%$keyword%'";
+            // $stmt = $rows->prepare($sql);
+            // $stmt->execute();
+            // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            include ('mvc/view/client/search.php');
         
-    // // }
+    }
     // // public function categoryshow()
     // // {
     // //     include ('mvc/view/client/component/category.php');
@@ -243,6 +249,57 @@ class HomeController{
         $stmt = $rows->prepare($sql);
         $stmt->execute();
         header('location:'.BASE_URL);
+    }
+    public function manger_bill()
+    {
+        // var_dump($_SESSION['user_name']);
+        $id = $_SESSION['user_name']['id'];
+        $products = new databse();
+        $rows = $products->database();
+        // $sql = "SELECT * FROM `orders_detail` JOIN orders ON orders_detail.order_id = orders.id WHERE orders.user_id =8";
+        $sql = "SELECT * FROM `orders` WHERE user_id =$id";
+        $stmt = $rows->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        $sql1 = "SELECT * FROM `orders_detail` JOIN prodcts_sale ON orders_detail.produrt_id = prodcts_sale.id";
+        $stmt1 = $rows->prepare($sql1);
+        $stmt1->execute();
+        $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+        // echo "<pre>";
+        // var_dump($result);
+        // die;    
+        require_once("mvc/view/client/manger_bill.php");
+    }
+    public function bill_detail()
+    {
+        $id = $_GET['id'];
+        $products = new databse();
+        $rows = $products->database();
+        $sql = "SELECT * FROM `orders` WHERE id = $id";
+        $stmt = $rows->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $sql1 = "SELECT * FROM `orders_detail` JOIN prodcts_sale ON orders_detail.produrt_id = prodcts_sale.id WHERE orders_detail.order_id = $id ";
+        $stmt1 = $rows->prepare($sql1);
+        $stmt1->execute();
+        $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+        // echo "<pre>";
+        // var_dump($result1);
+        // die; 
+        require_once("mvc/view/client/manger_bill_detail.php");
+    }
+    public function cancel_order()
+    {
+        // echo 'huynguye';
+        $id = $_GET['id'];
+        $id_order = $id.'/h';
+        $products = new databse();
+        $rows = $products->database();
+        $sql = "UPDATE `orders` SET status = '$id_order' WHERE id = $id";
+        $stmt = $rows->prepare($sql);
+        $stmt->execute();
+        header('location:manger_bill');
     }
 }
 ?>

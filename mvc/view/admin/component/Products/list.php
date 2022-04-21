@@ -50,6 +50,23 @@
                     </tr>
                     <?php endforeach ?>
                   </tbody>
+                <?php if ($current_page > 3):?>
+                  <a href="?per_page=<?php echo $item_perpage ?>&page=1"><i class="fas fa-angle-double-left"></i></a>
+              <?php endif; ?>
+              <div id="countpage">
+                  <?php for($i=1; $i <= $countotal; $i++):?>
+                      <?php if ($i != $current_page): ?>
+                          <?php if ($i > $current_page - 3 && $i < $current_page + 3) : ?>
+                              <!-- lấy ra số lượng bản thỏa mãn điều kiện trên -->
+                              <a class = "count" class="page-link" href="?per_page=<?php echo $item_perpage ?>&page=<?php echo $i ?>"><?php echo $i ?></a>
+                              <?php endif; ?>
+                      <?php else: ?>
+                          <strong><?php echo $i ?></strong>
+                      <?php endif; ?>
+                  <?php endfor; ?>
+                  <?php if ($current_page < $countotal - 3):?>
+                      <a href="?per_page=<?php echo $item_perpage ?>&page=<?php echo $countotal ?>"><i class="fas fa-angle-double-right"></i></a>
+                  <?php endif; ?>
                 </table>
               </div>
 

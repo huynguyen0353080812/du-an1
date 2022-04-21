@@ -27,7 +27,7 @@
                     <input type="submit" value="Login" name="bnt">
                     <div class="signup_link">
                         Not a member?
-                        <a href="./register.php">Signup</a>
+                        <a href="register">Signup</a>
                         or
                         <a href="#">Fogot password</a>
                     </div>

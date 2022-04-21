@@ -2,10 +2,29 @@
  require_once('mvc/Model/Base.php'); 
  require_once('mvc/Model/database.php');
 class OrderController{
+    private $customer;
+    public function __construct()
+    {
+        $this->customer = new Base();
+    }
     public function index()
     {
-        $customer = new Base();
-        $result = $customer->all('orders');
+        $data = new databse();
+        $conn = $data->database();
+        $item_perpage = isset($_GET['per_page'])? $_GET['per_page']:4;
+        $current_page = isset($_GET['page'])? $_GET['page']:1;
+        $offset = ($current_page - 1)*$item_perpage;
+        $sql = "SELECT* FROM orders ORDER BY `orders`.`id` ASC lIMIT $item_perpage OFFSET $offset";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $i = 0;
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result1 = $this->customer->all('orders');
+        $count = count($result1);
+        $countotal = ceil($count/$item_perpage);
+        //
+        // $customer = new Base();
+        // $result = $customer->all('orders');
         include ('mvc/view/admin/component/Order/Order.php');
     }
     public function order_detail()

@@ -1,29 +1,26 @@
 <?php include_once("mvc/view/client/layout.php"); ?>
     <?php 
-        session_start();
-        require_once('./../../Model/database.php');
-        include "../../Model/pdo.php";
-        include "../../Model/sanpham.php";
-        include "../../Model/danhmuc.php";
+        // session_start();
+        require_once('mvc/Model/database.php');
+        include "mvc/Model/pdo.php";
+        include "mvc/Model/sanpham.php";
+        include "mvc/Model/danhmuc.php";
         include "global.php";
         $conn = new databse();
         $conns = $conn->database();
         if(isset($_GET['search'])){
             $key = $_GET['key'];
             $sql_search = "SELECT * FROM `prodcts_sale` WHERE `products_name` LIKE '%$key%'";
-                // var_dump($sql_search);
-                // die;
             $stmt = $conns->prepare($sql_search);
             $stmt->execute();
-            
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             // var_dump($result);
             // die;
         }
         
     ?>
-   <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/product.css">
+   <link rel="stylesheet" href="mvc/view/client/css/bootstrap.css">
+    <link rel="stylesheet" href="mvc/view/client/css/product.css">
     <div class="container-product">
         <div class="row">
             <div class="col-3 primary">
@@ -94,35 +91,36 @@
                 </div>
                 <div class="product-view">
                     <div class="row">
-        
+                    <?php 
+                    if($result){
+                        foreach($result as $value){
+                            extract($value);
+                            global $img_path;
+                            $hinh = $img_path . $image;
+                            echo '<div class="col-4 border-1">
+                                    <p class="product-price"><span>' . $value['price'] . '</span>VNĐ</p>
+                                    <div class="img-product">
+                                    <a href="pro"><img src="'.PUBLIC_URL.'img/'.$value['image'].'" alt=""></a> 
+                                    </div>
+                                    <div class="product-name">
+                                        <a href="pro">' . $value['products_name'] . '</a>
+                                    </div>
+                                    <form action="controller_view.php?act=addtocart" method="post">
+                                        <input type="number" name="soluong" min="1" max="10" value="1">
+                                        <input type="hidden" name="id" value="'.$value['id'].'">
+                                        <input type="hidden" name="products_name" value="'.$value['products_name'].'">
+                                        <input type="hidden" name="image" value="'.$image.'">
+                                        <input type="hidden" name="price" value="'.$value['price'].'"> 
+                                        <input class="btn btn-warning float-end" type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+                                    </form>
+                                    <br>
+                                    </div>';
+                        }
+                        } ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <?php include_once("mvc/view/client/footer.php"); ?>
     <!-- <button class="dathang btn btn-warning float-end color-333">Thêm vào giỏ hàng</button> -->
-    <?php if($result){
-        foreach($result as $value){
-            extract($value);
-            global $img_path;
-            $hinh = $img_path . $image;
-            echo '<div class="col-4 border-1">
-                    <p class="product-price"><span>' . $value['price'] . '</span>VNĐ</p>
-                    <div class="img-product">
-                        <img src="' . $hinh . '" alt="">
-                    </div>
-                    <div class="product-name">
-                        <a href="#">' . $value['products_name'] . '</a>
-                    </div>
-                    <form action="controller_view.php?act=addtocart" method="post">
-                        <input type="number" name="soluong" min="1" max="10" value="1">
-                        <input type="hidden" name="id" value="'.$value['id'].'">
-                        <input type="hidden" name="products_name" value="'.$value['products_name'].'">
-                        <input type="hidden" name="image" value="'.$image.'">
-                        <input type="hidden" name="price" value="'.$value['price'].'"> 
-                        <input class="btn btn-warning float-end" type="submit" name="addtocart" value="Thêm vào giỏ hàng">
-                    </form>
-                    <br>
-                    </div>';
-        }
-        } ?>

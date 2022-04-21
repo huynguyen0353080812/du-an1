@@ -73,7 +73,6 @@
                     <input type="text" placeholder="Search" name="key">
                     <input type="submit" name="search" value="Search">
                     </form>
-                    
                 </div>
                 <div class="user">
                     <?php if(isset($user['user_name'])){?>

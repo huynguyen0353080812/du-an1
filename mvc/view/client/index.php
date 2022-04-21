@@ -158,10 +158,27 @@
                         text-align: center;
                                             
                     }
+                    .search_input{
+                        position: absolute;
+                        right: 18%;
+                        width: 100px;
+                        top: 54%;
+                        height: 100px;
+                        display: none;
+                    }
+                    .search:hover .search_input{
+                        display:block;
+                    }
                 </style>
                 <div class="buy">
                     <div class="search">
                         <i class="fa-solid fa-magnifying-glass"></i>
+                        <div class="search_input">
+                            <form action="search" method="GET">
+                            <input type="text" placeholder="Search" name="key" style="margin-top: 17px;margin-left: -100px;">
+                            <input type="submit" name="search" style = "display:none">
+                            </form>
+                        </div>
                     </div>
                     <div class="cart">
                     </div>
@@ -176,7 +193,7 @@
                                 </ul>
                             </div>
                         <?php else: ?>
-                        <!-- <style>
+                        <style>
                             .infomation_user{
                                 position: absolute;
                                 color:#fff;
@@ -195,7 +212,7 @@
                                 height: 100%;
                                 object-fit: cover;
                             }
-                        </style> -->
+                        </style>
                             <div class="infomation_user">
                                 <div class="avatar">
                                     <img src="<?= PUBLIC_URL ?>img/module_banner3.png" alt=""class ="bbb"> 
@@ -205,7 +222,7 @@
                                 <div class="xx"></div>
                                 <ul>
                                     <li><a href="page_login">Thông Tin Tài</a></li>
-                                    <li><a href="">Thông Tin Đơn</a></li>
+                                    <li><a href="manger_bill">Thông Tin Đơn</a></li>
                                     <li><a href="">Yêu Thích</a></li>
                                     <?php if ($_SESSION['user_name']['role']==1 || $_SESSION['user_name']['role']==3): ?>
                                         <li><a href="Dashboard">Quản Lý</a></li>
@@ -492,7 +509,7 @@
                     </div>
                 </div>
                 <div class="small_box">
-                    <img src="<?= PUBLIC_URL ?>img/blog3.webp" alt="">
+                    <img src="<?= PUBLIC_URL ?>img/blog3.webp" alt="" style="width: 100%;height: 100%;">
                 </div>
             </div>
         </div>
@@ -753,20 +770,15 @@
                     });
                 }
                 $('.box1').on('click',function() {
-                    // alert('huy');
                         var id_pro = $(this).data('id');
-                        // alert(id);
                         $.ajax({
                             url: "cart",
                             method:"GET",
                             data:{
-                            //key => value
                                 id:id_pro,
                                 sss:null
                             },  
                             success:function(data){
-                                // alert(data)
-                                // alert("insert thành công"+data);
                                 $('html, body').animate({
                                     scrollTop:0
                                 },1000);

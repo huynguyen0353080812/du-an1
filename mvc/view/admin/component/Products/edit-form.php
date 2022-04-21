@@ -33,7 +33,8 @@
                 <div class="form-group">
                 <label for="products_name">Loại hàng</label>
                   <select class="form-control" name="categories_id" id="categories_id ">
-                  <?= $htmlOption ?>
+                    <!-- <option value="">ok</option> -->
+                    <?= $htmlOption.'selected' ?>
                   </select>
                 </div>
 

@@ -74,10 +74,12 @@
             }
             try {
                 $sql = "SELECT $input FROM $table WHERE $data";
+                // var_dump($sql);
+                // die;
                 $stmt = $this->conn->prepare($sql);
                 $stmt->execute();
                 $i = 0;
-                $libary = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $libary = $stmt->fetch(PDO::FETCH_ASSOC);
                 return $libary;
             } catch (\Throwable $e) {
                 echo "Lỗi: " . $e->getMessage();    

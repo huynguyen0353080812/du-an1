@@ -16,7 +16,7 @@
                 $item_perpage = isset($_GET['per_page'])? $_GET['per_page']:4;
                 $current_page = isset($_GET['page'])? $_GET['page']:1;
                 $offset = ($current_page - 1)*$item_perpage;
-                $sql = "SELECT* FROM prodcts_sale ORDER BY `prodcts_sale`.`price` ASC lIMIT $item_perpage OFFSET $offset";
+                $sql = "SELECT* FROM prodcts_sale ORDER BY `prodcts_sale`.`id` ASC lIMIT $item_perpage OFFSET $offset";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();
                 $i = 0;
@@ -33,7 +33,6 @@
             $result = $this->customer->find('prodcts_sale',$id);
             $htmlOption = $this->getCategory($category = '');
             $library = $this->customer->where('image_pro','image_library','products_id ='.$id.' ');
-            
             include ('mvc/view/admin/component/Products/edit-form.php'); 
         }
         public function saveEdit()

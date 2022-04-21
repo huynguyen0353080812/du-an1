@@ -1,3 +1,8 @@
+<?php
+    if (!isset($_SESSION['user_name'])) {
+        header('location:'.BASE_URL.'page_login');
+    }
+?>
 <?php include_once("mvc/view/client/layout.php"); ?>
 <link rel="stylesheet" href="http://localhost:81/du-an1/public/css/test.css">  
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -95,7 +100,7 @@
             <div class="card-body">
               <h5 class="card-title">Địa chỉ giao Hàng</h5>
                 <form action="" method="POST">
-                  <span>tên ngươi nhận:</span><input type="text" id="user_name"  class="user_name"><br>
+                  <span>tên ngươi nhận:</span><input type="text" id="user_name"  class="user_name" value = "<?= isset($user_name)?$user_name:'' ?>"><br>
                   <span>Địa Chỉ:</span><br><input type="text" name="adress_user" id="" class ="adress_user" ><br>
                   <span>Số điện thoại:</span><input type="text" name="number_phone" id="" class ="number_phone" style = "margin-top: 10px;">
                 </form>
@@ -105,16 +110,19 @@
             <div class="card-body" style = "di">
                  <h5 class="card-title">Mã Giảm Giá</h5>
                  <div style = "display:flex;">
-                    <input type="text" class="form-control" placeholder="Discount" aria-label="Username" aria-describedby="basic-addon1" style = "margin-right:10px;">
-                    <button type="button" class="btn btn-primary">Discount</button>
+                    <form action=""style= "display:flex">
+                        <input type="text" class="form-control" id="Discount" name = "Discount" placeholder="Discount" aria-label="Username" aria-describedby="basic-addon1" style = "margin-right:10px;">
+                        <button type="button" id = "bnt_Discount" class="btn btn-primary">Discount</button>
+                    </form>
                 </div>
+                <span class='erro' style = "color:red;"><?php echo isset($_GET['action']) ? $_GET['action'] :'' ?></span>
             </div>
           </div>
           <div class="card" id="cart4">
             <div class="card-body">
               <h5 class="card-title">Đơn Hàng</h5>
               <p class="card-text">
-                    <span>Tạm tính</span><br>
+                    <span class = "giam">giam:0</span><br>
                     <span>Phí vận chuyển</span><br>
                     <strong class="total"></strong><br>
               </p>
@@ -126,33 +134,61 @@
 <script>
             $(document).ready(function () {
                 total(); 
-                function total() {
+                function total(tt) {
                     $.ajax({
                         url: "showquantity",
                         method:"GET",
                         success:function(data) {
-                            $('.total').html('thành tiền: '+data);
+                            if (tt) {
+                                var ttt = parseInt(data)-parseInt(tt);
+                                var pattern =ttt.toString().replace(/\B(?!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                                $('.giam').html('Giảm: -'+tt);
+                                $('.total').html('thành tiền: '+pattern);
+                            }else{
+                                var pattern =data.toString().replace(/\B(?!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                                 $('.giam').html('Giảm:0');
+                                $('.total').html('thành tiền: '+pattern);
+                            }
                         }
                     });
                 }
-                $('#order').on('click',()=>{
-                    var name_user = $('#user_name').val()
-                    var adress_user = $('.adress_user').val()
-                    var number_phone = $('.number_phone').val()
-                    // alert(name_user);
-
+                // $('.btn-success').on('click',()=>{
+                //     var name_user = $('#user_name').val()
+                //     var adress_user = $('.adress_user').val()
+                //     var number_phone = $('.number_phone').val()
+                //     $.ajax({
+                //             url: "order",
+                //             method:"POST",
+                //             data:{
+                //               name_user:name_user,
+                //               adress_user:adress_user,
+                //               number_phone:number_phone
+                //             },  
+                //             success:function(data){
+                //                 location.assign("<?php echo BASE_URL?>");
+                //             }
+                //         });
+                // })
+                $('#bnt_Discount').on('click',()=>{
+                    var discount = $('#Discount').val();
                     $.ajax({
-                            url: "order",
+                            url: "CheckDiscount",
                             method:"POST",
                             data:{
-                              name_user:name_user,
-                              adress_user:adress_user,
-                              number_phone:number_phone
+                                discount:discount
                             },  
                             success:function(data){
-                                location.assign("<?php echo BASE_URL?>");
+                                if (isNaN(data)==false) {
+                                   var tt = parseInt(data)
+                                   $('.erro').html('');
+                                   total(tt);
+                                }else{
+                                    total();
+                                    $('.erro').html(data);
+                                }
                             }
                         });
                 })
+
             });
         </script>
