@@ -20,14 +20,30 @@
                 $ctr = new HomeController();
                 $ctr->delete();
                 break;
-            case 'product_detail':
-                $ctr = new HomeController();
-                $ctr->product_detail();
-                break;
             case 'register':
                 $ctr = new HomeController();
                 $ctr->register();
                 break;
+            case 'product_detail':
+                $ctr = new HomeController();
+                $ctr->product_detail();
+                break;
+           case 'manage_user':
+                $ctr = new HomeController();
+                $ctr->profile();
+                break;     
+            case 'update_user':
+                $ctr = new HomeController();
+                $ctr->saveProfile();
+                break;  
+            case 'edit_password':
+                $ctr = new HomeController();
+                $ctr->editPassword();
+                break; 
+            case 'update_password':
+                $ctr = new HomeController();
+                $ctr->updatePassword();
+                break; 
             // cart
             case 'cart':
                 $ctr = new CartController();

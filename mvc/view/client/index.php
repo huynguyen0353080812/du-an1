@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/css.css">
     <link rel="stylesheet" href="<?= PUBLIC_URL ?>css/css1.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
 </head>
 
 <body>
@@ -221,7 +222,7 @@
                                 <div class="option" style="margin-right:-20px;">
                                 <div class="xx"></div>
                                 <ul>
-                                    <li><a href="page_login">Thông Tin Tài</a></li>
+                                    <li><a href="manage_user?id=<?= $_SESSION['user_name']['id'] ?>">Thông Tin Tài</a></li>
                                     <li><a href="manger_bill">Thông Tin Đơn</a></li>
                                     <li><a href="">Yêu Thích</a></li>
                                     <?php if ($_SESSION['user_name']['role']==1 || $_SESSION['user_name']['role']==3): ?>

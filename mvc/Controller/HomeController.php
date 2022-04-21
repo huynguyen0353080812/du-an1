@@ -22,10 +22,46 @@ class HomeController{
     {
         require_once("mvc/view/client/login.php");
     }
-    // public function product_details(Type $var = null)
-    // {
-    //     require_once("mvc/view/client/product_details.php");
-    // }
+    public function profile() {
+        $this->customer = new Base();
+        $id = $_GET['id'];
+        $result = $this->customer->find('manage_user',$id);
+        require_once("mvc/view/client/manger_user.php");
+    }
+    public function saveProfile() {
+        $this->customer = new Base();
+        extract($_POST);
+        $id = $id;
+        $result = $this->customer->update('manage_user',["number_phone='$number_phone',email='$email'"],$id);
+        header('location:/');
+    }
+    public function editPassword() {
+        $this->customer = new Base();
+        $id = $_GET['id'];
+        $result = $this->customer->find('manage_user',$id);
+        require_once("mvc/view/client/edit_password.php");
+    }
+    public function updatePassword() {
+        $this->customer = new Base();
+        extract($_POST);
+        $id = $id;
+        $result = $this->customer->find('manage_user',$id);
+        $result['password'];
+
+        if($result['password'] != $_POST['old_password']){
+            if($_POST['new_password'] == $_POST['confirm_new_password']) {
+                $password = password_hash($_POST['confirm_new_password'],PASSWORD_DEFAULT);
+                $result1 = $this->customer->update('manage_user',["password='$password'"],$id);
+            } else {
+                $erros = "Mật khẩu của bạn không đúng";
+            }
+        } else {
+            $erros = "Mật khẩu của bạn không đúng";
+        }
+        var_dump($result1);
+        die;
+        // header('location:page_login');
+    }
     // public function list_user()
     // {
     //     require_once("mvc/view/admin/component/user/list_user.php");
