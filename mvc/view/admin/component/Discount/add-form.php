@@ -35,7 +35,7 @@
 
                   <div class="form-group">
                     <label for="code">CODE</label>
-                    <input type="text" name="code" class="form-control" id="code">
+                    <input type="text" name="code" class="form-control" id="code" value ="<?php echo mt_rand(1, 600); ?>" >
                   </div>
 
                   <div class="form-group">
@@ -99,7 +99,7 @@ $(function () {
       },
       discount_number: {
         required: true,
-        max: 100
+        max: 900000
       },
       begin: {
         required: true
@@ -120,7 +120,7 @@ $(function () {
       },
       discount_number: {
         required: "Please enter data",
-        max: "No more than 100%"
+        max: "No more than 900000VNĐ"
       },
       begin: {
         required: "Please enter data"

@@ -98,7 +98,7 @@
                     <div class="price-btn">
                         <p>Tổng tiền: <?php echo number_format($value['price']*$value['quantity'],0,",",".") ?></p>
                         <div class="btn">
-                            <button>Mua lại</button>
+                            <button class = "box1" data-id="<?php echo $value['id'] ?>">Mua lại</button>
                         </div>
                     </div>
                 </div>
@@ -125,3 +125,26 @@
 
 </article>
 <?php include_once("mvc/view/client/footer.php"); ?>
+<script src="<?= PUBLIC_URL ?>plugins/jquery/jquery.min.js"></script>
+<script>
+            $(document).ready(function () {
+                $('.box1').on('click',function() {
+                        var id_pro = $(this).data('id');
+                        alert(id_pro);
+                        $.ajax({
+                            url: "cart",
+                            method:"GET",
+                            data:{
+                                id:id_pro,
+                                sss:null
+                            },  
+                            success:function(data){
+                                $('html, body').animate({
+                                    scrollTop:0
+                                },1000);
+                                show_cart();
+                            }
+                        });
+                });
+            });
+        </script>

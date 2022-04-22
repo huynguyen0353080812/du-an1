@@ -8,6 +8,10 @@
                 $ctr = new HomeController();
                 $ctr->index();
                 break;
+            case 'news':
+                $ctr = new HomeController();
+                $ctr->news();
+                break;
             case 'page_login':
                 $ctr = new HomeController();
                 $ctr->login();
@@ -156,6 +160,14 @@
             case 'delete_comment':
                 $ctr = new CommentController();
                 $ctr->delete_comment();
+                break;
+            case 'send_comment':
+                $ctr = new HomeController();
+                $ctr->send_comment();
+                break;
+            case 'Delete_comment':
+                $ctr = new HomeController();
+                $ctr->Delete_comment();
                 break;
             //end
             //Statistical

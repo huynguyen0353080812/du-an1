@@ -62,7 +62,7 @@
                     <?php endforeach;?>
                 </article>
         <aside class="pro">
-            <section class="left_details">
+            <section class="left_details" style = "width:100%"> 
                 <div class="tabs">
                     <ul class="nav-tabs">
                         <li class="active"><a href="#menu_1">Tổng Quan</a></li>
@@ -77,12 +77,12 @@
                             </div>
                         </div>
                         <div id="menu_2" class="tabs-content-item">
-                            <div class="content_details">
-                                    <form id = "formId">
-                                        <input type="hidden" name="products_id " value = "<?php echo $_GET['id']?>" class = "products_id">
+                        <div class="content_details">
+                                    <form id = "formId" action="send_comment" method = "POST">
+                                        <input type="hidden" name="products_id" value = "<?php echo $_GET['id']?>" class = "products_id">
                                         <input type="hidden" name="user_id" value = "<?php echo isset($_SESSION['user_name']['id'])?$_SESSION['user_name']['id']:''; ?>" class = "user_id">
-                                        <textarea name="" id="" cols="30" rows="10" placeholder="Hãy viết bình luận......"></textarea>
-                                        <button class = "bnt_comment">gửi</button>
+                                        <textarea style="resize:none" name="content_comment" id="" cols="30" rows="10" placeholder="Hãy viết bình luận......"></textarea>
+                                        <button class = "bnt_comment" name="send_comment">gửi</button>
                                         <!-- <button type="reset" class = "bnt_comment">gửi</button> -->
                                     </form>
                                     <div class="hr"></div>
@@ -98,10 +98,10 @@
                                             <h6 class = "date"><?= $value['created_time'] ?></h6>
                                                 <p><?= $value['text'] ?></p>
                                                 <?php if (!isset($_SESSION['user_name'])):?>
-                                                    <p>huynguyen</p>
+                                                    <p></p>
                                                 <?php else: ?>
                                                     <?php if ($_SESSION['user_name']['id']==$value['user_id']):?>
-                                                        <a href="delete_comment?id=<?= $value['id'] ?>"><button class = "delete_comment">xóa</button></a>
+                                                        <a href="Delete_comment?id=<?= $value['id']?>&&pro_id=<?php echo  $_GET['id']  ?>"><button class="delete_comment">xóa</button></a>
                                                     <?php endif; ?>
                                                 <?php endif; ?>
 
@@ -111,52 +111,15 @@
                                     
                             </div>
                         </div>
+                        </div>
                         <div id="menu_3" class="tabs-content-item">
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="right_details">
-                <div class="related-products">
-                    <img src="anh/sony-01.jpg" alt="" class="anh2">
-                    <p></p>
-                    <div class="danhgia1">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                    <p class="chu1">Máy Compact Ricoh GR III</p>
-                    <p class="gia1">20.000.000 đ</p>
-                </div>
-                <div class="related-products">
-                    <img src="anh/sony-01.jpg" alt="" class="anh2">
-                    <p></p>
-                    <div class="danhgia1">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                    <p class="chu1">Máy Compact Ricoh GR III</p>
-                    <p class="gia1">20.000.000 đ</p>
-                </div>
-                <div class="related-products1">
-                    <img src="anh/sony-01.jpg" alt="" class="anh2">
-                    <p></p>
-                    <div class="danhgia1">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                    <p class="chu1">Máy Compact Ricoh GR III</p>
-                    <p class="gia1">20.000.000 đ</p>
-                </div>
-            </section>
+            <!-- <section class="right_details">
+           
+            </section> -->
         </aside>
         <h3 class="TD">SẢN PHẨM TƯƠNG TỰ</h3>
         <article class="sptg" >
@@ -300,7 +263,7 @@
             </div>
         </article>
     </main>
-<script type="text/javascript" >
+<!-- <script type="text/javascript" >
             $(document).ready(function () {
                 // $('.tabs-content-item').hide();
                 // $('.tabs-content-item:first-child').fadeIn();
@@ -355,4 +318,4 @@
                 })
 
             });
-        </script>
+        </script> -->

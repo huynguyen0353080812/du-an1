@@ -31,7 +31,7 @@
                 </li>
                 <li>
                     <i class="fa-solid fa-file-invoice-dollar"></i>
-                    <a href="">Quản Lý Đơn Hàng</a>
+                    <a href="manger_bill">Quản Lý Đơn Hàng</a>
                 </li>
                 <li><i class="fa-solid fa-location-dot"></i>
                     <a href="">Địa Chỉ</a>

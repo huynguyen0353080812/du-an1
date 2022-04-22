@@ -6,7 +6,7 @@ class StatisticalController{
     {
                 $data = new databse();
                 $conn = $data->database();
-                $sql = "SELECT categories.name,COUNT(*) AS SOLUONG,MAX(prodcts_sale.price) AS gíacao,MIN(prodcts_sale.price) AS giánhỏ,AVG(prodcts_sale.price)  AS TRUNGBINH FROM `prodcts_sale` JOIN categories on prodcts_sale.categories_id = categories.id GROUP BY categories.name";
+                $sql = "SELECT categories.name,COUNT(*) AS SOLUONG,MAX(products.price) AS gíacao,MIN(products.price) AS giánhỏ,AVG(products.price)  AS TRUNGBINH FROM `products` JOIN categories on products.categories_id = categories.id GROUP BY categories.name";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();
                 $i = 0;
@@ -21,7 +21,7 @@ class StatisticalController{
     {
         $data = new databse();
             $conn = $data->database();
-            // $sql = "SELECT categories.name,COUNT(*) AS SOLUONG FROM `prodcts_sale` JOIN categories on prodcts_sale.categories_id = categories.id GROUP BY categories.name";
+            // $sql = "SELECT categories.name,COUNT(*) AS SOLUONG FROM `products` JOIN categories on products.categories_id = categories.id GROUP BY categories.name";
             $sql = "SELECT * FROM `statistical`";
             $stmt = $conn->prepare($sql);
             $stmt->execute();

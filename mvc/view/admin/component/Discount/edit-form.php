@@ -99,7 +99,7 @@ $(function () {
       discount_number: {
         required: true,
         min: 1,
-        max: 100
+        max: 900000
       },
       quantity: {
         required: true,
@@ -122,7 +122,7 @@ $(function () {
       discount_number: {
         required: "Please enter data",
         min: "Not less than 1%",
-        max: "No more than 100%"
+        max: "No more than 900000VNĐ"
       },
       quantity: {
         required: "Please enter data",

@@ -61,9 +61,6 @@ a, .text-link {
 .img-responsive{
     min-width: 282px;
 }
-.logo img{
-    width: 131% !important;;
-}
 .footer{
     position: relative !important;
 }

@@ -236,13 +236,13 @@ class DecentralizationController{
     // public function contans()
     // {
     //     $id = $_GET['id'];
-    //         $result = $this->customer->delete('prodcts_sale',$id_aa);
+    //         $result = $this->customer->delete('products',$id_aa);
     //         return header('location:Products');
     // }
     // public function index()
     // {
     //         $id = $_GET['id'];
-    //         $result2222 = $this->customer->delete('prodcts_sale',$id_pro);
+    //         $result2222 = $this->customer->delete('products',$id_pro);
     //         return header('location:Products');
     // }
 }

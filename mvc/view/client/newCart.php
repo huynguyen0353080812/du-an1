@@ -91,7 +91,8 @@ ul.the li {
                         url: "showquantity",
                         method:"GET",
                         success:function(data) {
-                            $('.total').html('Tổng:'+data);
+                            var pattern =data.toString().replace(/\B(?!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+                            $('.total').html('Tổng:'+pattern);
                         }
                     });
                 }

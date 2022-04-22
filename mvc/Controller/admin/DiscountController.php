@@ -91,19 +91,15 @@
                 $result1 = $customer->where('','discount','code = "'.$discount.'"');
                 // echo $action = $result1['discount_number'];
                 if ($result1['status'] =='Đã kết thúc') {
-                    echo $action = 'hết hạn r má';
+                    echo $action = 'hết hạn';
+                }elseif ($result1['quantity']==0) {
+                    echo $action = 'số lượng đã hết';
                 }else{
                     echo $action = $result1['discount_number'];
                 }
             }else{
                 echo $action = 'không tồn tại';
              }
-            // die;
-            // if (in_array($discount,$arr)) {
-            //   echo $action = 111;
-            // }else{
-            //    echo $action = 'không tồn tại';
-            // }
         }
 
     }

@@ -10,7 +10,7 @@
         $conns = $conn->database();
         if(isset($_GET['search'])){
             $key = $_GET['key'];
-            $sql_search = "SELECT * FROM `prodcts_sale` WHERE `products_name` LIKE '%$key%'";
+            $sql_search = "SELECT * FROM `products` WHERE `products_name` LIKE '%$key%'";
             $stmt = $conns->prepare($sql_search);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

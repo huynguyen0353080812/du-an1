@@ -37,7 +37,7 @@ class CartController {
     public function add(){
         $id = $_GET['id'];
         $customer = new Base();
-        $products = $customer->find('prodcts_sale',$id);//lấy trường duy nhất dựa theo id sản phẩm 
+        $products = $customer->find('products',$id);//lấy trường duy nhất dựa theo id sản phẩm 
         $Cart = [
             'id'=> $products['id'],
             'image'=> $products['image'],
@@ -98,11 +98,22 @@ class CartController {
     }
     public function order()
     {
-        // echo "<pre>";
-        // var_dump($_SESSION['user_name']['email']);
-        // die;
             extract($_POST);
-            $total= $this->Cart_total;
+            if (isset($id_discount)) {
+                if ($id_discount!=='') {
+
+                    $result1 = $this->customer->where('','discount','code = "'.$id_discount.'"');
+                    if ($result1) {
+                        $tt = $result1['quantity']-1;
+                        $products = new databse();
+                        $rows = $products->database();
+                        $sql = "UPDATE discount SET quantity = $tt WHERE code = '$id_discount'";
+                        $stmt = $rows->prepare($sql);
+                        $stmt->execute();    
+                    }
+                }
+            }       
+            // $total= $this->Cart_total;
             $g = "
                 <div class='infomation'style='display:grid; grid-template-columns: repeat(2,1fr);text-align: center;width:230px'>
                     <div class='name'>

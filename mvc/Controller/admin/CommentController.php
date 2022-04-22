@@ -16,7 +16,7 @@
         public function index()
         {
             $customer = new Base();
-            $result = $customer->Group(['prodcts_sale.products_name,prodcts_sale.image,prodcts_sale.id, COUNT(*) AS SOLUONG,MAX(comment.created_time) AS datenew,MIN(comment.created_time) AS datelate'],'comment',);
+            $result = $customer->Group(['products.products_name,products.image,products.id, COUNT(*) AS SOLUONG,MAX(comment.created_time) AS datenew,MIN(comment.created_time) AS datelate'],'comment',);
             include ('mvc/view/admin/component/Comment/Comment.php');
         }
         public function comment_details()

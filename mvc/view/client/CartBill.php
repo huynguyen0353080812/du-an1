@@ -111,6 +111,7 @@
                  <h5 class="card-title">Mã Giảm Giá</h5>
                  <div style = "display:flex;">
                     <form action=""style= "display:flex">
+                        <input type="hidden" class = "id_discount" value ='1'><br>
                         <input type="text" class="form-control" id="Discount" name = "Discount" placeholder="Discount" aria-label="Username" aria-describedby="basic-addon1" style = "margin-right:10px;">
                         <button type="button" id = "bnt_Discount" class="btn btn-primary">Discount</button>
                     </form>
@@ -125,6 +126,7 @@
                     <span class = "giam">giam:0</span><br>
                     <span>Phí vận chuyển</span><br>
                     <strong class="total"></strong><br>
+                    <input type="hidden" name="total" class="totalone">
               </p>
             </div>
           </div>
@@ -143,32 +145,41 @@
                                 var ttt = parseInt(data)-parseInt(tt);
                                 var pattern =ttt.toString().replace(/\B(?!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
                                 $('.giam').html('Giảm: -'+tt);
+                                $('.totalone').attr("value", ttt);
                                 $('.total').html('thành tiền: '+pattern);
                             }else{
                                 var pattern =data.toString().replace(/\B(?!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
                                  $('.giam').html('Giảm:0');
+                                 $('.totalone').attr("value", data);
                                 $('.total').html('thành tiền: '+pattern);
                             }
                         }
                     });
                 }
-                // $('.btn-success').on('click',()=>{
-                //     var name_user = $('#user_name').val()
-                //     var adress_user = $('.adress_user').val()
-                //     var number_phone = $('.number_phone').val()
-                //     $.ajax({
-                //             url: "order",
-                //             method:"POST",
-                //             data:{
-                //               name_user:name_user,
-                //               adress_user:adress_user,
-                //               number_phone:number_phone
-                //             },  
-                //             success:function(data){
-                //                 location.assign("<?php echo BASE_URL?>");
-                //             }
-                //         });
-                // })
+                function add() {
+                    
+                }
+                $('.btn-success').on('click',()=>{
+                    var name_user = $('#user_name').val()
+                    var adress_user = $('.adress_user').val()
+                    var number_phone = $('.number_phone').val()
+                    var id_discount = $('#Discount').val()
+                    var total = $('.totalone').val()
+                    $.ajax({
+                            url: "order",
+                            method:"POST",
+                            data:{
+                              name_user:name_user,
+                              adress_user:adress_user,
+                              number_phone:number_phone,
+                              id_discount:id_discount,
+                              total:total
+                            },  
+                            success:function(data){
+                                location.assign("<?php echo BASE_URL?>");
+                            }
+                        });
+                })
                 $('#bnt_Discount').on('click',()=>{
                     var discount = $('#Discount').val();
                     $.ajax({
