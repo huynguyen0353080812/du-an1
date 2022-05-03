@@ -69,7 +69,7 @@
                     <div class="row">
                     <div class="col-md-6">
                         <?php foreach ($library as $value):?>
-                        <img src="public/library_img/<?= $value ?>" style="width: 330px;" name="">  
+                        <img src="public/library_img/<?= $value['image_pro']?>" style="width: 330px;" name="">  
                         <?php endforeach; ?>
                       </div>
                       <div class="col-md-6">

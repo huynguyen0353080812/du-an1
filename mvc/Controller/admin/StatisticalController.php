@@ -11,6 +11,13 @@ class StatisticalController{
                 $stmt->execute();
                 $i = 0;
                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $sql1 = "SELECT orders.created_time,COUNT(*) AS Soluong FROM `orders` GROUP BY orders.created_time";
+                $stmt1 = $conn->prepare($sql1);
+                $stmt1->execute();
+                $i = 0;
+                $result1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+                // var_dump($result1);
+                // die;
                 include ('mvc/view/admin/component/Statistical/Statistical.php');
     }
     public function show_charts()

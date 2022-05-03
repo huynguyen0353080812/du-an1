@@ -61,7 +61,7 @@ a, .text-link {
 .img-responsive{
     min-width: 282px;
 }
-.footer{
+/* .footer{
     position: relative !important;
 }
 .footer img {
@@ -70,7 +70,7 @@ a, .text-link {
 }
 .container-news{
     max-width: 1140px !important;
-}
+} */
 .space-30{
     margin-bottom: 30px !important;
 }

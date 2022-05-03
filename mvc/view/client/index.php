@@ -26,7 +26,7 @@
                         <li><a href="<?php  echo BASE_URL ?>">Trang Chủ</a></li>
                         <li><a href="">Giới Thiệu</a></li>
                         <li>
-                            <a href="mvc/view/client/controller_view.php">Sản Phẩm</a>
+                            <a href="">Sản Phẩm</a>
                             <div class="categores">
                                 <div class="boxx"></div>
                                 <ul class="level0">
@@ -141,7 +141,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="">Tin Tức</a></li>
+                        <li><a href="news">Tin Tức</a></li>
                         <li><a href="feedback">Liên Hệ</a></li>
                     </ul>
                 </div>
@@ -190,7 +190,7 @@
                                 <div class="xx"></div>
                                 <ul>
                                     <li><a href="page_login">Đăng Nhập</a></li>
-                                    <li><a href="">Đăng Ký</a></li>
+                                    <li><a href="register">Đăng Ký</a></li>
                                 </ul>
                             </div>
                         <?php else: ?>

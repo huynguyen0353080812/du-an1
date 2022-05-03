@@ -130,7 +130,6 @@
             $(document).ready(function () {
                 $('.box1').on('click',function() {
                         var id_pro = $(this).data('id');
-                        alert(id_pro);
                         $.ajax({
                             url: "cart",
                             method:"GET",

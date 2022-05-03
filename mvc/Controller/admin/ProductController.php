@@ -31,7 +31,12 @@
             $id = $_GET['id'];
             $result = $this->customer->find('products',$id);
             $htmlOption = $this->getCategory($category = '');
-            $library = $this->customer->where('image_pro','image_library','products_id ='.$id.' ');
+            $data = new databse();
+            $conn = $data->database();
+            $sql = "SELECT * FROM image_library WHERE products_id =$id";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            $library=$stmt->fetchAll(PDO::FETCH_ASSOC);
             // var_dump($library);
             // die;
             include ('mvc/view/admin/component/Products/edit-form.php'); 

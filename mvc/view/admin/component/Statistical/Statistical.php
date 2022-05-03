@@ -60,7 +60,7 @@
     </div>
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Thống kê sản phẩm theo danh mục</h3>
+        <h3 class="card-title">Thống kê Đơn hàng theo ngày </h3>
       </div>
       <!-- /.card-header -->
       <div class="card-body">
@@ -68,31 +68,19 @@
           <thead>
             <tr>
               <th style="width: 10px">#</th>
-              <th>Loại Hàng</th>
               <th>Số lượng</th>
-              <th>Gía Cao nhất</th>
-              <th>Gía thấp nhất</th>
-              <th>GIa trung bình</th>
+              <th>Ngày Đặt</th>
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($result as $key => $value): ?>
+            <?php foreach ($result1 as $key => $value): ?>
             <tr>
               <td>1.</td>
               <td>
-                <?= $value['name'] ?>
+                <?= $value['Soluong'] ?>
               </td>
               <td>
-                <?= $value['SOLUONG'] ?>
-              </td>
-              <td>
-                <?= $value['gíacao'] ?>
-              </td>
-              <td>
-                <?= $value['giánhỏ'] ?>
-              </td>
-              <td>
-                <?= $value['TRUNGBINH'] ?>
+                <?= $value['created_time'] ?>
               </td>
             </tr>
             <?php endforeach; ?>

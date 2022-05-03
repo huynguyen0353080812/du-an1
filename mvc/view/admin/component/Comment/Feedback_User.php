@@ -12,7 +12,7 @@
   }
   .modal-dialog{
     position: relative;
-    top: -100px; 
+    top: 80px; 
   }
   /* .modal-content{
     display:none  ;

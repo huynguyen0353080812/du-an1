@@ -1,4 +1,16 @@
-<?php require_once('mvc/view/client/layout.php'); ?>
+<?php require_once('mvc/view/client/layout.php'); ?>\
+<?php if ($erros == 'Mật khẩu của bạn không đúng'): ?>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text:  <?php echo json_encode($erros)?>,
+        footer: '<a href="">Why do I have this issue?</a>'
+        })
+
+    </script>
+<?php endif; ?>
         <section>
 
         <style>

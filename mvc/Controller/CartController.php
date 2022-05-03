@@ -171,7 +171,7 @@ class CartController {
                 $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
                 $mail->Port = SMTP_PORT;                                    // TCP port to connect to
                 //Recipients
-                $mail->setFrom(SMTP_UNAME, "Coffee House");
+                $mail->setFrom(SMTP_UNAME, "Halu Coffee");
                 $mail->addAddress($_SESSION['user_name']['email'], 'Tên người nhận');     // Add a recipient | name is option
                 $mail->addReplyTo(SMTP_UNAME, 'Tên người trả lời');
 //                    $mail->addCC('CCemail@gmail.com');
@@ -194,7 +194,6 @@ class CartController {
             } catch (Exception $e) {
                 echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
             }
-            $total= $this->Cart_total;
             // echo $total;
             date_default_timezone_set('Asia/Ho_Chi_Minh');
             $date = date_create();

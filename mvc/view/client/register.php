@@ -1,4 +1,3 @@
-<?php include_once("mvc/view/client/layout.php"); ?>
 <?php
         require_once('mvc/Model/database.php');     
         $conn = new databse();
@@ -38,19 +37,17 @@
             
             if(empty($err)){
             $pass = password_hash($password,PASSWORD_DEFAULT);
-            
             $sql = "INSERT INTO manage_user(user_name,email,password) VALUES ('$user_name','$email','$pass')";
             $stmt = $conns->prepare($sql);
             $stmt->execute();
-            $message = 'ok';
-            if($stmt){
-                header('location: login.php?id='.$message);
-            }
+            $mess = 'thànhcông';
+            header('location:page_login?mess='.$mess);
             }
         }
 
     
 ?>
+<?php include_once("mvc/view/client/layout.php"); ?>
     <div class="content-item">
         <div class="container">
             <div class="login">

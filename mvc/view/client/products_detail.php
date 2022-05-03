@@ -25,12 +25,11 @@
                                 <?php endforeach;?>
                             </div>
                         </div>
-                    <?php foreach($result as $row):?>
                         <div class ="image_avatar"> 
-                                <img src="<?= PUBLIC_URL ?>img/<?php echo $row['image']?>" alt=""style="width:320px">
+                                <img src="<?= PUBLIC_URL ?>img/<?php echo $result['image']?>" alt=""style="width:320px">
                             </div>
                         <div class="Price-information">
-                            <p class="font"> <?php echo $row['products_name']?></p>
+                            <p class="font"> <?php echo $result['products_name']?></p>
                             <div class="danhgia">
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
@@ -38,7 +37,7 @@
                                 <span class="fa fa-star"></span>
                                 <span class="fa fa-star"></span>
                             </div>
-                            <p class="gia"><?php echo number_format($row['price'],0,",",".") ?> VNĐ</p>
+                            <p class="gia"><?php echo number_format($result['price'],0,",",".") ?> VNĐ</p>
                             <div class="introduce">Quay Vlog giờ đây đã trở nên cực kỳ dễ dàng với Sony ZV-1 chiếc máy ảnh compact
                                 nhỏ gọn được sinh ra để dành riêng cho các Vlogger sáng tạo nội dung video hay những người hay
                                 livestream để bán hàng, sản xuất video chơi game... Tốc độ lấy nét nhanh, Eye AF liên tục và một
@@ -59,7 +58,6 @@
                                 </div>
                             </div>
                         </div>
-                    <?php endforeach;?>
                 </article>
         <aside class="pro">
             <section class="left_details" style = "width:100%"> 
@@ -71,9 +69,7 @@
                     <div class="tabs-content">
                         <div id="menu_1" class="tabs-content-item">
                             <div class="content_details">
-                                <?php foreach($result as $row):?>
-                                    <?php echo $row['content'] ?>
-                                <?php endforeach;?>
+                               
                             </div>
                         </div>
                         <div id="menu_2" class="tabs-content-item">
@@ -81,7 +77,7 @@
                                     <form id = "formId" action="send_comment" method = "POST">
                                         <input type="hidden" name="products_id" value = "<?php echo $_GET['id']?>" class = "products_id">
                                         <input type="hidden" name="user_id" value = "<?php echo isset($_SESSION['user_name']['id'])?$_SESSION['user_name']['id']:''; ?>" class = "user_id">
-                                        <textarea style="resize:none" name="content_comment" id="" cols="30" rows="10" placeholder="Hãy viết bình luận......"></textarea>
+                                        <textarea style="resize:none" name="content_comment" id="" cols="30" results="10" placeholder="Hãy viết bình luận......"></textarea>
                                         <button class = "bnt_comment" name="send_comment">gửi</button>
                                         <!-- <button type="reset" class = "bnt_comment">gửi</button> -->
                                     </form>

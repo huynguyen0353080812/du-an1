@@ -21,6 +21,17 @@
         })
 
     </script>
+    <?php elseif(isset($_GET['mess']) == 'thànhcông'): ?>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script> 
+        Swal.fire({
+        // position: 'top-end',
+        icon: 'success',
+        title: 'Đăng Ký Thành Công',
+        showConfirmButton: false,
+        timer: 1500
+        })
+    </script>
 <?php endif; ?>
     <div class="content-item">
         <div class="container">
