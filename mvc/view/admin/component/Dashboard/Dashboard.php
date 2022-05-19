@@ -168,17 +168,9 @@
                     <div id="sparkline-3"></div>
                     <div class="text-white">Sales</div>
                   </div>
-                  <!-- ./col -->
                 </div>
-                <!-- /.row -->
               </div>
             </div>
-            <!-- /.card -->
-
-            <!-- solid sales graph -->
-            <!-- /.card -->
-
-            <!-- Calendar -->
             <div class="card bg-gradient-success">
               <div class="card-header border-0">
 

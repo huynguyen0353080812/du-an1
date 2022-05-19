@@ -1,4 +1,9 @@
 <?php require_once('mvc/view/admin/index.php'); ?>
+<style>
+  input{
+    width: 100%;
+  }
+</style>
 <div class="content-wrapper">
     <div class="content-header">
       <div class="container-fluid">

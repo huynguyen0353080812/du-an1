@@ -37,8 +37,6 @@
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             $library=$stmt->fetchAll(PDO::FETCH_ASSOC);
-            // var_dump($library);
-            // die;
             include ('mvc/view/admin/component/Products/edit-form.php'); 
         }
         public function saveEdit()

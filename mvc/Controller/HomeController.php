@@ -66,7 +66,7 @@ class HomeController{
     {
         extract($_POST);
         if ($bnt) {
-            $result = $this->customer->find('manage_user','user_name= '.$username.'');
+            $result = $this->customer->find('manage_user','user_name= "'.$username.'"');
             if ($result) {
                if (password_verify($password,$result['password'])) {
                          $_SESSION['user_name'] = $result;
@@ -103,17 +103,17 @@ class HomeController{
     public function send_comment()
     {
         if(isset($_POST['send_comment'])){
-        extract($_POST);
-        $d =  htmlEntities($_POST['content_comment'], ENT_QUOTES);
-        if($user_id){
-            $this->customer->insert('comment',["products_id = $products_id,user_id= $user_id,text ='$d'"]);
-            header("location:product_details?id=$products_id");
-        }else{
-            header("location:page_login?action=comment");
+            extract($_POST);
+            $d =  htmlEntities($_POST['content_comment'], ENT_QUOTES);
+            if($user_id){
+                $this->customer->insert('comment',["products_id = $products_id,user_id= $user_id,text ='$d'"]);
+                header("location:product_details?id=$products_id");
+            }else{
+                header("location:page_login?action=comment");
+            }
         }
-    }
         
-}
+    }
     public function Delete_comment()
     {
         if(isset($_GET['id'])){
@@ -160,12 +160,7 @@ class HomeController{
     }
     public function news()
     {
-        $products = new databse();
-        $rows = $products->database();
-        $sql = "SELECT * FROM news";
-        $stmt = $rows->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $this->customer->all('news');
         require_once("mvc/view/client/tin-tuc.php");
     }
 }

@@ -10,8 +10,6 @@ class CartController {
     private $customer;
     private $category;
     public function __construct(){
-        
-        // unset($_SESSION['Cart']);
         $this->customer = new Base();
         if (isset($_SESSION['Cart'])) {
             $this->Cart = $_SESSION['Cart'];
@@ -37,17 +35,16 @@ class CartController {
     public function add(){
         $id = $_GET['id'];
         $customer = new Base();
-        $products = $customer->find('products',$id);//lấy trường duy nhất dựa theo id sản phẩm 
+        $products = $customer->find('products',$id);
         $Cart = [
             'id'=> $products['id'],
             'image'=> $products['image'],
             'products_name'=> $products['products_name'],
             'price' => $products['price'],
             'quantity' => $quantity = 1,
-        ]; // thằng $Cart nó sẽ khởi tạo 1 mảng để lưu dữ liệu của thằng $products 
-        if (array_key_exists($products['id'],$this->Cart) && isset($_GET['sss'])) {//nếu sản phẩm đã tồn trong mảng thì nó sẽ cộng quantity của sản phẩm đó 
+        ];
+        if (array_key_exists($products['id'],$this->Cart) && isset($_GET['sss'])) {
             $this->Cart[$products['id']]['quantity'] += $quantity;
-            // $this->Cart[$products['id']]['total'] = $price*$quantity;
         }elseif (array_key_exists($products['id'],$this->Cart) && isset($_GET['type'])) {
             if ($_SESSION['Cart'] == []) {
                 $this->Cart[$products['id']]['quantity'] += $quantity;
@@ -57,9 +54,7 @@ class CartController {
         }else{
             $this->Cart[$products['id']] = $Cart;
         }
-        $_SESSION['Cart'] = $this->Cart;//sẽ lưu thành mảng 2 chiều
-        // echo "<pre>";
-        echo 'huyngueyn';
+        $_SESSION['Cart'] = $this->Cart;
     }
     public function update(){
         $id = $_GET['id'];
@@ -113,7 +108,6 @@ class CartController {
                     }
                 }
             }       
-            // $total= $this->Cart_total;
             $g = "
                 <div class='infomation'style='display:grid; grid-template-columns: repeat(2,1fr);text-align: center;width:230px'>
                     <div class='name'>
@@ -156,30 +150,27 @@ class CartController {
 
             $d =$g . $a . $b . $c ;
             echo $d;
-            include 'public/Email/library.php'; // include the library file
+            include 'public/Email/library.php'; 
             require_once 'public/Email/vendor/autoload.php';
-            $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+            $mail = new PHPMailer(true);                              
             try {
-                //Server settings
+                
                 $mail->CharSet = "UTF-8";
-                $mail->SMTPDebug = 0;                                 // Enable verbose debug output
-                $mail->isSMTP();                                      // Set mailer to use SMTP
-                $mail->Host = SMTP_HOST;  // Specify main and backup SMTP servers
-                $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                $mail->Username = SMTP_UNAME;                 // SMTP username
-                $mail->Password = SMTP_PWORD;                           // SMTP password
-                $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-                $mail->Port = SMTP_PORT;                                    // TCP port to connect to
-                //Recipients
+                $mail->SMTPDebug = 0;                                
+                $mail->isSMTP();                                      
+                $mail->Host = SMTP_HOST;
+                $mail->SMTPAuth = true;                               
+                $mail->Username = SMTP_UNAME;                 
+                $mail->Password = SMTP_PWORD;                      
+                $mail->SMTPSecure = 'ssl';                            
+                $mail->Port = SMTP_PORT;                                    
                 $mail->setFrom(SMTP_UNAME, "Halu Coffee");
-                $mail->addAddress($_SESSION['user_name']['email'], 'Tên người nhận');     // Add a recipient | name is option
+                $mail->addAddress($_SESSION['user_name']['email'], 'Tên người nhận');     
                 $mail->addReplyTo(SMTP_UNAME, 'Tên người trả lời');
-//                    $mail->addCC('CCemail@gmail.com');
-//                    $mail->addBCC('BCCemail@gmail.com');
-                $mail->isHTML(true);                                  // Set email format to HTML
+                $mail->isHTML(true);                          
                 $mail->Subject ='chào bạn';
                 $mail->Body = $d;
-                $mail->AltBody = 'cảm ỏn'; //None HTML
+                $mail->AltBody = 'cảm ỏn';
                 $result = $mail->send();
                 if (!$result) {
                     $error = "Có lỗi xảy ra trong quá trình gửi mail";
@@ -194,7 +185,6 @@ class CartController {
             } catch (Exception $e) {
                 echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
             }
-            // echo $total;
             date_default_timezone_set('Asia/Ho_Chi_Minh');
             $date = date_create();
             $products = new databse();
